@@ -83,3 +83,9 @@ C:\Users\s1235\OneDrive\桌面\全端軟體工程師\期末專題_Space們\sinWe
 C:\Users\s1235\OneDrive\桌面\全端軟體工程師\期末專題_Space們\sinWebSpaceMent\prjWebSpaceMent\obj\Debug\prjWebSpaceMent.csproj.CoreCompileInputs.cache
 C:\Users\s1235\OneDrive\桌面\全端軟體工程師\期末專題_Space們\sinWebSpaceMent\prjWebSpaceMent\obj\Debug\prjWebSpaceMent.dll
 C:\Users\s1235\OneDrive\桌面\全端軟體工程師\期末專題_Space們\sinWebSpaceMent\prjWebSpaceMent\obj\Debug\prjWebSpaceMent.pdb
+C:\Users\s1235\OneDrive\桌面\全端軟體工程師\期末專題_Space們\sinWebSpaceMent\prjWebSpaceMent\bin\EntityFramework.dll
+C:\Users\s1235\OneDrive\桌面\全端軟體工程師\期末專題_Space們\sinWebSpaceMent\prjWebSpaceMent\bin\EntityFramework.SqlServer.dll
+C:\Users\s1235\OneDrive\桌面\全端軟體工程師\期末專題_Space們\sinWebSpaceMent\prjWebSpaceMent\bin\EntityFramework.xml
+C:\Users\s1235\OneDrive\桌面\全端軟體工程師\期末專題_Space們\sinWebSpaceMent\prjWebSpaceMent\bin\EntityFramework.SqlServer.xml
+C:\Users\s1235\OneDrive\桌面\全端軟體工程師\期末專題_Space們\sinWebSpaceMent\prjWebSpaceMent\bin\zh-Hant\EntityFramework.resources.dll
+C:\Users\s1235\OneDrive\桌面\全端軟體工程師\期末專題_Space們\sinWebSpaceMent\prjWebSpaceMent\bin\zh-Hant\EntityFramework.SqlServer.resources.dll

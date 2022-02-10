@@ -45,10 +45,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -117,29 +125,89 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Activities.cs">
+      <DependentUpon>SpaceMent.tt</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Comments.cs">
+      <DependentUpon>SpaceMent.tt</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SpacesController.cs" />
+    <Compile Include="Favorites.cs">
+      <DependentUpon>SpaceMent.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Members.cs">
+      <DependentUpon>SpaceMent.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CSpacesFactory.cs" />
+    <Compile Include="Orders.cs">
+      <DependentUpon>SpaceMent.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Owners.cs">
+      <DependentUpon>SpaceMent.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Photos.cs">
+      <DependentUpon>SpaceMent.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rates.cs">
+      <DependentUpon>SpaceMent.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SpaceMent.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SpaceMent.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SpaceMent.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SpaceMent.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SpaceMent.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SpaceMent.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Spaces.cs">
+      <DependentUpon>SpaceMent.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SubSpaces.cs">
+      <DependentUpon>SpaceMent.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="contactform\contactform.js" />
-    <Content Include="contactform\Readme.txt" />
+    <Content Include="Content\animate\animate.css" />
+    <Content Include="Content\animate\animate.min.css" />
     <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\bootstrap\css\bootstrap.min.css" />
     <Content Include="Content\maicons.css" />
+    <Content Include="Content\owl-carousel\css\owl.carousel.css" />
+    <Content Include="Content\owl-carousel\css\owl.carousel.min.css" />
+    <Content Include="Content\owl-carousel\css\owl.theme.default.css" />
+    <Content Include="Content\owl-carousel\css\owl.theme.default.min.css" />
+    <Content Include="Content\owlcarousel\assets\ajax-loader.gif" />
+    <Content Include="Content\owlcarousel\assets\owl.carousel.css" />
+    <Content Include="Content\owlcarousel\assets\owl.carousel.min.css" />
+    <Content Include="Content\owlcarousel\assets\owl.theme.default.css" />
+    <Content Include="Content\owlcarousel\assets\owl.theme.default.min.css" />
+    <Content Include="Content\owlcarousel\assets\owl.theme.green.css" />
+    <Content Include="Content\owlcarousel\assets\owl.theme.green.min.css" />
+    <Content Include="Content\owlcarousel\assets\owl.video.play.png" />
     <Content Include="Content\style.css" />
     <Content Include="Content\theme.css" />
+    <Content Include="Content\venobox\venobox.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\maicons.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
     <Content Include="img\about-bg.jpg" />
     <Content Include="img\about.jpg" />
     <Content Include="img\apple-touch-icon.png" />
@@ -151,7 +219,7 @@
     <Content Include="img\clients\mailchimp.png" />
     <Content Include="img\clients\paypal.png" />
     <Content Include="img\clients\stripe.png" />
-    <Content Include="img\favicon.png" />
+    <Content Include="img\favicon.jpg" />
     <Content Include="img\gallery\1.jpg" />
     <Content Include="img\gallery\2.jpg" />
     <Content Include="img\gallery\3.jpg" />
@@ -160,9 +228,9 @@
     <Content Include="img\gallery\6.jpg" />
     <Content Include="img\gallery\7.jpg" />
     <Content Include="img\gallery\8.jpg" />
-    <Content Include="img\hotels\1.jpg" />
-    <Content Include="img\hotels\2.jpg" />
-    <Content Include="img\hotels\3.jpg" />
+    <Content Include="img\recommends\1.jpg" />
+    <Content Include="img\recommends\2.jpg" />
+    <Content Include="img\recommends\3.jpg" />
     <Content Include="img\icons\app_development.svg" />
     <Content Include="img\icons\customer_services.svg" />
     <Content Include="img\icons\data_analyst.svg" />
@@ -186,13 +254,13 @@
     <Content Include="img\portfolio\work-7.jpg" />
     <Content Include="img\portfolio\work-8.jpg" />
     <Content Include="img\portfolio\work-9.jpg" />
-    <Content Include="img\speakers\1.jpg" />
-    <Content Include="img\speakers\2.jpg" />
-    <Content Include="img\speakers\3.jpg" />
-    <Content Include="img\speakers\4.jpg" />
-    <Content Include="img\speakers\5.jpg" />
-    <Content Include="img\speakers\6.jpg" />
-    <Content Include="img\speakers\bizpage-preview.png" />
+    <Content Include="img\spaces\1.jpg" />
+    <Content Include="img\spaces\2.jpg" />
+    <Content Include="img\spaces\3.jpg" />
+    <Content Include="img\spaces\4.jpg" />
+    <Content Include="img\spaces\5.jpg" />
+    <Content Include="img\spaces\6.jpg" />
+    <Content Include="img\spaces\bizpage-preview.png" />
     <Content Include="img\subscribe-bg.jpg" />
     <Content Include="img\supporters\1.png" />
     <Content Include="img\supporters\2.png" />
@@ -214,79 +282,45 @@
     <Content Include="img\venue-gallery\7.jpg" />
     <Content Include="img\venue-gallery\8.jpg" />
     <Content Include="img\venue-info-bg.jpg" />
-    <Content Include="lib\animate\animate.css" />
-    <Content Include="lib\animate\animate.min.css" />
-    <Content Include="lib\bootstrap\css\bootstrap.css" />
-    <Content Include="lib\bootstrap\css\bootstrap.min.css" />
-    <Content Include="lib\bootstrap\js\bootstrap.bundle.min.js" />
-    <Content Include="lib\bootstrap\js\bootstrap.min.js" />
-    <Content Include="lib\easing\easing.js" />
-    <Content Include="lib\easing\easing.min.js" />
-    <Content Include="lib\font-awesome\css\font-awesome.css" />
-    <Content Include="lib\font-awesome\css\font-awesome.min.css" />
-    <Content Include="lib\font-awesome\fonts\fontawesome-webfont.svg" />
-    <Content Include="lib\jquery\jquery-migrate.min.js" />
-    <Content Include="lib\jquery\jquery.min.js" />
-    <Content Include="lib\owlcarousel\assets\ajax-loader.gif" />
-    <Content Include="lib\owlcarousel\assets\owl.carousel.css" />
-    <Content Include="lib\owlcarousel\assets\owl.carousel.min.css" />
-    <Content Include="lib\owlcarousel\assets\owl.theme.default.css" />
-    <Content Include="lib\owlcarousel\assets\owl.theme.default.min.css" />
-    <Content Include="lib\owlcarousel\assets\owl.theme.green.css" />
-    <Content Include="lib\owlcarousel\assets\owl.theme.green.min.css" />
-    <Content Include="lib\owlcarousel\assets\owl.video.play.png" />
-    <Content Include="lib\owlcarousel\owl.carousel.js" />
-    <Content Include="lib\owlcarousel\owl.carousel.min.js" />
-    <Content Include="lib\superfish\hoverIntent.js" />
-    <Content Include="lib\superfish\superfish.js" />
-    <Content Include="lib\superfish\superfish.min.js" />
-    <Content Include="lib\venobox\venobox.css" />
-    <Content Include="lib\venobox\venobox.js" />
-    <Content Include="lib\venobox\venobox.min.js" />
-    <Content Include="lib\wow\wow.js" />
-    <Content Include="lib\wow\wow.min.js" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="lib\font-awesome\fonts\fontawesome-webfont.eot" />
-    <Content Include="lib\font-awesome\fonts\fontawesome-webfont.ttf" />
-    <Content Include="lib\font-awesome\fonts\fontawesome-webfont.woff" />
-    <Content Include="lib\font-awesome\fonts\fontawesome-webfont.woff2" />
-    <Content Include="lib\font-awesome\fonts\FontAwesome.otf" />
-    <Content Include="lib\owlcarousel\LICENSE" />
     <Content Include="fonts\maicons.eot" />
     <Content Include="fonts\maicons.ttf" />
     <Content Include="fonts\maicons.woff" />
     <Content Include="Content\theme.css.map" />
-    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
-    <Content Include="Scripts\jquery-3.4.1.js" />
-    <Content Include="Scripts\jquery-3.4.1.min.js" />
-    <Content Include="Scripts\jquery-3.4.1.slim.js" />
-    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="lib\font-awesome\css\font-awesome.css" />
+    <Content Include="lib\font-awesome\css\font-awesome.min.css" />
+    <Content Include="lib\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Scripts\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Scripts\contactform\contactform.js" />
+    <Content Include="Scripts\easing\easing.js" />
+    <Content Include="Scripts\easing\easing.min.js" />
+    <Content Include="Scripts\jquery\jquery-migrate.min.js" />
+    <Content Include="Scripts\jquery\jquery.min.js" />
     <Content Include="Scripts\js\bootstrap.bundle.min.js" />
-    <Content Include="Scripts\js\google-maps.js" />
     <Content Include="Scripts\js\jquery-3.5.1.min.js" />
     <Content Include="Scripts\js\theme.js" />
     <Content Include="Scripts\main.js" />
-    <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Scripts\vendor\animate\animate.css" />
-    <Content Include="Scripts\vendor\fancybox\css\jquery.fancybox.css" />
-    <Content Include="Scripts\vendor\fancybox\css\jquery.fancybox.min.css" />
-    <Content Include="Scripts\vendor\fancybox\js\jquery.fancybox.js" />
-    <Content Include="Scripts\vendor\fancybox\js\jquery.fancybox.min.js" />
-    <Content Include="Scripts\vendor\isotope\isotope.pkgd.js" />
-    <Content Include="Scripts\vendor\isotope\isotope.pkgd.min.js" />
-    <Content Include="Scripts\vendor\owl-carousel\css\owl.carousel.css" />
-    <Content Include="Scripts\vendor\owl-carousel\css\owl.carousel.min.css" />
-    <Content Include="Scripts\vendor\owl-carousel\css\owl.theme.default.css" />
-    <Content Include="Scripts\vendor\owl-carousel\css\owl.theme.default.min.css" />
+    <Content Include="Scripts\owlcarousel\owl.carousel.js" />
+    <Content Include="Scripts\owlcarousel\owl.carousel.min.js" />
+    <Content Include="Scripts\superfish\hoverIntent.js" />
+    <Content Include="Scripts\superfish\superfish.js" />
+    <Content Include="Scripts\superfish\superfish.min.js" />
     <Content Include="Scripts\vendor\owl-carousel\js\owl.carousel.js" />
     <Content Include="Scripts\vendor\owl-carousel\js\owl.carousel.min.js" />
-    <Content Include="Scripts\vendor\wow\wow.min.js" />
+    <Content Include="Scripts\venobox\venobox.js" />
+    <Content Include="Scripts\venobox\venobox.min.js" />
+    <Content Include="Scripts\wow\wow.js" />
+    <Content Include="Scripts\wow\wow.min.js" />
+    <Content Include="SpaceMent.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SpaceMent.Context.cs</LastGenOutput>
+      <DependentUpon>SpaceMent.edmx</DependentUpon>
+    </Content>
+    <Content Include="SpaceMent.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SpaceMent.edmx</DependentUpon>
+      <LastGenOutput>SpaceMent.cs</LastGenOutput>
+    </Content>
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -301,19 +335,35 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <EntityDeploy Include="SpaceMent.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SpaceMent.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="SpaceMent.edmx.diagram">
+      <DependentUpon>SpaceMent.edmx</DependentUpon>
+    </Content>
+    <Content Include="Views\Spaces\Spaces_List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="lib\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="lib\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="lib\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="lib\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="lib\font-awesome\fonts\FontAwesome.otf" />
     <None Include="packages.config" />
-    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
-    <Content Include="Scripts\jquery-3.4.1.min.map" />
+    <Content Include="Scripts\owlcarousel\LICENSE" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
