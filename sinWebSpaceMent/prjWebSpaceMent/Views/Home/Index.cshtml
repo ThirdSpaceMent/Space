@@ -2,6 +2,7 @@
     ViewBag.Title = "Home Page";
 }
 
+ <link rel="stylesheet" href="~/Content/JoinButton.css">
 <div class="back-to-top"></div>
 <!--Intro Section-->
 <section id="intro">
@@ -12,7 +13,13 @@
                 <div class="img-caption">
                     <div class="subhead">讓我們幫您吧，想找哪個場地?</div>
                     <h1 class="mb-4">開始找尋適合您的場地吧！</h1>
-                    <a href="#spaces" class="btn btn-primary">找場地</a>
+                    <a href="#" class="joinbutton-a">
+                        <span class="joinbutton-a-span"></span>
+                        <span class="joinbutton-a-span"></span>
+                        <span class="joinbutton-a-span"></span>
+                        <span class="joinbutton-a-span"></span>
+                        找場地
+                    </a>
                 </div>
             </div>
             <div class="hero-carousel-item">
@@ -20,7 +27,13 @@
                 <div class="img-caption">
                     <div class="subhead">輕鬆刊登場地，曝光永不間斷</div>
                     <h1 class="mb-4">好場地，就該讓更多人知道！</h1>
-                    <a href="#subspaces" class="btn btn-primary">成為場地主</a>
+                    <a href="#" class="joinbutton-a">
+                        <span class="joinbutton-a-span"></span>
+                        <span class="joinbutton-a-span"></span>
+                        <span class="joinbutton-a-span"></span>
+                        <span class="joinbutton-a-span"></span>
+                        成為場地主
+                    </a>
                 </div>
             </div>
             <div class="hero-carousel-item">
@@ -28,7 +41,13 @@
                 <div class="img-caption">
                     <div class="subhead">Hi！需要什麼協助嗎？</div>
                     <h1 class="mb-4">有什麼問題嗎？您來對地方了</h1>
-                    <a href="#faq" class="btn btn-primary">常見問題</a>
+                    <a href="#" class="joinbutton-a">
+                        <span class="joinbutton-a-span"></span>
+                        <span class="joinbutton-a-span"></span>
+                        <span class="joinbutton-a-span"></span>
+                        <span class="joinbutton-a-span"></span>
+                        常見問題
+                    </a>
                 </div>
             </div>
         </div>
@@ -215,10 +234,13 @@
             <form method="POST" action="#">
                 <div class="form-row justify-content-center">
                     <div class="col-auto">
-                        <input type="text" class="form-control" placeholder="Enter your Email">
-                    </div>
-                    <div class="col-auto">
-                        <button type="submit">立即加入</button>
+                        <a href="#" class="joinbutton-a">
+                            <span class="joinbutton-a-span"></span>
+                            <span class="joinbutton-a-span"></span>
+                            <span class="joinbutton-a-span"></span>
+                            <span class="joinbutton-a-span"></span>
+                            Join Now!
+                        </a>
                     </div>
                 </div>
             </form>
@@ -419,20 +441,20 @@
                 <form action="" method="post" role="form" class="contactForm">
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <input type="text" name="name" class="form-control" id="name" placeholder="您的姓名" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                            <input type="text" name="name" class="form-control" id="name" placeholder="您的姓名" data-rule="minlen:3" data-msg="請輸入您的姓氏及名字" />
                             <div class="validation"></div>
                         </div>
                         <div class="form-group col-md-6">
-                            <input type="email" class="form-control" name="email" id="email" placeholder="您的電子信箱" data-rule="email" data-msg="Please enter a valid email" />
+                            <input type="email" class="form-control" name="email" id="email" placeholder="您的電子信箱" data-rule="email" data-msg="請輸入有效的電子信箱位址" />
                             <div class="validation"></div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" name="subject" id="subject" placeholder="主旨" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                        <input type="text" class="form-control" name="subject" id="subject" placeholder="主旨" data-rule="minlen:4" data-msg="請輸入主旨" />
                         <div class="validation"></div>
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="請輸入您的寶貴意見..."></textarea>
+                        <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="請輸入一些建言吧！" placeholder="請輸入您的寶貴意見..."></textarea>
                         <div class="validation"></div>
                     </div>
                     <div class="text-center"><button type="submit">送出</button></div>

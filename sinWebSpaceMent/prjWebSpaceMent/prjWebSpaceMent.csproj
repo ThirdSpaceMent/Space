@@ -188,6 +188,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap\css\bootstrap.css" />
     <Content Include="Content\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\JoinButton.css" />
     <Content Include="Content\maicons.css" />
     <Content Include="Content\owl-carousel\css\owl.carousel.css" />
     <Content Include="Content\owl-carousel\css\owl.carousel.min.css" />
