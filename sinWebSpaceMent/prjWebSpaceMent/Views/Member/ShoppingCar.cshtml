@@ -1,0 +1,100 @@
+﻿@model IEnumerable<prjWebSpaceMent.Models.Orders>
+
+@{
+    ViewBag.Title = "ShoppingCar";
+    Layout = "~/Views/Shared/_LayoutMember.cshtml";
+}
+
+<h2>ShoppingCar</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.oStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.oScheduledTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.oPaymentMode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.oPaymentStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.oDiscount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.oPayment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.oCreated_at)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.oUpdated_at)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Activities.aName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Members.mAccount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Members1.mAccount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Spaces.sName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.oStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.oScheduledTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.oPaymentMode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.oPaymentStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.oDiscount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.oPayment)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.oCreated_at)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.oUpdated_at)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Activities.aName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Members.mAccount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Members1.mAccount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Spaces.sName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.oNumber }) |
+            @Html.ActionLink("Details", "Details", new { id=item.oNumber }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.oNumber })
+        </td>
+    </tr>
+}
+
+</table>
