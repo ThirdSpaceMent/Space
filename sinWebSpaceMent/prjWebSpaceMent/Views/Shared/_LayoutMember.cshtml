@@ -1,10 +1,10 @@
 ﻿<!DOCTYPE html>
+
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SPACE們</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title Space們</title>
 
     <link rel="stylesheet" href="~/Content/maicons.css">
     <link rel="stylesheet" href="~/Content/owl-carousel/css/owl.carousel.css">
@@ -28,8 +28,8 @@
 
     <!-- Main Stylesheet File -->
     <link href="~/Content/style.css" rel="stylesheet">
-
 </head>
+
 <body>
     <!--Header-->
     <header id="header">
@@ -43,16 +43,15 @@
 
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
-                    <li class="menu-active">@Html.ActionLink("首頁", "Index", "Home")</li>
-                    <li>@Html.ActionLink("關於我們", "Index", "Home")</li>
-                    <li>@Html.ActionLink("找場地", "Spaces_List", "Spaces")</li>
-                    <li>@Html.ActionLink("推薦場地", "Index", "Home")</li>
-                    <li>@Html.ActionLink("成為場地主", "Index", "Home")</li>
-                    <li>@Html.ActionLink("合作廠商", "Index", "Home")</li>
-                    <li>@Html.ActionLink("常見問題", "Index", "Home")</li>
-                    <li>@Html.ActionLink("聯絡我們", "Index", "Home")</li>
-                    <li class="login-id">@Html.ActionLink("註冊", "Register", "Home")</li>
-                    <li class="login-id">@Html.ActionLink("登入", "Login", "Home")</li>
+
+                    <li><a href="#">@Session["Welcome"]</a></li>
+                    <li>@Html.ActionLink("訂購車", "ShoppingCar", "Member")</li>
+                    <li>@Html.ActionLink("訂單", "OrderList", "Member")</li>
+                    <li>@Html.ActionLink("登出", "Logout", "Member")</li>
+                    
+
+
+
                     @*<li class="login-id"><a href="#logins" @Html.ActionLink("登入", "Login", "Home")></a></li>*@
                 </ul>
             </nav><!-- #nav-menu-container -->
@@ -91,7 +90,7 @@
                             <li><i class="fa fa-angle-right"></i> <a href="#">買貴退差價</a></li>
                             <li><i class="fa fa-angle-right"></i> <a href="#">服務政策</a></li>
                             <li><i class="fa fa-angle-right"></i> <a href="#">隱私權條款</a></li>
-                            
+
                         </ul>
                     </div>
 
@@ -118,8 +117,7 @@
                 </div>
             </div>
         </div>
-    </footer> #footer 
-
+    </footer>
      @*JavaScript Libraries*@ 
     <script src="~/Scripts/jquery/jquery.min.js"></script>
     <script src="~/Scripts/jquery/jquery-migrate.min.js"></script>
@@ -132,7 +130,7 @@
     <script src="~/Scripts/owlcarousel/owl.carousel.min.js"></script>
 
      @*Contact Form JavaScript File*@ 
-    @*<script src="~/Scripts/contactform/contactform.js"></script>*@
+    <script src="~/Scripts/contactform/contactform.js"></script>
 
      @*Template Main Javascript File*@ 
     <script src="~/Scripts/main.js"></script>
@@ -144,3 +142,27 @@
     @RenderSection("scripts", required: false)
 </body>
 </html>
+@*<div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle"
+                        data-toggle="collapse" data-target=" .navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Space們-會員專區", "Index", "Member", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("訂購車", "ShoppingCar", "Member")</li>
+                    <li>@Html.ActionLink("訂單", "OrderList", "Member")</li>
+                    <li>@Html.ActionLink("登出", "Logout", "Member")</li>
+                    <li><a href="#">@Session["Welcome"]</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>*@
+@*</body>
+</html>*@
+@*@RenderBody()*@

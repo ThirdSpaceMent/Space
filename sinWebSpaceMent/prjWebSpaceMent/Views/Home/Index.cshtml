@@ -1,10 +1,11 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+<link rel="stylesheet" href="~/Content/JoinButton.css">
 
- <link rel="stylesheet" href="~/Content/JoinButton.css">
-
+<!--回到頁首-->
 <div class="back-to-top"></div>
+
 <!--Intro Section-->
 <section id="intro">
     <div class="slider-wrapper">
@@ -14,7 +15,7 @@
                 <div class="img-caption">
                     <div class="subhead">讓我們幫您吧，想找哪個場地?</div>
                     <h1 class="mb-4">開始找尋適合您的場地吧！</h1>
-                    <a href="#" class="joinbutton-a">
+                    <a href="" class="joinbutton-a">
                         <span class="joinbutton-a-span"></span>
                         <span class="joinbutton-a-span"></span>
                         <span class="joinbutton-a-span"></span>
@@ -249,6 +250,7 @@
         </div>
     </section>
 
+
     <!--Sponsors Section-->
     <section id="supporters" class="section-with-bg wow fadeInUp">
 
@@ -442,20 +444,20 @@
                 <form action="" method="post" role="form" class="contactForm">
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <input type="text" name="name" class="form-control" id="name" placeholder="您的姓名" data-rule="minlen:3" data-msg="請輸入您的姓氏及名字" />
+                            <input type="text" name="name" class="form-control" id="name" placeholder="您的姓名" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                             <div class="validation"></div>
                         </div>
                         <div class="form-group col-md-6">
-                            <input type="email" class="form-control" name="email" id="email" placeholder="您的電子信箱" data-rule="email" data-msg="請輸入有效的電子信箱位址" />
+                            <input type="email" class="form-control" name="email" id="email" placeholder="您的電子信箱" data-rule="email" data-msg="Please enter a valid email" />
                             <div class="validation"></div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" name="subject" id="subject" placeholder="主旨" data-rule="minlen:4" data-msg="請輸入主旨" />
+                        <input type="text" class="form-control" name="subject" id="subject" placeholder="主旨" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
                         <div class="validation"></div>
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="請輸入一些建言吧！" placeholder="請輸入您的寶貴意見..."></textarea>
+                        <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="請輸入您的寶貴意見..."></textarea>
                         <div class="validation"></div>
                     </div>
                     <div class="text-center"><button type="submit">送出</button></div>
@@ -464,7 +466,6 @@
 
         </div>
     </section><!-- #contact -->
-
     <!--Login Section-->
     <section id="logins" class="section-with-bg wow fadeInUp">
         <div class="container">
@@ -490,7 +491,7 @@
                             </ul>
                             <hr>
                             <div class="text-center">
-                                <button type="button" class="btn" data-toggle="modal" data-target="#login-modal" data-ticket-type="standard-access">登入</button>
+                                <button type="button" class="btn">@Html.ActionLink("登入", "Login", "Home")</button>
                             </div>
                         </div>
                     </div>
@@ -510,7 +511,7 @@
                             </ul>
                             <hr>
                             <div class="text-center">
-                                <button type="button" class="btn" data-toggle="modal" data-target="#login-modal" data-ticket-type="pro-access">登入</button>
+                                <button type="button" class="btn">@Html.ActionLink("登入", "Login", "Home")</button>
                             </div>
                         </div>
                     </div>
@@ -531,7 +532,7 @@
                             </ul>
                             <hr>
                             <div class="text-center">
-                                <button type="button" class="btn" data-toggle="modal" data-target="#login-modal" data-ticket-type="premium-access">登入</button>
+                                <button type="button" class="btn">@Html.ActionLink("登入", "Login", "Home")</button>
                             </div>
 
                         </div>
