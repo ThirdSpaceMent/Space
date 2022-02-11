@@ -125,62 +125,61 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Activities.cs">
-      <DependentUpon>SpaceMent.tt</DependentUpon>
-    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Comments.cs">
-      <DependentUpon>SpaceMent.tt</DependentUpon>
-    </Compile>
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\SpacesController.cs" />
-    <Compile Include="Favorites.cs">
-      <DependentUpon>SpaceMent.tt</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Members.cs">
-      <DependentUpon>SpaceMent.tt</DependentUpon>
+    <Compile Include="Models\Activities.cs">
+      <DependentUpon>dbSpaceMentModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\CSpaces.cs" />
-    <Compile Include="Models\CSpacesFactory.cs" />
-    <Compile Include="Orders.cs">
-      <DependentUpon>SpaceMent.tt</DependentUpon>
+    <Compile Include="Models\Comments.cs">
+      <DependentUpon>dbSpaceMentModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Owners.cs">
-      <DependentUpon>SpaceMent.tt</DependentUpon>
+    <Compile Include="Models\dbSpaceMentModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dbSpaceMentModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Photos.cs">
-      <DependentUpon>SpaceMent.tt</DependentUpon>
+    <Compile Include="Models\dbSpaceMentModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dbSpaceMentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dbSpaceMentModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dbSpaceMentModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Favorites.cs">
+      <DependentUpon>dbSpaceMentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Members.cs">
+      <DependentUpon>dbSpaceMentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Orders.cs">
+      <DependentUpon>dbSpaceMentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Owners.cs">
+      <DependentUpon>dbSpaceMentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Photos.cs">
+      <DependentUpon>dbSpaceMentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Rates.cs">
+      <DependentUpon>dbSpaceMentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Spaces.cs">
+      <DependentUpon>dbSpaceMentModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SubSpaces.cs">
+      <DependentUpon>dbSpaceMentModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Rates.cs">
-      <DependentUpon>SpaceMent.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SpaceMent.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SpaceMent.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SpaceMent.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SpaceMent.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SpaceMent.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SpaceMent.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Spaces.cs">
-      <DependentUpon>SpaceMent.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SubSpaces.cs">
-      <DependentUpon>SpaceMent.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\animate\animate.css" />
@@ -281,6 +280,16 @@
     <Content Include="lib\font-awesome\css\font-awesome.css" />
     <Content Include="lib\font-awesome\css\font-awesome.min.css" />
     <Content Include="lib\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Models\dbSpaceMentModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>dbSpaceMentModel.edmx</DependentUpon>
+      <LastGenOutput>dbSpaceMentModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\dbSpaceMentModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>dbSpaceMentModel.edmx</DependentUpon>
+      <LastGenOutput>dbSpaceMentModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap\js\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap\js\bootstrap.min.js" />
     <Content Include="Scripts\contactform\contactform.js" />
@@ -303,16 +312,6 @@
     <Content Include="Scripts\venobox\venobox.min.js" />
     <Content Include="Scripts\wow\wow.js" />
     <Content Include="Scripts\wow\wow.min.js" />
-    <Content Include="SpaceMent.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>SpaceMent.Context.cs</LastGenOutput>
-      <DependentUpon>SpaceMent.edmx</DependentUpon>
-    </Content>
-    <Content Include="SpaceMent.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SpaceMent.edmx</DependentUpon>
-      <LastGenOutput>SpaceMent.cs</LastGenOutput>
-    </Content>
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -327,13 +326,6 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <EntityDeploy Include="SpaceMent.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>SpaceMent.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="SpaceMent.edmx.diagram">
-      <DependentUpon>SpaceMent.edmx</DependentUpon>
-    </Content>
     <Content Include="Views\Spaces\Spaces_List.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -351,8 +343,19 @@
     <Content Include="lib\font-awesome\fonts\fontawesome-webfont.woff" />
     <Content Include="lib\font-awesome\fonts\fontawesome-webfont.woff2" />
     <Content Include="lib\font-awesome\fonts\FontAwesome.otf" />
+    <EntityDeploy Include="Models\dbSpaceMentModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>dbSpaceMentModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\dbSpaceMentModel.edmx.diagram">
+      <DependentUpon>dbSpaceMentModel.edmx</DependentUpon>
+    </Content>
     <None Include="packages.config" />
     <Content Include="Scripts\owlcarousel\LICENSE" />
+    <Content Include="Views\Shared\_LayoutMember.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\Register.cshtml" />
+    <Content Include="Views\Member\ShoppingCar.cshtml" />
     <Content Include="Views\Spaces\Spaces_Create.cshtml" />
   </ItemGroup>
   <ItemGroup>

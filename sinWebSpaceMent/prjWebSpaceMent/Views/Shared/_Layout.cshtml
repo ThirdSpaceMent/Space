@@ -10,23 +10,23 @@
     <link rel="stylesheet" href="~/Content/owl-carousel/css/owl.carousel.css">
     <link rel="stylesheet" href="~/Content/theme.css">
 
-    <!-- 網頁icon -->
+    <!-- Favicons -->
     <link href="~/img/favicon.jpg" rel="icon">
     <link href="~/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-    <!-- Google 字型 -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
 
-    <!-- Bootstrap CSS -->
+    <!-- Bootstrap CSS File -->
     <link href="~/Content/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- 附屬樣式檔 -->
+    <!-- Libraries CSS Files -->
     <link href="~/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="~/Content/animate/animate.min.css" rel="stylesheet">
     <link href="~/Content/venobox/venobox.css" rel="stylesheet">
     <link href="~/Content/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
-    <!-- 主要樣式檔 -->
+    <!-- Main Stylesheet File -->
     <link href="~/Content/style.css" rel="stylesheet">
 
 </head>
@@ -36,20 +36,24 @@
         <div class="container">
 
             <div id="logo" class="pull-left">
+                <!-- Uncomment below if you prefer to use a text logo -->
+                <!-- <h1><a href="#main">C<span>o</span>nf</a></h1>-->
                 <a href="#intro" class="scrollto"><img src="~/img/logo.png" alt="" title=""></a>
             </div>
 
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
-                    <li class="menu-active"><a href="#intro">首頁</a></li>
-                    <li><a href="#about">關於我們</a></li>
-                    <li><a href="#spaces">找場地</a></li>
-                    <li><a href="#recommends">推薦場地</a></li>
-                    <li><a href="#subspaces">成為場地主</a></li>
-                    <li><a href="#supporters">合作廠商</a></li>
-                    <li><a href="#faq">常見問題</a></li>
-                    <li><a href="#contact">聯絡我們</a></li>
-                    <li class="login-id"><a href="#logins">登入</a></li>
+                    <li class="menu-active">@Html.ActionLink("首頁", "Index", "Home")</li>
+                    <li>@Html.ActionLink("關於我們", "Index", "Home")</li>
+                    <li>@Html.ActionLink("找場地", "Spaces_List", "Spaces")</li>
+                    <li>@Html.ActionLink("推薦場地", "Index", "Home")</li>
+                    <li>@Html.ActionLink("成為場地主", "Index", "Home")</li>
+                    <li>@Html.ActionLink("合作廠商", "Index", "Home")</li>
+                    <li>@Html.ActionLink("常見問題", "Index", "Home")</li>
+                    <li>@Html.ActionLink("聯絡我們", "Index", "Home")</li>
+                    <li class="login-id">@Html.ActionLink("註冊", "Register", "Home")</li>
+                    <li class="login-id">@Html.ActionLink("登入", "Login", "Home")</li>
+                    @*<li class="login-id"><a href="#logins" @Html.ActionLink("登入", "Login", "Home")></a></li>*@
                 </ul>
             </nav><!-- #nav-menu-container -->
         </div>
@@ -57,7 +61,7 @@
 
     @RenderBody()
 
-    <!--Footer-->
+    
     <footer id="footer">
         <div class="footer-top">
             <div class="container">
@@ -114,9 +118,9 @@
                 </div>
             </div>
         </div>
-    </footer><!-- #footer -->
+    </footer> #footer 
 
-    <!-- JavaScript附屬檔 -->
+     @*JavaScript Libraries*@ 
     <script src="~/Scripts/jquery/jquery.min.js"></script>
     <script src="~/Scripts/jquery/jquery-migrate.min.js"></script>
     <script src="~/Scripts/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -127,10 +131,10 @@
     <script src="~/Scripts/venobox/venobox.min.js"></script>
     <script src="~/Scripts/owlcarousel/owl.carousel.min.js"></script>
 
-    <!-- Contact JavaScript -->
-    <script src="~/Scripts/contactform/contactform.js"></script>
+     @*Contact Form JavaScript File*@ 
+    @*<script src="~/Scripts/contactform/contactform.js"></script>*@
 
-    <!-- Javascript主要檔 -->
+     @*Template Main Javascript File*@ 
     <script src="~/Scripts/main.js"></script>
     <script src="~/Scripts/js/jquery-3.5.1.min.js"></script>
     <script src="~/Scripts/js/bootstrap.bundle.min.js"></script>

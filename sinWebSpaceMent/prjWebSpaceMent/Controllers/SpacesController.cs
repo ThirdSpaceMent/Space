@@ -13,7 +13,7 @@ namespace prjWebSpaceMent.Controllers
         public ActionResult Spaces_List()
         {
             // 場地總覽
-            var datas = from p in (new SPACEMENTEntities()).Spaces
+            var datas = from p in (new dbSpaceMentEntities1()).Spaces
                         select p;
             return View(datas);
         }
@@ -23,7 +23,7 @@ namespace prjWebSpaceMent.Controllers
             // 刪除場地
             if (id != null)
             {
-                (new CSpacesFactory()).delete((int)id);
+                (new Spaces()).delete((int)id);
             }
             return RedirectToAction("Spaces_List");
         }
@@ -37,7 +37,7 @@ namespace prjWebSpaceMent.Controllers
         public ActionResult Spaces_Save()
         {
             //建立場地(存檔)
-            CSpaces SP = new CSpaces();
+            Spaces SP = new Spaces();
             SP.sName = Request.Form["txtsName"];
             SP.sType = Request.Form["txtsType"];
             SP.sAddr = Request.Form["txtsAddr"];
@@ -53,7 +53,7 @@ namespace prjWebSpaceMent.Controllers
             SP.sSecurity = Request.Form["txtsSecurity"];
             SP.sTraffic = Request.Form["txtsTraffic"];
 
-            (new CSpacesFactory()).create(SP);
+            (new Spaces()).create(SP);
             return RedirectToAction("Spaces_List"); //跳轉至LIST
         }
     }
