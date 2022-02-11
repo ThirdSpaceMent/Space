@@ -13,35 +13,35 @@ namespace prjWebSpaceMent.Models
 
         public string sName { get; set; }
 
-        
+
         public string sType { get; set; }
 
-        
+
         public string sAddr { get; set; }
 
-        
+
         public string sPhone { get; set; }
 
-        
+
         public string sFloor { get; set; }
 
         public string sHeight { get; set; }
 
         public string sArea { get; set; }
 
-       
+
         public string sCapacity { get; set; }
 
-        
+
         public decimal sRent { get; set; }
 
-        
+
         public decimal sRate { get; set; }
 
-       
+
         public string sIntro { get; set; }
 
-        
+
         public string sOpeningTime { get; set; }
 
         public string sSecurity { get; set; }
