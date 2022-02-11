@@ -300,7 +300,7 @@ h6 {
   width: 100%;
 }
 
-.nav-menu li.buy-tickets a {
+.nav-menu li.login-id a {
   color: #fff;
   background: #f82249;
   padding: 7px 22px;
@@ -314,12 +314,12 @@ h6 {
   font-size: 13px;
 }
 
-.nav-menu li.buy-tickets a:hover {
+.nav-menu li.login-id a:hover {
   background: none;
 }
 
-.nav-menu li.buy-tickets:hover a:before,
-.nav-menu li.buy-tickets.menu-active a:before {
+.nav-menu li.login-id:hover a:before,
+.nav-menu li.login-id.menu-active a:before {
   visibility: hidden;
 }
 
@@ -621,20 +621,20 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 /*--------------------------------------------------------------
-# Speakers Section
+# Spaces Section
 --------------------------------------------------------------*/
 
-#speakers {
+#spaces {
   padding: 60px 0 30px 0;
 }
 
-#speakers .speaker {
+#spaces .space {
   position: relative;
   overflow: hidden;
   margin-bottom: 30px;
 }
 
-#speakers .speaker .details {
+#spaces .space .details {
   background: rgba(6, 12, 34, 0.76);
   position: absolute;
   left: 0;
@@ -645,52 +645,52 @@ body.mobile-nav-active #mobile-nav-toggle {
   transition: all 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
-#speakers .speaker .details h3 {
+#spaces .space .details h3 {
   color: #fff;
   font-size: 22px;
   font-weight: 600;
   margin-bottom: 5px;
 }
 
-#speakers .speaker .details p {
+#spaces .space .details p {
   color: #fff;
   font-size: 15px;
   margin-bottom: 10px;
   font-style: italic;
 }
 
-#speakers .speaker .details .social {
+#spaces .space .details .social {
   height: 30px;
 }
 
-#speakers .speaker .details a {
+#spaces .space .details a {
   color: #fff;
 }
 
-#speakers .speaker .details a:hover {
+#spaces .space .details a:hover {
   color: #f82249;
 }
 
-#speakers .speaker:hover .details {
+#spaces .space:hover .details {
   bottom: 0;
 }
 
-#speakers-details {
+#spaces-details {
   padding: 60px 0;
 }
 
-#speakers-details .details h2 {
+#spaces-details .details h2 {
   color: #112363;
   font-size: 28px;
   font-weight: 700;
   margin-bottom: 10px;
 }
 
-#speakers-details .details .social {
+#spaces-details .details .social {
   margin-bottom: 15px;
 }
 
-#speakers-details .details .social a {
+#spaces-details .details .social a {
   background: #e9edfb;
   color: #112363;
   line-height: 1;
@@ -702,238 +702,74 @@ body.mobile-nav-active #mobile-nav-toggle {
   padding-top: 9px;
 }
 
-#speakers-details .details .social a:hover {
+#spaces-details .details .social a:hover {
   background: #f82249;
   color: #fff;
 }
 
-#speakers-details .details .social a i {
+#spaces-details .details .social a i {
   font-size: 18px;
 }
 
-#speakers-details .details p {
+#spaces-details .details p {
   color: #112363;
   font-size: 15px;
   margin-bottom: 10px;
 }
 
 /*--------------------------------------------------------------
-# Schedule Section
+# Recommends Section
 --------------------------------------------------------------*/
 
-#schedule {
-  padding: 60px 0 60px 0;
-}
-
-#schedule .nav-tabs {
-  text-align: center;
-  margin: auto;
-  display: block;
-  border-bottom: 0;
-  margin-bottom: 30px;
-}
-
-#schedule .nav-tabs li {
-  display: inline-block;
-  margin-bottom: 0;
-}
-
-#schedule .nav-tabs a {
-  border: none;
-  border-radius: 50px;
-  font-weight: 600;
-  background-color: #0e1b4d;
-  color: #fff;
-  padding: 10px 100px;
-}
-
-#schedule .nav-tabs a.active {
-  background-color: #f82249;
-  color: #fff;
-}
-
-#schedule .sub-heading {
-  text-align: center;
-  font-size: 18px;
-  font-style: italic;
-  margin: 0 auto 30px auto;
-}
-
-#schedule .tab-pane {
-  transition: ease-in-out .2s;
-}
-
-#schedule .schedule-item {
-  border-bottom: 1px solid #cad4f6;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  transition: background-color ease-in-out 0.3s;
-}
-
-#schedule .schedule-item:hover {
-  background-color: #fff;
-}
-
-#schedule .schedule-item time {
-  padding-bottom: 5px;
-  display: inline-block;
-}
-
-#schedule .schedule-item .speaker {
-  width: 60px;
-  height: 60px;
-  overflow: hidden;
-  border-radius: 50%;
-  float: left;
-  margin: 0 10px 10px 0;
-}
-
-#schedule .schedule-item .speaker img {
-  height: 100%;
-  -webkit-transform: translateX(-50%);
-  transform: translateX(-50%);
-  margin-left: 50%;
-  transition: all ease-in-out 0.3s;
-}
-
-#schedule .schedule-item h4 {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 5px;
-}
-
-#schedule .schedule-item h4 span {
-  font-style: italic;
-  color: #19328e;
-  font-weight: normal;
-  font-size: 16px;
-}
-
-#schedule .schedule-item p {
-  font-style: italic;
-  color: #152b79;
-  margin-bottom: 0;
-}
-
-/*--------------------------------------------------------------
-# Venue Section
---------------------------------------------------------------*/
-
-#venue {
+#recommends {
   padding: 60px 0;
 }
 
-#venue .container-fluid {
-  margin-bottom: 3px;
-}
-
-#venue .venue-map iframe {
-  width: 100%;
-  height: 100%;
-  min-height: 300px;
-}
-
-#venue .venue-info {
-  background: url("../img/venue-info-bg.jpg") top center no-repeat;
-  background-size: cover;
-  position: relative;
-  padding-top: 60px;
-  padding-bottom: 60px;
-}
-
-#venue .venue-info:before {
-  content: "";
-  background: rgba(13, 20, 41, 0.8);
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-}
-
-#venue .venue-info h3 {
-  font-size: 36px;
-  font-weight: 700;
-  color: #fff;
-}
-
-#venue .venue-info p {
-  color: #fff;
-  margin-bottom: 0;
-}
-
-#venue .venue-gallery-container {
-  padding-right: 12px;
-}
-
-#venue .venue-gallery {
-  overflow: hidden;
-  border-right: 3px solid #fff;
-  border-bottom: 3px solid #fff;
-}
-
-#venue .venue-gallery img {
-  transition: all ease-in-out 0.4s;
-}
-
-#venue .venue-gallery:hover img {
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
-}
-
-/*--------------------------------------------------------------
-# Hotels Section
---------------------------------------------------------------*/
-
-#hotels {
-  padding: 60px 0;
-}
-
-#hotels .hotel {
+#recommends .recommend {
   border: 1px solid #e0e5fa;
   background: #fff;
   margin-bottom: 30px;
 }
 
-#hotels .hotel:hover .hotel-img img {
+#recommends .recommend:hover .recommend-img img {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
 
-#hotels .hotel-img {
+#recommends .recommend-img {
   overflow: hidden;
   margin-bottom: 15px;
 }
 
-#hotels .hotel-img img {
+#recommends .recommend-img img {
   transition: 0.3s ease-in-out;
 }
 
-#hotels h3 {
+#recommends h3 {
   font-weight: 600;
   font-size: 20px;
   margin-bottom: 5px;
   padding: 0 20px;
 }
 
-#hotels a {
+#recommends a {
   color: #152b79;
 }
 
-#hotels a:hover {
+#recommends a:hover {
   color: #f82249;
 }
 
-#hotels .stars {
+#recommends .stars {
   padding: 0 20px;
   margin-bottom: 5px;
 }
 
-#hotels .stars i {
+#recommends .stars i {
   color: #ffc31d;
 }
 
-#hotels p {
+#recommends p {
   padding: 0 20px;
   margin-bottom: 20px;
   color: #060c22;
@@ -942,53 +778,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 /*--------------------------------------------------------------
-# Gallery Section
---------------------------------------------------------------*/
-
-#gallery {
-  padding: 60px;
-  overflow: hidden;
-}
-
-#gallery .owl-nav,
-#gallery .owl-dots {
-  margin-top: 25px;
-  text-align: center;
-}
-
-#gallery .owl-item {
-  border-left: 2px solid #fff;
-  border-right: 2px solid #fff;
-}
-
-#gallery .owl-dot {
-  display: inline-block;
-  margin: 0 5px;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background-color: #ddd;
-}
-
-#gallery .owl-dot.active {
-  background-color: #f82249;
-}
-
-#gallery .gallery-carousel .owl-stage-outer {
-  overflow: visible;
-}
-
-#gallery .gallery-carousel .center {
-  border: 6px solid #f82249;
-  margin: -10px;
-  box-sizing: content-box;
-  padding: 4px;
-  background: #fff;
-  z-index: 1;
-}
-
-/*--------------------------------------------------------------
-# supporters Section
+# Supporters Section
 --------------------------------------------------------------*/
 
 #supporters {
@@ -1080,10 +870,10 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 /*--------------------------------------------------------------
-# Subscribe Section
+# Subspaces Section
 --------------------------------------------------------------*/
 
-#subscribe {
+#subspaces {
   padding: 60px;
   background: url(../img/subscribe-bg.jpg) center center no-repeat;
   background-size: cover;
@@ -1091,7 +881,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   position: relative;
 }
 
-#subscribe:before {
+#subspaces:before {
   content: "";
   background: rgba(6, 12, 34, 0.6);
   position: absolute;
@@ -1101,12 +891,12 @@ body.mobile-nav-active #mobile-nav-toggle {
   right: 0;
 }
 
-#subscribe .section-header h2,
-#subscribe p {
+#subspaces .section-header h2,
+#subspaces p {
   color: #fff;
 }
 
-#subscribe input {
+#subspaces input {
   background: #fff;
   color: #060c22;
   border: 0;
@@ -1117,7 +907,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   font-size: 14px;
 }
 
-#subscribe button {
+#subspaces button {
   border: 0;
   padding: 9px 25px;
   cursor: pointer;
@@ -1129,54 +919,54 @@ body.mobile-nav-active #mobile-nav-toggle {
   border-radius: 50px;
 }
 
-#subscribe button:hover {
+#subspaces button:hover {
   background: #e0072f;
 }
 
 /*--------------------------------------------------------------
-# Buy Tickets Section
+# Login Section
 --------------------------------------------------------------*/
 
-#buy-tickets {
+#logins {
   padding: 60px 0;
 }
 
-#buy-tickets .card {
+#logins .card {
   border: none;
   border-radius: 5px;
   transition: all  0.3s ease-in-out;
   box-shadow: 0 10px 25px 0 rgba(6, 12, 34, 0.1);
 }
 
-#buy-tickets .card:hover {
+#logins .card:hover {
   box-shadow: 0 10px 35px 0 rgba(6, 12, 34, 0.2);
 }
 
-#buy-tickets .card hr {
+#logins .card hr {
   margin: 25px 0;
 }
 
-#buy-tickets .card .card-title {
+#logins .card .card-title {
   margin: 10px 0;
   font-size: 14px;
   letter-spacing: 1px;
   font-weight: bold;
 }
 
-#buy-tickets .card .card-price {
+#logins .card .card-price {
   font-size: 48px;
   margin: 0;
 }
 
-#buy-tickets .card ul li {
+#logins .card ul li {
   margin-bottom: 20px;
 }
 
-#buy-tickets .card .text-muted {
+#logins .card .text-muted {
   opacity: 0.7;
 }
 
-#buy-tickets .card .btn {
+#logins .card .btn {
   font-size: 15px;
   border-radius: 50px;
   padding: 10px 40px;
@@ -1186,16 +976,16 @@ body.mobile-nav-active #mobile-nav-toggle {
   color: #fff;
 }
 
-#buy-tickets .card .btn:hover {
+#logins .card .btn:hover {
   background-color: #e0072f;
 }
 
-#buy-tickets #buy-ticket-modal input,
-#buy-tickets #buy-ticket-modal select {
+#logins #login-modal input,
+#logins #login-modal select {
   border-radius: 0;
 }
 
-#buy-tickets #buy-ticket-modal .btn {
+#logins #login-modal .btn {
   font-size: 15px;
   border-radius: 50px;
   padding: 10px 40px;
@@ -1205,7 +995,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   color: #fff;
 }
 
-#buy-tickets #buy-ticket-modal .btn:hover {
+#logins #login-modal .btn:hover {
   background-color: #e0072f;
 }
 
@@ -1468,7 +1258,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 --------------------------------------------------------------*/
 
 @media (min-width: 767px) {
-  #subscribe input {
+  #subspaces input {
     min-width: 400px;
   }
 }
@@ -1501,7 +1291,7 @@ body.mobile-nav-active #mobile-nav-toggle {
     background-attachment: fixed;
   }
 
-  #subscribe {
+  #subspaces {
     background-attachment: fixed;
   }
 }
@@ -1582,7 +1372,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 @media (max-width: 460px) {
-  #subscribe button {
+  #subspaces button {
     margin-top: 10px;
   }
 }

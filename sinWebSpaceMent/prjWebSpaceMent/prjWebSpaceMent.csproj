@@ -145,6 +145,7 @@
     <Compile Include="Members.cs">
       <DependentUpon>SpaceMent.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CSpaces.cs" />
     <Compile Include="Models\CSpacesFactory.cs" />
     <Compile Include="Orders.cs">
       <DependentUpon>SpaceMent.tt</DependentUpon>
@@ -228,9 +229,9 @@
     <Content Include="img\gallery\6.jpg" />
     <Content Include="img\gallery\7.jpg" />
     <Content Include="img\gallery\8.jpg" />
-    <Content Include="img\hotels\1.jpg" />
-    <Content Include="img\hotels\2.jpg" />
-    <Content Include="img\hotels\3.jpg" />
+    <Content Include="img\recommends\1.jpg" />
+    <Content Include="img\recommends\2.jpg" />
+    <Content Include="img\recommends\3.jpg" />
     <Content Include="img\icons\app_development.svg" />
     <Content Include="img\icons\customer_services.svg" />
     <Content Include="img\icons\data_analyst.svg" />
@@ -254,13 +255,13 @@
     <Content Include="img\portfolio\work-7.jpg" />
     <Content Include="img\portfolio\work-8.jpg" />
     <Content Include="img\portfolio\work-9.jpg" />
-    <Content Include="img\speakers\1.jpg" />
-    <Content Include="img\speakers\2.jpg" />
-    <Content Include="img\speakers\3.jpg" />
-    <Content Include="img\speakers\4.jpg" />
-    <Content Include="img\speakers\5.jpg" />
-    <Content Include="img\speakers\6.jpg" />
-    <Content Include="img\speakers\bizpage-preview.png" />
+    <Content Include="img\spaces\1.jpg" />
+    <Content Include="img\spaces\2.jpg" />
+    <Content Include="img\spaces\3.jpg" />
+    <Content Include="img\spaces\4.jpg" />
+    <Content Include="img\spaces\5.jpg" />
+    <Content Include="img\spaces\6.jpg" />
+    <Content Include="img\spaces\bizpage-preview.png" />
     <Content Include="img\subscribe-bg.jpg" />
     <Content Include="img\supporters\1.png" />
     <Content Include="img\supporters\2.png" />
@@ -361,6 +362,7 @@
     <Content Include="lib\font-awesome\fonts\FontAwesome.otf" />
     <None Include="packages.config" />
     <Content Include="Scripts\owlcarousel\LICENSE" />
+    <Content Include="Views\Spaces\Spaces_Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
