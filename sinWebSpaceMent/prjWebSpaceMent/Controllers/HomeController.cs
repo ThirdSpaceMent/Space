@@ -14,7 +14,7 @@ namespace prjWebSpaceMent.Controllers
         dbSpaceMentEntities1 db = new dbSpaceMentEntities1();
         public ActionResult Index()
         {
-            return View();
+            return View("../Home/Index", "_Layout");
         }
 
         public ActionResult About()
