@@ -36,15 +36,41 @@ namespace prjWebSpaceMent.Models
             con.Close();
         }
 
+        public void update(ClassSpaces p)
+        {
+            // 修改場地的存檔
+            string SQL = "UPDATE Spaces SET ";
+
+            SQL += "sName='"+ p.sName + "',";
+            SQL += "sType='"+ p.sType + "',";
+            SQL += "sAddr='"+ p.sAddr + "',";
+            SQL += "sPhone='"+ p.sPhone + "',";
+            SQL += "sFloor='"+ p.sFloor + "',";
+            SQL += "sHeight='"+ p.sHeight + "',";
+            SQL += "sArea='"+ p.sArea + "',";
+            SQL += "sCapacity='"+ p.sCapacity + "',";
+            SQL += "sRent='"+ p.sRent + "',";
+            SQL += "sRate='"+ p.sRate + "',";
+            SQL += "sIntro='"+ p.sIntro + "',";
+            SQL += "sOpeningTime='"+ p.sOpeningTime + "',";
+            SQL += "sSecurity='"+ p.sSecurity + "',";
+            SQL += "sTraffic='"+ p.sTraffic + "',";
+            SQL += "sUpdated_at=getDate() ";
+            SQL += "WHERE sNumber="+ p.sNumber;
+                      
+            
+            executedSQL(SQL);
+        }
+
         internal void delete(int sNumber)
         {
-            // 刪除功能
+            // 刪除功能DELETE
             string SQL = "DELETE FROM Spaces WHERE sNumber=" + sNumber.ToString();
             executedSQL(SQL);
         }
         public void create(Spaces p)
         {
-            // 新增功能insert
+            // 新增功能INSERT
 
             string SQL = "INSERT INTO Spaces(";
             SQL += "sName,";
@@ -81,9 +107,59 @@ namespace prjWebSpaceMent.Models
 
             executedSQL(SQL);
         }
+        public void edit(int? id)
+        {
+            string SQL = "SELECT * FROM Spaces WHERE sNumber=" + id;
 
-        // -------------------------------------------
-        // 場地欄位
+            executedSQL(SQL);
+        }
+
+        private List<ClassSpaces> QueryBySQL(string SQL)
+        {
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["SPACEMENTEntities01"].ConnectionString);
+            con.Open();
+            SqlCommand cmd = new SqlCommand(SQL, con);
+
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            List<ClassSpaces> list = new List<ClassSpaces>();
+
+            while (reader.Read())
+            {
+                ClassSpaces x = new ClassSpaces()
+                {
+                    sNumber = (int)reader["sNumber"],
+                    sName = reader["sName"].ToString(),
+                    sType = reader["sType"].ToString(),
+                    sAddr = reader["sAddr"].ToString(),
+                    sPhone = reader["sPhone"].ToString(),
+                    sFloor = reader["sFloor"].ToString(),
+                    sHeight = reader["sHeight"].ToString(),
+                    sArea = reader["sArea"].ToString(),
+                    sCapacity = reader["sCapacity"].ToString(),
+                    sRent = Convert.ToDecimal(reader["sRent"]),
+                    sRate = Convert.ToDecimal(reader["sRate"]),
+                    sIntro = reader["sIntro"].ToString(),
+                    sOpeningTime = reader["sOpeningTime"].ToString(),
+                    sSecurity = reader["sSecurity"].ToString(),
+                    sTraffic = reader["sTraffic"].ToString(),
+                };
+                list.Add(x);
+            }
+            reader.Close();
+            con.Close();
+            return list;
+        }
+        public ClassSpaces QueryByfid(int id)
+        {
+            //查詢
+            List<ClassSpaces> list = QueryBySQL("SELECT * FROM Spaces WHERE sNumber=" + id);
+
+            if (list.Count == 0)
+                return null;
+            return list[0];
+        }
+
 
         public int sNumber { get; set; }
 
@@ -135,7 +211,8 @@ namespace prjWebSpaceMent.Models
         [DisplayName("更新時間")]
         public System.DateTime sUpdated_at { get; set; }
         public Nullable<int> FK_Space_to_Owner { get; set; }
-    
+
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Activities> Activities { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -150,4 +227,8 @@ namespace prjWebSpaceMent.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SubSpaces> SubSpaces { get; set; }
     }
+    
+    
+        
+    
 }

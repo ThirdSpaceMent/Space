@@ -99,7 +99,7 @@
                     <td>
                         @Html.ActionLink("修改場地", "Spaces_Edit", new { id = item.sNumber }) |
                         @Html.ActionLink("刪除場地", "Spaces_Delete", "Spaces", new { id = item.sNumber }, new { onclick = "return confirm('確定要刪除嗎?')" }) |
-                        @Html.ActionLink("詳細資訊", "Spaces_Details", new { /* id=item.PrimaryKey */ })
+                        @Html.ActionLink("詳細資訊", "Spaces_Detail", new { id = item.sNumber })
                     </td>
                 </tr>
             }
