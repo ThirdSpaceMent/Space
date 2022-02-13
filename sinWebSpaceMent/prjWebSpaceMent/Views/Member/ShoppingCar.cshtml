@@ -4,97 +4,156 @@
     ViewBag.Title = "ShoppingCar";
     Layout = "~/Views/Shared/_LayoutMember.cshtml";
 }
-
-<h2>ShoppingCar</h2>
+<!--Intro Section-->
+<section id="intro">
+    <div class="slider-wrapper">
+        <div class="owl-carousel hero-carousel">
+            <div class="hero-carousel-item">
+                <img src="~/img/bg_image_3.jpg" alt="">
+                <div class="img-caption">
+                    <div class="subhead">讓我們幫您吧，想找哪個場地?</div>
+                    <h1 class="mb-4">開始找尋適合您的場地吧！</h1>
+                    <a href="/Member/Index/#about" class="joinbutton-a">
+                        <span class="joinbutton-a-span"></span>
+                        <span class="joinbutton-a-span"></span>
+                        <span class="joinbutton-a-span"></span>
+                        <span class="joinbutton-a-span"></span>
+                        找場地
+                    </a>
+                </div>
+            </div>
+            <div class="hero-carousel-item">
+                <img src="~/img/bg_image_1.jpg" alt="">
+                <div class="img-caption">
+                    <div class="subhead">輕鬆刊登場地，曝光永不間斷</div>
+                    <h1 class="mb-4">好場地，就該讓更多人知道！</h1>
+                    <a href="/Member/Index/#subspaces" class="joinbutton-a">
+                        <span class="joinbutton-a-span"></span>
+                        <span class="joinbutton-a-span"></span>
+                        <span class="joinbutton-a-span"></span>
+                        <span class="joinbutton-a-span"></span>
+                        成為場地主
+                    </a>
+                </div>
+            </div>
+            <div class="hero-carousel-item">
+                <img src="~/img/bg_image_2.jpg" alt="">
+                <div class="img-caption">
+                    <div class="subhead">Hi！需要什麼協助嗎？</div>
+                    <h1 class="mb-4">有什麼問題嗎？您來對地方了</h1>
+                    <a href="/Member/Index/#faq" class="joinbutton-a">
+                        <span class="joinbutton-a-span"></span>
+                        <span class="joinbutton-a-span"></span>
+                        <span class="joinbutton-a-span"></span>
+                        <span class="joinbutton-a-span"></span>
+                        常見問題
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div> <!-- .slider-wrapper -->
+</section>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("新增訂單", "Create")
 </p>
+
 <table class="table">
+
     <tr>
+        <th>
+            序號
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.oStatus)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.oScheduledTime)
+            使用時間
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.oPaymentMode)
+            付款方式
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.oPaymentStatus)
+            付款狀態
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.oDiscount)
+            折扣
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.oPayment)
+            成交金額
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.oCreated_at)
+            建立時間
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.oUpdated_at)
+            更新時間
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Activities.aName)
+            活動名稱
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Members.mAccount)
+            會員編號
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Members1.mAccount)
+            場主編號
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Spaces.sName)
+            場地名稱
         </th>
         <th></th>
     </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.oStatus)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.oScheduledTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.oPaymentMode)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.oPaymentStatus)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.oDiscount)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.oPayment)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.oCreated_at)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.oUpdated_at)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Activities.aName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Members.mAccount)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Members1.mAccount)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Spaces.sName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.oNumber }) |
-            @Html.ActionLink("Details", "Details", new { id=item.oNumber }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.oNumber })
-        </td>
-    </tr>
-}
+    @{
+        int count = 0;
+        foreach (var item in Model)
+        {
+            count++;
+        <tr>
+            <td>
+                @count
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.oStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.oScheduledTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.oPaymentMode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.oPaymentStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.oDiscount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.oPayment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.oCreated_at)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.oUpdated_at)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Activities.aName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Members.mAccount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Members1.mAccount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Spaces.sName)
+            </td>
+            <td>
+                @Html.ActionLink("編輯", "Edit", new { id = item.oNumber }) |
+                @Html.ActionLink("明細", "Details", new { id = item.oNumber }) |
+                @Html.ActionLink("刪除", "Delete", new { id = item.oNumber })
+            </td>
+        </tr>
+            }
+        }
 
 </table>

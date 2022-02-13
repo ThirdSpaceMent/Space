@@ -2,7 +2,9 @@
 
 @{
     ViewBag.Title = "Spaces_Edit";
+    Layout = "~/Views/Shared/_LayoutMember.cshtml";
 }
+
 
 <section id="intro">
     <div class="slider-wrapper">
@@ -38,9 +40,9 @@
 <main>
     @using (Html.BeginForm())
     {
-    <h2>修改場地資料</h2>
-    <hr />
-    @*<form method="post" action="~/Spaces/Spaces_Edit">*@
+        <h2>修改場地資料</h2>
+        <hr />
+        @*<form method="post" action="~/Spaces/Spaces_Edit">*@
         <div>
             <input type="hidden" name="sNumber" value="@Model.sNumber" />
         </div>
@@ -104,9 +106,10 @@
         <div>
             <input type="submit" value="儲存" />
         </div>
-    @*</form>*@
-    <div>
-        @Html.ActionLink("返回場地總覽", "Spaces_List")
-    </div>
+        @*</form>*@
+        <div>
+            @Html.ActionLink("返回場地總覽", "Spaces_List")
+        </div>
     }
 </main>
+

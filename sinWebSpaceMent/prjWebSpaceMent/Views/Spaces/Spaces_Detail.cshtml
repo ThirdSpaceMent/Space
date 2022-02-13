@@ -2,130 +2,161 @@
 
 @{
     ViewBag.Title = "Spaces_Detail";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LayoutMember.cshtml";
 }
 
-<h2>Spaces_Detail</h2>
+<section id="intro">
+    <div class="slider-wrapper">
+        <div class="owl-carousel hero-carousel">
+            <div class="hero-carousel-item">
+                <img src="~/img/bg_image_3.jpg" alt="">
+                <div class="img-caption">
+                    <div class="subhead">讓我們幫您吧，想找哪個場地?</div>
+                    <h1 class="mb-4">開始找尋適合您的場地吧！</h1>
+                    <a href="#services" class="btn btn-primary">找場地</a>
+                </div>
+            </div>
+            <div class="hero-carousel-item">
+                <img src="~/img/bg_image_1.jpg" alt="">
+                <div class="img-caption">
+                    <div class="subhead">輕鬆刊登場地，曝光永不間斷</div>
+                    <h1 class="mb-4">好場地，就該讓更多人知道！</h1>
+                    <a href="#services" class="btn btn-primary">成為場地主</a>
+                </div>
+            </div>
+            <div class="hero-carousel-item">
+                <img src="~/img/bg_image_2.jpg" alt="">
+                <div class="img-caption">
+                    <div class="subhead">Hi！需要什麼協助嗎？</div>
+                    <h1 class="mb-4">有什麼問題嗎？您來對地方了</h1>
+                    <a href="#services" class="btn btn-primary">最新消息</a>
+                </div>
+            </div>
+        </div>
+    </div> <!-- .slider-wrapper -->
+</section>
 
-<div>
-    <h4>Spaces</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.sName)
-        </dt>
+<main>
+    <div>
+        <h4>場地明細</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.sName)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.sName)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.sName)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.sType)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.sType)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.sType)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.sType)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.sAddr)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.sAddr)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.sAddr)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.sAddr)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.sPhone)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.sPhone)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.sPhone)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.sPhone)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.sFloor)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.sFloor)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.sFloor)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.sFloor)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.sHeight)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.sHeight)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.sHeight)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.sHeight)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.sArea)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.sArea)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.sArea)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.sArea)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.sCapacity)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.sCapacity)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.sCapacity)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.sCapacity)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.sRent)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.sRent)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.sRent)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.sRent)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.sRate)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.sRate)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.sRate)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.sRate)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.sIntro)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.sIntro)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.sIntro)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.sIntro)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.sOpeningTime)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.sOpeningTime)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.sOpeningTime)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.sOpeningTime)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.sSecurity)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.sSecurity)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.sSecurity)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.sSecurity)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.sTraffic)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.sTraffic)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.sTraffic)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.sTraffic)
+            </dd>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.sNumber }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.sNumber }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</main>

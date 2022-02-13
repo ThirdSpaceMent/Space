@@ -87,9 +87,5 @@ namespace prjWebSpaceMent.Controllers
             ClassSpaces x = (new Spaces()).QueryByfid((int)id);
             return View(x);
         }
-
-        
-    
-
     }
 }

@@ -1309,9 +1309,6 @@ body.mobile-nav-active #mobile-nav-toggle {
     font-size: 16px;
   }
 
-  #schedule .nav-tabs a {
-    padding: 8px 60px;
-  }
 }
 
 @media (max-width: 768px) {
@@ -1325,24 +1322,6 @@ body.mobile-nav-active #mobile-nav-toggle {
 
   #faq #faq-list i {
     top: 13px;
-  }
-}
-
-@media (max-width: 767px) {
-  #schedule .nav-tabs a {
-    padding: 8px 50px;
-  }
-}
-
-@media (max-width: 574px) {
-  #venue .venue-info h3 {
-    font-size: 24px;
-  }
-}
-
-@media (max-width: 480px) {
-  #schedule .nav-tabs a {
-    padding: 8px 30px;
   }
 }
 

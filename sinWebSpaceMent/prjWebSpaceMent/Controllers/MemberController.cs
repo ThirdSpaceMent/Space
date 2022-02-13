@@ -17,7 +17,7 @@ namespace prjWebSpaceMent.Controllers
         {
             var space =
                 db.Spaces.OrderByDescending(m => m.sNumber).ToList();
-            return View("../Home/Index", "_LayoutMember", space);
+            return View("../Member/Index", "_LayoutMember", space);
         }
 
         public ActionResult Logout()

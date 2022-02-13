@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SPACE們</title>
 
+    <link rel="stylesheet" href="~/Content/Logininbutton.css">
+    <link rel="stylesheet" href="~/Content/JoinButton.css">
     <link rel="stylesheet" href="~/Content/maicons.css">
     <link rel="stylesheet" href="~/Content/owl-carousel/css/owl.carousel.css">
     <link rel="stylesheet" href="~/Content/theme.css">
@@ -36,24 +38,21 @@
         <div class="container">
 
             <div id="logo" class="pull-left">
-                <!-- Uncomment below if you prefer to use a text logo -->
-                <!-- <h1><a href="#main">C<span>o</span>nf</a></h1>-->
-                <a href="#intro" class="scrollto"><img src="~/img/logo.png" alt="" title=""></a>
+                <a href="/Home/Index" class="scrollto"><img src="~/img/logo.png" alt="" title=""></a>
             </div>
 
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
-                    <li class="menu-active">@Html.ActionLink("首頁", "Index", "Home")</li>
-                    <li>@Html.ActionLink("關於我們", "Index", "Home")</li>
-                    <li>@Html.ActionLink("找場地", "Spaces_List", "Spaces")</li>
-                    <li>@Html.ActionLink("推薦場地", "Index", "Home")</li>
-                    <li>@Html.ActionLink("成為場地主", "Index", "Home")</li>
-                    <li>@Html.ActionLink("合作廠商", "Index", "Home")</li>
-                    <li>@Html.ActionLink("常見問題", "Index", "Home")</li>
-                    <li>@Html.ActionLink("聯絡我們", "Index", "Home")</li>
-                    <li class="login-id">@Html.ActionLink("註冊", "Register", "Home")</li>
-                    <li class="login-id">@Html.ActionLink("登入", "Login", "Home")</li>
-                    @*<li class="login-id"><a href="#logins" @Html.ActionLink("登入", "Login", "Home")></a></li>*@
+                    <li class="menu-active"><a href="/Home/Index/#intro">首頁</a></li>
+                    <li><a href="/Home/Index/#about">關於我們</a></li>
+                    <li><a href="/Home/Index/#spaces">找場地</a></li>
+                    <li><a href="/Home/Index/#recommends">推薦場地</a></li>
+                    <li><a href="/Home/Index/#subspaces">成為場地主</a></li>
+                    <li><a href="/Home/Index/#supporters">合作廠商</a></li>
+                    <li><a href="/Home/Index/#faq">常見問題</a></li>
+                    <li><a href="/Home/Index/#contact">聯絡我們</a></li>
+                    <li class="login-id"><a href="/Home/Register">註冊</a></li>
+                    <li class="login-id"><a href="/Home/Index/#logins">登入</a></li>
                 </ul>
             </nav><!-- #nav-menu-container -->
         </div>
@@ -75,19 +74,19 @@
                     <div class="col-lg-3 col-md-6 footer-links">
                         <h4>Space</h4>
                         <ul>
-                            <li><i class="fa fa-angle-right"></i> <a href="#">首頁</a></li>
-                            <li><i class="fa fa-angle-right"></i> <a href="#">關於我們</a></li>
-                            <li><i class="fa fa-angle-right"></i> <a href="#">找場地</a></li>
-                            <li><i class="fa fa-angle-right"></i> <a href="#">成為場地主</a></li>
-                            <li><i class="fa fa-angle-right"></i> <a href="#">加入會員</a></li>
+                            <li><i class="fa fa-angle-right"></i> <a href="https://localhost:44386/Home/Index/#intro">首頁</a></li>
+                            <li><i class="fa fa-angle-right"></i> <a href="https://localhost:44386/Home/Index/#about">關於我們</a></li>
+                            <li><i class="fa fa-angle-right"></i> <a href="https://localhost:44386/Home/Index/#spaces">找場地</a></li>
+                            <li><i class="fa fa-angle-right"></i> <a href="https://localhost:44386/Home/Index/#subspaces">成為場地主</a></li>
+                            <li><i class="fa fa-angle-right"></i> <a href="https://localhost:44386/Home/Register">加入會員</a></li>
                         </ul>
                     </div>
 
                     <div class="col-lg-3 col-md-6 footer-links">
                         <h4>Information</h4>
                         <ul>
-                            <li><i class="fa fa-angle-right"></i> <a href="#">常見問題</a></li>
-                            <li><i class="fa fa-angle-right"></i> <a href="#">聯絡我們</a></li>
+                            <li><i class="fa fa-angle-right"></i> <a href="https://localhost:44386/Home/Index/#faq">常見問題</a></li>
+                            <li><i class="fa fa-angle-right"></i> <a href="https://localhost:44386/Home/Index/#contact">聯絡我們</a></li>
                             <li><i class="fa fa-angle-right"></i> <a href="#">買貴退差價</a></li>
                             <li><i class="fa fa-angle-right"></i> <a href="#">服務政策</a></li>
                             <li><i class="fa fa-angle-right"></i> <a href="#">隱私權條款</a></li>
@@ -118,7 +117,7 @@
                 </div>
             </div>
         </div>
-    </footer> #footer 
+    </footer>
 
      @*JavaScript Libraries*@ 
     <script src="~/Scripts/jquery/jquery.min.js"></script>

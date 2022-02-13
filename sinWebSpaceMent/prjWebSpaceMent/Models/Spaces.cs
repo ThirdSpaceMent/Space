@@ -41,24 +41,24 @@ namespace prjWebSpaceMent.Models
             // 修改場地的存檔
             string SQL = "UPDATE Spaces SET ";
 
-            SQL += "sName='"+ p.sName + "',";
-            SQL += "sType='"+ p.sType + "',";
-            SQL += "sAddr='"+ p.sAddr + "',";
-            SQL += "sPhone='"+ p.sPhone + "',";
-            SQL += "sFloor='"+ p.sFloor + "',";
-            SQL += "sHeight='"+ p.sHeight + "',";
-            SQL += "sArea='"+ p.sArea + "',";
-            SQL += "sCapacity='"+ p.sCapacity + "',";
-            SQL += "sRent='"+ p.sRent + "',";
-            SQL += "sRate='"+ p.sRate + "',";
-            SQL += "sIntro='"+ p.sIntro + "',";
-            SQL += "sOpeningTime='"+ p.sOpeningTime + "',";
-            SQL += "sSecurity='"+ p.sSecurity + "',";
-            SQL += "sTraffic='"+ p.sTraffic + "',";
+            SQL += "sName='" + p.sName + "',";
+            SQL += "sType='" + p.sType + "',";
+            SQL += "sAddr='" + p.sAddr + "',";
+            SQL += "sPhone='" + p.sPhone + "',";
+            SQL += "sFloor='" + p.sFloor + "',";
+            SQL += "sHeight='" + p.sHeight + "',";
+            SQL += "sArea='" + p.sArea + "',";
+            SQL += "sCapacity='" + p.sCapacity + "',";
+            SQL += "sRent='" + p.sRent + "',";
+            SQL += "sRate='" + p.sRate + "',";
+            SQL += "sIntro='" + p.sIntro + "',";
+            SQL += "sOpeningTime='" + p.sOpeningTime + "',";
+            SQL += "sSecurity='" + p.sSecurity + "',";
+            SQL += "sTraffic='" + p.sTraffic + "',";
             SQL += "sUpdated_at=getDate() ";
-            SQL += "WHERE sNumber="+ p.sNumber;
-                      
-            
+            SQL += "WHERE sNumber=" + p.sNumber;
+
+
             executedSQL(SQL);
         }
 
@@ -227,8 +227,8 @@ namespace prjWebSpaceMent.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SubSpaces> SubSpaces { get; set; }
     }
-    
-    
-        
-    
+
+
+
+
 }
