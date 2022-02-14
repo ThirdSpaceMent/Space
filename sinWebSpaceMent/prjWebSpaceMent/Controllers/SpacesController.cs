@@ -33,7 +33,6 @@ namespace prjWebSpaceMent.Controllers
             return View();
         }
 
-
         public ActionResult Spaces_Save()
         {
             //建立場地(存檔)
@@ -55,6 +54,38 @@ namespace prjWebSpaceMent.Controllers
 
             (new Spaces()).create(SP);
             return RedirectToAction("Spaces_List"); //跳轉至LIST
+        }
+
+        public ActionResult Spaces_Edit(int? id)
+        {
+            if (id == null)
+            {
+                return RedirectToAction("Spaces_List");
+            }
+            ClassSpaces x = (new Spaces()).QueryByfid((int)id);
+            return View(x);
+        }
+
+        [HttpPost]
+        public ActionResult Spaces_Edit(ClassSpaces p)
+        {
+            if (p == null)
+            {
+                return RedirectToAction("Spaces_List");
+            }
+            (new Spaces()).update(p);
+            return RedirectToAction("Spaces_List");
+        }
+
+        public ActionResult Spaces_Detail(int? id)
+        {
+            // 場地資訊
+            if (id == null)
+            {
+                return RedirectToAction("Spaces_List");
+            }
+            ClassSpaces x = (new Spaces()).QueryByfid((int)id);
+            return View(x);
         }
     }
 }

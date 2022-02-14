@@ -18,6 +18,7 @@
                         <span class="joinbutton-a-span"></span>
                         找場地
                     </a>
+                    <div class="subhead mb-5">往下繼續登入會員...</div>
                 </div>
             </div>
             <div class="hero-carousel-item">
@@ -32,6 +33,7 @@
                         <span class="joinbutton-a-span"></span>
                         成為場地主
                     </a>
+                    <div class="subhead mb-5">往下繼續登入會員...</div>
                 </div>
             </div>
             <div class="hero-carousel-item">
@@ -46,6 +48,7 @@
                         <span class="joinbutton-a-span"></span>
                         常見問題
                     </a>
+                    <div class="subhead mb-5">往下繼續登入會員...</div>
                 </div>
             </div>
         </div>
@@ -53,18 +56,20 @@
 </section>
 
 <main>
-<h2>會員登入</h2>
-
-<form action=" @Url.Action("Login")" method="post">
-    <div class="form-horizontal">
+    <div class="section-header p-5">
+        <h2>會員登入</h2>
+    </div>
+<div class="container">
+    <form action=" @Url.Action("Login")" method="post">
+        <div class="form-horizontal">
         <hr />
-        <div class="form-group">
-            <span class="custom-control-label col-md-2">帳號</span>
-            <div class="col-md-10">
-                <input type="text" id="mAccount" name="mAccount"
-                       required="required" class="form-control" />
+            <div class="form-group">
+                <span class="custom-control-label col-md-2">帳號</span>
+                <div class="col-md-10">
+                    <input type="text" id="mAccount" name="mAccount"
+                           required="required" class="form-control" />
+                </div>
             </div>
-        </div>
 
         <div class="form-group">
             <span class="control-label col-md-2">密碼</span>
@@ -81,6 +86,7 @@
             </div>
         </div>
     </div>
-</form>
+    </form>
+</div>
 </main>
 

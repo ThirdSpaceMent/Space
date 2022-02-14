@@ -11,7 +11,8 @@ namespace prjWebSpaceMent.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+
     public partial class Orders
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,22 +20,36 @@ namespace prjWebSpaceMent.Models
         {
             this.Rates = new HashSet<Rates>();
         }
-    
+
+        [DisplayName("訂單編號")]
         public int oNumber { get; set; }
+        [DisplayName("訂單狀態")]
         public string oStatus { get; set; }
+        [DisplayName("使用時間")]
         public System.DateTime oScheduledTime { get; set; }
+        [DisplayName("付款方式")]
         public string oPaymentMode { get; set; }
+        [DisplayName("付款狀態")]
         public string oPaymentStatus { get; set; }
+        [DisplayName("優惠折扣")]
         public string oDiscount { get; set; }
+        [DisplayName("成交金額")]
         public decimal oPayment { get; set; }
+        [DisplayName("建立時間")]
         public System.DateTime oCreated_at { get; set; }
+        [DisplayName("更新時間")]
         public System.DateTime oUpdated_at { get; set; }
+        [DisplayName("會員編號")]
         public Nullable<int> FK_Order_to_Member_User { get; set; }
+        [DisplayName("場地主編號")]
         public Nullable<int> FK_Order_to_Member_Owner { get; set; }
+        [DisplayName("場地編號")]
         public Nullable<int> FK_Order_to_Space { get; set; }
+        [DisplayName("活動編號")]
         public Nullable<int> FK_Order_to_Activity { get; set; }
+        [DisplayName("會員帳號")]
         public string oAccount { get; set; }
-    
+
         public virtual Activities Activities { get; set; }
         public virtual Members Members { get; set; }
         public virtual Members Members1 { get; set; }

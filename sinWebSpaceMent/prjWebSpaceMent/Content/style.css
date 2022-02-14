@@ -1104,6 +1104,52 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 /*--------------------------------------------------------------
+# Gallery Section
+--------------------------------------------------------------*/
+
+#gallery {
+    padding: 60px;
+    overflow: hidden;
+}
+
+    #gallery .owl-nav,
+    #gallery .owl-dots {
+        margin-top: 25px;
+        text-align: center;
+    }
+
+    #gallery .owl-item {
+        border-left: 2px solid #fff;
+        border-right: 2px solid #fff;
+    }
+
+    #gallery .owl-dot {
+        display: inline-block;
+        margin: 0 5px;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: #ddd;
+    }
+
+        #gallery .owl-dot.active {
+            background-color: #f82249;
+        }
+
+    #gallery .gallery-carousel .owl-stage-outer {
+        overflow: visible;
+    }
+
+    #gallery .gallery-carousel .center {
+        border: 6px solid #f82249;
+        margin: -10px;
+        box-sizing: content-box;
+        padding: 4px;
+        background: #fff;
+        z-index: 1;
+    }
+
+/*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
 
@@ -1309,9 +1355,6 @@ body.mobile-nav-active #mobile-nav-toggle {
     font-size: 16px;
   }
 
-  #schedule .nav-tabs a {
-    padding: 8px 60px;
-  }
 }
 
 @media (max-width: 768px) {
@@ -1325,24 +1368,6 @@ body.mobile-nav-active #mobile-nav-toggle {
 
   #faq #faq-list i {
     top: 13px;
-  }
-}
-
-@media (max-width: 767px) {
-  #schedule .nav-tabs a {
-    padding: 8px 50px;
-  }
-}
-
-@media (max-width: 574px) {
-  #venue .venue-info h3 {
-    font-size: 24px;
-  }
-}
-
-@media (max-width: 480px) {
-  #schedule .nav-tabs a {
-    padding: 8px 30px;
   }
 }
 

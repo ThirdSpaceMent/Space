@@ -137,6 +137,7 @@
     <Compile Include="Models\Activities.cs">
       <DependentUpon>dbSpaceMentModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ClassSpaces.cs" />
     <Compile Include="Models\Comments.cs">
       <DependentUpon>dbSpaceMentModel.tt</DependentUpon>
     </Compile>
@@ -357,6 +358,8 @@
     <Content Include="Views\Home\Register.cshtml" />
     <Content Include="Views\Member\ShoppingCar.cshtml" />
     <Content Include="Views\Spaces\Spaces_Create.cshtml" />
+    <Content Include="Views\Spaces\Spaces_Edit.cshtml" />
+    <Content Include="Views\Spaces\Spaces_Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
