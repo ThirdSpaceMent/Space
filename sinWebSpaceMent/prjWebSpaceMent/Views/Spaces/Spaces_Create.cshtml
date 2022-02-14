@@ -22,6 +22,7 @@
                         <span class="joinbutton-a-span"></span>
                         找場地
                     </a>
+                    <div class="subhead mb-5">往下繼續新增場地...</div>
                 </div>
             </div>
             <div class="hero-carousel-item">
@@ -36,6 +37,7 @@
                         <span class="joinbutton-a-span"></span>
                         成為場地主
                     </a>
+                    <div class="subhead mb-5">往下繼續新增場地...</div>
                 </div>
             </div>
             <div class="hero-carousel-item">
@@ -50,6 +52,7 @@
                         <span class="joinbutton-a-span"></span>
                         常見問題
                     </a>
+                    <div class="subhead mb-5">往下繼續新增場地...</div>
                 </div>
             </div>
         </div>
@@ -57,71 +60,74 @@
 </section>
 
 <main>
-    <h2>建立新場地</h2>
-    <hr />
-    <form method="post" action="~/Spaces/Spaces_Save">
+    <div class="section-header p-5">
+        <h2>新增場地</h2>
+    </div>
+    <div class="container">
+        <form method="post" action="~/Spaces/Spaces_Save">
+            <div>
+                <span>@Html.DisplayNameFor(model => model.sName)</span><br />
+                <input type="text" name="txtsName" placeholder="必填" required />
+            </div>
+            <div>
+                <span>@Html.DisplayNameFor(model => model.sType)</span><br />
+                <input type="text" name="txtsType" placeholder="必填" required />
+            </div>
+            <div>
+                <span>@Html.DisplayNameFor(model => model.sAddr)</span><br />
+                <input type="text" name="txtsAddr" placeholder="必填" required />
+            </div>
+            <div>
+                <span>@Html.DisplayNameFor(model => model.sPhone)</span><br />
+                <input type="text" name="txtsPhone" placeholder="必填" required />
+            </div>
+            <div>
+                <span>@Html.DisplayNameFor(model => model.sFloor)</span><br />
+                <input type="text" name="txtsFloor" placeholder="必填" required />
+            </div>
+            <div>
+                <span>@Html.DisplayNameFor(model => model.sHeight)</span><br />
+                <input type="text" name="txtsHeight" />
+            </div>
+            <div>
+                <span>@Html.DisplayNameFor(model => model.sArea)</span><br />
+                <input type="text" name="txtsArea" />
+            </div>
+            <div>
+                <span>@Html.DisplayNameFor(model => model.sCapacity)</span><br />
+                <input type="text" name="txtsCapacity" placeholder="必填" required />
+            </div>
+            <div>
+                <span>@Html.DisplayNameFor(model => model.sRent)</span><br />
+                <input type="text" name="txtsRent" value="0" />
+            </div>
+            <div>
+                <span>@Html.DisplayNameFor(model => model.sRate)</span><br />
+                <input type="text" name="txtsRate" value="0" />
+            </div>
+            <div>
+                <span>@Html.DisplayNameFor(model => model.sIntro)</span><br />
+                <input type="text" name="txtsTntro" placeholder="必填" required />
+            </div>
+            <div>
+                <span>@Html.DisplayNameFor(model => model.sOpeningTime)</span><br />
+                <input type="text" name="txtsOpeningTime" />
+            </div>
+            <div>
+                <span>@Html.DisplayNameFor(model => model.sSecurity)</span><br />
+                <input type="text" name="txtsSecurity" />
+            </div>
+            <div>
+                <span>@Html.DisplayNameFor(model => model.sTraffic)</span><br />
+                <input type="text" name="txtsTraffic" />
+            </div>
+            <hr />
+            <div>
+                <input type="submit" value="建立場地" />
+            </div>
+        </form>
         <div>
-            <span>@Html.DisplayNameFor(model => model.sName)</span><br />
-            <input type="text" name="txtsName" placeholder="必填" required />
+            @Html.ActionLink("返回場地總覽", "Spaces_List")
         </div>
-        <div>
-            <span>@Html.DisplayNameFor(model => model.sType)</span><br />
-            <input type="text" name="txtsType" placeholder="必填" required />
-        </div>
-        <div>
-            <span>@Html.DisplayNameFor(model => model.sAddr)</span><br />
-            <input type="text" name="txtsAddr" placeholder="必填" required />
-        </div>
-        <div>
-            <span>@Html.DisplayNameFor(model => model.sPhone)</span><br />
-            <input type="text" name="txtsPhone" placeholder="必填" required />
-        </div>
-        <div>
-            <span>@Html.DisplayNameFor(model => model.sFloor)</span><br />
-            <input type="text" name="txtsFloor" placeholder="必填" required />
-        </div>
-        <div>
-            <span>@Html.DisplayNameFor(model => model.sHeight)</span><br />
-            <input type="text" name="txtsHeight" />
-        </div>
-        <div>
-            <span>@Html.DisplayNameFor(model => model.sArea)</span><br />
-            <input type="text" name="txtsArea" />
-        </div>
-        <div>
-            <span>@Html.DisplayNameFor(model => model.sCapacity)</span><br />
-            <input type="text" name="txtsCapacity" placeholder="必填" required />
-        </div>
-        <div>
-            <span>@Html.DisplayNameFor(model => model.sRent)</span><br />
-            <input type="text" name="txtsRent" value="0" />
-        </div>
-        <div>
-            <span>@Html.DisplayNameFor(model => model.sRate)</span><br />
-            <input type="text" name="txtsRate" value="0" />
-        </div>
-        <div>
-            <span>@Html.DisplayNameFor(model => model.sIntro)</span><br />
-            <input type="text" name="txtsTntro" placeholder="必填" required />
-        </div>
-        <div>
-            <span>@Html.DisplayNameFor(model => model.sOpeningTime)</span><br />
-            <input type="text" name="txtsOpeningTime" />
-        </div>
-        <div>
-            <span>@Html.DisplayNameFor(model => model.sSecurity)</span><br />
-            <input type="text" name="txtsSecurity" />
-        </div>
-        <div>
-            <span>@Html.DisplayNameFor(model => model.sTraffic)</span><br />
-            <input type="text" name="txtsTraffic" />
-        </div>
-        <hr />
-        <div>
-            <input type="submit" value="建立場地" />
-        </div>
-    </form>
-    <div>
-        @Html.ActionLink("返回場地總覽", "Spaces_List")
     </div>
 </main>
