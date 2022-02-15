@@ -14,14 +14,7 @@
                 <div class="img-caption">
                     <div class="subhead">讓我們幫您吧，想找哪個場地?</div>
                     <h1 class="mb-4">開始找尋適合您的場地吧！</h1>
-                    <a href="#spaces" class="joinbutton-a">
-                        <span class="joinbutton-a-span"></span>
-                        <span class="joinbutton-a-span"></span>
-                        <span class="joinbutton-a-span"></span>
-                        <span class="joinbutton-a-span"></span>
-                        找場地
-                    </a>
-                    <div class="subhead mb-5">往下繼續編輯場地資訊...</div>
+                    <a href="#services" class="btn btn-primary">找場地</a>
                 </div>
             </div>
             <div class="hero-carousel-item">
@@ -29,14 +22,7 @@
                 <div class="img-caption">
                     <div class="subhead">輕鬆刊登場地，曝光永不間斷</div>
                     <h1 class="mb-4">好場地，就該讓更多人知道！</h1>
-                    <a href="#subspaces" class="joinbutton-a">
-                        <span class="joinbutton-a-span"></span>
-                        <span class="joinbutton-a-span"></span>
-                        <span class="joinbutton-a-span"></span>
-                        <span class="joinbutton-a-span"></span>
-                        成為場地主
-                    </a>
-                    <div class="subhead mb-5">往下繼續編輯場地資訊...</div>
+                    <a href="#services" class="btn btn-primary">成為場地主</a>
                 </div>
             </div>
             <div class="hero-carousel-item">
@@ -44,14 +30,7 @@
                 <div class="img-caption">
                     <div class="subhead">Hi！需要什麼協助嗎？</div>
                     <h1 class="mb-4">有什麼問題嗎？您來對地方了</h1>
-                    <a href="#faq" class="joinbutton-a">
-                        <span class="joinbutton-a-span"></span>
-                        <span class="joinbutton-a-span"></span>
-                        <span class="joinbutton-a-span"></span>
-                        <span class="joinbutton-a-span"></span>
-                        常見問題
-                    </a>
-                    <div class="subhead mb-5">往下繼續編輯場地資訊...</div>
+                    <a href="#services" class="btn btn-primary">最新消息</a>
                 </div>
             </div>
         </div>
@@ -61,10 +40,8 @@
 <main>
     @using (Html.BeginForm())
     {
-    <div class="section-header p-5">
-        <h2>編輯場地資料</h2>
-    </div>
-    <div class="container">
+        <h2>修改場地資料</h2>
+        <hr />
         @*<form method="post" action="~/Spaces/Spaces_Edit">*@
         <div>
             <input type="hidden" name="sNumber" value="@Model.sNumber" />
@@ -73,9 +50,28 @@
             <span>@Html.DisplayNameFor(model => model.sName)</span><br />
             <input type="text" name="sName" placeholder="必填" required value="@Model.sName" />
         </div>
+
+        <!--活動類型 使用下拉式選項-->
         <div>
-            <span>@Html.DisplayNameFor(model => model.sType)</span><br />
-            <input type="text" name="sType" placeholder="必填" required value="@Model.sType" />
+            <span>@Html.DisplayNameFor(model => model.sType)</span>
+            <br />
+            <select name="sType">
+                <option disabled value="" selected>請選擇活動類型</option>
+                <option>會議/商務中心</option>
+                <option>派對/聚餐</option>
+                <option>尾牙/春酒</option>
+                <option>課程講座/教育訓練</option>
+                <option>運動場地</option>
+                <option>多功能共享空間</option>
+                <option>藝文展覽/表演場地</option>
+                <option>婚禮/婚宴</option>
+                <option>拍照/攝影</option>
+                <option>宴會/晚會</option>
+                <option>烹飪活動</option>
+                <option>戶外活動</option>
+                <option>地區活動中心</option>
+                <option>其他</option>
+            </select>
         </div>
         <div>
             <span>@Html.DisplayNameFor(model => model.sAddr)</span><br />
@@ -111,7 +107,7 @@
         </div>
         <div>
             <span>@Html.DisplayNameFor(model => model.sIntro)</span><br />
-            <input type="text" name="sTntro" placeholder="必填" required value="@Model.sIntro" />
+            <input type="text" name="sIntro" placeholder="必填" required value="@Model.sIntro" />
         </div>
         <div>
             <span>@Html.DisplayNameFor(model => model.sOpeningTime)</span><br />
@@ -133,7 +129,6 @@
         <div>
             @Html.ActionLink("返回場地總覽", "Spaces_List")
         </div>
-    </div>
     }
 </main>
 

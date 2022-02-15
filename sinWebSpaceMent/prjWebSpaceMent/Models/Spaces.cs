@@ -160,13 +160,68 @@ namespace prjWebSpaceMent.Models
             return list[0];
         }
 
+        internal List<ClassSpaces> QueryAll(string city, string type)
+        {   
+            // 查詢 列出所有
+
+            string SQL = "SELECT * FROM Spaces WHERE 1=1 ";
+
+            // 如果city有值,加上此判斷
+            if (city != null && city != "")  
+            {
+                SQL += " AND sAddr LIKE '%" + city + "%'";
+            }
+
+            // 如果type有值,加上此判斷
+            if (type != null && type != "")  
+            {
+                SQL += " AND sType LIKE '%" + type + "%'";
+            }
+
+            return QueryBySQL(SQL);
+        }
+
+        internal List<ClassSpaces> QueryByKeyword(string keyword, string city, string type)
+        {
+            //關鍵字查詢
+
+            string SQL = "SELECT * FROM Spaces WHERE sName LIKE '%" + keyword + "%'";
+            SQL += "OR sType LIKE '%" + keyword + "%'";
+            SQL += "OR sAddr LIKE '%" + keyword + "%'";
+            SQL += "OR sPhone LIKE '%" + keyword + "%'";
+            SQL += "OR sFloor LIKE '%" + keyword + "%'";
+            SQL += "OR sHeight LIKE '%" + keyword + "%'";
+            SQL += "OR sArea LIKE '%" + keyword + "%'";
+            SQL += "OR sCapacity LIKE '%" + keyword + "%'";
+            SQL += "OR sRent LIKE '%" + keyword + "%'";
+            SQL += "OR sRate LIKE '%" + keyword + "%'";
+            SQL += "OR sIntro LIKE '%" + keyword + "%'";
+            SQL += "OR sOpeningTime LIKE '%" + keyword + "%'";
+            SQL += "OR sSecurity LIKE '%" + keyword + "%'";
+            SQL += "OR sTraffic LIKE '%" + keyword + "%'";
+
+            // 如果有選城市下拉選單的值,一起呈現
+            if (city != null && city != "")
+            {
+                SQL += " OR sAddr LIKE '%" + city + "%'";
+            }
+
+            // 如果有選活動類型下拉選單的值,一起呈現
+            if (type != null && type != "")
+            {
+                SQL += " OR sType LIKE '%" + type + "%'";
+            }
+
+            return QueryBySQL(SQL);
+        }
+
 
         public int sNumber { get; set; }
 
         [DisplayName("場地名稱")]
         public string sName { get; set; }
 
-        [DisplayName("場地類型")]
+        [DisplayName("活動類型")]
         public string sType { get; set; }
 
         [DisplayName("地址")]

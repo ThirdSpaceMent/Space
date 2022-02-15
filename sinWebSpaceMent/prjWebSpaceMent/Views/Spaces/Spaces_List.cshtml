@@ -20,7 +20,6 @@
                         <span class="joinbutton-a-span"></span>
                         找場地
                     </a>
-                    <div class="subhead mb-5">往下繼續瀏覽場地清單...</div>
                 </div>
             </div>
             <div class="hero-carousel-item">
@@ -35,7 +34,6 @@
                         <span class="joinbutton-a-span"></span>
                         成為場地主
                     </a>
-                    <div class="subhead mb-5">往下繼續瀏覽場地清單...</div>
                 </div>
             </div>
             <div class="hero-carousel-item">
@@ -50,87 +48,81 @@
                         <span class="joinbutton-a-span"></span>
                         常見問題
                     </a>
-                    <div class="subhead mb-5">往下繼續瀏覽場地清單...</div>
                 </div>
             </div>
         </div>
     </div> <!-- .slider-wrapper -->
 </section>
 <main>
-    <div class="section-header p-5">
-        <h2>場地清單</h2>
-    </div>
-    <div class="container">
-        @Html.ActionLink("新增場地", "Spaces_Create", "Spaces", new { area = "" }, new { @class = "btn btn-primary" })
+    @Html.ActionLink("新增場地", "Spaces_Create", "Spaces", new { area = "" }, new { @class = "btn btn-primary" })
 
-        <table class="table">
-            <tr>
-                <th>
-                    序號
-                </th>
-                <th>
-                    @*場地名稱*@
-                    @Html.DisplayNameFor(model => model.sName)
-                </th>
-                <th>
-                    @*場地類型*@
-                    @Html.DisplayNameFor(model => model.sType)
-                </th>
-                <th>
-                    @*地址*@
-                    @Html.DisplayNameFor(model => model.sAddr)
-                </th>
-                <th>
-                    @*聯絡電話*@
-                    @Html.DisplayNameFor(model => model.sPhone)
-                </th>
-                <th>
-                    @*可容納人數*@
-                    @Html.DisplayNameFor(model => model.sCapacity)
-                </th>
-                <th>
-                    @*營業時間*@
-                    @Html.DisplayNameFor(model => model.sOpeningTime)
-                </th>
-            </tr>
+    <table class="table">
+        <tr>
+            <th>
+                序號
+            </th>
+            <th>
+                @*場地名稱*@
+                @Html.DisplayNameFor(model => model.sName)
+            </th>
+            <th>
+                @*場地類型*@
+                @Html.DisplayNameFor(model => model.sType)
+            </th>
+            <th>
+                @*地址*@
+                @Html.DisplayNameFor(model => model.sAddr)
+            </th>
+            <th>
+                @*聯絡電話*@
+                @Html.DisplayNameFor(model => model.sPhone)
+            </th>
+            <th>
+                @*可容納人數*@
+                @Html.DisplayNameFor(model => model.sCapacity)
+            </th>
+            <th>
+                @*營業時間*@
+                @Html.DisplayNameFor(model => model.sOpeningTime)
+            </th>
+        </tr>
 
-            @{
-                int count = 0;
-                foreach (var item in Model)
-                {
-                    count++;
-                    <tr>
-                        <td>
-                            @count
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.sName)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.sType)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.sAddr)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.sPhone)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.sCapacity)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.sOpeningTime)
-                        </td>
+        @{
+            int count = 0;
+            foreach (var item in Model)
+            {
+                count++;
+                <tr>
+                    <td>
+                        @count
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.sName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.sType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.sAddr)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.sPhone)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.sCapacity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.sOpeningTime)
+                    </td>
 
-                        <td>
-                            @Html.ActionLink("修改場地", "Spaces_Edit", new { id = item.sNumber }) |
-                            @Html.ActionLink("刪除場地", "Spaces_Delete", "Spaces", new { id = item.sNumber }, new { onclick = "return confirm('確定要刪除嗎?')" }) |
-                            @Html.ActionLink("詳細資訊", "Spaces_Detail", new { id = item.sNumber })
-                        </td>
-                    </tr>
-                }
+                    <td>
+                        @Html.ActionLink("修改場地", "Spaces_Edit", new { id = item.sNumber }) |
+                        @Html.ActionLink("刪除場地", "Spaces_Delete", "Spaces", new { id = item.sNumber }, new { onclick = "return confirm('確定要刪除嗎?')" }) |
+                        @Html.ActionLink("詳細資訊", "Spaces_Detail", new { id = item.sNumber })
+                    </td>
+                </tr>
             }
-        </table>
-    </div>
+        }
+    </table>
 </main>
 
