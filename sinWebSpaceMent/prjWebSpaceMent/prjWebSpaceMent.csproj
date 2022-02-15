@@ -214,14 +214,12 @@
     <Content Include="img\about-bg.jpg" />
     <Content Include="img\about.jpg" />
     <Content Include="img\apple-touch-icon.png" />
+    <Content Include="img\articles\01.jpg" />
+    <Content Include="img\articles\02.jpg" />
+    <Content Include="img\articles\03.jpg" />
     <Content Include="img\bg_image_1.jpg" />
     <Content Include="img\bg_image_2.jpg" />
     <Content Include="img\bg_image_3.jpg" />
-    <Content Include="img\clients\airbnb.png" />
-    <Content Include="img\clients\google.png" />
-    <Content Include="img\clients\mailchimp.png" />
-    <Content Include="img\clients\paypal.png" />
-    <Content Include="img\clients\stripe.png" />
     <Content Include="img\favicon.jpg" />
     <Content Include="img\gallery\1.jpg" />
     <Content Include="img\gallery\2.jpg" />
@@ -244,19 +242,6 @@
     <Content Include="img\icons\web_development.svg" />
     <Content Include="img\intro-bg.jpg" />
     <Content Include="img\logo.png" />
-    <Content Include="img\person\person_1.jpg" />
-    <Content Include="img\person\person_2.jpg" />
-    <Content Include="img\person\person_3.jpg" />
-    <Content Include="img\person\person_4.jpg" />
-    <Content Include="img\portfolio\work-1.jpg" />
-    <Content Include="img\portfolio\work-2.jpg" />
-    <Content Include="img\portfolio\work-3.jpg" />
-    <Content Include="img\portfolio\work-4.jpg" />
-    <Content Include="img\portfolio\work-5.jpg" />
-    <Content Include="img\portfolio\work-6.jpg" />
-    <Content Include="img\portfolio\work-7.jpg" />
-    <Content Include="img\portfolio\work-8.jpg" />
-    <Content Include="img\portfolio\work-9.jpg" />
     <Content Include="img\spaces\1.jpg" />
     <Content Include="img\spaces\2.jpg" />
     <Content Include="img\spaces\3.jpg" />
@@ -360,6 +345,7 @@
     <Content Include="Views\Spaces\Spaces_Create.cshtml" />
     <Content Include="Views\Spaces\Spaces_Edit.cshtml" />
     <Content Include="Views\Spaces\Spaces_Detail.cshtml" />
+    <Content Include="Views\Spaces\Spaces_Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

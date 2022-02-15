@@ -134,6 +134,7 @@ h6 {
   font-size: 18px;
   font-weight: 500;
   color: #9195a2;
+  font-family: ·L³n¥¿¶ÂÅé;
 }
 
 .section-with-bg {
@@ -145,7 +146,7 @@ h6 {
 --------------------------------------------------------------*/
 
 #header {
-  height: 150px;
+  height: 70px;
   padding: 25px 0;
   position: fixed;
   left: 0;
@@ -274,7 +275,7 @@ h6 {
 
 .nav-menu .menu-active a,
 .nav-menu a:hover {
-  color: #fff;
+    color: rgba(202, 206, 221, 0.8);
 }
 
 .nav-menu > li {
@@ -468,7 +469,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #intro {
   width: 100%;
-  height: 100vh;
+  height: auto;
   background: url(../img/intro-bg.jpg) top center;
   background-size: cover;
   overflow: hidden;
@@ -1375,4 +1376,61 @@ body.mobile-nav-active #mobile-nav-toggle {
   #subspaces button {
     margin-top: 10px;
   }
+}
+
+
+#articles {
+    padding: 60px 0;
+}
+
+#articles .article  {
+    border: 1px solid #e0e5fa;
+    background: #fff;
+    margin-bottom: 30px;
+}
+
+#articles .article:hover .article-img img {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+#articles .article-img {
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+#articles .article-img img {
+    transition: 0.3s ease-in-out;
+}
+
+#articles h3 {
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 5px;
+    padding: 0 20px;
+}
+
+#articles a {
+    color: #152b79;
+}
+
+#articles a:hover {
+    color: #f82249;
+}
+
+#articles .stars {
+    padding: 0 20px;
+    margin-bottom: 5px;
+}
+
+#articles .stars i {
+    color: #ffc31d;
+}
+
+#articles p {
+    padding: 0 20px;
+    margin-bottom: 20px;
+    color: #060c22;
+    font-style: italic;
+    font-size: 15px;
 }

@@ -13,7 +13,7 @@ namespace prjWebSpaceMent.Models
         [DisplayName("場地名稱")]
         public string sName { get; set; }
 
-        [DisplayName("場地類型")]
+        [DisplayName("活動類型")]
         public string sType { get; set; }
 
         [DisplayName("地址")]
