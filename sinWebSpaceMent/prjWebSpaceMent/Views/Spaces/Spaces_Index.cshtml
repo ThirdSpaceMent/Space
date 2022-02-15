@@ -5,135 +5,109 @@
     ViewBag.Title = "Spaces_Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<section id="subspaces">
+    <div class="container wow fadeInUp">
+        <div class="section-header p-5">
+            <h2>成為場地主</h2>
+            <p>好場地，就該讓更多人知道你的好！</p>
+        </div>
 
-<!--Intro Section-->
-<section id="intro">
-    <div class="page-banner home-banner">
-        <div class="slider-wrapper">
-            <div class="owl-carousel hero-carousel">
-                <div class="hero-carousel-item">
-                    <img src="~/img/bg_image_3.jpg" alt="">
-                    <div class="img-caption">
-                        <div class="subhead">讓我們幫您吧，想找哪個場地?</div>
-                        <h1 class="mb-4">開始找尋適合您的場地吧！</h1>
-                        <a href="#spaces" class="joinbutton-a">
-                            <span class="joinbutton-a-span"></span>
-                            <span class="joinbutton-a-span"></span>
-                            <span class="joinbutton-a-span"></span>
-                            <span class="joinbutton-a-span"></span>
-                            找場地
-                        </a>
-                        <div class="subhead mb-5">往下繼續搜尋場地...</div>
-                    </div>
-                </div>
-                <div class="hero-carousel-item">
-                    <img src="~/img/bg_image_1.jpg" alt="">
-                    <div class="img-caption">
-                        <div class="subhead">輕鬆刊登場地，曝光永不間斷</div>
-                        <h1 class="mb-4">好場地，就該讓更多人知道！</h1>
-                        <a href="#subspaces" class="joinbutton-a">
-                            <span class="joinbutton-a-span"></span>
-                            <span class="joinbutton-a-span"></span>
-                            <span class="joinbutton-a-span"></span>
-                            <span class="joinbutton-a-span"></span>
-                            成為場地主
-                        </a>
-                        <div class="subhead mb-5">往下繼續搜尋場地...</div>
-                    </div>
-                </div>
-                <div class="hero-carousel-item">
-                    <img src="~/img/bg_image_2.jpg" alt="">
-                    <div class="img-caption">
-                        <div class="subhead">Hi！需要什麼協助嗎？</div>
-                        <h1 class="mb-4">有什麼問題嗎？您來對地方了</h1>
-                        <a href="#faq" class="joinbutton-a">
-                            <span class="joinbutton-a-span"></span>
-                            <span class="joinbutton-a-span"></span>
-                            <span class="joinbutton-a-span"></span>
-                            <span class="joinbutton-a-span"></span>
-                            常見問題
-                        </a>
-                        <div class="subhead mb-5">往下繼續搜尋場地...</div>
-                    </div>
+        <form method="POST" action="#">
+            <div class="form-row justify-content-center">
+                <div class="col-auto">
+                    <a href="https://localhost:44386/Home/Index/#subspaces" class="joinbutton-a">
+                        <span class="joinbutton-a-span"></span>
+                        <span class="joinbutton-a-span"></span>
+                        <span class="joinbutton-a-span"></span>
+                        <span class="joinbutton-a-span"></span>
+                        Join Now!
+                    </a>
                 </div>
             </div>
-        </div> <!-- .slider-wrapper -->
+        </form>
+
     </div>
 </section>
 
 <main>
     @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "searchform" }))
     {
-        <h1>搜尋場地</h1>
+        <div class="container">
+        <div class="section-header p-5">
+            <h2>搜尋場地</h2>
+            <p>來找找適合您的場地吧！</p>
+        </div>
 
         <!--用 縣市 下拉選單篩選場地-->
-        <div>
-            <fieldset>
-                <legend>縣市</legend>
-                <select name="city" onChange="search_city()">
-                    <option disabled value="" selected>請選擇縣市</option>
-                    <option>基隆市</option>
-                    <option>臺北市</option>
-                    <option>新北市</option>
-                    <option>桃園市</option>
-                    <option>新竹市</option>
-                    <option>新竹縣</option>
-                    <option>苗栗縣</option>
-                    <option>臺中市</option>
-                    <option>彰化縣</option>
-                    <option>南投縣</option>
-                    <option>雲林縣</option>
-                    <option>嘉義市</option>
-                    <option>嘉義縣</option>
-                    <option>臺南市</option>
-                    <option>高雄市</option>
-                    <option>屏東縣</option>
-                    <option>臺東縣</option>
-                    <option>花蓮縣</option>
-                    <option>宜蘭縣</option>
-                    <option>澎湖縣</option>
-                    <option>金門縣</option>
-                    <option>連江縣</option>
-                </select>
-            </fieldset>
-        </div>
-        <hr />
-        <!--用 活動類型 下拉選單篩選場地-->
-        <div>
-            <fieldset>
-                <legend>活動類型</legend>
-                <select name="type" onChange="search_type()">
-                    <option disabled value="" selected>請選擇活動類型</option>
-                    <option>會議/商務中心</option>
-                    <option>派對/聚餐</option>
-                    <option>尾牙/春酒</option>
-                    <option>課程講座/教育訓練</option>
-                    <option>運動場地</option>
-                    <option>多功能共享空間</option>
-                    <option>藝文展覽/表演場地</option>
-                    <option>婚禮/婚宴</option>
-                    <option>拍照/攝影</option>
-                    <option>宴會/晚會</option>
-                    <option>烹飪活動</option>
-                    <option>戶外活動</option>
-                    <option>地區活動中心</option>
-                    <option>其他</option>
-                </select>
-            </fieldset>
-        </div>
-        <hr />
-        <div>
-            <span>關鍵字</span><br />
-            @Html.TextBox("txtKeyword")
-        </div>
-        <hr />
-        <div>
-            <input type="submit" value="查詢" />
+        <div class="flex-column">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <fieldset>
+                        <legend>縣市</legend>
+                        <select name="city" onChange="search_city()">
+                            <option disabled value="" selected>請選擇縣市</option>
+                            <option>基隆市</option>
+                            <option>臺北市</option>
+                            <option>新北市</option>
+                            <option>桃園市</option>
+                            <option>新竹市</option>
+                            <option>新竹縣</option>
+                            <option>苗栗縣</option>
+                            <option>臺中市</option>
+                            <option>彰化縣</option>
+                            <option>南投縣</option>
+                            <option>雲林縣</option>
+                            <option>嘉義市</option>
+                            <option>嘉義縣</option>
+                            <option>臺南市</option>
+                            <option>高雄市</option>
+                            <option>屏東縣</option>
+                            <option>臺東縣</option>
+                            <option>花蓮縣</option>
+                            <option>宜蘭縣</option>
+                            <option>澎湖縣</option>
+                            <option>金門縣</option>
+                            <option>連江縣</option>
+                        </select>
+                    </fieldset>
+                </div>
+                <!--用 活動類型 下拉選單篩選場地-->
+
+                <div class="col-lg-4 col-md-6">
+                    <fieldset>
+                        <legend>活動類型</legend>
+                        <select name="type" onChange="search_type()">
+                            <option disabled value="" selected>請選擇活動類型</option>
+                            <option>會議/商務中心</option>
+                            <option>派對/聚餐</option>
+                            <option>尾牙/春酒</option>
+                            <option>課程講座/教育訓練</option>
+                            <option>運動場地</option>
+                            <option>多功能共享空間</option>
+                            <option>藝文展覽/表演場地</option>
+                            <option>婚禮/婚宴</option>
+                            <option>拍照/攝影</option>
+                            <option>宴會/晚會</option>
+                            <option>烹飪活動</option>
+                            <option>戶外活動</option>
+                            <option>地區活動中心</option>
+                            <option>其他</option>
+                        </select>
+                    </fieldset>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <span>關鍵字</span><br />
+                    @Html.TextBox("txtKeyword")
+                </div>
+            </div>
+            <hr />
+            <div>
+                <input type="submit" value="查詢" />
+            </div>
         </div>
 
         <!--顯示有哪些場地-->
         <hr />
-        <div>
             <table class="table">
                 <tr>
                     <th>序號</th>
@@ -161,7 +135,7 @@
                         </tr>
                     }
                 }
-            </table>
+            </table>       
         </div>
     }
 </main>
