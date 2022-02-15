@@ -161,19 +161,19 @@ namespace prjWebSpaceMent.Models
         }
 
         internal List<ClassSpaces> QueryAll(string city, string type)
-        {   
+        {
             // 查詢 列出所有
 
             string SQL = "SELECT * FROM Spaces WHERE 1=1 ";
 
             // 如果city有值,加上此判斷
-            if (city != null && city != "")  
+            if (city != null && city != "")
             {
                 SQL += " AND sAddr LIKE '%" + city + "%'";
             }
 
             // 如果type有值,加上此判斷
-            if (type != null && type != "")  
+            if (type != null && type != "")
             {
                 SQL += " AND sType LIKE '%" + type + "%'";
             }

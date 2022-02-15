@@ -24,7 +24,7 @@ namespace prjWebSpaceMent.Controllers
 
             if (string.IsNullOrEmpty(keyword)) //如果搜尋框是空
             {
-                datas = (new Spaces()).QueryAll(city,type); // 列出所有
+                datas = (new Spaces()).QueryAll(city, type); // 列出所有
             }
             else
             {
