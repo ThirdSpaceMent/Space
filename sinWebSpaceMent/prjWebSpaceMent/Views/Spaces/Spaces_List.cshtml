@@ -32,6 +32,10 @@
 
 <main>
     <div class="container">
+        <div class="section-header p-3">
+            <h2>出租場地清單</h2>
+            <p>您可以在這裡編輯場地資訊！</p>
+        </div>
         <table class="table">
             <tr>
                 <th>
@@ -91,10 +95,10 @@
                             @Html.DisplayFor(modelItem => item.sOpeningTime)
                         </td>
 
-                        <td>
-                            @Html.ActionLink("修改場地", "Spaces_Edit", new { id = item.sNumber }) |
-                            @Html.ActionLink("刪除場地", "Spaces_Delete", "Spaces", new { id = item.sNumber }, new { onclick = "return confirm('確定要刪除嗎?')" }) |
-                            @Html.ActionLink("詳細資訊", "Spaces_Detail", new { id = item.sNumber })
+                        <td class="List">
+                            @Html.ActionLink("修改場地", "Spaces_Edit", new { id = item.sNumber }, new { @class = "a-primary" }) |
+                            @Html.ActionLink("刪除場地", "Spaces_Delete", "Spaces", new { id = item.sNumber }, new { onclick = "return confirm('確定要刪除嗎?')", @class = "a-danger" }) |
+                            @Html.ActionLink("詳細資訊", "Spaces_Detail", new { id = item.sNumber }, new { @class = "a-success" })
                         </td>
                     </tr>
                 }

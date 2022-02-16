@@ -16,14 +16,14 @@ body {
 }
 
 a {
-  color: #f82249;
+  color: #fff;
   transition: 0.5s;
 }
 
 a:hover,
 a:active,
 a:focus {
-  color: #f8234a;
+  color: #fff;
   outline: none;
   text-decoration: none;
 }
@@ -1433,4 +1433,109 @@ body.mobile-nav-active #mobile-nav-toggle {
     color: #060c22;
     font-style: italic;
     font-size: 15px;
+}
+
+.List a-primary {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.a-primary:hover {
+  color: #fff;
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+.a-primary:focus, .a-primary.focus {
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+}
+
+.a-primary.disabled, .a-primary:disabled {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.a-primary:not(:disabled):not(.disabled):active, .a-primary:not(:disabled):not(.disabled).active,
+.show > .a-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #0062cc;
+  border-color: #005cbf;
+}
+
+.a-primary:not(:disabled):not(.disabled):active:focus, .a-primary:not(:disabled):not(.disabled).active:focus,
+.show > .a-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+}
+
+.List a{
+    color:#060c22;
+    font-family:'Adobe Arabic';
+    font-weight:500;
+    font-size:16px;
+}
+
+.List a-success {
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745
+}
+
+.a-success:hover {
+    color: #fff;
+    background-color: #218838;
+    border-color: #1e7e34
+}
+
+.a-success.focus, .a-success:focus {
+    box-shadow: 0 0 0 .2rem rgba(40,167,69,.5)
+}
+
+.a-success.disabled, .a-success:disabled {
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745
+}
+
+.a-success:not(:disabled):not(.disabled).active, .a-success:not(:disabled):not(.disabled):active, .show > .a-success.dropdown-toggle {
+    color: #fff;
+    background-color: #1e7e34;
+    border-color: #1c7430
+}
+
+.a-success:not(:disabled):not(.disabled).active:focus, .a-success:not(:disabled):not(.disabled):active:focus, .show > .a-success.dropdown-toggle:focus {
+    box-shadow: 0 0 0 .2rem rgba(40,167,69,.5)
+}
+
+.List a-danger {
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545
+}
+
+.a-danger:hover {
+    color: #fff;
+    background-color: #c82333;
+    border-color: #bd2130
+}
+
+.a-danger.focus, .a-danger:focus {
+    box-shadow: 0 0 0 .2rem rgba(220,53,69,.5)
+}
+
+.a-danger.disabled, .a-danger:disabled {
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545
+}
+
+.a-danger:not(:disabled):not(.disabled).active, .a-danger:not(:disabled):not(.disabled):active, .show > .a-danger.dropdown-toggle {
+    color: #fff;
+    background-color: #bd2130;
+    border-color: #b21f2d
+}
+
+.a-danger:not(:disabled):not(.disabled).active:focus, .a-danger:not(:disabled):not(.disabled):active:focus, .show > .a-danger.dropdown-toggle:focus {
+    box-shadow: 0 0 0 .2rem rgba(220,53,69,.5)
 }
