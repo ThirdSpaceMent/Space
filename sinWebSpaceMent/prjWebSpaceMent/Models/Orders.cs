@@ -51,6 +51,7 @@ namespace prjWebSpaceMent.Models
         public string oAccount { get; set; }
         public Nullable<int> oQty { get; set; }
         public Nullable<int> oPrice { get; set; }
+        public string oTimeRange { get; set; }
     
         public virtual Activities Activities { get; set; }
         public virtual Members Members { get; set; }

@@ -268,7 +268,7 @@ namespace prjWebSpaceMent.Models
         public string oAccount { get; set; }
         public Nullable<int> oPrice { get; set; }
         public string sTimeRange { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Activities> Activities { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

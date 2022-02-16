@@ -93,6 +93,7 @@
     <Property Name="oAccount" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="oQty" Type="Int32" />
     <Property Name="oPrice" Type="Int32" />
+    <Property Name="oTimeRange" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Owners">
     <Key>

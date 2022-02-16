@@ -78,6 +78,7 @@
           <Property Name="oAccount" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="oQty" Type="int" />
           <Property Name="oPrice" Type="int" />
+          <Property Name="oTimeRange" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Owners">
           <Key>
@@ -536,6 +537,7 @@
           <Property Name="oAccount" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="oQty" Type="Int32" />
           <Property Name="oPrice" Type="Int32" />
+          <Property Name="oTimeRange" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Owners">
           <Key>
@@ -976,6 +978,7 @@
           <EntitySetMapping Name="Orders">
             <EntityTypeMapping TypeName="dbSpaceMentModel.Orders">
               <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="oTimeRange" ColumnName="oTimeRange" />
                 <ScalarProperty Name="oPrice" ColumnName="oPrice" />
                 <ScalarProperty Name="oQty" ColumnName="oQty" />
                 <ScalarProperty Name="oAccount" ColumnName="oAccount" />
