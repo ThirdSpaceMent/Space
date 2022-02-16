@@ -124,15 +124,16 @@
                     foreach (ClassSpaces sp in Model)
                     {
                         count++;
-                        <tr>
-                            <td>@count</td>
-                            <td>@sp.sName</td>
-                            <td>@sp.sType</td>
-                            <td>@sp.sAddr</td>
-                            <td>@sp.sPhone</td>
-                            <td>@sp.sCapacity</td>
-                            <td>@sp.sOpeningTime</td>
-                        </tr>
+                                <tr>
+                                    <td>@count</td>
+                                    <td>@sp.sName</td>
+                                    <td>@sp.sType</td>
+                                    <td>@sp.sAddr</td>
+                                    <td>@sp.sPhone</td>
+                                    <td>@sp.sCapacity</td>
+                                    <td>@sp.sOpeningTime</td>
+                                    <td>@Html.ActionLink("詳細資訊", "Spaces_Detail", new { id = sp.sNumber })</td>
+                                </tr>
                     }
                 }
             </table>       
