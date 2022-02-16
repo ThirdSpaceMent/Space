@@ -49,7 +49,9 @@ namespace prjWebSpaceMent.Models
         public Nullable<int> FK_Order_to_Activity { get; set; }
         [DisplayName("會員帳號")]
         public string oAccount { get; set; }
-
+        public Nullable<int> oQty { get; set; }
+        public Nullable<int> oPrice { get; set; }
+    
         public virtual Activities Activities { get; set; }
         public virtual Members Members { get; set; }
         public virtual Members Members1 { get; set; }

@@ -35,7 +35,7 @@ namespace prjWebSpaceMent.Models
         [DisplayName("帳號")]
         public string mAccount { get; set; }
         [Required]
-        [MinLength(6,ErrorMessage ="請輸入至少6位數密碼")]
+        [MinLength(6, ErrorMessage = "請輸入至少6位數密碼")]
         [DataType(DataType.Password)]
         [DisplayName("密碼")]
         public string mPassword { get; set; }
@@ -65,7 +65,7 @@ namespace prjWebSpaceMent.Models
         public System.DateTime mCreated_at { get; set; }
         [DisplayName("更新時間")]
         public System.DateTime mUpdated_at { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Activities> Activities { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

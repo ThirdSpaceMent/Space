@@ -76,6 +76,8 @@
           <Property Name="FK_Order_to_Space" Type="int" />
           <Property Name="FK_Order_to_Activity" Type="int" />
           <Property Name="oAccount" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="oQty" Type="int" />
+          <Property Name="oPrice" Type="int" />
         </EntityType>
         <EntityType Name="Owners">
           <Key>
@@ -132,6 +134,9 @@
           <Property Name="sCreated_at" Type="datetime" Nullable="false" />
           <Property Name="sUpdated_at" Type="datetime" Nullable="false" />
           <Property Name="FK_Space_to_Owner" Type="int" />
+          <Property Name="oAccount" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="oPrice" Type="int" />
+          <Property Name="sTimeRange" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="SubSpaces">
           <Key>
@@ -529,6 +534,8 @@
           <NavigationProperty Name="Spaces" Relationship="Self.FK__Orders__FK_Order__2BFE89A6" FromRole="Orders" ToRole="Spaces" />
           <NavigationProperty Name="Rates" Relationship="Self.FK__Rates__FK_Rate_t__3493CFA7" FromRole="Orders" ToRole="Rates" />
           <Property Name="oAccount" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="oQty" Type="Int32" />
+          <Property Name="oPrice" Type="Int32" />
         </EntityType>
         <EntityType Name="Owners">
           <Key>
@@ -598,6 +605,9 @@
           <NavigationProperty Name="Photos" Relationship="Self.FK__Photos__FK_Photo__3C34F16F" FromRole="Spaces" ToRole="Photos" />
           <NavigationProperty Name="Rates" Relationship="Self.FK__Rates__FK_Rate_t__339FAB6E" FromRole="Spaces" ToRole="Rates" />
           <NavigationProperty Name="SubSpaces" Relationship="Self.FK__SubSpaces__FK_Su__0B91BA14" FromRole="Spaces" ToRole="SubSpaces" />
+          <Property Name="oAccount" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="oPrice" Type="Int32" />
+          <Property Name="sTimeRange" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="SubSpaces">
           <Key>
@@ -966,6 +976,8 @@
           <EntitySetMapping Name="Orders">
             <EntityTypeMapping TypeName="dbSpaceMentModel.Orders">
               <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="oPrice" ColumnName="oPrice" />
+                <ScalarProperty Name="oQty" ColumnName="oQty" />
                 <ScalarProperty Name="oAccount" ColumnName="oAccount" />
                 <ScalarProperty Name="oNumber" ColumnName="oNumber" />
                 <ScalarProperty Name="oStatus" ColumnName="oStatus" />
@@ -1022,6 +1034,9 @@
           <EntitySetMapping Name="Spaces">
             <EntityTypeMapping TypeName="dbSpaceMentModel.Spaces">
               <MappingFragment StoreEntitySet="Spaces">
+                <ScalarProperty Name="sTimeRange" ColumnName="sTimeRange" />
+                <ScalarProperty Name="oPrice" ColumnName="oPrice" />
+                <ScalarProperty Name="oAccount" ColumnName="oAccount" />
                 <ScalarProperty Name="sNumber" ColumnName="sNumber" />
                 <ScalarProperty Name="sName" ColumnName="sName" />
                 <ScalarProperty Name="sType" ColumnName="sType" />

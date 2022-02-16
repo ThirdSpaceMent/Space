@@ -288,12 +288,13 @@
                 <div class="section-header">
                     <h2>成為場地主</h2>
                     <p>好場地，就該讓更多人知道你的好！</p>
+                    <p>立即註冊加入會員上架您的場地吧！</p>
                 </div>
 
                 <form method="POST" action="#">
                     <div class="form-row justify-content-center">
                         <div class="col-auto">
-                            <a href="#" class="joinbutton-a">
+                            <a href="https://localhost:44386/Home/Register" class="joinbutton-a">
                                 <span class="joinbutton-a-span"></span>
                                 <span class="joinbutton-a-span"></span>
                                 <span class="joinbutton-a-span"></span>
@@ -530,19 +531,20 @@
                     <p>請依您的使用身分別點選開始登入！</p>
                 </div>
 
-                <div class="row">
-                    <div class="col-lg-4">
+                <div class="row justify-content-center">
+                    <div class="col-lg-5">
                         <div class="card mb-5 mb-lg-0">
                             <div class="card-body">
-                                <h5 class="card-title text-muted text-uppercase text-center">我是來找場地的...</h5>
+                                <h5 class="card-title text-muted text-uppercase text-center">我是來租用/出租場地的...</h5>
                                 <h6 class="card-price text-center">一般會員</h6>
                                 <hr>
                                 <ul class="fa-ul">
                                     <li><span class="fa-li"><i class="fa fa-check"></i></span>搜尋場地/下訂單</li>
                                     <li><span class="fa-li"><i class="fa fa-check"></i></span>個人資料編輯</li>
-                                    <li><span class="fa-li"><i class="fa fa-check"></i></span>評論/評分</li>
-                                    <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>上架場地出租</li>
-                                    <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>編輯場地資訊</li>
+                                    <li><span class="fa-li"><i class="fa fa-check"></i></span>上架場地出租</li>
+                                    <li><span class="fa-li"><i class="fa fa-check"></i></span>編輯場地資訊</li>
+                                    <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>網頁後台管理</li>
+
                                 </ul>
                                 <hr>
                                 <div class="loginbtn">
@@ -551,39 +553,19 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="card mb-5 mb-lg-0">
-                            <div class="card-body">
-                                <h5 class="card-title text-muted text-uppercase text-center">我來出租我的場地...</h5>
-                                <h6 class="card-price text-center">場地主</h6>
-                                <hr>
-                                <ul class="fa-ul">
-                                    <li><span class="fa-li"><i class="fa fa-check"></i></span>上架場地出租</li>
-                                    <li><span class="fa-li"><i class="fa fa-check"></i></span>場地資料修改</li>
-                                    <li><span class="fa-li"><i class="fa fa-check"></i></span>審核訂單</li>
-                                    <li><span class="fa-li"><i class="fa fa-check"></i></span>回應評論</li>
-                                    <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>搜尋其他場地/下訂單</li>
-                                </ul>
-                                <hr>
-                                <div class="loginbtn">
-                                    <div class="btnLB"><a href="/Home/Login">登入</a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Pro Tier -->
-                    <div class="col-lg-4">
+                    
+                    <div class="col-lg-5">
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title text-muted text-uppercase text-center">這網站是我在管的...</h5>
                                 <h6 class="card-price text-center">管理者</h6>
                                 <hr>
                                 <ul class="fa-ul">
-                                    <li><span class="fa-li"><i class="fa fa-check"></i></span>審核場地主申請</li>
-                                    <li><span class="fa-li"><i class="fa fa-check"></i></span>所有場地資料維護</li>
+                                    <li><span class="fa-li"><i class="fa fa-check"></i></span>場地管理</li>
                                     <li><span class="fa-li"><i class="fa fa-check"></i></span>會員管理</li>
-                                    <li><span class="fa-li"><i class="fa fa-check"></i></span>網頁管理</li>
-                                    <li><span class="fa-li"><i class="fa fa-check"></i></span>評分/評論管理</li>
+                                    <li><span class="fa-li"><i class="fa fa-check"></i></span>場地主管理</li>
+                                    <li><span class="fa-li"><i class="fa fa-check"></i></span>網頁維護</li>
+                                    <li><span class="fa-li"><i class="fa fa-check"></i></span>只限員工使用</li>
                                 </ul>
                                 <hr>
                                 <div class="loginbtn">
@@ -596,42 +578,5 @@
                 </div>
 
             </div>
-
-            <!-- Modal Order Form -->
-            <!--<div id="login-modal" class="modal fade">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title">Buy Tickets</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <form method="POST" action="#">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" name="your-name" placeholder="Your Name">
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" name="your-email" placeholder="Your Email">
-                                </div>
-                                <div class="form-group">
-                                    <select id="ticket-type" name="ticket-type" class="form-control">
-                                        <option value="">-- Select Your Ticket Type --</option>
-                                        <option value="standard-access">Standard Access</option>
-                                        <option value="pro-access">Pro Access</option>
-                                        <option value="premium-access">Premium Access</option>
-                                    </select>
-                                </div>
-                                <div class="text-center">
-                                    <button type="submit" class="btn">Buy Now</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>-->
-            <!-- /.modal-content -->
-            <!--</div>--><!-- /.modal-dialog -->
-            <!--</div>--><!-- /.modal -->
-
         </section>
     </main>
