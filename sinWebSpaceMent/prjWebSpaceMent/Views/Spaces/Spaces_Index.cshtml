@@ -116,13 +116,13 @@
                                 <img src="~/img/spaces/1.jpg" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">@sp.sName</h5>
-                                    <p class="card-text border-top m-0">@sp.sType 2
+                                    <span class="badge rounded-pill bg-success border-top m-0" style="color:#ffffff;font-size:16px">@sp.sType Success</span>
                                     <p class="card-text border-top m-0">@sp.sAddr</p>
                                     <p class="card-text border-top m-0">@sp.sCapacity</p>
                                     <p class="card-text border-top border-bottom m-0">@sp.sOpeningTime</p>
-</div>
+                                </div>
                                 <div class="card-body text-center">
-                                <button class="btn btn-outline-danger text-center">
+                                <button class="btn btn-secondary text-center">
                                     @Html.ActionLink("詳細資訊", "Spaces_Detail", new { id = sp.sNumber })
                                 </button>
                                 </div>

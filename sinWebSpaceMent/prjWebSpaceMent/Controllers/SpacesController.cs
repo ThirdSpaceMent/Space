@@ -103,6 +103,19 @@ namespace prjWebSpaceMent.Controllers
 
         public ActionResult Spaces_Detail(int? id)
         {
+            //客戶端場地資訊
+            // 各場地資訊
+            if (id == null)
+            {
+                return RedirectToAction("Spaces_Index");
+            }
+            ClassSpaces x = (new Spaces()).QueryByfid((int)id);
+            return View(x);
+        }
+
+        public ActionResult Spaces_List_Detail(int? id)
+        {
+            //場地主端場地資訊
             // 各場地資訊
             if (id == null)
             {
