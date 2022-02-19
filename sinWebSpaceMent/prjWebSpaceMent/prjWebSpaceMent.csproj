@@ -137,10 +137,11 @@
     <Compile Include="Models\Activities.cs">
       <DependentUpon>dbSpaceMentModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ClassMember.cs" />
+    <Compile Include="Models\ClassSpaces.cs" />
     <Compile Include="Models\Comments.cs">
       <DependentUpon>dbSpaceMentModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\CSpacesFactory.cs" />
     <Compile Include="Models\dbSpaceMentModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -189,6 +190,8 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap\css\bootstrap.css" />
     <Content Include="Content\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\JoinButton.css" />
+    <Content Include="Content\Logininbutton.css" />
     <Content Include="Content\maicons.css" />
     <Content Include="Content\owl-carousel\css\owl.carousel.css" />
     <Content Include="Content\owl-carousel\css\owl.carousel.min.css" />
@@ -212,14 +215,12 @@
     <Content Include="img\about-bg.jpg" />
     <Content Include="img\about.jpg" />
     <Content Include="img\apple-touch-icon.png" />
+    <Content Include="img\articles\01.jpg" />
+    <Content Include="img\articles\02.jpg" />
+    <Content Include="img\articles\03.jpg" />
     <Content Include="img\bg_image_1.jpg" />
     <Content Include="img\bg_image_2.jpg" />
     <Content Include="img\bg_image_3.jpg" />
-    <Content Include="img\clients\airbnb.png" />
-    <Content Include="img\clients\google.png" />
-    <Content Include="img\clients\mailchimp.png" />
-    <Content Include="img\clients\paypal.png" />
-    <Content Include="img\clients\stripe.png" />
     <Content Include="img\favicon.jpg" />
     <Content Include="img\gallery\1.jpg" />
     <Content Include="img\gallery\2.jpg" />
@@ -242,19 +243,6 @@
     <Content Include="img\icons\web_development.svg" />
     <Content Include="img\intro-bg.jpg" />
     <Content Include="img\logo.png" />
-    <Content Include="img\person\person_1.jpg" />
-    <Content Include="img\person\person_2.jpg" />
-    <Content Include="img\person\person_3.jpg" />
-    <Content Include="img\person\person_4.jpg" />
-    <Content Include="img\portfolio\work-1.jpg" />
-    <Content Include="img\portfolio\work-2.jpg" />
-    <Content Include="img\portfolio\work-3.jpg" />
-    <Content Include="img\portfolio\work-4.jpg" />
-    <Content Include="img\portfolio\work-5.jpg" />
-    <Content Include="img\portfolio\work-6.jpg" />
-    <Content Include="img\portfolio\work-7.jpg" />
-    <Content Include="img\portfolio\work-8.jpg" />
-    <Content Include="img\portfolio\work-9.jpg" />
     <Content Include="img\spaces\1.jpg" />
     <Content Include="img\spaces\2.jpg" />
     <Content Include="img\spaces\3.jpg" />
@@ -271,17 +259,6 @@
     <Content Include="img\supporters\6.png" />
     <Content Include="img\supporters\7.png" />
     <Content Include="img\supporters\8.png" />
-    <Content Include="img\teams\team_1.jpg" />
-    <Content Include="img\teams\team_2.jpg" />
-    <Content Include="img\teams\team_3.jpg" />
-    <Content Include="img\venue-gallery\1.jpg" />
-    <Content Include="img\venue-gallery\2.jpg" />
-    <Content Include="img\venue-gallery\3.jpg" />
-    <Content Include="img\venue-gallery\4.jpg" />
-    <Content Include="img\venue-gallery\5.jpg" />
-    <Content Include="img\venue-gallery\6.jpg" />
-    <Content Include="img\venue-gallery\7.jpg" />
-    <Content Include="img\venue-gallery\8.jpg" />
     <Content Include="img\venue-info-bg.jpg" />
     <Content Include="fonts\maicons.eot" />
     <Content Include="fonts\maicons.ttf" />
@@ -366,6 +343,13 @@
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />
     <Content Include="Views\Member\ShoppingCar.cshtml" />
+    <Content Include="Views\Spaces\Spaces_Create.cshtml" />
+    <Content Include="Views\Spaces\Spaces_Edit.cshtml" />
+    <Content Include="Views\Spaces\Spaces_Detail.cshtml" />
+    <Content Include="Views\Spaces\Spaces_Index.cshtml" />
+    <Content Include="Views\Member\Index.cshtml" />
+    <Content Include="Views\Spaces\Spaces_List_Detail.cshtml" />
+    <Content Include="Views\Member\Member_Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

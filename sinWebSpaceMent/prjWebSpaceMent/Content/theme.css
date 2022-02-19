@@ -37,6 +37,38 @@
 }
 
 /*½ü¼½Àð*/
+.page-banner {
+    position: relative;
+    height: 100vh;
+    background-color: #6D728B;
+}
+
+    .page-banner .container {
+        position: relative;
+        z-index: 10;
+    }
+
+    .page-banner.home-banner {
+        height: auto;
+    }
+
+    .page-banner.overlay-dark::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: auto;
+        height: auto;
+        background: rgba(109, 114, 139, 0.75);
+        z-index: 1;
+    }
+
+@media (min-width: 768px) {
+    .page-banner.home-banner {
+        height: auto;
+        max-height: unset;
+    }
+}
 .slider-wrapper {
   position: relative;
   height: 100%;
@@ -111,10 +143,9 @@
   right: 0;
   bottom: 0;
   margin: auto;
-  padding: 0 16px;
   width: auto;
   max-width: 900px;
-  height: 100%;
+  height: auto;
   text-align: center;
   color: #fff;
   margin-top: 10%;

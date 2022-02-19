@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="f90d32dc8a574ec3ac573d0b25aa9828" Name="Diagram1">
+      <Diagram DiagramId="f90d32dc8a574ec3ac573d0b25aa9828" Name="Diagram1" ZoomLevel="126">
         <EntityTypeShape EntityType="dbSpaceMentModel.Activities" Width="1.5" PointX="5.25" PointY="17.875" IsExpanded="true" />
         <EntityTypeShape EntityType="dbSpaceMentModel.Comments" Width="1.5" PointX="3" PointY="11.75" IsExpanded="true" />
         <EntityTypeShape EntityType="dbSpaceMentModel.Favorites" Width="1.5" PointX="8.25" PointY="18.625" IsExpanded="true" />
@@ -13,7 +13,7 @@
         <EntityTypeShape EntityType="dbSpaceMentModel.Owners" Width="1.5" PointX="3" PointY="17.25" IsExpanded="true" />
         <EntityTypeShape EntityType="dbSpaceMentModel.Photos" Width="1.5" PointX="8.25" PointY="15.375" IsExpanded="true" />
         <EntityTypeShape EntityType="dbSpaceMentModel.Rates" Width="1.5" PointX="12.75" PointY="18.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbSpaceMentModel.Spaces" Width="1.5" PointX="3" PointY="23.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbSpaceMentModel.Spaces" Width="1.5" PointX="3" PointY="22.625" IsExpanded="true" />
         <EntityTypeShape EntityType="dbSpaceMentModel.SubSpaces" Width="1.5" PointX="5.25" PointY="24.875" IsExpanded="true" />
         <AssociationConnector Association="dbSpaceMentModel.FK__Activitie__FK_Ac__1DB06A4F" ManuallyRouted="false" />
         <AssociationConnector Association="dbSpaceMentModel.FK__Activitie__FK_Ac__1EA48E88" ManuallyRouted="false" />

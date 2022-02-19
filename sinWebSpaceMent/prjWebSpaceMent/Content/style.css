@@ -16,14 +16,14 @@ body {
 }
 
 a {
-  color: #f82249;
+  color: #fff;
   transition: 0.5s;
 }
 
 a:hover,
 a:active,
 a:focus {
-  color: #f8234a;
+  color: #fff;
   outline: none;
   text-decoration: none;
 }
@@ -134,6 +134,7 @@ h6 {
   font-size: 18px;
   font-weight: 500;
   color: #9195a2;
+  font-family: ·L³n¥¿¶ÂÅé;
 }
 
 .section-with-bg {
@@ -145,7 +146,7 @@ h6 {
 --------------------------------------------------------------*/
 
 #header {
-  height: 150px;
+  height: 70px;
   padding: 25px 0;
   position: fixed;
   left: 0;
@@ -265,7 +266,7 @@ h6 {
   padding: 8px;
   text-decoration: none;
   display: inline-block;
-  color: rgba(202, 206, 221, 0.8);
+  color: #fff;
   font-family: "Raleway", sans-serif;
   font-weight: 600;
   font-size: 14px;
@@ -274,7 +275,7 @@ h6 {
 
 .nav-menu .menu-active a,
 .nav-menu a:hover {
-  color: #fff;
+    color: #fff;
 }
 
 .nav-menu > li {
@@ -468,7 +469,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #intro {
   width: 100%;
-  height: 100vh;
+  height: auto;
   background: url(../img/intro-bg.jpg) top center;
   background-size: cover;
   overflow: hidden;
@@ -1104,6 +1105,52 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 /*--------------------------------------------------------------
+# Gallery Section
+--------------------------------------------------------------*/
+
+#gallery {
+    padding: 60px;
+    overflow: hidden;
+}
+
+    #gallery .owl-nav,
+    #gallery .owl-dots {
+        margin-top: 25px;
+        text-align: center;
+    }
+
+    #gallery .owl-item {
+        border-left: 2px solid #fff;
+        border-right: 2px solid #fff;
+    }
+
+    #gallery .owl-dot {
+        display: inline-block;
+        margin: 0 5px;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: #ddd;
+    }
+
+        #gallery .owl-dot.active {
+            background-color: #f82249;
+        }
+
+    #gallery .gallery-carousel .owl-stage-outer {
+        overflow: visible;
+    }
+
+    #gallery .gallery-carousel .center {
+        border: 6px solid #f82249;
+        margin: -10px;
+        box-sizing: content-box;
+        padding: 4px;
+        background: #fff;
+        z-index: 1;
+    }
+
+/*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
 
@@ -1217,31 +1264,6 @@ body.mobile-nav-active #mobile-nav-toggle {
   line-height: 26px;
 }
 
-#footer .footer-top .footer-newsletter {
-  margin-bottom: 30px;
-}
-
-#footer .footer-top .footer-newsletter input[type="email"] {
-  border: 0;
-  padding: 6px 8px;
-  width: 65%;
-}
-
-#footer .footer-top .footer-newsletter input[type="submit"] {
-  background: #f82249;
-  border: 0;
-  width: 35%;
-  padding: 6px 0;
-  text-align: center;
-  color: #fff;
-  transition: 0.3s;
-  cursor: pointer;
-}
-
-#footer .footer-top .footer-newsletter input[type="submit"]:hover {
-  background: #e0072f;
-}
-
 #footer .copyright {
   text-align: center;
   padding-top: 30px;
@@ -1334,9 +1356,6 @@ body.mobile-nav-active #mobile-nav-toggle {
     font-size: 16px;
   }
 
-  #schedule .nav-tabs a {
-    padding: 8px 60px;
-  }
 }
 
 @media (max-width: 768px) {
@@ -1353,26 +1372,170 @@ body.mobile-nav-active #mobile-nav-toggle {
   }
 }
 
-@media (max-width: 767px) {
-  #schedule .nav-tabs a {
-    padding: 8px 50px;
-  }
-}
-
-@media (max-width: 574px) {
-  #venue .venue-info h3 {
-    font-size: 24px;
-  }
-}
-
-@media (max-width: 480px) {
-  #schedule .nav-tabs a {
-    padding: 8px 30px;
-  }
-}
-
 @media (max-width: 460px) {
   #subspaces button {
     margin-top: 10px;
   }
+}
+
+
+#articles {
+    padding: 60px 0;
+}
+
+#articles .article  {
+    border: 1px solid #e0e5fa;
+    background: #fff;
+    margin-bottom: 30px;
+}
+
+#articles .article:hover .article-img img {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+#articles .article-img {
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+#articles .article-img img {
+    transition: 0.3s ease-in-out;
+}
+
+#articles h3 {
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 5px;
+    padding: 0 20px;
+}
+
+#articles a {
+    color: #152b79;
+}
+
+#articles a:hover {
+    color: #f82249;
+}
+
+#articles .stars {
+    padding: 0 20px;
+    margin-bottom: 5px;
+}
+
+#articles .stars i {
+    color: #ffc31d;
+}
+
+#articles p {
+    padding: 0 20px;
+    margin-bottom: 20px;
+    color: #060c22;
+    font-style: italic;
+    font-size: 15px;
+}
+
+.List a-primary {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.a-primary:hover {
+  color: #fff;
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+.a-primary:focus, .a-primary.focus {
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+}
+
+.a-primary.disabled, .a-primary:disabled {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.a-primary:not(:disabled):not(.disabled):active, .a-primary:not(:disabled):not(.disabled).active,
+.show > .a-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #0062cc;
+  border-color: #005cbf;
+}
+
+.a-primary:not(:disabled):not(.disabled):active:focus, .a-primary:not(:disabled):not(.disabled).active:focus,
+.show > .a-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+}
+
+.List a{
+    color:#060c22;
+    font-family:'Adobe Arabic';
+    font-weight:500;
+    font-size:16px;
+}
+
+.List a-success {
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745
+}
+
+.a-success:hover {
+    color: #fff;
+    background-color: #218838;
+    border-color: #1e7e34
+}
+
+.a-success.focus, .a-success:focus {
+    box-shadow: 0 0 0 .2rem rgba(40,167,69,.5)
+}
+
+.a-success.disabled, .a-success:disabled {
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745
+}
+
+.a-success:not(:disabled):not(.disabled).active, .a-success:not(:disabled):not(.disabled):active, .show > .a-success.dropdown-toggle {
+    color: #fff;
+    background-color: #1e7e34;
+    border-color: #1c7430
+}
+
+.a-success:not(:disabled):not(.disabled).active:focus, .a-success:not(:disabled):not(.disabled):active:focus, .show > .a-success.dropdown-toggle:focus {
+    box-shadow: 0 0 0 .2rem rgba(40,167,69,.5)
+}
+
+.List a-danger {
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545
+}
+
+.a-danger:hover {
+    color: #fff;
+    background-color: #c82333;
+    border-color: #bd2130
+}
+
+.a-danger.focus, .a-danger:focus {
+    box-shadow: 0 0 0 .2rem rgba(220,53,69,.5)
+}
+
+.a-danger.disabled, .a-danger:disabled {
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545
+}
+
+.a-danger:not(:disabled):not(.disabled).active, .a-danger:not(:disabled):not(.disabled):active, .show > .a-danger.dropdown-toggle {
+    color: #fff;
+    background-color: #bd2130;
+    border-color: #b21f2d
+}
+
+.a-danger:not(:disabled):not(.disabled).active:focus, .a-danger:not(:disabled):not(.disabled):active:focus, .show > .a-danger.dropdown-toggle:focus {
+    box-shadow: 0 0 0 .2rem rgba(220,53,69,.5)
 }

@@ -11,7 +11,7 @@ namespace prjWebSpaceMent.Models
     {
         private static void executedSQL(string SQL)
         {
-            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["SPACEMENTEntities01"].ConnectionString);
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["dbSpaceMentEntities01"].ConnectionString);
             con.Open();
             SqlCommand cmd = new SqlCommand(SQL, con);
             cmd.ExecuteNonQuery();

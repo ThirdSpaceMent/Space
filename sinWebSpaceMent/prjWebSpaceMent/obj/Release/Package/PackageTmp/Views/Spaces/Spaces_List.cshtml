@@ -1,0 +1,105 @@
+﻿@model IEnumerable<prjWebSpaceMent.Models.Spaces>
+
+@{
+    ViewBag.Title = "場地清單";
+    Layout = "~/Views/Shared/_LayoutMember.cshtml";
+}
+
+<!--Intro Section-->
+<section id="subspaces">
+    <div class="container wow fadeInUp">
+        <div class="section-header p-5">
+            <h2>有新的場地要增加嗎？</h2>
+            <p>點擊下方按鈕增加場地吧！</p>
+        </div>
+
+        <form method="POST" action="#">
+            <div class="form-row justify-content-center">
+                <div class="col-auto">
+                    <a href="https://localhost:44386/Spaces/Spaces_Create" class="joinbutton-a">
+                        <span class="joinbutton-a-span"></span>
+                        <span class="joinbutton-a-span"></span>
+                        <span class="joinbutton-a-span"></span>
+                        <span class="joinbutton-a-span"></span>
+                        Create Now！
+                    </a>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</section>
+
+<main>
+    <div class="container">
+        <table class="table">
+            <tr>
+                <th>
+                    序號
+                </th>
+                <th>
+                    @*場地名稱*@
+                    @Html.DisplayNameFor(model => model.sName)
+                </th>
+                <th>
+                    @*場地類型*@
+                    @Html.DisplayNameFor(model => model.sType)
+                </th>
+                <th>
+                    @*地址*@
+                    @Html.DisplayNameFor(model => model.sAddr)
+                </th>
+                <th>
+                    @*聯絡電話*@
+                    @Html.DisplayNameFor(model => model.sPhone)
+                </th>
+                <th>
+                    @*可容納人數*@
+                    @Html.DisplayNameFor(model => model.sCapacity)
+                </th>
+                <th>
+                    @*營業時間*@
+                    @Html.DisplayNameFor(model => model.sOpeningTime)
+                </th>
+            </tr>
+
+            @{
+                int count = 0;
+                foreach (var item in Model)
+                {
+                    count++;
+                    <tr>
+                        <td>
+                            @count
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.sName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.sType)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.sAddr)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.sPhone)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.sCapacity)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.sOpeningTime)
+                        </td>
+
+                        <td>
+                            @Html.ActionLink("修改場地", "Spaces_Edit", new { id = item.sNumber }) |
+                            @Html.ActionLink("刪除場地", "Spaces_Delete", "Spaces", new { id = item.sNumber }, new { onclick = "return confirm('確定要刪除嗎?')" }) |
+                            @Html.ActionLink("詳細資訊", "Spaces_Detail", new { id = item.sNumber })
+                        </td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+</main>
+
