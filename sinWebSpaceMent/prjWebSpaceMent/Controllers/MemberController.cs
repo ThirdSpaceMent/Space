@@ -112,32 +112,68 @@ namespace prjWebSpaceMent.Controllers
             return RedirectToAction("ShoppingCar");
         }
 
-        public ActionResult Edit1(string mAccount)
-        {
-            var member = db.Members
-                .Where(m => m.mAccount == mAccount).FirstOrDefault();
-            return View(member);
-        }
+        //public ActionResult Edit1(string mAccount)
+        //{
+        //    var member = db.Members
+        //        .Where(m => m.mAccount == mAccount).FirstOrDefault();
+        //    return View(member);
+        //}
 
+        //[HttpPost]
+        //public ActionResult Edit1(Members member)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        var temp = db.Members
+        //            .Where(m => m.mAccount == member.mAccount).FirstOrDefault();
+        //        temp.mAccount = member.mAccount;
+        //        temp.mPassword = member.mPassword;
+        //        temp.mName = member.mName;
+        //        temp.mNickName = member.mNickName;
+        //        temp.mEmail = member.mEmail;
+        //        temp.mPhone = member.mPhone;
+        //        temp.mGender = member.mGender;
+        //        temp.mTWid = member.mTWid;
+        //        temp.mBirthday = member.mBirthday;
+        //        temp.mPoint = member.mPoint;
+        //        temp.mCreated_at = member.mCreated_at;
+        //        temp.mUpdated_at = member.mUpdated_at;
+        //        db.SaveChanges();
+        //        return RedirectToAction("memberIndex");
+
+        //    }
+
+        //    return View(member);
+        //}
+
+        public ActionResult Edit1(int id)
+        {
+            Members member = db.Members.FirstOrDefault(m => m.mNumber == id);
+            if (member == null)
+                return RedirectToAction("memberIndex");
+            return View("/Member/Edit1/"+ member);
+        }
         [HttpPost]
         public ActionResult Edit1(Members member)
         {
-            if (ModelState.IsValid)
+            Members temp = db.Members.FirstOrDefault(t => t.mNumber == member.mNumber);
+            if (temp != null)
             {
-                var temp = db.Members
-                    .Where(m => m.mAccount == member.mAccount).FirstOrDefault();
                 temp.mAccount = member.mAccount;
                 temp.mPassword = member.mPassword;
+                temp.mName = member.mName;
                 temp.mNickName = member.mNickName;
                 temp.mEmail = member.mEmail;
                 temp.mPhone = member.mPhone;
+                temp.mGender = member.mGender;
                 temp.mTWid = member.mTWid;
+                temp.mBirthday = member.mBirthday;
+                temp.mPoint = member.mPoint;
+                temp.mCreated_at = member.mCreated_at;
+                temp.mUpdated_at = member.mUpdated_at;
                 db.SaveChanges();
-                return RedirectToAction("memberIndex");
-
             }
-
-            return View(member);
+            return RedirectToAction("memberIndex");
         }
 
         //會員編輯的部分還卡住 編輯不過去...
