@@ -349,7 +349,9 @@
     <Content Include="Views\Spaces\Spaces_Index.cshtml" />
     <Content Include="Views\Member\Index.cshtml" />
     <Content Include="Views\Spaces\Spaces_List_Detail.cshtml" />
-    <Content Include="Views\Member\Member_Edit.cshtml" />
+    <Content Include="Views\Member\memberIndex.cshtml" />
+    <Content Include="Views\Member\Edit.cshtml" />
+    <Content Include="Views\Member\Edit1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

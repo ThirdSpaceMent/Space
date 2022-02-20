@@ -102,7 +102,6 @@
                                 <button type="submit" class="btn btn-success" style="font-size:14px">@Html.ActionLink("修改場地", "Spaces_Edit", new { id = item.sNumber })</button>|
                                 <button type="submit" class="btn btn-danger" style="font-size:14px">@Html.ActionLink("刪除場地", "Spaces_Delete", "Spaces", new { id = item.sNumber }, new { onclick = "return confirm('確定要刪除嗎?')" })</button>|
                                 <button type="submit" class="btn btn-info" style="font-size:14px">@Html.ActionLink("詳細資訊", "Spaces_List_Detail", new { id = item.sNumber })</button>
-                                <a href="@Url.Action("AddCar","Member")?oAccount=@item.oAccount" class="btn btn-info" style="font-size:14px">加入購物車</a>
                              </td>
                             
                         </tr>

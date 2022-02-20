@@ -9,6 +9,8 @@ namespace prjWebSpaceMent.Controllers
 {
     public class SpacesController : Controller
     {
+
+        dbSpaceMentEntities1 db = new dbSpaceMentEntities1();
         // GET: Spaces
         public ActionResult Spaces_Index()
         {
@@ -123,6 +125,38 @@ namespace prjWebSpaceMent.Controllers
             }
             ClassSpaces x = (new Spaces()).QueryByfid((int)id);
             return View(x);
+        }
+
+        public ActionResult AddCar(string oAccount, string snumsnum, string morning, string afternoon, string evening)
+        {
+            string oMemberAccount = User.Identity.Name;
+            var car = db.Orders
+                .Where(m => m.oMemberAccount == oMemberAccount && m.oAccount == oAccount).FirstOrDefault();
+
+            var space = db.Spaces.Where(m => m.oAccount == oAccount).FirstOrDefault();
+
+            Orders order = new Orders();
+            order.oAccount = space.oAccount;
+            order.oStatus = space.sName; //oStatus暫時借用來存場地名稱
+            order.oMemberAccount = oMemberAccount;
+            order.oCreated_at = DateTime.Now;
+            order.oPrice = (int)space.sRent;
+            db.Orders.Add(order);
+            db.Configuration.ValidateOnSaveEnabled = false;
+            db.SaveChanges();
+            order.oScheduledTime = Convert.ToDateTime(space.sTimeRange);
+            //db.Configuration.ValidateOnSaveEnabled = true;
+            return RedirectToAction("ShoppingCar", "Member");
+
+        }
+
+        public ActionResult DeleteOrder(int oNumber)
+        {
+            var orderDetail = db.Orders.Where
+                (m => m.oNumber == oNumber).FirstOrDefault();
+            db.Orders.Remove(orderDetail);
+            db.SaveChanges();
+            return RedirectToAction("ShoppingCar");
         }
     }
 }

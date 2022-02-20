@@ -1,0 +1,64 @@
+﻿@model IEnumerable<prjWebSpaceMent.Models.Members>
+
+@{
+    ViewBag.Title = "memberIndex";
+}
+
+<h2>會員資料專區</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.mAccount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mPassword)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mNickName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mTWid)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.mAccount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mPassword)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mNickName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mPhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mTWid)
+            </td>
+            <td>
+                <a href="@Url.Action("Edit1")?mNumber=@item.mNumber" class="btn btn-warning">編輯</a>
+                @*<a href="@Url.Action("Delete")?mNumber=@item.mNumber"
+                   class="btn btn-danger"
+                   onclick="return confirm('確定要刪除編號 mNumber=@item.mNumber 的記錄嗎？');">
+                    刪除
+                </a>*@
+            </td>
+        </tr>
+    }
+</table>
+

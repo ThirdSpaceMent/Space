@@ -43,37 +43,19 @@
                 序號
             </th>
             <th>
-                使用時間
-            </th>
-            <th>
-                付款方式
-            </th>
-            <th>
-                付款狀態
-            </th>
-            <th>
-                折扣
-            </th>
-            <th>
-                成交金額
-            </th>
-            <th>
-                建立時間
-            </th>
-            <th>
-                更新時間
-            </th>
-            <th>
-                活動名稱
-            </th>
-            <th>
-                會員編號
-            </th>
-            <th>
-                場主編號
+                場地編號
             </th>
             <th>
                 場地名稱
+            </th>
+            <th>
+                會員帳號
+            </th>
+            <th>
+                費用(NTD)
+            </th>
+            <th>
+                下訂時間
             </th>
             <th></th>
         </tr>
@@ -84,45 +66,50 @@
                 count++;
                 <tr>
                     <td>
+                        @count
+                    </td>
+                    <td>
                         @Html.DisplayFor(modelItem => item.oAccount)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.oScheduledTime)
+                        @Html.DisplayFor(modelItem => item.oStatus)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.oPaymentMode)
+                        @Html.DisplayFor(modelItem => item.oMemberAccount)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.oPaymentStatus)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.oDiscount)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.oPrice)
+                        $@Html.DisplayFor(modelItem => item.oPrice) 
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.oCreated_at)
                     </td>
+                    @*<td>
+            @Html.DisplayFor(modelItem => item.oDiscount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.oPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.oCreated_at)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.oUpdated_at)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Activities.aName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Members.mAccount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Members1.mAccount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Spaces.sName)
+        </td>*@
                     <td>
-                        @Html.DisplayFor(modelItem => item.oUpdated_at)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Activities.aName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Members.mAccount)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Members1.mAccount)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Spaces.sName)
-                    </td>
-                    <td>
-                        <button type="submit" class="btn btn-success" style="font-size:14px">@Html.ActionLink("編輯", "Member_Edit", new { id = item.oNumber })</button>|
-                        @Html.ActionLink("明細", "Details", new { id = item.oNumber }) |
-                        @Html.ActionLink("刪除", "Delete", new { id = item.oNumber })
+                        @*<button type="submit" class="btn btn-success" style="font-size:14px">@Html.ActionLink("編輯", "Member_Edit")</button>*@
+                        <a href="@Url.Action("deleteOrder")?oNumber=@item.oNumber" class="btn btn-danger"  style="font-size:15px" onclick="return confirm('確定刪除 NO. @count -- @item.oStatus 的場地訂單嗎?' )">刪除此訂單</a>
                     </td>
                 </tr>
             }
