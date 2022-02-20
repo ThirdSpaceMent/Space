@@ -141,6 +141,7 @@
     <Compile Include="Models\Comments.cs">
       <DependentUpon>dbSpaceMentModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CSpacesFactory.cs" />
     <Compile Include="Models\dbSpaceMentModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -346,6 +347,8 @@
     <Content Include="Views\Spaces\Spaces_Edit.cshtml" />
     <Content Include="Views\Spaces\Spaces_Detail.cshtml" />
     <Content Include="Views\Spaces\Spaces_Index.cshtml" />
+    <Content Include="Views\Member\Index.cshtml" />
+    <Content Include="Views\Spaces\Spaces_List_Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

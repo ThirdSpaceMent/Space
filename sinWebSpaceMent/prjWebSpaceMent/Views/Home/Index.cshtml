@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "非會員首頁";
 }
 <div class='widget HTML' data-version='1' id='HTML5'>
     <div class='widget-content'>
@@ -14,7 +14,7 @@
         </style>
     </div>
     </div>
-    <!--Intro Section-->
+    Intro Section
     <section id="intro">
         <div class="page-banner home-banner">
             <div class="slider-wrapper">
@@ -90,7 +90,7 @@
         <section id="spaces" class="wow fadeInUp">
             <div class="container">
                 <div class="section-header">
-                    <h2><a href="https://localhost:44386/Spaces/Spaces_Index">找場地</a></h2>
+                    <h2>找場地</h2>
                     <p>讓我們幫你吧，想找哪個場地？</p>
                 </div>
                 <h3>在找哪裡的場地呢？</h3>
@@ -99,7 +99,7 @@
                         <div class="space">
                             <img src="~/img/spaces/1.jpg" alt="space 1" class="img-fluid">
                             <div class="details">
-                                <h3><a href="https://localhost:44386/Spaces/Spaces_Index">北台灣</a></h3>
+                                <h3><a href="https://localhost:44386/Spaces/Spaces_Index">@Html.ActionLink("北台灣", "../Spaces/Spaces_Index", new { keywords = "臺北", citys = "新北市" })</a></h3>
                                 <div class="social">
                                     <p>北北基宜桃竹苗</p>
                                 </div>
@@ -110,7 +110,7 @@
                         <div class="space">
                             <img src="~/img/spaces/2.jpg" alt="space 2" class="img-fluid">
                             <div class="details">
-                                <h3><a href="https://localhost:44386/Spaces/Spaces_Index">中台灣</a></h3>
+                                <h3><a href="https://localhost:44386/Spaces/Spaces_Index">@Html.ActionLink("中台灣", "../Spaces/Spaces_Index", new { keywords = "臺中", citys = "南投縣" })</a></h3>
                                 <div class="social">
                                     <p>中彰投</p>
                                 </div>
@@ -121,7 +121,7 @@
                         <div class="space">
                             <img src="~/img/spaces/3.jpg" alt="space 3" class="img-fluid">
                             <div class="details">
-                                <h3><a href="https://localhost:44386/Spaces/Spaces_Index">南台灣</a></h3>
+                                <h3><a href="https://localhost:44386/Spaces/Spaces_Index">@Html.ActionLink("南台灣", "../Spaces/Spaces_Index", new { keywords = "高雄", citys = "臺南市" })</a></h3>
                                 <div class="social">
                                     <p>高屏雲嘉南</p>
                                 </div>
@@ -134,7 +134,7 @@
                             <div class="space">
                                 <img src="~/img/spaces/4.jpg" alt="space 4" class="img-fluid">
                                 <div class="details">
-                                    <h3><a href="https://localhost:44386/Spaces/Spaces_Index">會議/商務中心</a></h3>
+                                    <h3><a href="https://localhost:44386/Spaces/Spaces_Index">@Html.ActionLink("會議/商務中心", "../Spaces/Spaces_Index", new { types = "會議/商務中心" })</a></h3>
                                     <div class="social">
                                         <p>會議、論談、發表會</p>
                                     </div>
@@ -145,7 +145,7 @@
                             <div class="space">
                                 <img src="~/img/spaces/5.jpg" alt="space 5" class="img-fluid">
                                 <div class="details">
-                                    <h3><a href="https://localhost:44386/Spaces/Spaces_Index">星級飯店</a></h3>
+                                    <h3><a href="https://localhost:44386/Spaces/Spaces_Index">@Html.ActionLink("派對/聚餐", "../Spaces/Spaces_Index", new { types = "派對/聚餐" })</a></h3>
                                     <div class="social">
                                         <p>慶生、派對、娛樂</p>
                                     </div>
@@ -156,7 +156,7 @@
                             <div class="space">
                                 <img src="~/img/spaces/6.jpg" alt="space 6" class="img-fluid">
                                 <div class="details">
-                                    <h3><a href="https://localhost:44386/Spaces/Spaces_List">婚宴會館</a></h3>
+                                    <h3><a href="https://localhost:44386/Spaces/Spaces_List">@Html.ActionLink("婚宴會館", "../Spaces/Spaces_Index", new { types = "婚禮/婚宴" })</a></h3>
                                     <div class="social">
                                         <p>喜宴、聚餐、家宴</p>
                                     </div>
@@ -288,12 +288,13 @@
                 <div class="section-header">
                     <h2>成為場地主</h2>
                     <p>好場地，就該讓更多人知道你的好！</p>
+                    <p>立即註冊加入會員上架您的場地吧！</p>
                 </div>
 
                 <form method="POST" action="#">
                     <div class="form-row justify-content-center">
                         <div class="col-auto">
-                            <a href="#" class="joinbutton-a">
+                            <a href="https://localhost:44386/Home/Register" class="joinbutton-a">
                                 <span class="joinbutton-a-span"></span>
                                 <span class="joinbutton-a-span"></span>
                                 <span class="joinbutton-a-span"></span>
@@ -530,19 +531,20 @@
                     <p>請依您的使用身分別點選開始登入！</p>
                 </div>
 
-                <div class="row">
-                    <div class="col-lg-4">
+                <div class="row justify-content-center">
+                    <div class="col-lg-5">
                         <div class="card mb-5 mb-lg-0">
                             <div class="card-body">
-                                <h5 class="card-title text-muted text-uppercase text-center">我是來找場地的...</h5>
+                                <h5 class="card-title text-muted text-uppercase text-center">我是來租用/出租場地的...</h5>
                                 <h6 class="card-price text-center">一般會員</h6>
                                 <hr>
                                 <ul class="fa-ul">
                                     <li><span class="fa-li"><i class="fa fa-check"></i></span>搜尋場地/下訂單</li>
                                     <li><span class="fa-li"><i class="fa fa-check"></i></span>個人資料編輯</li>
-                                    <li><span class="fa-li"><i class="fa fa-check"></i></span>評論/評分</li>
-                                    <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>上架場地出租</li>
-                                    <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>編輯場地資訊</li>
+                                    <li><span class="fa-li"><i class="fa fa-check"></i></span>上架場地出租</li>
+                                    <li><span class="fa-li"><i class="fa fa-check"></i></span>編輯場地資訊</li>
+                                    <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>網頁後台管理</li>
+
                                 </ul>
                                 <hr>
                                 <div class="loginbtn">
@@ -551,39 +553,19 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="card mb-5 mb-lg-0">
-                            <div class="card-body">
-                                <h5 class="card-title text-muted text-uppercase text-center">我來出租我的場地...</h5>
-                                <h6 class="card-price text-center">場地主</h6>
-                                <hr>
-                                <ul class="fa-ul">
-                                    <li><span class="fa-li"><i class="fa fa-check"></i></span>上架場地出租</li>
-                                    <li><span class="fa-li"><i class="fa fa-check"></i></span>場地資料修改</li>
-                                    <li><span class="fa-li"><i class="fa fa-check"></i></span>審核訂單</li>
-                                    <li><span class="fa-li"><i class="fa fa-check"></i></span>回應評論</li>
-                                    <li class="text-muted"><span class="fa-li"><i class="fa fa-times"></i></span>搜尋其他場地/下訂單</li>
-                                </ul>
-                                <hr>
-                                <div class="loginbtn">
-                                    <div class="btnLB"><a href="/Home/Login">登入</a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Pro Tier -->
-                    <div class="col-lg-4">
+                    
+                    <div class="col-lg-5">
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title text-muted text-uppercase text-center">這網站是我在管的...</h5>
                                 <h6 class="card-price text-center">管理者</h6>
                                 <hr>
                                 <ul class="fa-ul">
-                                    <li><span class="fa-li"><i class="fa fa-check"></i></span>審核場地主申請</li>
-                                    <li><span class="fa-li"><i class="fa fa-check"></i></span>所有場地資料維護</li>
+                                    <li><span class="fa-li"><i class="fa fa-check"></i></span>場地管理</li>
                                     <li><span class="fa-li"><i class="fa fa-check"></i></span>會員管理</li>
-                                    <li><span class="fa-li"><i class="fa fa-check"></i></span>網頁管理</li>
-                                    <li><span class="fa-li"><i class="fa fa-check"></i></span>評分/評論管理</li>
+                                    <li><span class="fa-li"><i class="fa fa-check"></i></span>場地主管理</li>
+                                    <li><span class="fa-li"><i class="fa fa-check"></i></span>網頁維護</li>
+                                    <li><span class="fa-li"><i class="fa fa-check"></i></span>只限員工使用</li>
                                 </ul>
                                 <hr>
                                 <div class="loginbtn">
@@ -596,42 +578,5 @@
                 </div>
 
             </div>
-
-            <!-- Modal Order Form -->
-            <!--<div id="login-modal" class="modal fade">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title">Buy Tickets</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <form method="POST" action="#">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" name="your-name" placeholder="Your Name">
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" name="your-email" placeholder="Your Email">
-                                </div>
-                                <div class="form-group">
-                                    <select id="ticket-type" name="ticket-type" class="form-control">
-                                        <option value="">-- Select Your Ticket Type --</option>
-                                        <option value="standard-access">Standard Access</option>
-                                        <option value="pro-access">Pro Access</option>
-                                        <option value="premium-access">Premium Access</option>
-                                    </select>
-                                </div>
-                                <div class="text-center">
-                                    <button type="submit" class="btn">Buy Now</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>-->
-            <!-- /.modal-content -->
-            <!--</div>--><!-- /.modal-dialog -->
-            <!--</div>--><!-- /.modal -->
-
         </section>
     </main>

@@ -91,6 +91,9 @@
     <NavigationProperty Name="Spaces" Relationship="Self.FK__Orders__FK_Order__2BFE89A6" FromRole="Orders" ToRole="Spaces" />
     <NavigationProperty Name="Rates" Relationship="Self.FK__Rates__FK_Rate_t__3493CFA7" FromRole="Orders" ToRole="Rates" />
     <Property Name="oAccount" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="oQty" Type="Int32" />
+    <Property Name="oPrice" Type="Int32" />
+    <Property Name="oTimeRange" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Owners">
     <Key>
@@ -160,6 +163,9 @@
     <NavigationProperty Name="Photos" Relationship="Self.FK__Photos__FK_Photo__3C34F16F" FromRole="Spaces" ToRole="Photos" />
     <NavigationProperty Name="Rates" Relationship="Self.FK__Rates__FK_Rate_t__339FAB6E" FromRole="Spaces" ToRole="Rates" />
     <NavigationProperty Name="SubSpaces" Relationship="Self.FK__SubSpaces__FK_Su__0B91BA14" FromRole="Spaces" ToRole="SubSpaces" />
+    <Property Name="oAccount" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="oPrice" Type="Int32" />
+    <Property Name="sTimeRange" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="SubSpaces">
     <Key>
