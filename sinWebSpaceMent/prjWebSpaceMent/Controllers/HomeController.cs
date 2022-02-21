@@ -72,7 +72,8 @@ namespace prjWebSpaceMent.Controllers
             {
                 db.Members.Add(pMember);
                 db.SaveChanges();
-                return RedirectToAction("Login");
+                Session["Welcome"] = "嗨，" + pMember.mName + "，歡迎您";
+                return RedirectToAction("Index", "Member");
             }
             ViewBag.Message = "此帳號已有人使用，請重新註冊";
             return View();

@@ -499,10 +499,10 @@
           <Property Name="mPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="mGender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="mTWid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="mBirthday" Type="DateTime" Precision="0" Nullable="false" />
+          <Property Name="mBirthday" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="mPoint" Type="Int32" Nullable="false" />
-          <Property Name="mCreated_at" Type="DateTime" Precision="3" Nullable="false" />
-          <Property Name="mUpdated_at" Type="DateTime" Precision="3" Nullable="false" />
+          <Property Name="mCreated_at" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="mUpdated_at" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="Activities" Relationship="Self.FK__Activitie__FK_Ac__1DB06A4F" FromRole="Members" ToRole="Activities" />
           <NavigationProperty Name="Comments" Relationship="Self.FK__Comments__FK_Com__123EB7A3" FromRole="Members" ToRole="Comments" />
           <NavigationProperty Name="Favorites" Relationship="Self.FK__Favorites__FK_Fa__40F9A68C" FromRole="Members" ToRole="Favorites" />

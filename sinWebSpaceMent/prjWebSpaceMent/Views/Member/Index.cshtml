@@ -20,7 +20,7 @@
         </style>
     </div>
 </div>
-Intro Section
+@*Intro Section*@
 <section id="intro">
     <div class="page-banner home-banner">
         <div class="slider-wrapper">
@@ -105,7 +105,7 @@ Intro Section
                     <div class="space">
                         <img src="~/img/spaces/1.jpg" alt="space 1" class="img-fluid">
                         <div class="details">
-                            <h3><a href="https://localhost:44386/Spaces/Spaces_Index">北台灣</a></h3>
+                            <h3>@Html.ActionLink("北台灣", "../Spaces/Spaces_Index", new { keywords = "臺北", citys = "新北市" })</h3>
                             <div class="social">
                                 <p>北北基宜桃竹苗</p>
                             </div>
@@ -116,7 +116,7 @@ Intro Section
                     <div class="space">
                         <img src="~/img/spaces/2.jpg" alt="space 2" class="img-fluid">
                         <div class="details">
-                            <h3><a href="https://localhost:44386/Spaces/Spaces_Index">中台灣</a></h3>
+                            <h3>@Html.ActionLink("中台灣", "../Spaces/Spaces_Index", new { keywords = "臺中", citys = "南投縣" })</h3>
                             <div class="social">
                                 <p>中彰投</p>
                             </div>
@@ -127,7 +127,7 @@ Intro Section
                     <div class="space">
                         <img src="~/img/spaces/3.jpg" alt="space 3" class="img-fluid">
                         <div class="details">
-                            <h3><a href="https://localhost:44386/Spaces/Spaces_Index">南台灣</a></h3>
+                            <h3>@Html.ActionLink("南台灣", "../Spaces/Spaces_Index", new { keywords = "高雄", citys = "臺南市" })</h3>
                             <div class="social">
                                 <p>高屏雲嘉南</p>
                             </div>
@@ -140,7 +140,7 @@ Intro Section
                         <div class="space">
                             <img src="~/img/spaces/4.jpg" alt="space 4" class="img-fluid">
                             <div class="details">
-                                <h3><a href="https://localhost:44386/Spaces/Spaces_Index">會議/商務中心</a></h3>
+                                <h3>@Html.ActionLink("會議/商務中心", "../Spaces/Spaces_Index", new { types = "會議/商務中心" })</h3>
                                 <div class="social">
                                     <p>會議、論談、發表會</p>
                                 </div>
@@ -151,7 +151,7 @@ Intro Section
                         <div class="space">
                             <img src="~/img/spaces/5.jpg" alt="space 5" class="img-fluid">
                             <div class="details">
-                                <h3><a href="https://localhost:44386/Spaces/Spaces_Index">星級飯店</a></h3>
+                                <h3>@Html.ActionLink("派對/聚餐", "../Spaces/Spaces_Index", new { types = "派對/聚餐" })</h3>
                                 <div class="social">
                                     <p>慶生、派對、娛樂</p>
                                 </div>
@@ -162,7 +162,7 @@ Intro Section
                         <div class="space">
                             <img src="~/img/spaces/6.jpg" alt="space 6" class="img-fluid">
                             <div class="details">
-                                <h3><a href="https://localhost:44386/Spaces/Spaces_List">婚宴會館</a></h3>
+                                <h3>@Html.ActionLink("婚宴會館", "../Spaces/Spaces_Index", new { types = "婚禮/婚宴" })</h3>
                                 <div class="social">
                                     <p>喜宴、聚餐、家宴</p>
                                 </div>
@@ -299,7 +299,7 @@ Intro Section
             <form method="POST" action="#">
                 <div class="form-row justify-content-center">
                     <div class="col-auto">
-                        <a href="https://localhost:44386/Spaces/Spaces_List" class="joinbutton-a">
+                        <a href="/Spaces/Spaces_List" class="joinbutton-a">
                             <span class="joinbutton-a-span"></span>
                             <span class="joinbutton-a-span"></span>
                             <span class="joinbutton-a-span"></span>

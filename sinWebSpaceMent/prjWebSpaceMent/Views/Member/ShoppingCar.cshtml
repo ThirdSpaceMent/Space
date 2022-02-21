@@ -1,9 +1,13 @@
-﻿@model IEnumerable<prjWebSpaceMent.Models.Orders>
+﻿
+@using PagedList;
+@using PagedList.Mvc;
 
-@{
-    ViewBag.Title = "ShoppingCar";
-    Layout = "~/Views/Shared/_LayoutMember.cshtml";
-}
+@model IPagedList<prjWebSpaceMent.Models.Orders>
+
+@{ ViewBag.Title = "ShoppingCar";
+                Layout = "~/Views/Shared/_LayoutMember.cshtml"; }
+
+<link href="~/Content/PagedList.css" rel="stylesheet" />
 <!--Intro Section-->
 <section id="subspaces">
     <div class="container wow fadeInUp">
@@ -15,7 +19,7 @@
         <form method="POST" action="#">
             <div class="form-row justify-content-center">
                 <div class="col-auto">
-                    <a href="https://localhost:44386/Spaces/Spaces_Index" class="joinbutton-a">
+                    <a href="/Spaces/Spaces_Index" class="joinbutton-a">
                         <span class="joinbutton-a-span"></span>
                         <span class="joinbutton-a-span"></span>
                         <span class="joinbutton-a-span"></span>
@@ -59,61 +63,33 @@
             </th>
             <th></th>
         </tr>
-        @{
-            int count = 0;
-            foreach (var item in Model)
-            {
-                count++;
-                <tr>
-                    <td>
-                        @count
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.oAccount)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.oStatus)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.oMemberAccount)
-                    </td>
-                    <td>
-                        $@Html.DisplayFor(modelItem => item.oPrice) 
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.oCreated_at)
-                    </td>
-                    @*<td>
-            @Html.DisplayFor(modelItem => item.oDiscount)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.oPrice)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.oCreated_at)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.oUpdated_at)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Activities.aName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Members.mAccount)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Members1.mAccount)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Spaces.sName)
-        </td>*@
-                    <td>
-                        @*<button type="submit" class="btn btn-success" style="font-size:14px">@Html.ActionLink("編輯", "Member_Edit")</button>*@
-                        <a href="@Url.Action("deleteOrder")?oNumber=@item.oNumber" class="btn btn-danger"  style="font-size:15px" onclick="return confirm('確定刪除 NO. @count -- @item.oStatus 的場地訂單嗎?' )">刪除此訂單</a>
-                    </td>
-                </tr>
-            }
-        }
-
+        @{ int count = 0;
+                        foreach (var item in Model)
+                        {
+                            count++;
+            <tr>
+                <td>
+                    @count
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.oAccount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.oStatus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.oMemberAccount)
+                </td>
+                <td>
+                    $@Html.DisplayFor(modelItem => item.oPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.oCreated_at)
+                </td>
+                <td>
+                    <a href="@Url.Action("deleteOrder")?oNumber=@item.oNumber" class="btn btn-danger" style="font-size:15px" onclick="return confirm('確定刪除 NO. @count -- @item.oStatus 的場地訂單嗎?' )">刪除此訂單</a>
+                </td>
+            </tr> } }
     </table>
+    @Html.PagedListPager(Model, Page => Url.Action("ShoppingCar", new { Page }))
 </div>

@@ -16,7 +16,7 @@
         <form method="POST" action="#">
             <div class="form-row justify-content-center">
                 <div class="col-auto">
-                    <a href="https://localhost:44386/Spaces/Spaces_Create" class="joinbutton-a">
+                    <a href="/Spaces/Spaces_Create" class="joinbutton-a">
                         <span class="joinbutton-a-span"></span>
                         <span class="joinbutton-a-span"></span>
                         <span class="joinbutton-a-span"></span>
@@ -75,38 +75,36 @@
                 foreach (var item in Model)
                 {
                     count++;
-                        <tr>
-                            <td class="text-center">
-                                @count
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.sName)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.sType)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.sAddr)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.sPhone)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.sCapacity)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.sOpeningTime)
-                            </td>
+                    <tr>
+                        <td class="text-center">
+                            @count
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.sName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.sType)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.sAddr)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.sPhone)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.sCapacity)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.sOpeningTime)
+                        </td>
 
-                            <td>
-                                <button type="submit" class="btn btn-success" style="font-size:14px">@Html.ActionLink("修改場地", "Spaces_Edit", new { id = item.sNumber })</button>|
-                                <button type="submit" class="btn btn-danger" style="font-size:14px">@Html.ActionLink("刪除場地", "Spaces_Delete", "Spaces", new { id = item.sNumber }, new { onclick = "return confirm('確定要刪除嗎?')" })</button>|
-                                <button type="submit" class="btn btn-info" style="font-size:14px">@Html.ActionLink("詳細資訊", "Spaces_List_Detail", new { id = item.sNumber })</button>
-                             </td>
-                            
-                        </tr>
+                        <td>
+                            <button type="submit" class="btn btn-success" style="font-size:14px">@Html.ActionLink("修改場地", "Spaces_Edit", new { id = item.sNumber })</button>|
+                            <button type="submit" class="btn btn-danger" style="font-size:14px">@Html.ActionLink("刪除場地", "Spaces_Delete", "Spaces", new { id = item.sNumber }, new { onclick = "return confirm('確定要刪除嗎?')" })</button>|
+                            <button type="submit" class="btn btn-info" style="font-size:14px">@Html.ActionLink("詳細資訊", "Spaces_List_Detail", new { id = item.sNumber })</button>
+                        </td>
+                    </tr>
                 }
-
             }
         </table>
     </div>
