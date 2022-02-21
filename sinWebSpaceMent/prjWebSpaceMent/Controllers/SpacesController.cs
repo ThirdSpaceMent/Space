@@ -184,7 +184,23 @@ namespace prjWebSpaceMent.Controllers
                 return RedirectToAction("Spaces_Index");
             }
             ClassSpaces x = (new CSpacesFactory()).QueryByfid((int)id);
-            return View(x);
+
+            // 辨別登入
+            string mAccount = User.Identity.Name; //登入者(會員)的帳號
+
+            var mem = db.Members
+                .Where(s => s.mAccount == mAccount)
+                .FirstOrDefault();
+
+            if (mem != null)
+            {
+                Session["Welcome"] = "嗨，" + mem.mName + "，歡迎回來";
+                return View("../Spaces/Spaces_Detail", "_LayoutMember", x);
+            }
+            else
+            {
+                return View(x);
+            }
         }
 
         public ActionResult Spaces_List_Detail(int? id)
