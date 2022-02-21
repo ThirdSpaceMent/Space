@@ -15,7 +15,7 @@
         <form method="POST" action="#">
             <div class="form-row justify-content-center">
                 <div class="col-auto">
-                    <a href="https://localhost:44386/Home/Login" class="joinbutton-a">
+                    <a href="/Home/Login" class="joinbutton-a">
                         <span class="joinbutton-a-span"></span>
                         <span class="joinbutton-a-span"></span>
                         <span class="joinbutton-a-span"></span>
@@ -123,7 +123,25 @@
                             <small class="form-text text-muted mb-3">請輸入您出生年月日(ex:1999/01/01)</small>
                             @Html.ValidationMessageFor(model => model.mBirthday, "", new { @class = "text-danger" })
                         </div>
-                    </div>       
+                    </div>
+                <div class="form-group">
+                        <div class="col-md-12">
+                            @Html.HiddenFor(model => model.mPoint, new { Value = "0" })
+                            @Html.ValidationMessageFor(model => model.mPoint, "", new { @class = "text-danger" })
+                        </div>
+                    </div> 
+                <div class="form-group">
+                        <div class="col-md-12">
+                            @Html.HiddenFor(model => model.mCreated_at, new { Value = DateTime.Now })
+                            @Html.ValidationMessageFor(model => model.mCreated_at, "", new { @class = "text-danger" })
+                        </div>
+                    </div> 
+                <div class="form-group">
+                        <div class="col-md-12">
+                            @Html.HiddenFor(model => model.mUpdated_at, new { Value = DateTime.Now })
+                            @Html.ValidationMessageFor(model => model.mUpdated_at, "", new { @class = "text-danger" })
+                        </div>
+                    </div> 
             </div>
             <div class="form-group text-center">
                  <div class="col-md-offset-2 col-md-12 ">

@@ -60,6 +60,7 @@
     <EntitySetMapping Name="Orders">
       <EntityTypeMapping TypeName="dbSpaceMentModel.Orders">
         <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="oMemberAccount" ColumnName="oMemberAccount" />
           <ScalarProperty Name="oTimeRange" ColumnName="oTimeRange" />
           <ScalarProperty Name="oPrice" ColumnName="oPrice" />
           <ScalarProperty Name="oQty" ColumnName="oQty" />
