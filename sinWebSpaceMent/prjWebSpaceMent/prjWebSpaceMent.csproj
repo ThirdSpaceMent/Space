@@ -130,6 +130,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
+    <Compile Include="Controllers\RatingController.cs" />
     <Compile Include="Controllers\SpacesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -184,6 +185,7 @@
       <DependentUpon>dbSpaceMentModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\RatingViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\animate\animate.css" />
@@ -353,6 +355,10 @@
     <Content Include="Views\Spaces\Spaces_List_Detail.cshtml" />
     <Content Include="Views\Member\memberIndex.cshtml" />
     <Content Include="Views\Member\Edit.cshtml" />
+    <Content Include="Views\Rating\Index.cshtml" />
+    <Content Include="Views\Rating\ShowComment.cshtml" />
+    <Content Include="Views\Shared\_CommentPartial.cshtml" />
+    <Content Include="Views\Rating\AddComment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
