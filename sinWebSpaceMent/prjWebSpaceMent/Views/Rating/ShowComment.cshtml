@@ -1,0 +1,36 @@
+﻿@model IEnumerable<prjWebSpaceMent.ViewModels.RatingViewModel>
+@{
+    ViewBag.Title = "ShowComment";
+    Layout = "~/Views/Shared/_LayoutMember.cshtml";
+}
+
+<section id="subspaces">
+    <div class="container wow fadeInUp">
+        <div class="section-header p-5">
+            <h2>有新的場地要增加嗎？</h2>
+            <p>點擊下方按鈕增加場地吧！</p>
+        </div>
+
+        <form method="POST" action="#">
+            <div class="form-row justify-content-center">
+                <div class="col-auto">
+                    <a href="/Spaces/Spaces_Create" class="joinbutton-a">
+                        <span class="joinbutton-a-span"></span>
+                        <span class="joinbutton-a-span"></span>
+                        <span class="joinbutton-a-span"></span>
+                        <span class="joinbutton-a-span"></span>
+                        Create Now！
+                    </a>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</section>
+
+<main>
+    @foreach (var item in Model)
+    {
+        @Html.Partial("_CommentPartial", item)
+    }
+</main>
