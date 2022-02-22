@@ -13,7 +13,7 @@
         <form method="POST" action="#">
             <div class="form-row justify-content-center">
                 <div class="col-auto">
-                    <a href="https://localhost:44386/Home/Register" class="joinbutton-a">
+                    <a href="/Home/Register" class="joinbutton-a">
                         <span class="joinbutton-a-span"></span>
                         <span class="joinbutton-a-span"></span>
                         <span class="joinbutton-a-span"></span>
@@ -28,33 +28,34 @@
 </section>
 
 <main>
-    <div class="section-header p-5 mb-0">
+    <div class="section-header p-5 mb-5">
         <h2>會員登入</h2>
         <p>請輸入您的帳號及密碼進行登入</p>
     </div>
 <div class="container">
     <div class="row justify-content-center">
-    <form action=" @Url.Action("Login")" method="post">
-
-            <div class="form-group mt-3">
-                <span class="control-label col-md-2">帳號</span>
-                <div class="col-md-10">
-                    <input type="text" id="mAccount" name="mAccount" required="required" class="form-control" />
-                    <small class="form-text text-muted mb-3">請輸入您註冊使用的帳號</small>
+        <form action=" @Url.Action("Login")" method="post">
+            <div class="panel panel-primary">
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label>帳號</label>
+                        <input type="text" id="mAccount" name="mAccount" required="required" class="form-control" />
+                        <small class="form-text text-muted mb-3">請輸入您註冊使用的帳號</small>
+                    </div>
+                    <div class="form-group">
+                        <label>密碼</label>
+                        <input type="password" id="mPassword" name="mPassword" required="required" class="form-control" />
+                        <small class="form-text text-muted mb-3">請輸入您註冊使用的密碼</small>
+                    </div>
                 </div>
-
-                <span class="control-label col-md-2">密碼</span>
-                <div class="col-md-10">
-                    <input type="password" id="mPassword" name="mPassword" required="required" class="form-control" />
-                    <small class="form-text text-muted mb-3">請輸入您註冊使用的密碼</small>
-                </div>
- 
-                <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="登入" class="btn btn-default" />
-                @ViewBag.Message
-                </div>
+                
             </div>
-    </form>
+            <div class="text-center mb-5">
+                    <button type="submit" class="btn btn-success">登入</button>
+                    <button type="submit" class="btn btn-info">@Html.ActionLink("忘記密碼", "ForgetPwd", "Member")</button>
+                    @ViewBag.Message
+            </div>
+        </form>
     </div>
 </div>
 </main>

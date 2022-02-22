@@ -1,5 +1,5 @@
 ﻿
-@model prjWebSpaceMent.Models.Spaces
+@model prjWebSpaceMent.Models.ClassSpaces
 
 @{
     ViewBag.Title = "新增場地";
@@ -17,7 +17,7 @@
         <form method="POST" action="#">
             <div class="form-row justify-content-center">
                 <div class="col-auto">
-                    <a href="https://localhost:44386/Spaces/Spaces_List" class="joinbutton-a">
+                    <a href="/Spaces/Spaces_List" class="joinbutton-a">
                         <span class="joinbutton-a-span"></span>
                         <span class="joinbutton-a-span"></span>
                         <span class="joinbutton-a-span"></span>
@@ -44,7 +44,7 @@
                 <div class="col-4 mb-5">
                     <div class="mb-4">
                         <h3><span class="badge badge-info">@Html.DisplayNameFor(model => model.sName)</span></h3>
-                        <input class="input-group"  type="text" name="txtsName" placeholder="必填" required />
+                        <input class="input-group" type="text" name="txtsName" placeholder="必填" required />
                     </div>
 
                     <!--活動類型 使用下拉式選項-->
@@ -70,57 +70,57 @@
                     </div>
                     <div class="mb-4">
                         <h3><span class="badge badge-info">@Html.DisplayNameFor(model => model.sAddr)</span></h3>
-                        <input class="input-group"  type="text" name="txtsAddr" placeholder="必填" required />
+                        <input class="input-group" type="text" name="txtsAddr" placeholder="必填" required />
                     </div>
                     <div class="mb-4">
                         <h3><span class="badge badge-info">@Html.DisplayNameFor(model => model.sPhone)</span></h3>
-                        <input class="input-group"  type="text" name="txtsPhone" placeholder="必填" required />
+                        <input class="input-group" type="text" name="txtsPhone" placeholder="必填" required />
                     </div>
                     <div class="mb-2">
                         <h3><span class="badge badge-info">@Html.DisplayNameFor(model => model.sFloor)</span></h3>
-                        <input class="input-group"  type="text" name="txtsFloor" placeholder="必填" required />
+                        <input class="input-group" type="text" name="txtsFloor" placeholder="必填" required />
                     </div>
                 </div>
                 <div class="col-4 mb-5">
                     <div class="mb-4">
                         <h3><span class="badge badge-info">@Html.DisplayNameFor(model => model.sHeight)</span></h3>
-                        <input class="input-group"  type="text" name="txtsHeight" />
+                        <input class="input-group" type="text" name="txtsHeight" />
                     </div>
                     <div class="mb-4">
                         <h3><span class="badge badge-info">@Html.DisplayNameFor(model => model.sArea)</span></h3>
-                        <input class="input-group"  type="text" name="txtsArea" />
+                        <input class="input-group" type="text" name="txtsArea" />
                     </div>
                     <div class="mb-4">
                         <h3><span class="badge badge-info">@Html.DisplayNameFor(model => model.sCapacity)</span></h3>
-                        <input class="input-group"  type="text" name="txtsCapacity" placeholder="必填" required />
+                        <input class="input-group" type="text" name="txtsCapacity" placeholder="必填" required />
                     </div>
                     <div class="mb-4">
                         <h3><span class="badge badge-info">@Html.DisplayNameFor(model => model.sRent)</span></h3>
-                        <input class="input-group"  type="text" name="txtsRent" value="0" />
+                        <input class="input-group" type="text" name="txtsRent" value="0" />
                     </div>
                     <div class="mb-2">
                         <h3><span class="badge badge-info">@Html.DisplayNameFor(model => model.sRate)</span></h3>
-                        <input class="input-group"  type="text" name="txtsRate" value="0" />
+                        <input class="input-group" type="text" name="txtsRate" value="0" />
                     </div>
                 </div>
                 <div class="col-4 mb-5">
                     <div class="mb-4">
                         <h3><span class="badge badge-info">@Html.DisplayNameFor(model => model.sIntro)</span></h3>
-                        <input class="input-group"  type="text" name="txtsIntro" placeholder="必填" required />
+                        <input class="input-group" type="text" name="txtsIntro" placeholder="必填" required />
                     </div>
                     <div class="mb-4">
                         <h3><span class="badge badge-info">@Html.DisplayNameFor(model => model.sOpeningTime)</span></h3>
-                        <input class="input-group"  type="text" name="txtsOpeningTime" />
+                        <input class="input-group" type="text" name="txtsOpeningTime" />
                     </div>
                     <div class="mb-4">
                         <h3><span class="badge badge-info">@Html.DisplayNameFor(model => model.sSecurity)</span></h3>
-                        <input class="input-group"  type="text" name="txtsSecurity" />
+                        <input class="input-group" type="text" name="txtsSecurity" />
                     </div>
                     <div class="mb-2">
                         <h3><span class="badge badge-info">@Html.DisplayNameFor(model => model.sTraffic)</span></h3>
-                        <input class="input-group"  type="text" name="txtsTraffic" />
+                        <input class="input-group" type="text" name="txtsTraffic" />
                     </div>
-                </div> 
+                </div>
             </div>
             <div class="text-center mb-3">
                 <button class="btn btn-success" type="submit">建立場地</button>

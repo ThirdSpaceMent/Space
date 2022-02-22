@@ -58,22 +58,23 @@
       <PropertyRef Name="oNumber" />
     </Key>
     <Property Name="oNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="oStatus" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="oScheduledTime" Type="datetime" Nullable="false" />
-    <Property Name="oPaymentMode" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="oPaymentStatus" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="oDiscount" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="oPayment" Type="money" Nullable="false" />
-    <Property Name="oCreated_at" Type="datetime" Nullable="false" />
-    <Property Name="oUpdated_at" Type="datetime" Nullable="false" />
+    <Property Name="oStatus" Type="nvarchar" MaxLength="50" />
+    <Property Name="oScheduledTime" Type="datetime" />
+    <Property Name="oPaymentMode" Type="nvarchar" MaxLength="50" />
+    <Property Name="oPaymentStatus" Type="nvarchar" MaxLength="50" />
+    <Property Name="oDiscount" Type="nvarchar" MaxLength="50" />
+    <Property Name="oPayment" Type="money" />
+    <Property Name="oCreated_at" Type="datetime" />
+    <Property Name="oUpdated_at" Type="datetime" />
     <Property Name="FK_Order_to_Member_User" Type="int" />
     <Property Name="FK_Order_to_Member_Owner" Type="int" />
     <Property Name="FK_Order_to_Space" Type="int" />
     <Property Name="FK_Order_to_Activity" Type="int" />
-    <Property Name="oAccount" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="oAccount" Type="nvarchar" MaxLength="50" />
     <Property Name="oQty" Type="int" />
     <Property Name="oPrice" Type="int" />
-    <Property Name="oTimeRange" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="oTimeRange" Type="nvarchar" MaxLength="50" />
+    <Property Name="oMemberAccount" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Owners">
     <Key>
@@ -132,7 +133,7 @@
     <Property Name="FK_Space_to_Owner" Type="int" />
     <Property Name="oAccount" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="oPrice" Type="int" />
-    <Property Name="sTimeRange" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="sTimeRange" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="SubSpaces">
     <Key>

@@ -7,16 +7,14 @@ using prjWebSpaceMent.Models;
 using System.Web.Security;
 
 namespace prjWebSpaceMent.Controllers
-{
-    
+{  
     public class HomeController : Controller
     {
         dbSpaceMentEntities1 db = new dbSpaceMentEntities1();
+        
+        //非會員的首頁
         public ActionResult Index()
         {
-            List<ClassSpaces> datas = null;
-
-
             return View("../Home/Index", "_Layout");
         }
 
@@ -34,6 +32,7 @@ namespace prjWebSpaceMent.Controllers
             return View();
         }
 
+        //會員登入
         public ActionResult Login()
         {
             return View();
@@ -55,6 +54,7 @@ namespace prjWebSpaceMent.Controllers
             return RedirectToAction("Index", "Member");
         }
 
+        //註冊會員
         public ActionResult Register()
         {
             return View();

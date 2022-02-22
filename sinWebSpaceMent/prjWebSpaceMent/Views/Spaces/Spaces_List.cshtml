@@ -16,7 +16,7 @@
         <form method="POST" action="#">
             <div class="form-row justify-content-center">
                 <div class="col-auto">
-                    <a href="https://localhost:44386/Spaces/Spaces_Create" class="joinbutton-a">
+                    <a href="/Spaces/Spaces_Create" class="joinbutton-a">
                         <span class="joinbutton-a-span"></span>
                         <span class="joinbutton-a-span"></span>
                         <span class="joinbutton-a-span"></span>
@@ -31,39 +31,32 @@
 </section>
 
 <main>
-    <div class="container pr-0 pl-0">
         <div class="section-header p-3">
             <h2>出租場地清單</h2>
             <p>您可以在這裡編輯場地資訊！</p>
         </div>
-        <table class="table border mr-0 ml-0">
+        <table class="table border mr-0 ml-0 d-flex justify-content-center">
             <tr>
                 <th class="text-center">
-                    序號
+                    場地序號
                 </th>
                 <th>
-                    @*場地名稱*@
-                    @Html.DisplayNameFor(model => model.sName)
+                    場地名稱
                 </th>
                 <th>
-                    @*場地類型*@
-                    @Html.DisplayNameFor(model => model.sType)
+                    場地類型
                 </th>
                 <th>
-                    @*地址*@
-                    @Html.DisplayNameFor(model => model.sAddr)
+                    場地地址
                 </th>
                 <th>
-                    @*聯絡電話*@
-                    @Html.DisplayNameFor(model => model.sPhone)
+                    聯絡電話
                 </th>
                 <th>
-                    @*可容納人數*@
-                    @Html.DisplayNameFor(model => model.sCapacity)
+                    可容納人數
                 </th>
                 <th>
-                    @*營業時間*@
-                    @Html.DisplayNameFor(model => model.sOpeningTime)
+                    營業時間
                 </th>
                 <th class="text-center">
                     功能
@@ -101,12 +94,12 @@
                         <td>
                             <button type="submit" class="btn btn-success" style="font-size:14px">@Html.ActionLink("修改場地", "Spaces_Edit", new { id = item.sNumber })</button>|
                             <button type="submit" class="btn btn-danger" style="font-size:14px">@Html.ActionLink("刪除場地", "Spaces_Delete", "Spaces", new { id = item.sNumber }, new { onclick = "return confirm('確定要刪除嗎?')" })</button>|
-                            <button type="submit" class="btn btn-info" style="font-size:14px">@Html.ActionLink("詳細資訊", "Spaces_List_Detail", new { id = item.sNumber })</button>
+                            <button type="submit" class="btn btn-info" style="font-size:14px">@Html.ActionLink("詳細資訊", "Spaces_List_Detail", new { id = item.sNumber })</button>|
+                            <button type="submit" class="btn btn-secondary" style="font-size:14px">@Html.ActionLink("我的客訂單", "Spaces_order", new { id = item.sNumber })</button>
                         </td>
                     </tr>
                 }
             }
         </table>
-    </div>
 </main>
 
