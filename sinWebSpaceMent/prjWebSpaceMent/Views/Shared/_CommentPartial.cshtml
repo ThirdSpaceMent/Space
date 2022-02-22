@@ -1,0 +1,45 @@
+﻿@model prjWebSpaceMent.ViewModels.RatingViewModel
+
+<table style="width:100%; border:1px solid black;">
+    <tr>
+        <td>
+            會員: @Model.FK_Rate_to_Member
+        
+            <div class="stars">
+                @{
+                    int m = Convert.ToInt32(Model.rRate);
+                    //int n = Convert.ToInt32(Model.rRate*10) - m*10;
+
+                    for (int i = 1; i <= m; i++)
+                    {
+                        <i class="fa fa-star checked"></i>
+                    }
+                    @*if (n > 3) 
+                    { 
+                        <i class="fa fa-star-half-full checked"></i>
+                    }*@
+                    for (int i = m; i < 5; i++)
+                    {
+                        <i class="fa fa-star-o"></i>
+                    }
+                }
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            評論: @Model.rComment
+        </td>
+    </tr>
+    <tr>
+        <td>
+            評價時間: @Model.rCreated_at.ToString("yyyy/MM/dd HH:mm:ss")
+        </td>
+    </tr>
+</table>
+
+<style>
+    .checked {
+        color: orange;
+    }
+</style>
