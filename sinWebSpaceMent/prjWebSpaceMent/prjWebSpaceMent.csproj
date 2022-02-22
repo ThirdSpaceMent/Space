@@ -134,6 +134,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\SpacesController.cs" />
@@ -321,7 +322,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Spaces\Spaces_List.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -361,6 +361,9 @@
     <Content Include="Views\Spaces\Spaces_List_Detail.cshtml" />
     <Content Include="Views\Member\memberIndex.cshtml" />
     <Content Include="Views\Member\Edit.cshtml" />
+    <Content Include="Views\Admin\SpaceManage.cshtml" />
+    <Content Include="Views\Admin\MemberManage.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -30,8 +30,27 @@ namespace prjWebSpaceMent.Controllers
         public ActionResult memberIndex()
         {
             string mAccount = User.Identity.Name;
-            var employees = db.Members.Where(m => m.mAccount == mAccount).ToList();
-            return View(employees);
+            if (mAccount != null && mAccount != "") // 會員才能瀏覽
+            {
+                if (mAccount == "CHEEE")  //暫定這一位是管理者
+                {
+                    // 會員總覽(系統管理者才能看到所有會員)
+
+                    return RedirectToAction("MemberManage", "Admin");
+                }
+                else
+                {
+                    // 非系統管理者 只能看到自己上架的場地
+                    var employees = db.Members.Where(m => m.mAccount == mAccount).ToList();
+                    return View(employees);
+                }
+            }
+            else
+            {
+                return RedirectToAction("Index", "Member");
+            }
+            
+            
             //var space =
             //    db.Spaces.OrderByDescending(m => m.sNumber).ToList();
             //return View("../Member/Index", "_LayoutMember", space);

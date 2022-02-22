@@ -97,9 +97,8 @@ namespace prjWebSpaceMent.Controllers
                 if (mAccount == "CHEEE")  //暫定這一位是管理者
                 {
                     // 場地總覽(系統管理者才能看到所有場地)
-                    var datas = from p in (new dbSpaceMentEntities1()).Spaces
-                                select p;
-                    return View(datas);
+                   
+                    return RedirectToAction("SpaceManage","Admin");
                 }
                 else
                 {
