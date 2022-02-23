@@ -15,13 +15,11 @@ namespace prjWebSpaceMent.Controllers
         //非會員的首頁
         public ActionResult Index()
         {
-            return View("../Home/Index", "_Layout");
+            return View();
         }
 
-        public ActionResult About()
+        public ActionResult FAQ()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 

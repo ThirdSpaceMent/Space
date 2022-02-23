@@ -69,8 +69,9 @@ namespace prjWebSpaceMent.Models
             SQL += "sOpeningTime,";
             SQL += "sSecurity,";
             SQL += "sTraffic,";
-            SQL += "FK_Space_to_Owner,";
-            SQL += "oAccount ";
+            //SQL += "FK_Space_to_Owner,";
+            SQL += "FK_Space_to_Owner ";
+            //SQL += "oAccount ";
 
             SQL += ")VALUES(";
 
@@ -88,13 +89,14 @@ namespace prjWebSpaceMent.Models
             SQL += "'" + p.sOpeningTime + "',";
             SQL += "'" + p.sSecurity + "',";
             SQL += "'" + p.sTraffic + "',";
-            SQL += "'" + p.FK_Space_to_Owner + "',";
-            SQL += "'" + p.oAccount + "')";
+            //SQL += "'" + p.FK_Space_to_Owner + "',";
+            SQL += "'" + p.FK_Space_to_Owner + "')";
+            //SQL += "'" + p.oAccount + "')";
             executedSQL(SQL);
 
-            // 將oAccount更新為跟sNumber同步
-            string SQL2 = "UPDATE Spaces SET oAccount= sNumber;";
-            executedSQL(SQL2);
+            //將oAccount更新為跟sNumber同步
+            //string SQL2 = "UPDATE Spaces SET oAccount= sNumber;";
+            //executedSQL(SQL2);
         }
         public void edit(int? id)
         {

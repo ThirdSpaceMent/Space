@@ -22,7 +22,7 @@ namespace prjWebSpaceMent.Controllers
         {
             var space =
                 db.Spaces.OrderByDescending(m => m.sNumber).ToList();
-            return View("../Member/Index", "_LayoutMember", space);
+            return View("../Member/Index", space);
         }
 
         //會員編輯總覽

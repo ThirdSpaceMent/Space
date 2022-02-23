@@ -201,6 +201,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap\css\bootstrap.css" />
     <Content Include="Content\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\FAQ.css" />
     <Content Include="Content\JoinButton.css" />
     <Content Include="Content\Logininbutton.css" />
     <Content Include="Content\maicons.css" />
@@ -323,7 +324,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Spaces\Spaces_List.cshtml" />
   </ItemGroup>
@@ -360,11 +360,9 @@
     <Content Include="Views\Spaces\Spaces_Edit.cshtml" />
     <Content Include="Views\Spaces\Spaces_Detail.cshtml" />
     <Content Include="Views\Spaces\Spaces_Index.cshtml" />
-    <Content Include="Views\Member\Index.cshtml" />
     <Content Include="Views\Spaces\Spaces_List_Detail.cshtml" />
     <Content Include="Views\Member\memberIndex.cshtml" />
     <Content Include="Views\Member\Edit.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Views\Admin\Admin_Index.cshtml" />
     <Content Include="Views\Admin\Admin_Login.cshtml" />
@@ -377,6 +375,9 @@
     <Content Include="Views\Admin\Spaces_Edit_Admin.cshtml" />
     <Content Include="Views\Admin\ShowComment_Admin.cshtml" />
     <Content Include="Views\Admin\Rating_Index_Admin.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Member\Index.cshtml" />
+    <Content Include="Views\Home\FAQ.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

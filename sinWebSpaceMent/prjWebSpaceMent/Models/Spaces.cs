@@ -43,8 +43,6 @@ namespace prjWebSpaceMent.Models
         public System.DateTime sCreated_at { get; set; }
         public System.DateTime sUpdated_at { get; set; }
         public Nullable<int> FK_Space_to_Owner { get; set; }
-        public string oAccount { get; set; }
-        public Nullable<int> oPrice { get; set; }
         public string sTimeRange { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

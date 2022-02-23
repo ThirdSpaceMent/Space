@@ -14,11 +14,14 @@ namespace prjWebSpaceMent.Controllers
         // 使用資料庫
         dbSpaceMentEntities1 db = new dbSpaceMentEntities1();
         // GET: Admin
+
+        //管理者首頁
         public ActionResult Admin_Index()
         {
             return View();
         }
 
+        //管理者登入頁面
         public ActionResult Admin_Login()
         {
             return View();
@@ -43,6 +46,7 @@ namespace prjWebSpaceMent.Controllers
             }
         }
 
+        //會員管理
         public ActionResult MemberManage()
         {
             // 會員總覽(系統管理者才能看到所有會員)
@@ -50,6 +54,8 @@ namespace prjWebSpaceMent.Controllers
                         select p;
             return View(datas);
         }
+
+        //場地管理
         public ActionResult SpaceManage()
         {
             // 場地總覽(系統管理者才能看到所有場地)
@@ -58,6 +64,7 @@ namespace prjWebSpaceMent.Controllers
             return View(datas);
         }
 
+        //刪除會員
         public ActionResult DeleteMember(int mNumber)
         {
             var MemberDetail = db.Members.Where
@@ -67,6 +74,7 @@ namespace prjWebSpaceMent.Controllers
             return RedirectToAction("MemberManage","Admin");
         }
 
+        //場地管理場地明細
         public ActionResult Spaces_Detail_Admin(int? id)
         {
             if (id == null)
@@ -115,8 +123,10 @@ namespace prjWebSpaceMent.Controllers
             (new CSpacesFactory()).update(p);
             return RedirectToAction("SpaceManage");
         }
-
-        public ActionResult Rating_Index_Admin()//場地清單
+       
+        //管理者頁面使用
+        //評價管理
+        public ActionResult Rating_Index_Admin()
         {
             IEnumerable<ClassSpaces> ListSpaces = (from obj in db.Spaces
                                                    select new ClassSpaces()
@@ -129,8 +139,8 @@ namespace prjWebSpaceMent.Controllers
             return View(ListSpaces);
         }
 
-        //管理者頁面使用
-        public ActionResult ShowComment_Admin(int sNumber)//列出評價
+        //列出評價
+        public ActionResult ShowComment_Admin(int sNumber)
         {
             IEnumerable<RatingViewModel> listRVM = (from obj in db.Rates
                                                     where obj.FK_Rate_to_Space == sNumber

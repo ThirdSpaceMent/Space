@@ -94,8 +94,7 @@
                         <td>
                             <button type="submit" class="btn btn-success" style="font-size:14px">@Html.ActionLink("修改場地", "Spaces_Edit", new { id = item.sNumber })</button>|
                             <button type="submit" class="btn btn-danger" style="font-size:14px">@Html.ActionLink("刪除場地", "Spaces_Delete", "Spaces", new { id = item.sNumber }, new { onclick = "return confirm('確定要刪除嗎?')" })</button>|
-                            <button type="submit" class="btn btn-info" style="font-size:14px">@Html.ActionLink("詳細資訊", "Spaces_List_Detail", new { id = item.sNumber })</button>|
-                            <button type="submit" class="btn btn-secondary" style="font-size:14px">@Html.ActionLink("我的客訂單", "Spaces_order", new { id = item.sNumber })</button>
+                            <button type="submit" class="btn btn-info" style="font-size:14px">@Html.ActionLink("詳細資訊", "Spaces_List_Detail", new { id = item.sNumber })</button>
                         </td>
                     </tr>
                 }
