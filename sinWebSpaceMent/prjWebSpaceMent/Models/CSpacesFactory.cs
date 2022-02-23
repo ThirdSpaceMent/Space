@@ -50,7 +50,7 @@ namespace prjWebSpaceMent.Models
             string SQL = "DELETE FROM Spaces WHERE sNumber=" + sNumber.ToString();
             executedSQL(SQL);
         }
-        public void create(Spaces p)
+        public void create(ClassSpaces p)
         {
             // 新增功能INSERT
 
@@ -69,7 +69,8 @@ namespace prjWebSpaceMent.Models
             SQL += "sOpeningTime,";
             SQL += "sSecurity,";
             SQL += "sTraffic,";
-            SQL += "oAccount";
+            SQL += "FK_Space_to_Owner,";
+            SQL += "oAccount ";
 
             SQL += ")VALUES(";
 
@@ -87,9 +88,13 @@ namespace prjWebSpaceMent.Models
             SQL += "'" + p.sOpeningTime + "',";
             SQL += "'" + p.sSecurity + "',";
             SQL += "'" + p.sTraffic + "',";
+            SQL += "'" + p.FK_Space_to_Owner + "',";
             SQL += "'" + p.oAccount + "')";
-
             executedSQL(SQL);
+
+            // 將oAccount更新為跟sNumber同步
+            string SQL2 = "UPDATE Spaces SET oAccount= sNumber;";
+            executedSQL(SQL2);
         }
         public void edit(int? id)
         {

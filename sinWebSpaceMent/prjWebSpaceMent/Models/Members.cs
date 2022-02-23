@@ -49,7 +49,6 @@ namespace prjWebSpaceMent.Models
         [EmailAddress]
         [DisplayName("電子信箱")]
         public string mEmail { get; set; }
-        [Phone]
         [DisplayName("聯絡電話")]
         public string mPhone { get; set; }
         [DisplayName("性別")]

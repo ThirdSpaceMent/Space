@@ -35,36 +35,37 @@
 <body>
     <!--回到頁首-->
     <a href="#" class="back-to-top"><i class="fa"></i></a>
-    
+
     <!--Header-->
     <header id="header">
-        <div class="container">
-
-            <div id="logo" class="pull-left">
-                <a href="/Member/Index" class="scrollto"><img src="~/img/logo.png" alt="" title=""></a>
-            </div>
-
-            <nav id="nav-menu-container">
-                <ul class="nav-menu">
-                    <li class="menu-active"><a href="#">@Session["Welcome"]</a></li>
-                    <li><a href="/Member/Index/#intro">首頁</a></li>
-                    <li><a href="/Member/Index/#about">關於我們</a></li>
-                    <li><a href="/Member/Index/#spaces">找場地</a></li>
-                    <li><a href="/Member/Index/#articles">推薦文章</a></li>
-                    <li><a href="/Member/Index/#faq">常見問題</a></li>
-                    <li><a href="/Member/Index/#contact">聯絡我們</a></li>
-                    <li class="login-id"><a href="/Spaces/Spaces_List">場地管理</a></li>
-                    <li class="login-id"><a href="/Member/ShoppingCar">我的預訂</a></li>
-                    <li class="login-id"><a href="/Member/memberIndex">編輯會員資料</a></li>
-                    <li class="login-id"><a href="/Member/Logout">登出</a></li>
-                </ul>
-            </nav><!-- #nav-menu-container -->
-
+        <div id="logo" class="pull-left">
+            <a href="/Member/Index" class="scrollto"><img src="~/img/logo.png" alt="" title=""></a>
         </div>
+        <nav id="nav-menu-container">
+            <ul class="nav-menu">
+                <li class="menu-active"><a href="#">@Session["Welcome"]</a></li>
+                <li><a href="/Member/Index/#intro">首頁</a></li>
+                <li><a href="/Member/Index/#about">關於我們</a></li>
+                <li><a href="/Member/Index/#spaces">找場地</a></li>
+                <li><a href="/Member/Index/#articles">推薦文章</a></li>
+                <li><a href="/Member/Index/#faq">常見問題</a></li>
+                <li><a href="/Member/Index/#contact">聯絡我們</a></li>
+                <li class="login-id"><a href="/Spaces/Spaces_List">場地管理</a></li>
+                <li class="login-id"><a href="/Member/ShoppingCar">我的預訂</a></li>
+                <li class="login-id"><a href="/Member/memberIndex">編輯會員資料</a></li>
+                <li class="login-id"><a href="/Member/Logout">登出</a></li>
+            </ul>
+        </nav><!-- #nav-menu-container -->
     </header><!-- #header -->
 
     @RenderBody()
 
+    <!-- Messenger 洽談外掛程式 Code -->
+    <div id="fb-root"></div>
+
+    <!-- Your 洽談外掛程式 code -->
+    <div id="fb-customer-chat" class="fb-customerchat">
+    </div>
 
     <footer id="footer">
         <div class="footer-top">
@@ -81,9 +82,9 @@
                         <ul>
                             <li><i class="fa fa-angle-right"></i> <a href="/Member/Index/#intro">首頁</a></li>
                             <li><i class="fa fa-angle-right"></i> <a href="/Member/Index/#about">關於我們</a></li>
-                            <li><i class="fa fa-angle-right"></i> <a href="/Member/Index/#spaces">找場地</a></li>
-                            <li><i class="fa fa-angle-right"></i> <a href="/Member/Index/#subspaces">成為場地主</a></li>
-                            <li><i class="fa fa-angle-right"></i> <a href="#">會員管理</a></li>
+                            <li><i class="fa fa-angle-right"></i> <a href="/Spaces/Spaces_Index">找場地</a></li>
+                            <li><i class="fa fa-angle-right"></i> <a href="Spaces/Spaces_List">場地主管理</a></li>
+                            <li><i class="fa fa-angle-right"></i> <a href="/Member/memberIndex">會員資料編輯</a></li>
                         </ul>
                     </div>
 
@@ -143,6 +144,24 @@
     <script src="~/Scripts/js/bootstrap.bundle.min.js"></script>
     <script src="~/Scripts/vendor/owl-carousel/js/owl.carousel.min.js"></script>
     <script src="~/Scripts/js/theme.js"></script>
+
+    <!-- Your SDK code -->
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                xfbml: true,
+                version: 'v13.0'
+            });
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/zh_TW/sdk/xfbml.customerchat.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
 
     @RenderSection("scripts", required: false)
 </body>
