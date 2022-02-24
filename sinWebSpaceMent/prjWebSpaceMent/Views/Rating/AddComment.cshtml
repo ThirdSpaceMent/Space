@@ -3,14 +3,13 @@
     ViewBag.Title = "AddComment";
     Layout = "~/Views/Shared/_LayoutMember.cshtml";
 }
-
+<!--頁首 Section-->
 <section id="subspaces">
     <div class="container wow fadeInUp">
         <div class="section-header p-5">
             <h2>改變心意了嗎？</h2>
             <p>點擊下方按鈕返回！</p>
         </div>
-
         <form method="POST" action="#">
             <div class="form-row justify-content-center">
                 <div class="col-auto">
@@ -24,11 +23,10 @@
                 </div>
             </div>
         </form>
-
     </div>
 </section>
+
 <div class="d-flex justify-content-center text-center mt-3 mb-3">
-    
     @using (Html.BeginForm("AddComment", "Rating", FormMethod.Post, new { onsubmit = "return VerifyRating()" }))
     {
         <h4>請輸入評價 :</h4>
@@ -39,7 +37,6 @@
             <i id="i4" onmouseout="CRateOut(4)" onmouseover="CRateOver(4)" onclick="CRateClick(4)" class="fa fa-star-o"></i>
             <i id="i5" onmouseout="CRateOut(5)" onmouseover="CRateOver(5)" onclick="CRateClick(5)" class="fa fa-star-o"></i>
         </div>
-
         <textarea rows="6" cols="50" name="rComment" id="txtrComment" placeholder="請對場地給一些建議吧..." required></textarea>
         <div>
             <input type="hidden" name="rating" id="lblRating" value="0" />
@@ -52,7 +49,6 @@
         </div>
     }
 </div>
-
 <script type="text/javascript">
     function CRateOut(rating) {
         for (var i = 0; i <= rating; i++) {

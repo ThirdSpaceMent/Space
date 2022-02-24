@@ -3,14 +3,13 @@
     ViewBag.Title = "ShowComment";
     Layout = "~/Views/Shared/_LayoutMember.cshtml";
 }
-
+<!--頁首 Section-->
 <section id="subspaces">
     <div class="container wow fadeInUp">
         <div class="section-header p-5">
             <h2>瀏覽其他場地評論？</h2>
             <p>點擊下方按鈕回到找場地！</p>
         </div>
-
         <form method="POST" action="#">
             <div class="form-row justify-content-center">
                 <div class="col-auto">
@@ -24,15 +23,14 @@
                 </div>
             </div>
         </form>
-
     </div>
 </section>
 
 <main>
-        <div class="mt-5 mb-5">
-            @foreach (var item in Model)
-            {
-                @Html.Partial("_CommentPartial", item)
-            }
-        </div>
+    <div class="mt-5 mb-5">
+        @foreach (var item in Model)
+        {
+            @Html.Partial("_CommentPartial", item)
+        }
+    </div>
 </main>

@@ -4,14 +4,13 @@
     ViewBag.Title = "memberIndex";
     Layout = "~/Views/Shared/_LayoutMember.cshtml";
 }
-<!--Intro Section-->
+<!--頁首 Section-->
 <section id="subspaces">
     <div class="container wow fadeInUp">
         <div class="section-header p-5">
             <h2>出租的場地資料也需要編輯?</h2>
             <p>來看看目前您有哪些場地出租中吧！</p>
         </div>
-
         <form method="POST" action="#">
             <div class="form-row justify-content-center">
                 <div class="col-auto">
@@ -55,7 +54,6 @@
             </th>
             <th></th>
         </tr>
-
         @foreach (var item in Model)
         {
             <tr>

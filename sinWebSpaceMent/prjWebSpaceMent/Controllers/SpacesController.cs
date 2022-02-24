@@ -16,7 +16,7 @@ namespace prjWebSpaceMent.Controllers
         // 找場地首頁
         public ActionResult Spaces_Index(string keywords, string citys, string types)
         {
-            
+
 
             // 搜尋功能
             List<ClassSpaces> datas = null;
@@ -80,12 +80,10 @@ namespace prjWebSpaceMent.Controllers
                 return View(datas);
             }
         }
-        
+
         // 場地清單-分為系統管理者(全部)&會員(自己的場地)
         public ActionResult Spaces_List()
         {
-            
-
             string mAccount = User.Identity.Name; //登入者(會員)的帳號
 
             var mem = db.Members
@@ -97,8 +95,8 @@ namespace prjWebSpaceMent.Controllers
                 if (mAccount == "CHEEE")  //暫定這一位是管理者
                 {
                     // 場地總覽(系統管理者才能看到所有場地)
-                   
-                    return RedirectToAction("SpaceManage","Admin");
+
+                    return RedirectToAction("SpaceManage", "Admin");
                 }
                 else
                 {
@@ -114,11 +112,11 @@ namespace prjWebSpaceMent.Controllers
                 return RedirectToAction("Index", "Member");
             }
         }
-  
+
         // 刪除場地(會員自己的場地刪除)
         public ActionResult Spaces_Delete(int? id)
         {
-           
+
             if (id != null)
             {
                 (new CSpacesFactory()).delete((int)id);
@@ -260,7 +258,7 @@ namespace prjWebSpaceMent.Controllers
 
             // od.oAccount是Order table的場地編號；oAccount是前端帶過來的場地編號
             var orderdc = from od in db.Orders
-                          where od.oAccount == oAccount && od.oScheduledTime >= startDateTime && od.oScheduledTime <= endDateTime && od.oTimeRange.Contains(TimeRange)
+                          where od.FK_Order_to_Space == sNumber && od.oScheduledTime >= startDateTime && od.oScheduledTime <= endDateTime && od.oTimeRange.Contains(TimeRange)
                           select od;
 
             // 找出
@@ -272,11 +270,11 @@ namespace prjWebSpaceMent.Controllers
 
             // 開始帶入資料
             Orders order = new Orders();
-            order.oAccount = oAccount;    //場地編號
+            order.FK_Order_to_Space = sNumber;    //場地編號
             order.oStatus = space.sName;  //oStatus暫時借用來存場地名稱
             order.oMemberAccount = oMemberAccount;  //是誰訂場地(帳號)
             order.oCreated_at = DateTime.Now;       // 下訂時間
-            order.oPrice = (int)space.sRent;        // 每時段費用
+            //order.oPrice = (int)space.sRent;        // 每時段費用
             order.oPayment = Convert.ToDecimal(snumsnum);   //小計
             order.oTimeRange = TimeRange;       //哪個時段(上午、中午、晚上)
             order.FK_Order_to_Member_Owner = space.FK_Space_to_Owner;   //場地是誰的
@@ -288,6 +286,23 @@ namespace prjWebSpaceMent.Controllers
             db.SaveChanges();
 
             return RedirectToAction("ShoppingCar", "Member");
+        }
+
+        // 我的客訂單
+        public ActionResult Spaces_Order()
+        {
+            // 跑出此會員全部客訂單 照日期排序
+
+            string oMemberAccount = User.Identity.Name; //登入者的帳號
+            var mem = db.Members.Where(m => m.mAccount == oMemberAccount).FirstOrDefault();
+
+            // 找出Orders Table裡面的場地主id 對應到 目前登入者的id
+            var order = from o in db.Orders
+                        where o.FK_Order_to_Member_Owner == mem.mNumber
+                        orderby o.oScheduledTime ascending     //遞增(日期從小到大)
+                        select o;
+
+            return View(order);
         }
 
     }

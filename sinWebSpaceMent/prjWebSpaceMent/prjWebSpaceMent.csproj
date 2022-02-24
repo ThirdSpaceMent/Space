@@ -293,7 +293,6 @@
     </Content>
     <Content Include="Scripts\bootstrap\js\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap\js\bootstrap.min.js" />
-    <Content Include="Scripts\contactform\contactform.js" />
     <Content Include="Scripts\easing\easing.js" />
     <Content Include="Scripts\easing\easing.min.js" />
     <Content Include="Scripts\jquery\jquery-migrate.min.js" />
@@ -324,7 +323,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Spaces\Spaces_List.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -378,6 +376,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Member\Index.cshtml" />
     <Content Include="Views\Home\FAQ.cshtml" />
+    <Content Include="Views\Spaces\Spaces_Order.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

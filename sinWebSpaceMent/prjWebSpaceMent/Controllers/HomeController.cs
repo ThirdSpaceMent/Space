@@ -18,15 +18,9 @@ namespace prjWebSpaceMent.Controllers
             return View();
         }
 
+        //常見問題
         public ActionResult FAQ()
         {
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
 
