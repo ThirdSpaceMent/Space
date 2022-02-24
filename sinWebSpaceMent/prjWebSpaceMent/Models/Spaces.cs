@@ -73,11 +73,9 @@ public partial class Spaces
 
     public Nullable<int> FK_Space_to_Owner { get; set; }
 
-    public string oAccount { get; set; }
-
-    public Nullable<int> oPrice { get; set; }
-
     public string sTimeRange { get; set; }
+
+    public string sPhoto { get; set; }
 
 
 

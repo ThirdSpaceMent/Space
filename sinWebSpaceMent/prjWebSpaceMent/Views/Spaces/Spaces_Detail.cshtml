@@ -19,7 +19,7 @@
                         <span class="joinbutton-a-span"></span>
                         <span class="joinbutton-a-span"></span>
                         <span class="joinbutton-a-span"></span>
-                        Search More！
+                        找場地
                     </a>
                 </div>
             </div>
@@ -30,7 +30,10 @@
 
 <main>
     <div class="container">
-        <section id="gallery" class="wow fadeInUp">
+        <div class="d-flex justify-content-center mt-3">
+            <h1 class="text-center">@Html.DisplayFor(model => model.sName)<br /> <span class="badge badge-info" style="font-size:16px">@Html.DisplayFor(model => model.sType)會議</span></h1>
+        </div>
+        <section id="gallery" class="wow fadeInUp mt-1 mb-1">
             <div class="owl-carousel gallery-carousel">
                 <a href="~/img/gallery/1.jpg" class="venobox" data-gall="gallery-carousel"><img src="~/img/gallery/1.jpg" alt=""></a>
                 <a href="~/img/gallery/2.jpg" class="venobox" data-gall="gallery-carousel"><img src="~/img/gallery/2.jpg" alt=""></a>
@@ -44,68 +47,71 @@
         </section>
     </div>
 
-    <div class="container">
-        <div class="d-flex justify-content-around">
-            <div class="col-lg-6">
-                <h1 class="text-center">@Html.DisplayFor(model => model.sName)<br /> <span class="badge badge-info" style="font-size:16px">@Html.DisplayFor(model => model.sType)會議</span></h1>
-
-                <ul class="list-group">
-                    <li class="list-group-item">@Html.DisplayNameFor(model => model.sAddr)：@Html.DisplayFor(model => model.sAddr)</li>
-                    <li class="list-group-item">@Html.DisplayNameFor(model => model.sPhone)：@Html.DisplayFor(model => model.sPhone)</li>
-                    <li class="list-group-item">@Html.DisplayNameFor(model => model.sFloor)：@Html.DisplayFor(model => model.sFloor)</li>
-                    <li class="list-group-item">@Html.DisplayNameFor(model => model.sHeight)：@Html.DisplayFor(model => model.sHeight)</li>
-                    <li class="list-group-item">@Html.DisplayNameFor(model => model.sArea)：@Html.DisplayFor(model => model.sArea)</li>
-                    <li class="list-group-item">@Html.DisplayNameFor(model => model.sCapacity)：@Html.DisplayFor(model => model.sCapacity)</li>
-                    <li class="list-group-item">@Html.DisplayNameFor(model => model.sRent)：@Html.DisplayFor(model => model.sRent)</li>
-                    <li class="list-group-item">@Html.DisplayNameFor(model => model.sRate)：@Html.DisplayFor(model => model.sRate)</li>
-                    <li class="list-group-item">@Html.DisplayNameFor(model => model.sIntro)：@Html.DisplayFor(model => model.sIntro)</li>
-                    <li class="list-group-item">@Html.DisplayNameFor(model => model.sOpeningTime)：@Html.DisplayFor(model => model.sOpeningTime)</li>
-                    <li class="list-group-item">@Html.DisplayNameFor(model => model.sSecurity)：@Html.DisplayFor(model => model.sSecurity)</li>
-                    <li class="list-group-item mb-5">@Html.DisplayNameFor(model => model.sTraffic)：@Html.DisplayFor(model => model.sTraffic)</li>
-                </ul>
-            </div>
-        
-
-        @*場地預訂小區塊 會跳轉至訂單詳細內容*@
-        <div class="col-lg-6 align-self-lg-r">
-            <form>
-                <div class="card">
-                    <div class="card-body">
-                        <h2 class="card-title">場地預訂</h2>
-                        <hr />
-                        <fieldset>
-                            <legend>請選擇日期</legend>
-                            <input type="date" name="datepick" id="datepick" />
-                        </fieldset>
-                        <hr />
-                        <fieldset onchange="sumVal();">
-                            <legend>時段選擇</legend>
-                            <input class="form-check-input ml-0" type="checkbox" name="timerange" id="Morning" value="1" />
-                            <p class="form-check-label ml-3 mb-2">早上(06:00-12:00)</p>
-                            <input class="form-check-input ml-0" type="checkbox" name="timerange" id="Afternoon" value="1" />
-                            <p class="form-check-label ml-3 mb-2">下午(12:00-18:00)</p>
-                            <input class="form-check-input ml-0" type="checkbox" name="timerange" id="Evening" value="1" />
-                            <p class="form-check-label ml-3 mb-2">晚上(18:00-00:00)</p>
-                        </fieldset>
-                    </div>
-                    <hr />
-                    <div class="card-body">
-                        @*所選場地之費用*@
-                        <span style="font-size: 1.5rem;">@Html.DisplayNameFor(model => model.sRent) NT$</span>
-                        <span class="ml-4 mb-3" style="font-size: 1.5rem;">@Html.DisplayFor(model => model.sRent)元 / 每一時段</span>
-                    </div>
-                    <div class="card-body">
-                        <span class="mb-3" style="font-size: 1.5rem;">小計  NT$</span>
-                        <span style="font-size: 1.5rem;" id="SUMSUM" class="ml-3"></span>  @*這裡是放小計結果的地方*@
-                        <span class="mb-3" style="font-size: 1.5rem;">元</span>
-                    </div>
-                    <hr />
-                    <button type="submit" class="btn btn-success mb-3">立即預訂</button>
-                </div>
-            </form>
+    <div class="container"> 
+        <div class="d-flex justify-content-center">
+            @*需調整為僅看到此場地評價*@
+            <button class="btn btn-success mb-3 mr-3">@Html.ActionLink("查看評價", "ShowComment", "Rating")</button>
+            <button class="btn btn-warning mb-3">@Html.ActionLink("進行評價", "AddComment", "Rating")</button>
         </div>
-    </div>
-</div>
+            <div class="row justify-content-around">
+                <div class="col-lg-6">
+                    <ul class="list-group" style="font-weight:500;font-family:微軟正黑體;font-size:18px;">
+                        <li class="list-group-item">@Html.DisplayNameFor(model => model.sAddr)：@Html.DisplayFor(model => model.sAddr)</li>
+                        <li class="list-group-item">@Html.DisplayNameFor(model => model.sPhone)：@Html.DisplayFor(model => model.sPhone)</li>
+                        <li class="list-group-item">@Html.DisplayNameFor(model => model.sFloor)：@Html.DisplayFor(model => model.sFloor)</li>
+                        <li class="list-group-item">@Html.DisplayNameFor(model => model.sHeight)：@Html.DisplayFor(model => model.sHeight)</li>
+                        <li class="list-group-item">@Html.DisplayNameFor(model => model.sArea)：@Html.DisplayFor(model => model.sArea)</li>
+                        <li class="list-group-item">@Html.DisplayNameFor(model => model.sCapacity)：@Html.DisplayFor(model => model.sCapacity)</li>
+                        <li class="list-group-item">@Html.DisplayNameFor(model => model.sRent)：@Html.DisplayFor(model => model.sRent)</li>
+                        <li class="list-group-item" hidden>@Html.DisplayNameFor(model => model.sRate)：@Html.DisplayFor(model => model.sRate)</li>
+                        <li class="list-group-item">@Html.DisplayNameFor(model => model.sOpeningTime)：@Html.DisplayFor(model => model.sOpeningTime)</li>
+                        <li class="list-group-item">@Html.DisplayNameFor(model => model.sSecurity)：@Html.DisplayFor(model => model.sSecurity)</li>
+                        <li class="list-group-item">@Html.DisplayNameFor(model => model.sTraffic)：@Html.DisplayFor(model => model.sTraffic)</li>
+                        <li class="list-group-item mb-5">@Html.DisplayNameFor(model => model.sIntro)：@Html.DisplayFor(model => model.sIntro)</li>
+                    </ul>
+                </div>
+
+
+                @*場地預訂小區塊 會跳轉至訂單詳細內容*@
+                <div class="col-lg-6 align-self-lg-r mb-5">
+                    <form>
+                        <div class="card">
+                            <div class="card-body">
+                                <h2 class="card-title">場地預訂</h2>
+                                <hr />
+                                <fieldset>
+                                    <legend>請選擇日期</legend>
+                                    <input type="date" name="datepick" id="datepick" />
+                                </fieldset>
+                                <hr />
+                                <fieldset onchange="sumVal();">
+                                    <legend>時段選擇</legend>
+                                    <input class="form-check-input ml-0" type="checkbox" name="timerange" id="Morning" value="1" />
+                                    <p class="form-check-label ml-3 mb-2">早上(06:00-12:00)</p>
+                                    <input class="form-check-input ml-0" type="checkbox" name="timerange" id="Afternoon" value="1" />
+                                    <p class="form-check-label ml-3 mb-2">下午(12:00-18:00)</p>
+                                    <input class="form-check-input ml-0" type="checkbox" name="timerange" id="Evening" value="1" />
+                                    <p class="form-check-label ml-3 mb-2">晚上(18:00-00:00)</p>
+                                </fieldset>
+                            </div>
+                            <hr />
+                            <div class="card-body">
+                                @*所選場地之費用*@
+                                <span style="font-size: 1.5rem;">@Html.DisplayNameFor(model => model.sRent) NT$</span>
+                                <span class="ml-4 mb-3" style="font-size: 1.5rem;">@Html.DisplayFor(model => model.sRent)元 / 每一時段</span>
+                            </div>
+                            <div class="card-body">
+                                <span class="mb-3" style="font-size: 1.5rem;">小計  NT$</span>
+                                <span style="font-size: 1.5rem;" id="SUMSUM" class="ml-3"></span>  @*這裡是放小計結果的地方*@
+                                <span class="mb-3" style="font-size: 1.5rem;">元</span>
+                            </div>
+                            <hr />
+                            <a class="btn btn-success" style="color:#ffffff;font-size:18px;font-weight:500;" onclick="BOOKING_onclick()">立即預訂</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
 </main>
 
 <script>
@@ -126,7 +132,7 @@
     let dateNOW = new Date();
     datepick.min = ConvertToISO(dateNOW);
 
-    /* 總計 */
+   /* 總計 */
     function sumVal() {
         /* 抓取有幾個多選框被勾 */
         var sub = 0;
@@ -144,5 +150,58 @@
         /* 最後計算部分 */
         var total = (@Model.sRent)* sub;
         document.getElementById("SUMSUM").innerHTML = total;  // 小計結果
+        $("#SUMSUM").val(total);
+    }
+
+    function BOOKING_onclick() {
+        var snumber =@Model.sNumber;
+        var snumsnum = $("#SUMSUM").val();   //小計欄位
+
+        if (snumsnum == "" || snumsnum == null || snumsnum=="0") {
+            alert("無勾選不可預訂");
+            return;
+        }
+
+        var datepick = $("#datepick").val(); // 日期選擇器(場地使用時間)
+        var morning = "";
+        var afternoon = "";
+        var evening = "";
+
+        var chk1 = document.getElementById("Morning").checked;
+        var chk2 = document.getElementById("Afternoon").checked;
+        var chk3 = document.getElementById("Evening").checked;
+
+        if (chk1 == true) {
+            morning = "1";
+        } else {
+            morning = "0";
+        }
+        if (chk2 == true) {
+            afternoon = "1";
+        } else {
+            afternoon = "0";
+        }
+        if (chk3 == true) {
+            evening = "1";
+        } else {
+            evening = "0";
+        }
+
+        var params = '{"oAccount":' + snumber + ',"snumsnum":' + snumsnum + ',"morning":' + morning + ',"afternoon":' + afternoon + ',"evening":' + evening + ',"datepick":"' + datepick + '"}';
+
+        $.ajax({
+            type: "POST",
+            url: "/Spaces/AddCar",
+            data: params,//json序列化
+            datatype: "json", //此處不能省略
+            contentType: "application/json; charset=utf-8",//此處不能省略
+            success: function (data) {
+                alert("預訂成功");
+                window.location.href = '@Url.Content("~/Member/ShoppingCar")';
+            },
+            error: function (data) {
+                alert(data)
+            }
+        });
     }
 </script>

@@ -20,37 +20,38 @@
                         <span class="joinbutton-a-span"></span>
                         <span class="joinbutton-a-span"></span>
                         <span class="joinbutton-a-span"></span>
-                        Check Now！
+                        場地管理
                     </a>
                 </div>
             </div>
         </form>
-
     </div>
 </section>
 
 <main>
-    <h2>會員資料專區</h2>
-
-    <table class="table">
+    <div class="section-header p-5">
+        <h2>會員資料編輯專區</h2>
+        <p>以下可以進行會員資料修改</p>
+    </div>
+    <table class="d-flex justify-content-center table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.mAccount)
+                會員帳號
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.mPassword)
+                會員密碼
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.mNickName)
+                會員暱稱
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.mEmail)
+                電子信箱
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.mPhone)
+                聯絡電話
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.mTWid)
+                身分證字號
             </th>
             <th></th>
         </tr>
@@ -67,8 +68,8 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.mNickName)
                 </td>
-                <td style="color:#000000">
-                    @Html.DisplayFor(modelItem => item.mEmail)
+                <td>
+                    <button type="button" class="btn btn-dark">@Html.DisplayFor(modelItem => item.mEmail)</button>
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.mPhone)
@@ -78,11 +79,6 @@
                 </td>
                 <td>
                     <button class="btn btn-warning">@Html.ActionLink("編輯", "Edit", new { id = item.mNumber })</button>
-                    @*<a href="@Url.Action("Delete")?mNumber=@item.mNumber"
-                           class="btn btn-danger"
-                           onclick="return confirm('確定要刪除編號 mNumber=@item.mNumber 的記錄嗎？');">
-                            刪除
-                        </a>*@
                 </td>
             </tr>
         }

@@ -30,6 +30,8 @@ public partial class Photos
 
     public Nullable<int> FK_Photo_to_Space { get; set; }
 
+    public byte[] pPhoto { get; set; }
+
 
 
     public virtual Members Members { get; set; }

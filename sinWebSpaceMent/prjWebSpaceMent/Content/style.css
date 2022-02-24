@@ -146,14 +146,16 @@ h6 {
 --------------------------------------------------------------*/
 
 #header {
-  height: 70px;
-  padding: 25px 0;
-  position: fixed;
-  left: 0;
-  top: 0;
-  right: 0;
-  transition: all 0.5s;
-  z-index: 997;
+    height: 70px;
+    padding: 25px 0;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    transition: all 0.5s;
+    z-index: 997;
+    display: flex;
+    justify-content: center;
 }
 
 #header.header-scrolled,
@@ -162,6 +164,8 @@ h6 {
   height: 70px;
   padding: 15px 0;
   transition: all 0.5s;
+  display:flex;
+  justify-content:center;
 }
 
 #header #logo h1 {
@@ -232,6 +236,29 @@ h6 {
 
 .nav-menu ul li {
   min-width: 180px;
+}
+
+a.open {
+    background: #6F6;
+}
+
+.open {
+    display: block;
+}
+
+    .open li {
+        background: #C6FFAA;
+    }
+
+ol li {
+    text-align: center;
+    position: relative;
+    float: left;
+    width: 150px;
+    background: #ccc;
+    font-size: 1rem;
+    line-height: 2em;
+    margin-left: 1px;
 }
 
 /* Nav Menu Arrows */
@@ -395,6 +422,7 @@ h6 {
   padding: 0;
   margin: 0;
   list-style: none;
+  display:block!important;
 }
 
 #mobile-nav ul li {
@@ -447,6 +475,29 @@ h6 {
   position: fixed;
   background: rgba(6, 12, 34, 0.8);
   display: none;
+}
+
+#mobile-a.open {
+    background: #6F6;
+}
+
+#mobile-open {
+    display: block;
+}
+
+#mobile-open li {
+    background: #C6FFAA;
+}
+
+#mobile-ol li {
+    text-align: center;
+    position: relative;
+    float: left;
+    width: 150px;
+    background: #ccc;
+    font-size: 1rem;
+    line-height: 2em;
+    margin-left: 1px;
 }
 
 /* Mobile Nav body classes */
@@ -768,14 +819,6 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #recommends .stars i {
   color: #ffc31d;
-}
-
-#recommends p {
-  padding: 0 20px;
-  margin-bottom: 20px;
-  color: #060c22;
-  font-style: italic;
-  font-size: 15px;
 }
 
 /*--------------------------------------------------------------
@@ -1109,7 +1152,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 --------------------------------------------------------------*/
 
 #gallery {
-    padding: 60px;
+    padding: 10px;
     overflow: hidden;
 }
 
@@ -1427,13 +1470,6 @@ body.mobile-nav-active #mobile-nav-toggle {
     color: #ffc31d;
 }
 
-#articles p {
-    padding: 0 20px;
-    margin-bottom: 20px;
-    color: #060c22;
-    font-style: italic;
-    font-size: 15px;
-}
 
 .List a-primary {
     color: #fff;
@@ -1539,3 +1575,4 @@ body.mobile-nav-active #mobile-nav-toggle {
 .a-danger:not(:disabled):not(.disabled).active:focus, .a-danger:not(:disabled):not(.disabled):active:focus, .show > .a-danger.dropdown-toggle:focus {
     box-shadow: 0 0 0 .2rem rgba(220,53,69,.5)
 }
+

@@ -7,20 +7,19 @@ using prjWebSpaceMent.Models;
 using System.Web.Security;
 
 namespace prjWebSpaceMent.Controllers
-{
-    
+{  
     public class HomeController : Controller
     {
         dbSpaceMentEntities1 db = new dbSpaceMentEntities1();
+        
+        //非會員的首頁
         public ActionResult Index()
         {
-            return View("../Home/Index", "_Layout");
+            return View();
         }
 
-        public ActionResult About()
+        public ActionResult FAQ()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
@@ -31,6 +30,7 @@ namespace prjWebSpaceMent.Controllers
             return View();
         }
 
+        //會員登入
         public ActionResult Login()
         {
             return View();
@@ -52,6 +52,7 @@ namespace prjWebSpaceMent.Controllers
             return RedirectToAction("Index", "Member");
         }
 
+        //註冊會員
         public ActionResult Register()
         {
             return View();
@@ -72,8 +73,7 @@ namespace prjWebSpaceMent.Controllers
             {
                 db.Members.Add(pMember);
                 db.SaveChanges();
-                Session["Welcome"] = "嗨，" + pMember.mName + "，歡迎您";
-                return RedirectToAction("Index", "Member");
+                return RedirectToAction("Login");
             }
             ViewBag.Message = "此帳號已有人使用，請重新註冊";
             return View();

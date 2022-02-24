@@ -57,6 +57,15 @@ namespace prjWebSpaceMent.Models
 
         [DisplayName("更新時間")]
         public System.DateTime sUpdated_at { get; set; }
+
         public Nullable<int> FK_Space_to_Owner { get; set; }
+
+        public string oAccount { get; set; }
+
+        public Nullable<int> oPrice { get; set; }
+
+        public string sTimeRange { get; set; }
+        [DisplayName("場地照片")]
+        public string sPhoto { get; set; }
     }
 }

@@ -26,10 +26,10 @@ namespace prjWebSpaceMent.Models
         [DisplayName("暱稱")]
         public string mNickName { get; set; }
         [Required]
- 
+        [EmailAddress]
         [DisplayName("電子信箱")]
         public string mEmail { get; set; }
-
+        [Phone]
         [DisplayName("聯絡電話")]
         public string mPhone { get; set; }
         [DisplayName("性別")]
