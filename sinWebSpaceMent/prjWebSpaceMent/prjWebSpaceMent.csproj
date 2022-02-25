@@ -312,6 +312,7 @@
     <Content Include="Scripts\venobox\venobox.min.js" />
     <Content Include="Scripts\wow\wow.js" />
     <Content Include="Scripts\wow\wow.min.js" />
+    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -373,7 +374,6 @@
     <Content Include="Views\Admin\Spaces_Edit_Admin.cshtml" />
     <Content Include="Views\Admin\ShowComment_Admin.cshtml" />
     <Content Include="Views\Admin\Rating_Index_Admin.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Member\Index.cshtml" />
     <Content Include="Views\Home\FAQ.cshtml" />
     <Content Include="Views\Spaces\Spaces_Order.cshtml" />
