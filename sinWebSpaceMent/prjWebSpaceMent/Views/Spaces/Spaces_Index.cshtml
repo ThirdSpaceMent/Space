@@ -1,0 +1,137 @@
+﻿@using prjWebSpaceMent.Models
+@model List<ClassSpaces>
+
+@{
+    ViewBag.Title = "Spaces_Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!--頁首 Section-->
+<section id="subspaces">
+    <div class="container wow fadeInUp">
+        <div class="section-header p-5">
+            <h2>自己的場地也想出租?</h2>
+            <p>好場地，就該讓更多人知道你的好！</p>
+        </div>
+        <form method="POST" action="#">
+            <div class="form-row justify-content-center">
+                <div class="col-auto">
+                    <a href="Spaces/Spaces_List" class="joinbutton-a">
+                        <span class="joinbutton-a-span"></span>
+                        <span class="joinbutton-a-span"></span>
+                        <span class="joinbutton-a-span"></span>
+                        <span class="joinbutton-a-span"></span>
+                        場地上架
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+<main>
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "searchform" }))
+    {
+        <div class="container">
+            <div class="section-header p-5">
+                <h2>搜尋場地</h2>
+                <p>來找找適合您的場地吧！</p>
+            </div>
+            <!--用 縣市 下拉選單篩選場地-->
+            <div class="flex-column">
+                <div class="row justify-content-center align-items-end">
+                    <div class="col-lg-3 m-0 mb-5">
+                        <fieldset>
+                            <legend>縣市</legend>
+                            <select name="city" onChange="search_city()">
+                                <option disabled value="" selected>請選擇縣市</option>
+                                <option>基隆市</option>
+                                <option>臺北市</option>
+                                <option>新北市</option>
+                                <option>桃園市</option>
+                                <option>新竹市</option>
+                                <option>新竹縣</option>
+                                <option>苗栗縣</option>
+                                <option>臺中市</option>
+                                <option>彰化縣</option>
+                                <option>南投縣</option>
+                                <option>雲林縣</option>
+                                <option>嘉義市</option>
+                                <option>嘉義縣</option>
+                                <option>臺南市</option>
+                                <option>高雄市</option>
+                                <option>屏東縣</option>
+                                <option>臺東縣</option>
+                                <option>花蓮縣</option>
+                                <option>宜蘭縣</option>
+                                <option>澎湖縣</option>
+                                <option>金門縣</option>
+                                <option>連江縣</option>
+                            </select>
+                        </fieldset>
+                    </div>
+                    <!--用 活動類型 下拉選單篩選場地-->
+                    <div class="col-lg-3 m-0 mb-5">
+                        <fieldset>
+                            <legend>活動類型</legend>
+                            <select name="type" onChange="search_type()">
+                                <option disabled value="" selected>請選擇活動類型</option>
+                                <option>會議/商務中心</option>
+                                <option>派對/聚餐</option>
+                                <option>尾牙/春酒</option>
+                                <option>課程講座/教育訓練</option>
+                                <option>運動場地</option>
+                                <option>多功能共享空間</option>
+                                <option>藝文展覽/表演場地</option>
+                                <option>婚禮/婚宴</option>
+                                <option>拍照/攝影</option>
+                                <option>宴會/晚會</option>
+                                <option>烹飪活動</option>
+                                <option>戶外活動</option>
+                                <option>地區活動中心</option>
+                                <option>其他</option>
+                            </select>
+                        </fieldset>
+                    </div>
+                    <div class="col-lg-3 m-0 mb-5">
+                        <span style="font-size: 1.5rem;">關鍵字</span><br />
+                        @Html.TextBox("txtKeyword", "", new { @class = "form-control" })
+                    </div>
+                    <div class="col-lg-3 m-0 mb-5">
+                        <button class="btn btn-danger" type="submit">查詢</button>
+                    </div>
+                    <!--顯示有哪些場地-->
+                    <hr />
+                    @{
+                        foreach (ClassSpaces sp in Model)
+                        {
+                            <div class="col-lg-3 mb-3">
+                                <div class="card" style="width: 16rem;">
+                                    <img src="~/img/spaces/1.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">@sp.sName</h5>
+                                        <span class="badge rounded-pill bg-success border-top m-0" style="color:#ffffff;font-size:16px">@sp.sType</span>
+                                        <p class="card-text border-top m-0">@sp.sAddr</p>
+                                        <p class="card-text border-top m-0">@sp.sCapacity</p>
+                                        <p class="card-text border-top border-bottom m-0">@sp.sOpeningTime</p>
+                                    </div>
+                                    <div class="card-body text-center">
+                                        <button class="btn btn-secondary text-center">
+                                            @Html.ActionLink("詳細資訊", "Spaces_Detail", new { id = sp.sNumber })
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    }
+</main>
+<script>
+    /* 觸發form的submit事件，因為不直接按查詢鈕
+    function search_city() {
+        $('#searchform').submit();
+    }*/
+</script>
+

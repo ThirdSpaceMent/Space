@@ -1,0 +1,64 @@
+﻿
+@model IEnumerable<prjWebSpaceMent.Models.Orders>
+
+@{ ViewBag.Title = "ShoppingCar";
+    Layout = "~/Views/Shared/_LayoutMember.cshtml"; }
+
+<!--頁首 Section-->
+<section id="subspaces">
+    <div class="container wow fadeInUp">
+        <div class="section-header p-5">
+            <h2>需要預訂場地嗎？</h2>
+            <p>讓我帶您去看看我們精選的場地吧！</p>
+        </div>
+        <form method="POST" action="#">
+            <div class="form-row justify-content-center">
+                <div class="col-auto">
+                    <a href="/Spaces/Spaces_Index" class="joinbutton-a">
+                        <span class="joinbutton-a-span"></span>
+                        <span class="joinbutton-a-span"></span>
+                        <span class="joinbutton-a-span"></span>
+                        <span class="joinbutton-a-span"></span>
+                        找場地
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+<main>
+    <div class="container">
+        <div class="section-header p-5">
+            <h2>我的預訂</h2>
+            <p>以下是您目前預訂的場地</p>
+        </div>
+    </div>
+    <table class="table d-flex justify-content-center">
+        <tr>
+            <th>序號</th>
+            <th>場地編號</th>
+            <th>場地名稱</th>
+            <th>會員帳號</th>
+            <th>應付費用(NTD)</th>
+            <th>下訂時間</th>
+            <th class="text-center">功能</th>
+        </tr>
+        @{ int count = 0;
+            foreach (var item in Model)
+            {
+                count++;
+                <tr>
+                    <td>@count</td>
+                    <td>@Html.DisplayFor(modelItem => item.FK_Order_to_Space)</td>
+                    <td>@Html.DisplayFor(modelItem => item.oStatus)</td>
+                    <td>@Html.DisplayFor(modelItem => item.oMemberAccount)</td>
+                    <td>NT$@Html.DisplayFor(modelItem => item.oPayment)</td>
+                    <td>@Html.DisplayFor(modelItem => item.oCreated_at)</td>
+                    <td>
+                        <a href="@Url.Action("deleteOrder")?oNumber=@item.oNumber" class="btn btn-danger" style="font-size:15px" onclick="return confirm('確定刪除 NO. @count -- @item.oStatus 的場地訂單嗎?' )">刪除此訂單</a>
+                    </td>
+                </tr>
+            } }
+    </table>
+</main>

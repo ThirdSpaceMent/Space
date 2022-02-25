@@ -1,0 +1,142 @@
+﻿@model prjWebSpaceMent.Models.Rates
+
+@{
+    ViewBag.Title = "EditRating";
+    Layout = "~/Views/Shared/_LayoutMember.cshtml";
+}
+
+<section id="subspaces">
+    <div class="container wow fadeInUp">
+        <div class="section-header p-5">
+            <h2>改變心意了嗎？</h2>
+            <p>點擊下方按鈕返回！</p>
+        </div>
+
+        <form method="POST" action="#">
+            <div class="form-row justify-content-center">
+                <div class="col-auto">
+                    <a href="/Rating/Rating_Index" class="joinbutton-a">
+                        <span class="joinbutton-a-span"></span>
+                        <span class="joinbutton-a-span"></span>
+                        <span class="joinbutton-a-span"></span>
+                        <span class="joinbutton-a-span"></span>
+                        返回
+                    </a>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</section>
+
+<main>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="row justify-content-around">
+            <div class="col-6">
+                <div class="section-header p-3">
+                    <h2>原始評價</h2>
+                    <p>以下是您對此場地的原始評價</p>
+                </div>
+                <div class="text-center mt-0 mb-3">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(model => model.rNumber)
+
+                    <div class="stars mt-2">
+                        @{
+                            int m = Convert.ToInt32(Model.rRate);
+                            for (int i = 1; i <= m; i++)
+                            {
+                                <i class="fa fa-star checked"></i>
+                            }
+                            for (int i = m; i < 5; i++)
+                            {
+                                <i class="fa fa-star-o"></i>
+                            }
+                        }
+                    </div>
+                    <div>
+                        評論: @Model.rComment
+                    </div>
+                    <div>
+                        評價時間: @Model.rCreated_at.ToString("yyyy/MM/dd HH:mm")
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="section-header p-3">
+                    <h2>修改評價</h2>
+                    <p>請輸入您的新評價</p>
+                </div>
+                <div class="text-center mt-0 mb-3">
+                    @using (Html.BeginForm("EditRating", "Rating", FormMethod.Post, new { onsubmit = "return VerifyRating()" }))
+                    {
+                        <h4>請輸入評價 :</h4>
+                        <div class="stars mb-3" onmouseout="CRateSelected()">
+                            <i id="i1" onmouseout="CRateOut(1)" onmouseover="CRateOver(1)" onclick="CRateClick(1)" class="fa fa-star-o"></i>
+                            <i id="i2" onmouseout="CRateOut(2)" onmouseover="CRateOver(2)" onclick="CRateClick(2)" class="fa fa-star-o"></i>
+                            <i id="i3" onmouseout="CRateOut(3)" onmouseover="CRateOver(3)" onclick="CRateClick(3)" class="fa fa-star-o"></i>
+                            <i id="i4" onmouseout="CRateOut(4)" onmouseover="CRateOver(4)" onclick="CRateClick(4)" class="fa fa-star-o"></i>
+                            <i id="i5" onmouseout="CRateOut(5)" onmouseover="CRateOver(5)" onclick="CRateClick(5)" class="fa fa-star-o"></i>
+                        </div>
+
+                        <textarea rows="6" cols="50" name="rComment" id="txtrComment" placeholder="輸入修改內容" required></textarea>
+                        <div>
+                            <input type="hidden" name="rating" id="lblRating" value="0" />
+                        </div>
+                        <div>
+                            <input type="hidden" name="sNumber" id="lblRating" value="@ViewBag.sNumber" />
+                        </div>
+                        <div>
+                            <input type="submit" class="btn btn-primary active" name="SaveRating" value="送出" />@ViewBag.Message
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+</main>
+
+<script type="text/javascript">
+    function CRateOut(rating) {
+        for (var i = 0; i <= rating; i++) {
+            $("#i" + i).attr('class', 'fa fa-star-o');
+        }
+    }
+    function CRateOver(rating) {
+        for (var i = 0; i <= rating; i++) {
+            $("#i" + i).attr('class', 'fa fa-star checked');
+        }
+    }
+    function CRateClick(rating) {
+        $("#lblRating").val(rating);
+        for (var i = 0; i <= rating; i++) {
+            $("#i" + i).attr('class', 'fa fa-star checked');
+        }
+        for (var i = rating + 1; i <= 5; i++) {
+            $("#i" + i).attr('class', 'fa fa-star-o');
+        }
+    }
+    function CRateSelected() {
+        var rating = $("#lblRating").val();
+        for (var i = 0; i <= rating; i++) {
+            $("#i" + i).attr('class', 'fa fa-star checked');
+        }
+    }
+    function VerifyRating() {
+        var rating = $("#lblRating").val();
+        if (rating == "0") {
+            alert("請選擇星數");
+            return false;
+        }
+    }
+</script>
+<style>
+    .checked {
+        color: orange;
+    }
+</style>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

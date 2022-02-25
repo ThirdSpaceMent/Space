@@ -1,0 +1,144 @@
+﻿@model prjWebSpaceMent.Models.ClassSpaces
+
+@{
+    ViewBag.Title = "Spaces_Edit";
+    Layout = "~/Views/Shared/_LayoutMember.cshtml";
+}
+
+<!--頁首 Section-->
+<section id="subspaces">
+    <div class="container wow fadeInUp">
+        <div class="section-header p-5">
+            <h2>忘記想修改甚麼了嗎？</h2>
+            <p>讓我帶您回到場地清單回想一下！</p>
+        </div>
+        <form method="POST" action="#">
+            <div class="form-row justify-content-center">
+                <div class="col-auto">
+                    <a href="/Spaces/Spaces_List" class="joinbutton-a">
+                        <span class="joinbutton-a-span"></span>
+                        <span class="joinbutton-a-span"></span>
+                        <span class="joinbutton-a-span"></span>
+                        <span class="joinbutton-a-span"></span>
+                        場地管理
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+<main>
+    @using (Html.BeginForm())
+    {
+        <div class="container">
+            <div class="section-header p-3">
+                <h2>編輯場地資料</h2>
+                <p>想修改什麼呢？</p>
+            </div>
+        </div>
+        <div class="row justify-content-lg-center">
+            <div>
+                <input type="hidden" name="sNumber" value="@Model.sNumber" />
+            </div>
+            <div class="col-5 mb-5">
+                <div class="mb-4">
+                    <h3><span class="badge badge-secondary">@Html.DisplayNameFor(model => model.sName)</span></h3>
+                    <input class="input-group" type="text" name="sName" placeholder="必填" required value="@Model.sName" />
+                    <small class="form-text text-muted mb-3">請輸入場地完整名稱</small>
+                </div>
+                <!--活動類型 使用下拉式選項-->
+                <div class="mb-4">
+                    <h3><span class="badge badge-secondary">@Html.DisplayNameFor(model => model.sType)</span></h3>
+                    <select name="sType" class="form-control">
+                        <option disabled value="" selected>請選擇活動類型</option>
+                        <option>會議/商務中心</option>
+                        <option>派對/聚餐</option>
+                        <option>尾牙/春酒</option>
+                        <option>課程講座/教育訓練</option>
+                        <option>運動場地</option>
+                        <option>多功能共享空間</option>
+                        <option>藝文展覽/表演場地</option>
+                        <option>婚禮/婚宴</option>
+                        <option>拍照/攝影</option>
+                        <option>宴會/晚會</option>
+                        <option>烹飪活動</option>
+                        <option>戶外活動</option>
+                        <option>地區活動中心</option>
+                        <option>其他</option>
+                    </select>
+                    <small class="form-text text-muted mb-3">請選擇場地所屬類別</small>
+                </div>
+                <div class="mb-4">
+                    <h3><span class="badge badge-secondary">@Html.DisplayNameFor(model => model.sAddr)</span></h3>
+                    <input class="input-group" type="text" name="sAddr" placeholder="必填" required value="@Model.sAddr" />
+                    <small class="form-text text-muted mb-3">請輸入場地所在地址(縣市/區鄉鎮/街道)</small>
+                </div>
+                <div class="mb-4">
+                    <h3><span class="badge badge-secondary">@Html.DisplayNameFor(model => model.sPhone)</span></h3>
+                    <input class="input-group" type="text" name="sPhone" placeholder="必填" required value="@Model.sPhone" />
+                    <small class="form-text text-muted mb-3">請輸入場地連絡電話(ex：07-xxx-xxxx or 09xx-xxx-xxx)</small>
+                </div>
+                <div class="mb-4">
+                    <h3><span class="badge badge-secondary">@Html.DisplayNameFor(model => model.sFloor)</span></h3>
+                    <input class="input-group" type="text" name="sFloor" placeholder="必填" required value="@Model.sFloor" />
+                    <small class="form-text text-muted mb-3">請輸入場地總樓層數(ex：5樓)</small>
+                </div>
+            </div>
+            <div class="col-5 mb-5">
+                <div class="mb-4">
+                    <h3><span class="badge badge-secondary">@Html.DisplayNameFor(model => model.sHeight)</span></h3>
+                    <input class="input-group" type="text" name="sHeight" value="@Model.sHeight" placeholder="必填" required />
+                    <small class="form-text text-muted mb-3">請輸入場地室內高度(ex：室內高度3公尺，室外場地請填戶外)</small>
+                </div>
+                <div class="mb-4">
+                    <h3><span class="badge badge-secondary">@Html.DisplayNameFor(model => model.sArea)</span></h3>
+                    <input class="input-group" type="text" name="sArea" value="@Model.sArea" placeholder="必填" required />
+                    <small class="form-text text-muted mb-3">請輸入場地可使用面積(ex：20坪)</small>
+                </div>
+                <div class="mb-4">
+                    <h3><span class="badge badge-secondary">@Html.DisplayNameFor(model => model.sCapacity)</span></h3>
+                    <input class="input-group" type="text" name="sCapacity" placeholder="必填" required value="@Model.sCapacity" />
+                    <small class="form-text text-muted mb-3">請輸入場地可容納人數(ex：1,000人)</small>
+                </div>
+                <div class="mb-4">
+                    <h3><span class="badge badge-secondary">@Html.DisplayNameFor(model => model.sRent)</span></h3>
+                    <input class="input-group" type="text" name="sRent" value="@Model.sRent" placeholder="必填" required />
+                    <small class="form-text text-muted mb-3">請輸入場地每一時段費用(ex：NT$800元/時段)</small>
+                </div>
+                <div class="mb-4" hidden>
+                    <h3><span class="badge badge-secondary">@Html.DisplayNameFor(model => model.sRate)</span></h3>
+                    <input class="input-group" type="text" name="sRate" value="@Model.sRate" />
+                </div>
+                <div class="mb-4">
+                    <h3><span class="badge badge-secondary">@Html.DisplayNameFor(model => model.sOpeningTime)</span></h3>
+                    <input class="input-group" type="text" name="sOpeningTime" value="@Model.sOpeningTime" placeholder="必填" required />
+                    <small class="form-text text-muted mb-3">請輸入場地營業時間(ex：週一至週五 09:00至21:00)</small>
+                </div>
+            </div>
+            <div class="col-8 mb-5">
+                <div class="mb-4">
+                    <h3><span class="badge badge-secondary">@Html.DisplayNameFor(model => model.sIntro)</span></h3>
+                    <textarea class="input-group" type="text" name="sIntro" placeholder="必填" required>@Model.sIntro</textarea>
+                    <small class="form-text text-muted mb-3">請輸入場地基本簡介(ex：描述場地基本介紹、用途、歷史故事等等)</small>
+                </div>
+
+                <div class="mb-4">
+                    <h3><span class="badge badge-secondary">@Html.DisplayNameFor(model => model.sSecurity)</span></h3>
+                    <textarea class="input-group" type="text" name="sSecurity" placeholder="必填" required>@Model.sSecurity</textarea>
+                    <small class="form-text text-muted mb-3">請說明場地安全設施(ex：滅火器、AED、緊急照明燈、偵煙裝置等等，或說明場地使用規則)</small>
+                </div>
+                <div class="mb-4">
+                    <h3><span class="badge badge-secondary">@Html.DisplayNameFor(model => model.sTraffic)</span></h3>
+                    <textarea class="input-group" type="text" name="sTraffic" placeholder="必填" required>@Model.sTraffic</textarea>
+                    <small class="form-text text-muted mb-3">請說明抵達場地位置推薦之交通路線或大眾運輸工具</small>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mb-5">
+            <button class="btn btn-success mr-4" type="submit">儲存修改</button>
+            <button class="btn btn-warning">@Html.ActionLink("返回場地總覽", "Spaces_List")</button>
+        </div>
+    }
+</main>
+
