@@ -16,7 +16,7 @@ namespace prjWebSpaceMent.Controllers
             db = new dbSpaceMentEntities1();
         }
         // GET: Rating
-        public ActionResult Rating_Index_Admin()//場地清單
+        public ActionResult Rating_Index_Admin()//場地評價清單
         {
             IEnumerable<ClassSpaces> ListSpaces = (from obj in db.Spaces
                                                    select new ClassSpaces()
@@ -28,7 +28,40 @@ namespace prjWebSpaceMent.Controllers
                                                    }).ToList();
             return View(ListSpaces);
         }
-        public ActionResult ShowComment(int sNumber)//列出評價
+        public ActionResult Rating_Index()//用戶查看自己給予的評價
+        {
+            string CurrentUser = User.Identity.Name;
+
+            //取出會員帳號
+            var Member = db.Members.Where(m => m.mAccount == CurrentUser).FirstOrDefault();
+            if (CurrentUser == "")
+            {
+                TempData["AlertMessage"] = "請先登入!";
+                return RedirectToAction("Login", "Home");
+            }
+            else
+            {
+                //取出該會員資料
+                IEnumerable<RatingViewModel> ListRates = (from obj in db.Rates
+                                                          join Spaces in db.Spaces on obj.FK_Rate_to_Space equals Spaces.sNumber
+                                                          where obj.FK_Rate_to_Member == Member.mNumber
+                                                          select new RatingViewModel()
+                                                          {
+                                                              sNumber = obj.Spaces.sNumber,
+                                                              sName = obj.Spaces.sName,
+                                                              rRate = (decimal)obj.rRate,
+                                                              rNumber = obj.rNumber,
+                                                              rComment = obj.rComment,
+                                                              rCreated_at = obj.rCreated_at,
+                                                              rUpdated_at = obj.rUpdated_at,
+                                                              FK_Rate_to_Member = (int)obj.FK_Rate_to_Member,
+                                                              FK_Rate_to_Order = (int)obj.FK_Rate_to_Order,
+                                                              FK_Rate_to_Space = (int)obj.FK_Rate_to_Space
+                                                          }).ToList();
+                return View(ListRates);
+            }
+        }
+        public ActionResult ShowRating(int sNumber)//列出該場地評價
         {
             IEnumerable<RatingViewModel> listRVM = (from obj in db.Rates
                                                     where obj.FK_Rate_to_Space == sNumber
@@ -45,13 +78,13 @@ namespace prjWebSpaceMent.Controllers
             ViewBag.sNumber = sNumber;
             return View(listRVM);
         }
-        public ActionResult AddComment(int sNumber)
+        public ActionResult AddRating(int sNumber)//進行評價
         {
             ViewBag.sNumber = sNumber;
             return View();
         }
         [HttpPost]
-        public ActionResult AddComment(int sNumber, int rating, string rComment)//送出評價
+        public ActionResult AddRating(int sNumber, int rating, string rComment)//送出評價
         {
             string CurrentUser = User.Identity.Name;
             if (CurrentUser == "")
@@ -71,8 +104,44 @@ namespace prjWebSpaceMent.Controllers
                 obj.rUpdated_at = DateTime.Now;
                 db.Rates.Add(obj);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Rating_Index");
             }
+        }
+        public ActionResult EditRating(int sNumber)//修改評價
+        {
+            Rates editdata = db.Rates.Where(r => r.FK_Rate_to_Space == sNumber).FirstOrDefault();
+            ViewBag.sNumber = sNumber;
+            return View(editdata);
+        }
+        [HttpPost]
+        public ActionResult EditRating(int sNumber, int rating, string rComment)
+        {
+            string CurrentUser = User.Identity.Name;
+            //if (CurrentUser == "")
+            //{
+            //    ViewBag.Message = "請先登入";
+            //    return View();
+            //}
+            //else
+            //{
+                var member = db.Members.Where(m => m.mAccount == CurrentUser).FirstOrDefault();
+                Rates obj = new Rates();
+                obj.FK_Rate_to_Member = member.mNumber;
+                obj.FK_Rate_to_Space = sNumber;
+                obj.rComment = rComment;
+                obj.rRate = rating;
+                obj.rUpdated_at = DateTime.Now;
+             db.Rates.
+            
+                db.SaveChanges();
+                return RedirectToAction("Rating_Index");
+            //}
+        }
+
+        public ActionResult DeleteRating(int sNumber)
+        {
+            ViewBag.sNumber = sNumber;
+            return View();
         }
     }
 }

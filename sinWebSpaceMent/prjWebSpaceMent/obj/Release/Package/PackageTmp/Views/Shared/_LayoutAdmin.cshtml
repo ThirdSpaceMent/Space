@@ -1,0 +1,122 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title Space們</title>
+    <link rel="stylesheet" href="~/Content/Logininbutton.css">
+    <link rel="stylesheet" href="~/Content/JoinButton.css">
+    <link rel="stylesheet" href="~/Content/maicons.css">
+    <link rel="stylesheet" href="~/Content/owl-carousel/css/owl.carousel.css">
+    <link rel="stylesheet" href="~/Content/theme.css">
+    <!-- Favicons -->
+    <link href="~/img/favicon.jpg" rel="icon">
+    <link href="~/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
+    <!-- Bootstrap CSS File -->
+    <link href="~/Content/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Libraries CSS Files -->
+    <link href="~/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/Content/animate/animate.min.css" rel="stylesheet">
+    <link href="~/Content/venobox/venobox.css" rel="stylesheet">
+    <link href="~/Content/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="~/Content/owlcarousel/assets/owl.carousel.css" rel="stylesheet">
+    <!-- Main Stylesheet File -->
+    <link href="~/Content/Style_admin.css" rel="stylesheet">
+</head>
+
+<body>
+    <!--回到頁首-->
+    <a href="#" class="back-to-top"><i class="fa"></i></a>
+
+    <!--頁首-->
+    <header id="header">
+        <div id="logo" class="pull-left">
+            <a href="/Admin/Admin_Index" class="scrollto"><img src="~/img/logo.png" alt="" title=""></a>
+        </div>
+        <!-- 標題列 -->
+        <nav id="nav-menu-container">
+            <ul class="nav-menu">
+                <li class="menu-active"><a href="#">@Session["Welcome"]</a></li>
+                <li class="login-id"><a href="/Admin/SpaceManage">場地管理</a></li>
+                <li class="login-id"><a href="/Admin/MemberManage">會員管理</a></li>
+                <li class="login-id"><a href="/Admin/Rating_Index_Admin">評價管理</a></li>
+                <li class="login-id"><a href="/Member/Logout">登出</a></li>
+            </ul>
+        </nav><!-- 標題列 -->
+    </header><!--頁首-->
+
+    @RenderBody()
+
+    <!-- 頁尾 -->
+    <footer id="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 footer-info">
+                        <img src="~/img/logo.png" alt="TheEvenet">
+                        <p>我們集結了上千個場地，不管你在什麼樣的地方，辦什麼樣的活動，從搜尋、比對到預訂，都可以在這裡一指輕鬆搞定！<br />結合「共享經濟」、「場地媒合」與「電商平台」三大領域，我們改變了「場地租借」的現有模式，讓浪費變成利益、讓複雜變得容易，讓遙遠變得靠近。</p>
+                    </div>
+                    <div class="col-lg-3 col-md-6 footer-links">
+                        <h4>Space</h4>
+                        <ul>
+                            <li><i class="fa fa-angle-right"></i> <a href="/Admin/Admin_Index">首頁</a></li>
+                            <li><i class="fa fa-angle-right"></i> <a href="/Admin/MemberManage">會員管理</a></li>
+                            <li><i class="fa fa-angle-right"></i> <a href="/Admin/SpaceManage">場地管理</a></li>
+                            <li><i class="fa fa-angle-right"></i> <a href="/Admin/Rating_Index_Admin">評價管理</a></li>
+                            <li><i class="fa fa-angle-right"></i> <a href="/Member/Logout">登出</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-6 footer-links">
+                        <h4>Information</h4>
+                        <ul>
+                            <li><i class="fa fa-angle-right"></i> <a href="#">常見問題</a></li>
+                            <li><i class="fa fa-angle-right"></i> <a href="#">聯絡我們</a></li>
+                            <li><i class="fa fa-angle-right"></i> <a href="#">買貴退差價</a></li>
+                            <li><i class="fa fa-angle-right"></i> <a href="#">服務政策</a></li>
+                            <li><i class="fa fa-angle-right"></i> <a href="#">隱私權條款</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-6 footer-contact">
+                        <h4>Contact Us</h4>
+                        <p>
+                            80147高雄市前金區 <br>
+                            中正四路211號8樓之1 <br>
+                            <strong>Phone:</strong> +886-796-99885<br>
+                            <strong>Email:</strong> spacesmentno.3@gmail.com<br>
+                        </p>
+                        <div class="social-links">
+                            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                            <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                            <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+                            <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+                            <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer><!-- 頁尾 -->
+
+    <!-- JavaScript Libraries -->
+    <script src="~/Scripts/jquery/jquery.min.js"></script>
+    <script src="~/Scripts/jquery/jquery-migrate.min.js"></script>
+    <script src="~/Scripts/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Scripts/easing/easing.min.js"></script>
+    <script src="~/Scripts/superfish/hoverIntent.js"></script>
+    <script src="~/Scripts/superfish/superfish.min.js"></script>
+    <script src="~/Scripts/wow/wow.min.js"></script>
+    <script src="~/Scripts/venobox/venobox.min.js"></script>
+    <script src="~/Scripts/owlcarousel/owl.carousel.min.js"></script>
+    <!-- Template Main Javascript File -->
+    <script src="~/Scripts/main.js"></script>
+    <script src="~/Scripts/js/jquery-3.5.1.min.js"></script>
+    <script src="~/Scripts/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Scripts/vendor/owl-carousel/js/owl.carousel.min.js"></script>
+    <script src="~/Scripts/js/theme.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

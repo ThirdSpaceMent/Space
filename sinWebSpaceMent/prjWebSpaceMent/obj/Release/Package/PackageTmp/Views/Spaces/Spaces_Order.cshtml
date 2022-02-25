@@ -1,0 +1,61 @@
+﻿@model IEnumerable<prjWebSpaceMent.Models.Orders>
+
+@{
+    ViewBag.Title = "Spaces_Order";
+    Layout = "~/Views/Shared/_LayoutMember.cshtml";
+}
+
+<!--頁首 Section-->
+<section id="subspaces">
+    <div class="container wow fadeInUp">
+        <div class="section-header p-5">
+            <h2>有新的場地要上架嗎？</h2>
+            <p>點擊下方按鈕上架場地吧！</p>
+        </div>
+        <form method="POST" action="#">
+            <div class="form-row justify-content-center">
+                <div class="col-auto">
+                    <a href="/Spaces/Spaces_Create" class="joinbutton-a">
+                        <span class="joinbutton-a-span"></span>
+                        <span class="joinbutton-a-span"></span>
+                        <span class="joinbutton-a-span"></span>
+                        <span class="joinbutton-a-span"></span>
+                        場地管理
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+<main>
+    <div class="section-header p-3">
+        <h2>我的客訂單</h2>
+        <p>您可以在這裡查看其他會員預訂您的場地訂單！</p>
+    </div>
+    <table class="table border mr-0 ml-0 d-flex justify-content-center">
+        <tr>
+            <th class="text-center">序號</th>
+            <th>場地名稱</th>
+            <th>使用日期</th>
+            <th>預訂時段</th>
+            <th>應付總費用</th>
+            <th>預訂者編號</th>
+        </tr>
+        @{
+            int count = 0;
+            foreach (var item in Model)
+            {
+                count++;
+                <tr>
+                    <td class="text-center">@count</td>
+                    <td>@Html.DisplayFor(modelItem => item.oStatus)</td>
+                    <td>@Html.DisplayFor(modelItem => item.oScheduledTime)</td>
+                    <td>@Html.DisplayFor(modelItem => item.oTimeRange)</td>
+                    <td>@Html.DisplayFor(modelItem => item.oPayment)</td>
+                    <td>@Html.DisplayFor(modelItem => item.FK_Order_to_Member_User)</td>
+                </tr>
+            }
+        }
+    </table>
+</main>
