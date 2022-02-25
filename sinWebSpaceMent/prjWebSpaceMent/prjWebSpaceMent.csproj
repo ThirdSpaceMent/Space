@@ -52,6 +52,12 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -128,14 +134,8 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-<<<<<<< Updated upstream
-=======
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\FavoriteController.cs" />
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\RatingController.cs" />
@@ -203,6 +203,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap\css\bootstrap.css" />
     <Content Include="Content\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\FAQ.css" />
     <Content Include="Content\JoinButton.css" />
     <Content Include="Content\Logininbutton.css" />
     <Content Include="Content\maicons.css" />
@@ -218,7 +219,9 @@
     <Content Include="Content\owlcarousel\assets\owl.theme.green.css" />
     <Content Include="Content\owlcarousel\assets\owl.theme.green.min.css" />
     <Content Include="Content\owlcarousel\assets\owl.video.play.png" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="Content\style.css" />
+    <Content Include="Content\Style_admin.css" />
     <Content Include="Content\theme.css" />
     <Content Include="Content\venobox\venobox.css" />
     <Content Include="favicon.ico" />
@@ -292,7 +295,6 @@
     </Content>
     <Content Include="Scripts\bootstrap\js\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap\js\bootstrap.min.js" />
-    <Content Include="Scripts\contactform\contactform.js" />
     <Content Include="Scripts\easing\easing.js" />
     <Content Include="Scripts\easing\easing.min.js" />
     <Content Include="Scripts\jquery\jquery-migrate.min.js" />
@@ -323,13 +325,11 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Spaces\Spaces_List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="img\Member\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css.map" />
@@ -360,16 +360,9 @@
     <Content Include="Views\Spaces\Spaces_Edit.cshtml" />
     <Content Include="Views\Spaces\Spaces_Detail.cshtml" />
     <Content Include="Views\Spaces\Spaces_Index.cshtml" />
-    <Content Include="Views\Member\Index.cshtml" />
     <Content Include="Views\Spaces\Spaces_List_Detail.cshtml" />
     <Content Include="Views\Member\memberIndex.cshtml" />
     <Content Include="Views\Member\Edit.cshtml" />
-<<<<<<< Updated upstream
-    <Content Include="Views\Rating\Index.cshtml" />
-    <Content Include="Views\Rating\ShowComment.cshtml" />
-    <Content Include="Views\Shared\_CommentPartial.cshtml" />
-    <Content Include="Views\Rating\AddComment.cshtml" />
-=======
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Views\Admin\Admin_Index.cshtml" />
     <Content Include="Views\Admin\Admin_Login.cshtml" />
@@ -390,10 +383,6 @@
     <Content Include="Views\Rating\EditRating1.cshtml" />
     <Content Include="Views\Rating\Rating_Index.cshtml" />
     <Content Include="Views\Rating\EditRating.cshtml" />
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -70,11 +70,11 @@
     <Property Name="FK_Order_to_Member_Owner" Type="int" />
     <Property Name="FK_Order_to_Space" Type="int" />
     <Property Name="FK_Order_to_Activity" Type="int" />
-    <Property Name="oAccount" Type="nvarchar" MaxLength="50" />
     <Property Name="oQty" Type="int" />
-    <Property Name="oPrice" Type="int" />
     <Property Name="oTimeRange" Type="nvarchar" MaxLength="50" />
     <Property Name="oMemberAccount" Type="nvarchar" MaxLength="50" />
+    <Property Name="oPrice" Type="int" />
+    <Property Name="oAccount" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Owners">
     <Key>
@@ -95,6 +95,7 @@
     <Property Name="pUpdated_at" Type="datetime" Nullable="false" />
     <Property Name="FK_Photo_to_Member" Type="int" />
     <Property Name="FK_Photo_to_Space" Type="int" />
+    <Property Name="pPhoto" Type="varbinary(max)" />
   </EntityType>
   <EntityType Name="Rates">
     <Key>
@@ -131,8 +132,6 @@
     <Property Name="sCreated_at" Type="datetime" Nullable="false" />
     <Property Name="sUpdated_at" Type="datetime" Nullable="false" />
     <Property Name="FK_Space_to_Owner" Type="int" />
-    <Property Name="oAccount" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="oPrice" Type="int" />
     <Property Name="sTimeRange" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="SubSpaces">

@@ -9,7 +9,6 @@ using System.ComponentModel;
 using System.Configuration;
 using System.Data.SqlClient;
 
-
 namespace prjWebSpaceMent.Controllers
 {
     [Authorize]
@@ -17,30 +16,54 @@ namespace prjWebSpaceMent.Controllers
     {
         dbSpaceMentEntities1 db = new dbSpaceMentEntities1();
         // GET: Member
+
+        //會員的首頁
         public ActionResult Index()
         {
             var space =
                 db.Spaces.OrderByDescending(m => m.sNumber).ToList();
-            return View("../Member/Index", "_LayoutMember", space);
+            return View("../Member/Index", space);
         }
 
+        //會員編輯總覽
         //編輯後無法第二次編輯
         public ActionResult memberIndex()
         {
             string mAccount = User.Identity.Name;
-            var employees = db.Members.Where(m => m.mAccount == mAccount).ToList();
-            return View(employees);
+            if (mAccount != null && mAccount != "") // 會員才能瀏覽
+            {
+                if (mAccount == "CHEEE")  //暫定這一位是管理者
+                {
+                    // 會員總覽(系統管理者才能看到所有會員)
+
+                    return RedirectToAction("MemberManage", "Admin");
+                }
+                else
+                {
+                    // 非系統管理者 只能看到自己上架的場地
+                    var employees = db.Members.Where(m => m.mAccount == mAccount).ToList();
+                    return View(employees);
+                }
+            }
+            else
+            {
+                return RedirectToAction("Index", "Member");
+            }
+            
+            
             //var space =
             //    db.Spaces.OrderByDescending(m => m.sNumber).ToList();
             //return View("../Member/Index", "_LayoutMember", space);
         }
 
+        //會員登出
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
             return RedirectToAction("Login", "Home");
         }
 
+        //我的預訂
         public ActionResult ShoppingCar()
         {
             string oMemberAccount = User.Identity.Name;
@@ -50,60 +73,7 @@ namespace prjWebSpaceMent.Controllers
             return View(OrderDetails);
         }
 
-        //public ActionResult ShoppingCar()
-        //{
-        //    string oMemberAccount = User.Identity.Name;
-        //    var OrderDetails = db.Orders.Where
-        //        (m => m.oMemberAccount == oMemberAccount)
-        //        .ToList();
-        //    return View(OrderDetails);
-
-
-        //以下是把選擇的場地下定加入清單的方法 但因資料對接不順利的問題 因此尚待解決//
-        //public ActionResult AddCar(string oAccount)
-        //{
-        //    string oMemberAccount = User.Identity.Name;
-        //    var car = db.Orders
-        //        .Where(m => m.oMemberAccount == oMemberAccount && m.oAccount == oAccount).FirstOrDefault();
-
-        //    var space = db.Spaces.Where(m => m.oAccount == oAccount).FirstOrDefault();
-
-        //    Orders order = new Orders();
-        //    order.oAccount = space.oAccount;
-        //    order.oMemberAccount = oMemberAccount;
-        //    order.oCreated_at = DateTime.Now;
-        //    order.oPrice = (int)space.sRent;
-        //    db.Orders.Add(order);
-        //    db.Configuration.ValidateOnSaveEnabled = false;
-        //    db.SaveChanges();
-        //    order.oScheduledTime = Convert.ToDateTime(space.sTimeRange);
-        //    //db.Configuration.ValidateOnSaveEnabled = true;
-        //    return RedirectToAction("ShoppingCar");
-        //}
-
-
-        //以下是測試會員編輯功能 尚未成功//
-        //public ActionResult Member_Edit(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return RedirectToAction("ShoppingCar");
-        //    }
-        //    Members x = (new Members()).QueryByfid1((int)id);
-        //    return View(x);
-        //}
-
-        //[HttpGet]
-        //public ActionResult Member_Edit(Members p)
-        //{
-        //    if (p == null)
-        //    {
-        //        return RedirectToAction("ShoppingCar");
-        //    }
-        //    (new Members()).update1(p);
-        //    return RedirectToAction("ShoppingCar");
-        //}
-
+        //刪除訂單
         public ActionResult DeleteOrder(int oNumber)
         {
             var orderDetail = db.Orders.Where
@@ -113,40 +83,7 @@ namespace prjWebSpaceMent.Controllers
             return RedirectToAction("ShoppingCar");
         }
 
-        //public ActionResult Edit1(string mAccount)
-        //{
-        //    var member = db.Members
-        //        .Where(m => m.mAccount == mAccount).FirstOrDefault();
-        //    return View(member);
-        //}
-
-        //[HttpPost]
-        //public ActionResult Edit1(Members member)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        var temp = db.Members
-        //            .Where(m => m.mAccount == member.mAccount).FirstOrDefault();
-        //        temp.mAccount = member.mAccount;
-        //        temp.mPassword = member.mPassword;
-        //        temp.mName = member.mName;
-        //        temp.mNickName = member.mNickName;
-        //        temp.mEmail = member.mEmail;
-        //        temp.mPhone = member.mPhone;
-        //        temp.mGender = member.mGender;
-        //        temp.mTWid = member.mTWid;
-        //        temp.mBirthday = member.mBirthday;
-        //        temp.mPoint = member.mPoint;
-        //        temp.mCreated_at = member.mCreated_at;
-        //        temp.mUpdated_at = member.mUpdated_at;
-        //        db.SaveChanges();
-        //        return RedirectToAction("memberIndex");
-
-        //    }
-
-        //    return View(member);
-        //}
-
+        //會員資料編輯
         public ActionResult Edit(int id)
         {
             Members member = db.Members.FirstOrDefault(m => m.mNumber == id);

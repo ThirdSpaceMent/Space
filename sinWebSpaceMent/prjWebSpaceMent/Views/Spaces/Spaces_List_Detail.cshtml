@@ -11,7 +11,6 @@
             <h2>發現場地資訊有誤嗎？</h2>
             <p>立即更新場地資訊吧！</p>
         </div>
-
         <form method="POST" action="#">
             <div class="form-row justify-content-center">
                 <div class="col-auto">
@@ -20,17 +19,19 @@
                         <span class="joinbutton-a-span"></span>
                         <span class="joinbutton-a-span"></span>
                         <span class="joinbutton-a-span"></span>
-                        Edit Now！
+                        場地管理
                     </a>
                 </div>
             </div>
         </form>
-
     </div>
 </section>
 
 <main>
     <div class="container">
+        <div class="d-flex justify-content-center mt-3">
+            <h1 class="text-center">@Html.DisplayFor(model => model.sName)<br /> <span class="badge badge-info" style="font-size:16px">@Html.DisplayFor(model => model.sType)會議</span></h1>
+        </div>
         <section id="gallery" class="wow fadeInUp">
             <div class="owl-carousel gallery-carousel">
                 <a href="~/img/gallery/1.jpg" class="venobox" data-gall="gallery-carousel"><img src="~/img/gallery/1.jpg" alt=""></a>
@@ -44,31 +45,32 @@
             </div>
         </section>
     </div>
-
     <div class="container">
-
-                <h1 class="text-center">@Html.DisplayFor(model => model.sName)<br /> <span class="badge badge-info" style="font-size:16px">@Html.DisplayFor(model => model.sType)會議</span></h1>
-                <div class="row">
-                    <div class="col-lg-6">
-                        <ul class="list-group">
-                            <li class="list-group-item">@Html.DisplayNameFor(model => model.sAddr)：@Html.DisplayFor(model => model.sAddr)</li>
-                            <li class="list-group-item">@Html.DisplayNameFor(model => model.sPhone)：@Html.DisplayFor(model => model.sPhone)</li>
-                            <li class="list-group-item">@Html.DisplayNameFor(model => model.sFloor)：@Html.DisplayFor(model => model.sFloor)</li>
-                            <li class="list-group-item">@Html.DisplayNameFor(model => model.sHeight)：@Html.DisplayFor(model => model.sHeight)</li>
-                            <li class="list-group-item">@Html.DisplayNameFor(model => model.sArea)：@Html.DisplayFor(model => model.sArea)</li>
-                            <li class="list-group-item">@Html.DisplayNameFor(model => model.sCapacity)：@Html.DisplayFor(model => model.sCapacity)</li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-6">
-                        <ul class="list-group">
-                            <li class="list-group-item">@Html.DisplayNameFor(model => model.sRent)：@Html.DisplayFor(model => model.sRent)</li>
-                            <li class="list-group-item">@Html.DisplayNameFor(model => model.sRate)：@Html.DisplayFor(model => model.sRate)</li>
-                            <li class="list-group-item">@Html.DisplayNameFor(model => model.sIntro)：@Html.DisplayFor(model => model.sIntro)</li>
-                            <li class="list-group-item">@Html.DisplayNameFor(model => model.sOpeningTime)：@Html.DisplayFor(model => model.sOpeningTime)</li>
-                            <li class="list-group-item">@Html.DisplayNameFor(model => model.sSecurity)：@Html.DisplayFor(model => model.sSecurity)</li>
-                            <li class="list-group-item mb-5">@Html.DisplayNameFor(model => model.sTraffic)：@Html.DisplayFor(model => model.sTraffic)</li>
-                        </ul>
-                    </div>
-                </div>
-                </div>
+        <div class="d-flex justify-content-center">
+            <button class="btn btn-success mb-3 mr-3">@Html.ActionLink("查看評價", "ShowComment", "Rating")</button>
+            <button class="btn btn-warning mb-3">@Html.ActionLink("評分評論", "AddComment", "Rating")</button>
+        </div>
+        <div class="row justify-content-around mb-3">
+            <div class="col-lg-6 mb-3">
+                <ul class="list-group">
+                    <li class="list-group-item">@Html.DisplayNameFor(model => model.sAddr)：@Html.DisplayFor(model => model.sAddr)</li>
+                    <li class="list-group-item">@Html.DisplayNameFor(model => model.sPhone)：@Html.DisplayFor(model => model.sPhone)</li>
+                    <li class="list-group-item">@Html.DisplayNameFor(model => model.sFloor)：@Html.DisplayFor(model => model.sFloor)</li>
+                    <li class="list-group-item">@Html.DisplayNameFor(model => model.sHeight)：@Html.DisplayFor(model => model.sHeight)</li>
+                    <li class="list-group-item">@Html.DisplayNameFor(model => model.sArea)：@Html.DisplayFor(model => model.sArea)</li>
+                    <li class="list-group-item">@Html.DisplayNameFor(model => model.sCapacity)：@Html.DisplayFor(model => model.sCapacity)</li>
+                </ul>
+            </div>
+            <div class="col-lg-6 mb-3">
+                <ul class="list-group">
+                    <li class="list-group-item">@Html.DisplayNameFor(model => model.sRent)：@Html.DisplayFor(model => model.sRent)</li>
+                    <li class="list-group-item" hidden>@Html.DisplayNameFor(model => model.sRate)：@Html.DisplayFor(model => model.sRate)</li>
+                    <li class="list-group-item">@Html.DisplayNameFor(model => model.sOpeningTime)：@Html.DisplayFor(model => model.sOpeningTime)</li>
+                    <li class="list-group-item">@Html.DisplayNameFor(model => model.sSecurity)：@Html.DisplayFor(model => model.sSecurity)</li>
+                    <li class="list-group-item">@Html.DisplayNameFor(model => model.sTraffic)：@Html.DisplayFor(model => model.sTraffic)</li>
+                    <li class="list-group-item mb-5">@Html.DisplayNameFor(model => model.sIntro)：@Html.DisplayFor(model => model.sIntro)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </main>

@@ -1,17 +1,16 @@
-﻿@model IEnumerable<prjWebSpaceMent.Models.Orders>
+﻿
+@model IEnumerable<prjWebSpaceMent.Models.Orders>
 
-@{
-    ViewBag.Title = "ShoppingCar";
-    Layout = "~/Views/Shared/_LayoutMember.cshtml";
-}
-<!--Intro Section-->
+@{ ViewBag.Title = "ShoppingCar";
+    Layout = "~/Views/Shared/_LayoutMember.cshtml"; }
+
+<!--頁首 Section-->
 <section id="subspaces">
     <div class="container wow fadeInUp">
         <div class="section-header p-5">
             <h2>需要預訂場地嗎？</h2>
             <p>讓我帶您去看看我們精選的場地吧！</p>
         </div>
-
         <form method="POST" action="#">
             <div class="form-row justify-content-center">
                 <div class="col-auto">
@@ -20,100 +19,46 @@
                         <span class="joinbutton-a-span"></span>
                         <span class="joinbutton-a-span"></span>
                         <span class="joinbutton-a-span"></span>
-                        GO！
+                        找場地
                     </a>
                 </div>
             </div>
         </form>
-
     </div>
 </section>
 
-<div class="container">
-    <div class="section-header p-5">
-        <h2>我的預訂</h2>
-        <p>以下是您目前預訂的場地</p>
+<main>
+    <div class="container">
+        <div class="section-header p-5">
+            <h2>我的預訂</h2>
+            <p>以下是您目前預訂的場地</p>
+        </div>
     </div>
-</div>
-<div class="container">
-    <table class="table">
-
+    <table class="table d-flex justify-content-center">
         <tr>
-            <th>
-                序號
-            </th>
-            <th>
-                場地編號
-            </th>
-            <th>
-                場地名稱
-            </th>
-            <th>
-                會員帳號
-            </th>
-            <th>
-                費用(NTD)
-            </th>
-            <th>
-                下訂時間
-            </th>
-            <th></th>
+            <th>序號</th>
+            <th>場地編號</th>
+            <th>場地名稱</th>
+            <th>會員帳號</th>
+            <th>應付費用(NTD)</th>
+            <th>下訂時間</th>
+            <th class="text-center">功能</th>
         </tr>
-        @{
-            int count = 0;
+        @{ int count = 0;
             foreach (var item in Model)
             {
                 count++;
                 <tr>
+                    <td>@count</td>
+                    <td>@Html.DisplayFor(modelItem => item.FK_Order_to_Space)</td>
+                    <td>@Html.DisplayFor(modelItem => item.oStatus)</td>
+                    <td>@Html.DisplayFor(modelItem => item.oMemberAccount)</td>
+                    <td>NT$@Html.DisplayFor(modelItem => item.oPayment)</td>
+                    <td>@Html.DisplayFor(modelItem => item.oCreated_at)</td>
                     <td>
-                        @count
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.oAccount)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.oStatus)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.oMemberAccount)
-                    </td>
-                    <td>
-                        $@Html.DisplayFor(modelItem => item.oPrice)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.oCreated_at)
-                    </td>
-                    @*<td>
-                            @Html.DisplayFor(modelItem => item.oDiscount)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.oPrice)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.oCreated_at)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.oUpdated_at)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Activities.aName)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Members.mAccount)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Members1.mAccount)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Spaces.sName)
-                        </td>*@
-                    <td>
-                        @*<button type="submit" class="btn btn-success" style="font-size:14px">@Html.ActionLink("編輯", "Member_Edit")</button>*@
                         <a href="@Url.Action("deleteOrder")?oNumber=@item.oNumber" class="btn btn-danger" style="font-size:15px" onclick="return confirm('確定刪除 NO. @count -- @item.oStatus 的場地訂單嗎?' )">刪除此訂單</a>
                     </td>
                 </tr>
-            }
-        }
-
+            } }
     </table>
-</div>
+</main>

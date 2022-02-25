@@ -31,32 +31,33 @@ namespace prjWebSpaceMent.Models
 
         [DisplayName("會員編號")]
         public int mNumber { get; set; }
-
+        [Required]
         [DisplayName("帳號")]
         public string mAccount { get; set; }
-
+        [Required]
         [MinLength(6, ErrorMessage = "請輸入至少6位數密碼")]
         [DataType(DataType.Password)]
         [DisplayName("密碼")]
         public string mPassword { get; set; }
-
+        [Required]
         [MinLength(3, ErrorMessage = "請輸入完整姓名")]
         [DisplayName("姓名")]
         public string mName { get; set; }
         [DisplayName("暱稱")]
         public string mNickName { get; set; }
-
-        [EmailAddress]
+        [Required]
         [DisplayName("電子信箱")]
+        [RegularExpression(@"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}", ErrorMessage = "Email格式錯誤")]
         public string mEmail { get; set; }
-        [Phone]
         [DisplayName("聯絡電話")]
+        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$",ErrorMessage = "電話格式錯誤")]
         public string mPhone { get; set; }
         [DisplayName("性別")]
         public string mGender { get; set; }
         [DisplayName("身分證字號")]
+        [RegularExpression("^[A-Z]{1}[0-9]{9}$", ErrorMessage = "身份證號碼格式錯誤")]
         public string mTWid { get; set; }
-
+        [Required]
         [DisplayName("出生年月日")]
         public System.DateTime mBirthday { get; set; }
         [DisplayName("點數")]

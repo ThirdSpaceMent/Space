@@ -32,14 +32,13 @@ namespace prjWebSpaceMent.Models
             SQL += "sArea='" + p.sArea + "',";
             SQL += "sCapacity='" + p.sCapacity + "',";
             SQL += "sRent='" + p.sRent + "',";
-            SQL += "sRate='" + p.sRate + "',";
+            //SQL += "sRate='" + p.sRate + "',";
             SQL += "sIntro='" + p.sIntro + "',";
             SQL += "sOpeningTime='" + p.sOpeningTime + "',";
             SQL += "sSecurity='" + p.sSecurity + "',";
             SQL += "sTraffic='" + p.sTraffic + "',";
             SQL += "sUpdated_at=getDate() ";
             SQL += "WHERE sNumber=" + p.sNumber;
-
 
             executedSQL(SQL);
         }
@@ -50,7 +49,7 @@ namespace prjWebSpaceMent.Models
             string SQL = "DELETE FROM Spaces WHERE sNumber=" + sNumber.ToString();
             executedSQL(SQL);
         }
-        public void create(Spaces p)
+        public void create(ClassSpaces p)
         {
             // 新增功能INSERT
 
@@ -64,12 +63,14 @@ namespace prjWebSpaceMent.Models
             SQL += "sArea,";
             SQL += "sCapacity,";
             SQL += "sRent,";
-            SQL += "sRate,";
+            //SQL += "sRate,";
             SQL += "sIntro,";
             SQL += "sOpeningTime,";
             SQL += "sSecurity,";
             SQL += "sTraffic,";
-            SQL += "oAccount";
+            //SQL += "FK_Space_to_Owner,";
+            SQL += "FK_Space_to_Owner ";
+            //SQL += "oAccount ";
 
             SQL += ")VALUES(";
 
@@ -82,14 +83,19 @@ namespace prjWebSpaceMent.Models
             SQL += "'" + p.sArea + "',";
             SQL += "'" + p.sCapacity + "',";
             SQL += "'" + p.sRent + "',";
-            SQL += "'" + p.sRate + "',";
+            //SQL += "'" + p.sRate + "',";
             SQL += "'" + p.sIntro + "',";
             SQL += "'" + p.sOpeningTime + "',";
             SQL += "'" + p.sSecurity + "',";
             SQL += "'" + p.sTraffic + "',";
-            SQL += "'" + p.oAccount + "')";
-
+            //SQL += "'" + p.FK_Space_to_Owner + "',";
+            SQL += "'" + p.FK_Space_to_Owner + "')";
+            //SQL += "'" + p.oAccount + "')";
             executedSQL(SQL);
+
+            //將oAccount更新為跟sNumber同步
+            //string SQL2 = "UPDATE Spaces SET oAccount= sNumber;";
+            //executedSQL(SQL2);
         }
         public void edit(int? id)
         {
@@ -122,7 +128,7 @@ namespace prjWebSpaceMent.Models
                     sArea = reader["sArea"].ToString(),
                     sCapacity = reader["sCapacity"].ToString(),
                     sRent = Convert.ToDecimal(reader["sRent"]),
-                    sRate = Convert.ToDecimal(reader["sRate"]),
+                    //sRate = Convert.ToDecimal(reader["sRate"]),
                     sIntro = reader["sIntro"].ToString(),
                     sOpeningTime = reader["sOpeningTime"].ToString(),
                     sSecurity = reader["sSecurity"].ToString(),
@@ -178,7 +184,7 @@ namespace prjWebSpaceMent.Models
             SQL += "OR sArea LIKE '%" + keyword + "%'";
             SQL += "OR sCapacity LIKE '%" + keyword + "%'";
             SQL += "OR sRent LIKE '%" + keyword + "%'";
-            SQL += "OR sRate LIKE '%" + keyword + "%'";
+            //SQL += "OR sRate LIKE '%" + keyword + "%'";
             SQL += "OR sIntro LIKE '%" + keyword + "%'";
             SQL += "OR sOpeningTime LIKE '%" + keyword + "%'";
             SQL += "OR sSecurity LIKE '%" + keyword + "%'";

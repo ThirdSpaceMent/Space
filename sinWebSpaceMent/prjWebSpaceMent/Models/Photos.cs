@@ -20,6 +20,7 @@ namespace prjWebSpaceMent.Models
         public System.DateTime pUpdated_at { get; set; }
         public Nullable<int> FK_Photo_to_Member { get; set; }
         public Nullable<int> FK_Photo_to_Space { get; set; }
+        public byte[] pPhoto { get; set; }
     
         public virtual Members Members { get; set; }
         public virtual Spaces Spaces { get; set; }
