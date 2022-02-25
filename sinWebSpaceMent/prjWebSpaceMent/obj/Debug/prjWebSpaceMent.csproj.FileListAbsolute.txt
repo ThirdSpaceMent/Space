@@ -362,6 +362,13 @@ C:\Users\s1235\OneDrive\桌面\全端軟體工程師\期末專題_Space們\視�
 C:\Users\s1235\OneDrive\桌面\全端軟體工程師\期末專題_Space們\視覺\sinWebSpaceMent\prjWebSpaceMent\obj\Debug\prjWebSpaceMent.csproj.CoreCompileInputs.cache
 C:\Users\s1235\OneDrive\桌面\全端軟體工程師\期末專題_Space們\視覺\sinWebSpaceMent\prjWebSpaceMent\obj\Debug\prjWebSpaceMent.dll
 C:\Users\s1235\OneDrive\桌面\全端軟體工程師\期末專題_Space們\視覺\sinWebSpaceMent\prjWebSpaceMent\obj\Debug\prjWebSpaceMent.pdb
+<<<<<<< Updated upstream
+=======
+C:\Users\s1235\OneDrive\桌面\全端軟體工程師\期末專題_Space們\sinWebSpaceMent\prjWebSpaceMent\bin\PagedList.dll
+C:\Users\s1235\OneDrive\桌面\全端軟體工程師\期末專題_Space們\sinWebSpaceMent\prjWebSpaceMent\bin\PagedList.Mvc.dll
+C:\Users\s1235\OneDrive\桌面\全端軟體工程師\期末專題_Space們\sinWebSpaceMent\prjWebSpaceMent\bin\PagedList.xml
+C:\Users\s1235\OneDrive\桌面\全端軟體工程師\期末專題_Space們\sinWebSpaceMent\prjWebSpaceMent\bin\PagedList.Mvc.xml
+>>>>>>> Stashed changes
 D:\專題\NEWSPACE\Space\sinWebSpaceMent\prjWebSpaceMent\bin\prjWebSpaceMent.dll.config
 D:\專題\NEWSPACE\Space\sinWebSpaceMent\prjWebSpaceMent\bin\prjWebSpaceMent.dll
 D:\專題\NEWSPACE\Space\sinWebSpaceMent\prjWebSpaceMent\bin\prjWebSpaceMent.pdb
@@ -420,6 +427,11 @@ D:\專題\NEWSPACE\Space\sinWebSpaceMent\prjWebSpaceMent\bin\EntityFramework.Sql
 D:\專題\NEWSPACE\Space\sinWebSpaceMent\prjWebSpaceMent\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 D:\專題\NEWSPACE\Space\sinWebSpaceMent\prjWebSpaceMent\bin\Microsoft.Web.Infrastructure.dll
 D:\專題\NEWSPACE\Space\sinWebSpaceMent\prjWebSpaceMent\bin\Newtonsoft.Json.dll
+<<<<<<< Updated upstream
+=======
+D:\專題\NEWSPACE\Space\sinWebSpaceMent\prjWebSpaceMent\bin\PagedList.dll
+D:\專題\NEWSPACE\Space\sinWebSpaceMent\prjWebSpaceMent\bin\PagedList.Mvc.dll
+>>>>>>> Stashed changes
 D:\專題\NEWSPACE\Space\sinWebSpaceMent\prjWebSpaceMent\bin\System.Web.Helpers.dll
 D:\專題\NEWSPACE\Space\sinWebSpaceMent\prjWebSpaceMent\bin\System.Web.Mvc.dll
 D:\專題\NEWSPACE\Space\sinWebSpaceMent\prjWebSpaceMent\bin\System.Web.Optimization.dll
@@ -430,6 +442,11 @@ D:\專題\NEWSPACE\Space\sinWebSpaceMent\prjWebSpaceMent\bin\System.Web.WebPages
 D:\專題\NEWSPACE\Space\sinWebSpaceMent\prjWebSpaceMent\bin\WebGrease.dll
 D:\專題\NEWSPACE\Space\sinWebSpaceMent\prjWebSpaceMent\bin\EntityFramework.xml
 D:\專題\NEWSPACE\Space\sinWebSpaceMent\prjWebSpaceMent\bin\EntityFramework.SqlServer.xml
+<<<<<<< Updated upstream
+=======
+D:\專題\NEWSPACE\Space\sinWebSpaceMent\prjWebSpaceMent\bin\PagedList.xml
+D:\專題\NEWSPACE\Space\sinWebSpaceMent\prjWebSpaceMent\bin\PagedList.Mvc.xml
+>>>>>>> Stashed changes
 D:\專題\NEWSPACE\Space\sinWebSpaceMent\prjWebSpaceMent\bin\System.Web.Helpers.xml
 D:\專題\NEWSPACE\Space\sinWebSpaceMent\prjWebSpaceMent\bin\System.Web.Mvc.xml
 D:\專題\NEWSPACE\Space\sinWebSpaceMent\prjWebSpaceMent\bin\System.Web.Optimization.xml

@@ -1,5 +1,6 @@
 ﻿@model prjWebSpaceMent.ViewModels.RatingViewModel
 
+<<<<<<< Updated upstream
 <table style="width:100%; border:1px solid black;">
     <tr>
         <td>
@@ -37,6 +38,37 @@
         </td>
     </tr>
 </table>
+=======
+                            for (int i = 1; i <= m; i++)
+                            {
+                                <i class="fa fa-star checked"></i>
+                            }
+                            @*if (n > 3)
+                        {
+                            <i class="fa fa-star-half-full checked"></i>
+                        }*@
+                            for (int i = m; i < 5; i++)
+                            {
+                                <i class="fa fa-star-o"></i>
+                            }
+                        }
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="p-2" style="font-size:25px;font-weight:500;">
+                    評論: @Model.rComment
+                </td>
+            </tr>
+            <tr>
+                <td class="p-2" style="font-size:16px;font-weight:500;">
+                    評價時間: @Model.rCreated_at.ToString("yyyy/MM/dd HH:mm")
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+>>>>>>> Stashed changes
 
 <style>
     .checked {

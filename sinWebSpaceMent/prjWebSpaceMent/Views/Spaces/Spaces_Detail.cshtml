@@ -45,7 +45,24 @@
     </div>
 
     <div class="container">
+<<<<<<< Updated upstream
         <div class="d-flex justify-content-around">
+=======
+        <div class="d-flex justify-content-center">
+            <!--需調整為僅看到此場地評價(Done)-->
+            <button class="btn btn-success mb-3 mr-3">@Html.ActionLink("查看評價", "ShowRating", "Rating", new { sNumber = Model.sNumber }, null)</button>
+            <!--進行評價需移動到訂單功能之交易完成後-->
+            <button class="btn btn-warning mb-3 mr-3">@Html.ActionLink("進行評價", "AddRating", "Rating", new { sNumber = Model.sNumber }, null)</button>
+            <button class="btn btn-info mb-3">@Html.ActionLink("加入追蹤", "AddFavToList", "Favorite", new { sNumber = Model.sNumber }, null)</button>
+        </div>
+        @if (TempData["AlertMessage"] != null)
+        {
+            <div class="alert alert-danger">
+                @TempData["AlertMessage"]
+            </div>
+        }
+        <div class="row justify-content-around">
+>>>>>>> Stashed changes
             <div class="col-lg-6">
                 <h1 class="text-center">@Html.DisplayFor(model => model.sName)<br /> <span class="badge badge-info" style="font-size:16px">@Html.DisplayFor(model => model.sType)會議</span></h1>
 

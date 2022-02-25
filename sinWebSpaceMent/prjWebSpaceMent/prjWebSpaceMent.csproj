@@ -128,6 +128,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+<<<<<<< Updated upstream
+=======
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\FavoriteController.cs" />
+>>>>>>> Stashed changes
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\RatingController.cs" />
@@ -185,6 +190,7 @@
       <DependentUpon>dbSpaceMentModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\FavoriteViewModel.cs" />
     <Compile Include="ViewModels\RatingViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -355,10 +361,33 @@
     <Content Include="Views\Spaces\Spaces_List_Detail.cshtml" />
     <Content Include="Views\Member\memberIndex.cshtml" />
     <Content Include="Views\Member\Edit.cshtml" />
+<<<<<<< Updated upstream
     <Content Include="Views\Rating\Index.cshtml" />
     <Content Include="Views\Rating\ShowComment.cshtml" />
     <Content Include="Views\Shared\_CommentPartial.cshtml" />
     <Content Include="Views\Rating\AddComment.cshtml" />
+=======
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\Admin\Admin_Index.cshtml" />
+    <Content Include="Views\Admin\Admin_Login.cshtml" />
+    <Content Include="Views\Admin\MemberManage.cshtml" />
+    <Content Include="Views\Admin\SpaceManage.cshtml" />
+    <Content Include="Views\Rating\ShowRating.cshtml" />
+    <Content Include="Views\Rating\AddRating.cshtml" />
+    <Content Include="Views\Shared\_CommentPartial.cshtml" />
+    <Content Include="Views\Admin\Spaces_Detail_Admin.cshtml" />
+    <Content Include="Views\Admin\Spaces_Edit_Admin.cshtml" />
+    <Content Include="Views\Admin\ShowRating_Admin.cshtml" />
+    <Content Include="Views\Admin\Rating_Index_Admin.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Member\Index.cshtml" />
+    <Content Include="Views\Home\FAQ.cshtml" />
+    <Content Include="Views\Spaces\Spaces_Order.cshtml" />
+    <Content Include="Views\Favorite\Favorites_Index.cshtml" />
+    <Content Include="Views\Rating\EditRating1.cshtml" />
+    <Content Include="Views\Rating\Rating_Index.cshtml" />
+    <Content Include="Views\Rating\EditRating.cshtml" />
+>>>>>>> Stashed changes
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

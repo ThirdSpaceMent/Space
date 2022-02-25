@@ -1,0 +1,83 @@
+﻿@model IEnumerable<prjWebSpaceMent.Models.ClassSpaces>
+
+@{
+    ViewBag.Title = "Rating_Index_Admin";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<!--此頁變為管理者評價管理頁面-->
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<!--頁首 Section-->
+<section id="subspaces">
+    <div class="container wow fadeInUp">
+        <div class="section-header p-5">
+            <h2>評分評論都沒問題了嗎？</h2>
+            <p>點擊下方按鈕回到首頁吧！</p>
+        </div>
+        <form method="POST" action="#">
+            <div class="form-row justify-content-center">
+                <div class="col-auto">
+                    <a href="/Admin/Admin_Index" class="joinbutton-a">
+                        <span class="joinbutton-a-span"></span>
+                        <span class="joinbutton-a-span"></span>
+                        <span class="joinbutton-a-span"></span>
+                        <span class="joinbutton-a-span"></span>
+                        回首頁
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+<main>
+    <div class="section-header p-3">
+        <h2>場地評分評論管理</h2>
+        <p>您可以在這裡審核所有場地評論！</p>
+    </div>
+    <div class="container pr-0 pl-0 mb-5">
+        <table style="width:100%; border:1px solid black;">
+            <thead>
+                <tr>
+                    <th>
+                        場地名
+                    </th>
+                    <th>
+                        場地類型
+                    </th>
+                    <th>
+                        場地簡介
+                    </th>
+                    <th>
+                        評價
+                    </th>
+                </tr>
+            </thead>
+            @foreach (var item in Model)
+            {
+                <tr style="width:100%; border:1px solid black;">
+                    <td>
+                        @item.sName
+                    </td>
+                    <td>
+                        @item.sType
+                    </td>
+                    <td>
+                        @item.sIntro
+                    </td>
+                    <td>
+                        <button type="submit" class="btn btn-info" style="font-size:14px">@Html.ActionLink("查看評價", "ShowRating_Admin", new { sNumber = item.sNumber })</button>
+
+                        @*需新增評價刪除*@
+                        <button type="submit" class="btn btn-danger" style="font-size:14px">@Html.ActionLink("刪除評價", "DeleteRating", new { sNumber = item.sNumber })</button>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</main>
