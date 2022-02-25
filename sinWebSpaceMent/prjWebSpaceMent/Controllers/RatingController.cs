@@ -17,7 +17,11 @@ namespace prjWebSpaceMent.Controllers
         }
         // GET: Rating
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         public ActionResult Index()//場地清單
+=======
+        public ActionResult Rating_Index_Admin()//場地評價清單
+>>>>>>> Stashed changes
 =======
         public ActionResult Rating_Index_Admin()//場地評價清單
 >>>>>>> Stashed changes
@@ -89,7 +93,11 @@ namespace prjWebSpaceMent.Controllers
         }
         [HttpPost]
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         public ActionResult AddComment(int sNumber,int rating,string rComment)//送出評價
+=======
+        public ActionResult AddRating(int sNumber, int rating, string rComment)//送出評價
+>>>>>>> Stashed changes
 =======
         public ActionResult AddRating(int sNumber, int rating, string rComment)//送出評價
 >>>>>>> Stashed changes

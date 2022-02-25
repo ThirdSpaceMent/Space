@@ -132,6 +132,9 @@
 =======
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\FavoriteController.cs" />
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
@@ -387,6 +390,9 @@
     <Content Include="Views\Rating\EditRating1.cshtml" />
     <Content Include="Views\Rating\Rating_Index.cshtml" />
     <Content Include="Views\Rating\EditRating.cshtml" />
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   </ItemGroup>
   <ItemGroup>
