@@ -5,42 +5,36 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewBag.Title Space們</title>
-
     <link rel="stylesheet" href="~/Content/JoinButton.css">
     <link rel="stylesheet" href="~/Content/maicons.css">
     <link rel="stylesheet" href="~/Content/owl-carousel/css/owl.carousel.css">
     <link rel="stylesheet" href="~/Content/theme.css">
-
     <!-- Favicons -->
     <link href="~/img/favicon.jpg" rel="icon">
     <link href="~/img/apple-touch-icon.png" rel="apple-touch-icon">
-
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
-
     <!-- Bootstrap CSS File -->
     <link href="~/Content/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Libraries CSS Files -->
     <link href="~/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="~/Content/animate/animate.min.css" rel="stylesheet">
     <link href="~/Content/venobox/venobox.css" rel="stylesheet">
     <link href="~/Content/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="~/Content/owlcarousel/assets/owl.carousel.css" rel="stylesheet">
-
     <!-- Main Stylesheet File -->
     <link href="~/Content/style.css" rel="stylesheet">
 </head>
 
-<body>
+<body onload="init()">
     <!--回到頁首-->
     <a href="#" class="back-to-top"><i class="fa"></i></a>
-
-    <!--Header-->
+    <!--頁首-->
     <header id="header">
         <div id="logo" class="pull-left">
             <a href="/Member/Index" class="scrollto"><img src="~/img/logo.png" alt="" title=""></a>
         </div>
+        <!-- 標題列 -->
         <nav id="nav-menu-container">
             <ul class="nav-menu">
                 <li class="menu-active"><a href="#">@Session["Welcome"]</a></li>
@@ -55,39 +49,41 @@
                     <ul class="nav-menu">
                         <li><a href="/Member/memberIndex">編輯會員資料</a></li>
                         <li><a href="/Member/ShoppingCar">我的預訂</a></li>
-                        <li><a href="#">我的評價</a></li>
-                        <li><a href="#">追蹤清單</a></li>
+                        <li><a href="/Rating/Rating_Index">我的評價</a></li>
+                        <li><a href="/Favorite/Favorites_Index">追蹤清單</a></li>
                     </ul>
                 </li>
                 <li>
                     <a class="droplist" href="#">場地主專區</a>
                     <ul class="nav-menu">
                         <li><a href="/Spaces/Spaces_List">我的場地</a></li>
-                        <li><a href="#">我的客訂單</a></li>
+                        <li><a href="/Spaces/Spaces_Order">我的客訂單</a></li>
                     </ul>
                 </li>
                 <li class="login-id"><a href="/Member/Logout">登出</a></li>
             </ul>
+        </nav><!-- 標題列 -->
+    </header><!-- 頁首 -->
 
-        </nav><!-- #nav-menu-container -->
-    </header><!-- #header -->
     <!-- 前台小妹 -->
     @*<div class='widget HTML' data-version='1' id='HTML5'>
-        <div class='widget-content'>
-            <script src="https://cdn.jsdelivr.net/npm/live2d-widget@3.0.4/lib/L2Dwidget.min.js"></script>
-            <script type="text/javascript">
-                L2Dwidget.init();
-            </script>
-            <style type="text/css">
-                #live2dcanvas {
-                    border: none !important;
-                }
-            </style>
-        </div>
-    </div>*@
-    @*Intro Section*@
+            <div class='widget-content'>
+                <script src="https://cdn.jsdelivr.net/npm/live2d-widget@3.0.4/lib/L2Dwidget.min.js"></script>
+                <script type="text/javascript">
+                    L2Dwidget.init();
+                </script>
+                <style type="text/css">
+                    #live2dcanvas {
+                        border: none !important;
+                    }
+                </style>
+            </div>
+        </div>*@
+
+    <!-- 首頁 Section -->
     <section id="intro">
         <div class="page-banner home-banner">
+            <!-- 輪播牆 -->
             <div class="slider-wrapper">
                 <div class="owl-carousel hero-carousel">
                     <div class="hero-carousel-item">
@@ -95,7 +91,7 @@
                         <div class="img-caption">
                             <div class="subhead">讓我們幫您吧，想找哪個場地?</div>
                             <h1 class="mb-4">開始找尋適合您的場地吧！</h1>
-                            <a href="#spaces" class="joinbutton-a">
+                            <a href="/Spaces/Spaces_Index" class="joinbutton-a">
                                 <span class="joinbutton-a-span"></span>
                                 <span class="joinbutton-a-span"></span>
                                 <span class="joinbutton-a-span"></span>
@@ -109,7 +105,7 @@
                         <div class="img-caption">
                             <div class="subhead">輕鬆刊登場地，曝光永不間斷</div>
                             <h1 class="mb-4">好場地，就該讓更多人知道！</h1>
-                            <a href="#subspaces" class="joinbutton-a">
+                            <a href="/Spaces/Spaces_List" class="joinbutton-a">
                                 <span class="joinbutton-a-span"></span>
                                 <span class="joinbutton-a-span"></span>
                                 <span class="joinbutton-a-span"></span>
@@ -123,7 +119,7 @@
                         <div class="img-caption">
                             <div class="subhead">Hi！需要什麼協助嗎？</div>
                             <h1 class="mb-4">有什麼問題嗎？您來對地方了</h1>
-                            <a href="#faq" class="joinbutton-a">
+                            <a href="/Home/FAQ" class="joinbutton-a">
                                 <span class="joinbutton-a-span"></span>
                                 <span class="joinbutton-a-span"></span>
                                 <span class="joinbutton-a-span"></span>
@@ -133,12 +129,12 @@
                         </div>
                     </div>
                 </div>
-            </div> <!-- .slider-wrapper -->
+            </div> <!-- 輪播牆 -->
         </div>
-    </section>
+    </section><!-- 首頁 Section -->
 
     <main id="main">
-        <!--About Section-->
+        <!--關於我們 Section-->
         <section id="about">
             <div class="container">
                 <div class="row">
@@ -155,9 +151,9 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section><!--關於我們 Section-->
 
-        <!--spaces Section-->
+        <!--找場地 Section-->
         <section id="spaces" class="wow fadeInUp">
             <div class="container">
                 <div class="section-header">
@@ -237,20 +233,16 @@
                     </div>
                 </div>
             </div>
-
-        </section>
+        </section><!--找場地 Section-->
 
         <!--推薦場地 Section-->
         <section id="recommends" class="section-with-bg wow fadeInUp">
-
             <div class="container">
                 <div class="section-header">
                     <h2>推薦場地</h2>
                     <p>這裡有我們精選的好場地！</p>
                 </div>
-
                 <div class="row">
-
                     <div class="col-lg-4 col-md-6">
                         <div class="recommend">
                             <div class="recommend-img">
@@ -267,7 +259,6 @@
                             <p>台北市</p>
                         </div>
                     </div>
-
                     <div class="col-lg-4 col-md-6">
                         <div class="recommend">
                             <div class="recommend-img">
@@ -284,7 +275,6 @@
                             <p>台中市</p>
                         </div>
                     </div>
-
                     <div class="col-lg-4 col-md-6">
                         <div class="recommend">
                             <div class="recommend-img">
@@ -300,11 +290,9 @@
                             <p>高雄市</p>
                         </div>
                     </div>
-
                 </div>
             </div>
-
-        </section>
+        </section><!--推薦場地 Section-->
 
         <!--推薦文章 Section-->
         <section id="articles" class="section-with-bg wow fadeInUp">
@@ -350,17 +338,15 @@
 
                 </div>
             </div>
+        </section><!--推薦文章 Section-->
 
-        </section>
-
-        <!--場地管理 Section-->
+        <!--場地主 Section-->
         <section id="subspaces">
             <div class="container wow fadeInUp">
                 <div class="section-header">
                     <h2>場地管理</h2>
                     <p>好場地，就該讓更多人知道你的好！</p>
                 </div>
-
                 <form method="POST" action="#">
                     <div class="form-row justify-content-center">
                         <div class="col-auto">
@@ -374,80 +360,63 @@
                         </div>
                     </div>
                 </form>
-
             </div>
-        </section>
+        </section><!--場地主 Section-->
 
-
-        <!--Sponsors Section-->
+        <!--合作廠商 Section-->
         <section id="supporters" class="section-with-bg wow fadeInUp">
-
             <div class="container">
                 <div class="section-header">
                     <h2>合作廠商</h2>
                 </div>
-
                 <div class="row no-gutters supporters-wrap clearfix">
-
                     <div class="col-lg-3 col-md-4 col-xs-6">
                         <div class="supporter-logo">
                             <img src="~/img/supporters/1.png" class="img-fluid" alt="">
                         </div>
                     </div>
-
                     <div class="col-lg-3 col-md-4 col-xs-6">
                         <div class="supporter-logo">
                             <img src="~/img/supporters/2.png" class="img-fluid" alt="">
                         </div>
                     </div>
-
                     <div class="col-lg-3 col-md-4 col-xs-6">
                         <div class="supporter-logo">
                             <img src="~/img/supporters/3.png" class="img-fluid" alt="">
                         </div>
                     </div>
-
                     <div class="col-lg-3 col-md-4 col-xs-6">
                         <div class="supporter-logo">
                             <img src="~/img/supporters/4.png" class="img-fluid" alt="">
                         </div>
                     </div>
-
                     <div class="col-lg-3 col-md-4 col-xs-6">
                         <div class="supporter-logo">
                             <img src="~/img/supporters/5.png" class="img-fluid" alt="">
                         </div>
                     </div>
-
                     <div class="col-lg-3 col-md-4 col-xs-6">
                         <div class="supporter-logo">
                             <img src="~/img/supporters/6.png" class="img-fluid" alt="">
                         </div>
                     </div>
-
                     <div class="col-lg-3 col-md-4 col-xs-6">
                         <div class="supporter-logo">
                             <img src="~/img/supporters/7.png" class="img-fluid" alt="">
                         </div>
                     </div>
-
                     <div class="col-lg-3 col-md-4 col-xs-6">
                         <div class="supporter-logo">
                             <img src="~/img/supporters/8.png" class="img-fluid" alt="">
                         </div>
                     </div>
-
                 </div>
-
             </div>
+        </section><!--合作廠商 Section-->
 
-        </section>
-
-        <!--F.A.Q Section-->
+        <!--常見問題 Section-->
         <section id="faq" class="wow fadeInUp">
-
             <div class="container">
-
                 <div class="section-header text-center">
                     <h2>常見問題</h2>
                     <button class="btn btn-info">@Html.ActionLink("查看更多", "FAQ", "Home")</button>
@@ -455,7 +424,6 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-9">
                         <ul id="faq-list">
-
                             <li>
                                 <a data-toggle="collapse" class="collapsed" href="#faq1">如何修改會員資料？ <i class="fa fa-minus-circle"></i></a>
                                 <div id="faq1" class="collapse" data-parent="#faq-list">
@@ -464,7 +432,6 @@
                                     </p>
                                 </div>
                             </li>
-
                             <li>
                                 <a data-toggle="collapse" href="#faq2" class="collapsed">如何修改密碼？<i class="fa fa-minus-circle"></i></a>
                                 <div id="faq2" class="collapse" data-parent="#faq-list">
@@ -473,7 +440,6 @@
                                     </p>
                                 </div>
                             </li>
-
                             <li>
                                 <a data-toggle="collapse" href="#faq3" class="collapsed">忘記密碼怎麼辦？ <i class="fa fa-minus-circle"></i></a>
                                 <div id="faq3" class="collapse" data-parent="#faq-list">
@@ -482,7 +448,6 @@
                                     </p>
                                 </div>
                             </li>
-
                             <li>
                                 <a data-toggle="collapse" href="#faq4" class="collapsed">如何找到合適的場地？<i class="fa fa-minus-circle"></i></a>
                                 <div id="faq4" class="collapse" data-parent="#faq-list">
@@ -492,7 +457,6 @@
                                     </p>
                                 </div>
                             </li>
-
                             <li>
                                 <a data-toggle="collapse" href="#faq5" class="collapsed">使用Space們訂場地有哪些好處？ <i class="fa fa-minus-circle"></i></a>
                                 <div id="faq5" class="collapse" data-parent="#faq-list">
@@ -506,7 +470,6 @@
                                     </p>
                                 </div>
                             </li>
-
                             <li>
                                 <a data-toggle="collapse" href="#faq6" class="collapsed">Space們是誰？ <i class="fa fa-minus-circle"></i></a>
                                 <div id="faq6" class="collapse" data-parent="#faq-list">
@@ -519,23 +482,18 @@
                             </li>
                         </ul>
                     </div>
-
                 </div>
             </div>
-        </section>
+        </section><!--常見問題 Section-->
 
-        <!--Contact Section-->
+        <!--聯絡我們 Section-->
         <section id="contact" class="section-bg wow fadeInUp">
-
             <div class="container">
-
                 <div class="section-header">
                     <h2>聯絡我們</h2>
                     <p>Hi！需要什麼協助嗎？</p>
                 </div>
-
                 <div class="row contact-info">
-
                     <div class="col-md-4">
                         <div class="contact-address">
                             <i class="ion-ios-location-outline"></i>
@@ -545,7 +503,6 @@
                             </address>
                         </div>
                     </div>
-
                     <div class="col-md-4">
                         <div class="contact-phone">
                             <i class="ion-ios-telephone-outline"></i>
@@ -553,57 +510,58 @@
                             <p><a href="tel:+155895548855">+886-796-99885</a></p>
                         </div>
                     </div>
-
                     <div class="col-md-4">
                         <div class="contact-email">
                             <i class="ion-ios-email-outline"></i>
                             <h3>電子信箱</h3>
-                            <p><a href="s1235640@yahoo.com.tw">Space@example.com</a></p>
+                            <p><a href="spacesmentno.3@gmail.com">spacesmentno.3@gmail.com</a></p>
                         </div>
                     </div>
-
                 </div>
-
                 <div class="form">
-                    <div id="sendmessage">您的建議已送出，謝謝您！</div>
-                    <div id="errormessage"></div>
-                    <form action="" method="post" role="form" class="contactForm">
+                    <form class="contaceForm" enctype="text/plain" accept-charset="utf-8">
                         <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <input type="text" name="name" class="form-control" id="name" placeholder="您的姓名" data-rule="minlen:3" data-msg="請輸入您的完整姓名" />
-                                <div class="validation"></div>
+                            <div class="form-group col-md-4">
+                                <!-- 寄件者姓名    -->
+                                <input id="nameText" class="form-control" type="text" name="Name" valuesize="60" placeholder="您的姓名" data-rule="minlen:3" data-msg="請輸入您的完整姓名" required>  <!-- required 必填欄位 ，placeholder 預設內容-->
                             </div>
-                            <div class="form-group col-md-6">
-                                <input type="email" class="form-control" name="email" id="email" placeholder="您的電子信箱" data-rule="email" data-msg="請輸入有效的電子信箱地址" />
-                                <div class="validation"></div>
+                            <div class="form-group col-md-4">
+                                <!-- 寄件者email -->
+                                <input id="emailText" class="form-control" type="email" name="Email" valuesize="60" placeholder="您的電子信箱" data-rule="email" data-msg="請輸入有效的電子信箱地址" required>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <!-- 寄件者電話 -->
+                                <input id="telText" class="form-control" type="tel" name="Phone" valuesize="60" aria-invalid="false" placeholder="您的聯絡電話" data-msg="請輸入您的聯絡電話" required>
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" name="subject" id="subject" placeholder="主旨" data-rule="minlen:4" data-msg="請輸入符合您建議的主題" />
-                            <div class="validation"></div>
+                            <!-- 郵件主旨 -->
+                            <input id="subText" class="form-control" type="text" name="Subject" valuesize="60" aria-invalid="false" placeholder="主旨" data-rule="minlen:2" data-msg="請輸入符合您建議的主題" required>
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="寫一些建議給我們吧！" placeholder="請輸入您的寶貴意見..."></textarea>
-                            <div class="validation"></div>
+                            <!-- 郵件內容 -->
+                            <textarea id="bodyText" class="form-control" name="your-message" cols="40" rows="5" aria-required="true" aria-invalid="false" data-msg="寫一些建議給我們吧！" placeholder="請輸入您的寶貴意見..." required></textarea>
                         </div>
-                        <div class="text-center"><button type="submit">送出</button></div>
+                        <!-- 傳送按鈕 -->
+                        <div class="text-center">
+                            <button class="btn btn-success" style="font-size:20px;font-weight:800;" type="button" onclick="submitHandler();">送出</button>
+                            <a id="mailTo"></a>
+                        </div>
                     </form>
                 </div>
-
             </div>
-        </section><!-- #contact -->
+        </section><!--聯絡我們 Section-->
     </main>
 
+    <!-- 頁尾 -->
     <footer id="footer">
         <div class="footer-top">
             <div class="container">
                 <div class="row">
-
                     <div class="col-lg-3 col-md-6 footer-info">
                         <img src="~/img/logo.png" alt="TheEvenet">
                         <p>我們集結了上千個場地，不管你在什麼樣的地方，辦什麼樣的活動，從搜尋、比對到預訂，都可以在這裡一指輕鬆搞定！<br />結合「共享經濟」、「場地媒合」與「電商平台」三大領域，我們改變了「場地租借」的現有模式，讓浪費變成利益、讓複雜變得容易，讓遙遠變得靠近。</p>
                     </div>
-
                     <div class="col-lg-3 col-md-6 footer-links">
                         <h4>Space</h4>
                         <ul>
@@ -614,7 +572,6 @@
                             <li><i class="fa fa-angle-right"></i> <a href="/Member/Logout">登出</a></li>
                         </ul>
                     </div>
-
                     <div class="col-lg-3 col-md-6 footer-links">
                         <h4>Information</h4>
                         <ul>
@@ -625,7 +582,6 @@
                             <li><i class="fa fa-angle-right"></i> <a href="#">追蹤清單</a></li>
                         </ul>
                     </div>
-
                     <div class="col-lg-3 col-md-6 footer-contact">
                         <h4>Contact Us</h4>
                         <p>
@@ -634,52 +590,21 @@
                             <strong>Phone:</strong> +886-796-99885<br>
                             <strong>Email:</strong> spacesmentno.3@gmail.com<br>
                         </p>
-
                         <div class="social-links">
                             <a href="https://twitter.com/SpaceMent_No3" class="twitter"><i class="fa fa-twitter"></i></a>
                             <a href="https://www.facebook.com/122SpaceMentNO3" class="facebook"><i class="fa fa-facebook"></i></a>
                             <a href="https://www.instagram.com/sapcement_no3/" class="instagram"><i class="fa fa-instagram"></i></a>
                         </div>
-
                     </div>
-
                 </div>
             </div>
         </div>
-    </footer>
-
-    <!-- Messenger 洽談外掛程式 Code -->
-    <div id="fb-root"></div>
+    </footer><!-- 頁尾 -->
 
     <!-- Your 洽談外掛程式 code -->
     <div id="fb-customer-chat" class="fb-customerchat">
     </div>
-
-    <script>
-        var chatbox = document.getElementById('fb-customer-chat');
-        chatbox.setAttribute("page_id", "102772582348436");
-        chatbox.setAttribute("attribution", "biz_inbox");
-    </script>
-
-    <!-- Your SDK code -->
-    <script>
-        window.fbAsyncInit = function () {
-            FB.init({
-                xfbml: true,
-                version: 'v13.0'
-            });
-        };
-
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = 'https://connect.facebook.net/zh_TW/sdk/xfbml.customerchat.js';
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    </script>
-
-    @*JavaScript Libraries*@
+    <!-- JavaScript Libraries -->
     <script src="~/Scripts/jquery/jquery.min.js"></script>
     <script src="~/Scripts/jquery/jquery-migrate.min.js"></script>
     <script src="~/Scripts/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -689,16 +614,63 @@
     <script src="~/Scripts/wow/wow.min.js"></script>
     <script src="~/Scripts/venobox/venobox.min.js"></script>
     <script src="~/Scripts/owlcarousel/owl.carousel.min.js"></script>
-
-    @*Contact Form JavaScript File*@
+    <!-- Contact Form JavaScript File -->
     <script src="~/Scripts/contactform/contactform.js"></script>
-
-    @*Template Main Javascript File*@
+    <script>
+        //宣告預設表單內容
+        var initSubject = '給Space們的建議', initBody = '您的建議是我們努力的最大動力！';
+        //按下傳送按鈕後執行
+        function submitHandler() {
+            var to = "spacesmentno.3@gmail.com";//寫死的傳送對象 不會顯示在網頁上
+            var name = nameText.value;//讀取ID為 nameTextuser 物件中的值
+            var email = emailText.value;
+            var tel = telText.value;
+            var subject = subText.value;
+            //把user填的資料都塞到 mail body 中
+            var body = "" + bodyText.value + '%0A%0A%0A';//%0A是換行 換了三行
+            body += "From：" + nameText.value + '%0A';
+            body += "Email：" + emailText.value + '%0A';
+            body += "Tel：" + telText.value;
+            //傳送的主要程式碼
+            mailTo.href = "mailto:" + to + "?subject=" + subject + "&body=" + body;
+            mailTo.click();
+        }
+        //在body onload
+        function init() {
+            subText.value = initSubject;
+            toText.value = initTo;
+            bodyText.value = initBody;
+        }
+    </script>
+    <!-- Template Main Javascript File -->
     <script src="~/Scripts/main.js"></script>
     <script src="~/Scripts/js/jquery-3.5.1.min.js"></script>
     <script src="~/Scripts/js/bootstrap.bundle.min.js"></script>
     <script src="~/Scripts/vendor/owl-carousel/js/owl.carousel.min.js"></script>
     <script src="~/Scripts/js/theme.js"></script>
+    <!-- Messenger 洽談外掛程式 Code -->
+    <div id="fb-root"></div>
+    <!-- Your SDK code -->
+    <script>
+        setTimeout(function () {
+            var chatbox = document.getElementById('fb-customer-chat');
+            chatbox.setAttribute("page_id", "102772582348436");
+            chatbox.setAttribute("attribution", "biz_inbox");
+            window.fbAsyncInit = function () {
+                FB.init({
+                    xfbml: true,
+                    version: 'v13.0'
+                });
+            };
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = 'https://connect.facebook.net/zh_TW/sdk/xfbml.customerchat.js';
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        }, 1000);
+    </script>
     <script>
         $(document).ready(function () {
             $('.nav-menu-container ol li').on('mouseover', function () {

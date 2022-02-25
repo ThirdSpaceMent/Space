@@ -4,43 +4,37 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SPACE們</title>
-    
+    <title>SPACE們</title>   
     <link rel="stylesheet" href="~/Content/Logininbutton.css">
     <link rel="stylesheet" href="~/Content/JoinButton.css">
     <link rel="stylesheet" href="~/Content/maicons.css">
     <link rel="stylesheet" href="~/Content/owl-carousel/css/owl.carousel.css">
     <link rel="stylesheet" href="~/Content/theme.css">
-
     <!-- Favicons -->
     <link href="~/img/favicon.jpg" rel="icon">
     <link href="~/img/apple-touch-icon.png" rel="apple-touch-icon">
-
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
-
     <!-- Bootstrap CSS File -->
     <link href="~/Content/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Libraries CSS Files -->
     <link href="~/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="~/Content/animate/animate.min.css" rel="stylesheet">
     <link href="~/Content/venobox/venobox.css" rel="stylesheet">
     <link href="~/Content/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-
     <!-- Main Stylesheet File -->
     <link href="~/Content/style.css" rel="stylesheet">
-
 </head>
 <body>
     <!--回到頁首-->
     <a href="#" class="back-to-top"><i class="fa"></i></a>
 
-    <!--Header-->
+    <!--頁首-->
     <header id="header">
         <div id="logo" class="pull-left">
             <a href="/Home/Index" class="scrollto"><img src="~/img/logo.png" alt="" title=""></a>
         </div>
+        <!-- 標題列 -->
         <nav id="nav-menu-container">
             <ul class="nav-menu">
                 <li class="menu-active"><a href="/Home/Index/#intro">首頁</a></li>
@@ -52,23 +46,22 @@
                 <li><a href="/Home/Index/#faq">常見問題</a></li>
                 <li><a href="/Home/Index/#contact">聯絡我們</a></li>
                 <li class="login-id"><a href="/Home/Register">註冊</a></li>
-                <li class="login-id"><a href="/Home/Index/logins">登入</a></li>
+                <li class="login-id"><a href="/Home/login">登入</a></li>
             </ul>
-        </nav><!-- #nav-menu-container -->
-    </header><!-- #header -->
+        </nav><!-- 標題列 -->
+    </header><!--頁首-->
 
     @RenderBody()
 
+    <!-- 頁尾 -->
     <footer id="footer">
         <div class="footer-top">
             <div class="container">
                 <div class="row">
-
                     <div class="col-lg-3 col-md-6 footer-info">
                         <img src="~/img/logo.png" alt="TheEvenet">
                         <p>我們集結了上千個場地，不管你在什麼樣的地方，辦什麼樣的活動，從搜尋、比對到預訂，都可以在這裡一指輕鬆搞定！<br />結合「共享經濟」、「場地媒合」與「電商平台」三大領域，我們改變了「場地租借」的現有模式，讓浪費變成利益、讓複雜變得容易，讓遙遠變得靠近。</p>
                     </div>
-
                     <div class="col-lg-3 col-md-6 footer-links">
                         <h4>Space</h4>
                         <ul>
@@ -79,7 +72,6 @@
                             <li><i class="fa fa-angle-right"></i> <a href="/Home/Index/#subspaces">成為場地主</a></li>
                         </ul>
                     </div>
-
                     <div class="col-lg-3 col-md-6 footer-links">
                         <h4>Information</h4>
                         <ul>
@@ -88,20 +80,16 @@
                             <li><i class="fa fa-angle-right"></i> <a href="/Home/Index/#supporters">合作廠商</a></li>
                             <li><i class="fa fa-angle-right"></i> <a href="/Home/Login">登入</a></li>
                             <li><i class="fa fa-angle-right"></i> <a href="/Home/Register">註冊</a></li>
-
                         </ul>
                     </div>
-
                     <div class="col-lg-3 col-md-6 footer-contact">
                         <h4>Contact Us</h4>
                         <p>
-
                             80147高雄市前金區 <br>
                             中正四路211號8樓之1 <br>
                             <strong>Phone:</strong> +886-796-99885<br>
-                            <strong>Email:</strong> Space@example.com<br>
+                            <strong>Email:</strong> spacesmentno.3@gmail.com<br>
                         </p>
-
                         <div class="social-links">
                             <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
                             <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
@@ -109,46 +97,16 @@
                             <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
                             <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
                         </div>
-
                     </div>
-
                 </div>
             </div>
         </div>
-    </footer>
-
-    <!-- Messenger 洽談外掛程式 Code -->
-    <div id="fb-root"></div>
+    </footer><!-- 頁尾 -->
 
     <!-- Your 洽談外掛程式 code -->
     <div id="fb-customer-chat" class="fb-customerchat">
     </div>
-
-    <script>
-        var chatbox = document.getElementById('fb-customer-chat');
-        chatbox.setAttribute("page_id", "102772582348436");
-        chatbox.setAttribute("attribution", "biz_inbox");
-    </script>
-
-    <!-- Your SDK code -->
-    <script>
-        window.fbAsyncInit = function () {
-            FB.init({
-                xfbml: true,
-                version: 'v13.0'
-            });
-        };
-
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = 'https://connect.facebook.net/zh_TW/sdk/xfbml.customerchat.js';
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    </script>
-
-    @*JavaScript Libraries*@
+    <!-- JavaScript Libraries -->
     <script src="~/Scripts/jquery/jquery.min.js"></script>
     <script src="~/Scripts/jquery/jquery-migrate.min.js"></script>
     <script src="~/Scripts/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -158,17 +116,37 @@
     <script src="~/Scripts/wow/wow.min.js"></script>
     <script src="~/Scripts/venobox/venobox.min.js"></script>
     <script src="~/Scripts/owlcarousel/owl.carousel.min.js"></script>
-
-    @*Contact Form JavaScript File*@
-    <script src="~/Scripts/contactform/contactform.js"></script>
-
-    @*Template Main Javascript File*@
+    <!-- Template Main Javascript File -->
     <script src="~/Scripts/main.js"></script>
     <script src="~/Scripts/js/jquery-3.5.1.min.js"></script>
     <script src="~/Scripts/js/bootstrap.bundle.min.js"></script>
     <script src="~/Scripts/vendor/owl-carousel/js/owl.carousel.min.js"></script>
     <script src="~/Scripts/js/theme.js"></script>
+    <!-- Messenger 洽談外掛程式 Code -->
+    <div id="fb-root"></div>
+    <!-- Your SDK code -->
+    <script>
+        setTimeout(function () {
+            var chatbox = document.getElementById('fb-customer-chat');
+            chatbox.setAttribute("page_id", "102772582348436");
+            chatbox.setAttribute("attribution", "biz_inbox");
 
+            window.fbAsyncInit = function () {
+                FB.init({
+                    xfbml: true,
+                    version: 'v13.0'
+                });
+            };
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = 'https://connect.facebook.net/zh_TW/sdk/xfbml.customerchat.js';
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+
+        }, 1000);
+    </script>
     @RenderSection("scripts", required: false)
 </body>
 </html>

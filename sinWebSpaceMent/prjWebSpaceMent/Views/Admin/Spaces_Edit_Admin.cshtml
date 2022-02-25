@@ -4,14 +4,13 @@
     ViewBag.Title = "Spaces_Edit_Admin";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
-
+<!--頁首 Section-->
 <section id="subspaces">
     <div class="container wow fadeInUp">
         <div class="section-header p-5">
             <h2>忘記想修改甚麼了嗎？</h2>
             <p>讓我帶您回到場地管理回想一下！</p>
         </div>
-
         <form method="POST" action="#">
             <div class="form-row justify-content-center">
                 <div class="col-auto">
@@ -25,7 +24,6 @@
                 </div>
             </div>
         </form>
-
     </div>
 </section>
 
@@ -48,7 +46,6 @@
                     <input class="input-group" type="text" name="sName" placeholder="必填" required value="@Model.sName" />
                     <small class="form-text text-muted mb-3">請輸入場地完整名稱</small>
                 </div>
-
                 <!--活動類型 使用下拉式選項-->
                 <div class="mb-4">
                     <h3><span class="badge badge-secondary">@Html.DisplayNameFor(model => model.sType)</span></h3>
@@ -137,7 +134,6 @@
                 </div>
             </div>
         </div>
-
         <div class="text-center mb-5">
             <button class="btn btn-success mr-4" type="submit">儲存修改</button>
             <button class="btn btn-warning">@Html.ActionLink("返回場地總覽", "SpaceManage")</button>

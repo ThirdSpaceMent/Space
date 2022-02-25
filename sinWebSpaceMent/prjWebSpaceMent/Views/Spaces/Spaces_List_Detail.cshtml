@@ -1,7 +1,9 @@
 ﻿@model prjWebSpaceMent.Models.ClassSpaces
 
-@{ ViewBag.Title = "Spaces_List_Detail";
-    Layout = "~/Views/Shared/_LayoutMember.cshtml"; }
+@{
+    ViewBag.Title = "Spaces_List_Detail";
+    Layout = "~/Views/Shared/_LayoutMember.cshtml";
+}
 
 <section id="subspaces">
     <div class="container wow fadeInUp">
@@ -9,7 +11,6 @@
             <h2>發現場地資訊有誤嗎？</h2>
             <p>立即更新場地資訊吧！</p>
         </div>
-
         <form method="POST" action="#">
             <div class="form-row justify-content-center">
                 <div class="col-auto">
@@ -23,7 +24,6 @@
                 </div>
             </div>
         </form>
-
     </div>
 </section>
 
@@ -45,12 +45,11 @@
             </div>
         </section>
     </div>
-
-    <div class="container" >
+    <div class="container">
         <div class="d-flex justify-content-center">
-            <button class="btn btn-success mb-3 mr-3">@Html.ActionLink("查看評價", "ShowComment", "Rating")</button>
+            <button class="btn btn-success mb-3 mr-3">@Html.ActionLink("查看評價", "ShowRating", "Rating")</button>
             <button class="btn btn-warning mb-3">@Html.ActionLink("評分評論", "AddComment", "Rating")</button>
-            <button class="btn btn-warning mb-3 mr-3">@Html.ActionLink("xx", "ShowPhotoIndex", "Spaces")</button>
+            <button class="btn btn-warning mb-3 mr-3">@Html.ActionLink("場地照片", "SpacesShowPhoto", "Spaces")</button>
         </div>
         <div class="row justify-content-around mb-3">
             <div class="col-lg-6 mb-3">
@@ -76,12 +75,3 @@
         </div>
     </div>
 </main>
-
-<form method="post" action="@Url.Action("UploadPhoto")"
-      enctype="multipart/form-data" class="hidd">
-    <div>
-        請選擇要上傳的檔案
-        @*<input type="file" name="spacePhoto" />*@
-        <input type="submit" value="檔案上傳" />
-    </div>
-</form>

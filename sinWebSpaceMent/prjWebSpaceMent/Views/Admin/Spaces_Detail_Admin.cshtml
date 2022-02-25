@@ -4,14 +4,13 @@
     ViewBag.Title = "Spaces_Detail_Admin";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
-
+<!--頁首 Section-->
 <section id="subspaces">
     <div class="container wow fadeInUp">
         <div class="section-header p-5">
             <h2>發現場地資訊不適當嗎？</h2>
             <p>立即對該場地進行處理！</p>
         </div>
-
         <form method="POST" action="#">
             <div class="form-row justify-content-center">
                 <div class="col-auto">
@@ -25,7 +24,6 @@
                 </div>
             </div>
         </form>
-
     </div>
 </section>
 
@@ -47,7 +45,6 @@
             </div>
         </section>
     </div>
-
     <div class="container">
         <div class="d-flex justify-content-center">
             <button class="btn btn-success mb-3 mr-3">@Html.ActionLink("評價管理", "Rating_Index_Admin", "Admin")</button>

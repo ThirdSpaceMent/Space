@@ -5,14 +5,13 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<!--Intro Section-->
+<!--頁首 Section-->
 <section id="subspaces">
     <div class="container wow fadeInUp">
         <div class="section-header p-5">
             <h2>場地都沒問題了嗎？</h2>
             <p>點擊下方按鈕回到首頁吧！</p>
         </div>
-
         <form method="POST" action="#">
             <div class="form-row justify-content-center">
                 <div class="col-auto">
@@ -26,7 +25,6 @@
                 </div>
             </div>
         </form>
-
     </div>
 </section>
 
@@ -62,7 +60,6 @@
                 功能
             </th>
         </tr>
-
         @{
             int count = 0;
             foreach (var item in Model)
@@ -90,11 +87,10 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.sOpeningTime)
                     </td>
-
                     <td>
                         <button type="submit" class="btn btn-success" style="font-size:14px">@Html.ActionLink("修改場地", "Spaces_Edit_Admin", new { id = item.sNumber })</button>|
                         <button type="submit" class="btn btn-danger" style="font-size:14px">@Html.ActionLink("刪除場地", "Spaces_Delete", "Spaces", new { id = item.sNumber }, new { onclick = "return confirm('確定要刪除嗎?')" })</button>|
-                        <button type="submit" class="btn btn-info" style="font-size:14px">@Html.ActionLink("詳細資訊", "Spaces_Detail_Admin", new { id = item.sNumber })</button>|                   
+                        <button type="submit" class="btn btn-info" style="font-size:14px">@Html.ActionLink("詳細資訊", "Spaces_Detail_Admin", new { id = item.sNumber })</button>|
                     </td>
                 </tr>
             }

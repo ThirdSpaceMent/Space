@@ -1,7 +1,6 @@
 ﻿using prjWebSpaceMent.Models;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -17,7 +16,7 @@ namespace prjWebSpaceMent.Controllers
         // 找場地首頁
         public ActionResult Spaces_Index(string keywords, string citys, string types)
         {
-            
+
 
             // 搜尋功能
             List<ClassSpaces> datas = null;
@@ -54,23 +53,27 @@ namespace prjWebSpaceMent.Controllers
                 type = Request.Form["type"];
             }
 
-            // 如果搜尋框是空
-            if (string.IsNullOrEmpty(keyword))
-            {
-                datas = (new CSpacesFactory()).QueryAll(city, type); // 列出所有
-            }
-            else
-            {
-                datas = (new CSpacesFactory()).QueryByKeyword(keyword, city, type);
-            }
-
-            // 辨別登入
             string mAccount = User.Identity.Name; //登入者(會員)的帳號
 
             var mem = db.Members
                 .Where(s => s.mAccount == mAccount)
                 .FirstOrDefault();
 
+            int number = 0;
+            if (mem != null)
+            {
+                number = mem.mNumber; //抓出登入者的mNumber
+            }
+            if (string.IsNullOrEmpty(keyword)) // 如果搜尋框是空
+            {
+                datas = (new CSpacesFactory()).QueryAll(city, type, number); // 列出所有
+            }
+            else
+            {
+                datas = (new CSpacesFactory()).QueryByKeyword(keyword, city, type, number);
+            }
+
+            // 辨別登入
             if (mem != null)
             {
                 Session["Welcome"] = "嗨，" + mem.mName + "，歡迎回來";
@@ -81,12 +84,10 @@ namespace prjWebSpaceMent.Controllers
                 return View(datas);
             }
         }
-        
+
         // 場地清單-分為系統管理者(全部)&會員(自己的場地)
         public ActionResult Spaces_List()
         {
-            
-
             string mAccount = User.Identity.Name; //登入者(會員)的帳號
 
             var mem = db.Members
@@ -98,8 +99,8 @@ namespace prjWebSpaceMent.Controllers
                 if (mAccount == "CHEEE")  //暫定這一位是管理者
                 {
                     // 場地總覽(系統管理者才能看到所有場地)
-                   
-                    return RedirectToAction("SpaceManage","Admin");
+
+                    return RedirectToAction("SpaceManage", "Admin");
                 }
                 else
                 {
@@ -115,11 +116,11 @@ namespace prjWebSpaceMent.Controllers
                 return RedirectToAction("Index", "Member");
             }
         }
-  
+
         // 刪除場地(會員自己的場地刪除)
         public ActionResult Spaces_Delete(int? id)
         {
-           
+
             if (id != null)
             {
                 (new CSpacesFactory()).delete((int)id);
@@ -134,8 +135,22 @@ namespace prjWebSpaceMent.Controllers
         }
 
         //建立場地的存檔(會員功能)
-        public ActionResult Spaces_Save()
+        public ActionResult Spaces_Save(HttpPostedFileBase spacePhoto)
         {
+            string fileName = "";
+            //照片檔案上傳到資料夾
+            if (spacePhoto != null)
+            {
+                if (spacePhoto.ContentLength > 0)
+                {
+                    //取得圖檔名稱
+                    fileName = Guid.NewGuid().ToString() + ".jpg";
+                    var path = System.IO.Path.Combine
+                       (Server.MapPath("~/img/gallery/"), fileName);
+                    spacePhoto.SaveAs(path);
+                }
+            }
+
             //建立場地的存檔(會員功能)
 
             string mAccount = User.Identity.Name; //登入者(會員)的帳號
@@ -160,8 +175,7 @@ namespace prjWebSpaceMent.Controllers
             SP.sSecurity = Request.Form["txtsSecurity"];
             SP.sTraffic = Request.Form["txtsTraffic"];
             SP.FK_Space_to_Owner = mem.mNumber; //綁定是誰新增場地
-            SP.sPhoto = Request.Form["spacePhoto"];
-
+            SP.sPhoto = fileName;
             (new CSpacesFactory()).create(SP);
             return RedirectToAction("Spaces_List"); //跳轉至LIST
         }
@@ -262,7 +276,7 @@ namespace prjWebSpaceMent.Controllers
 
             // od.oAccount是Order table的場地編號；oAccount是前端帶過來的場地編號
             var orderdc = from od in db.Orders
-                          where od.oAccount == oAccount && od.oScheduledTime >= startDateTime && od.oScheduledTime <= endDateTime && od.oTimeRange.Contains(TimeRange)
+                          where od.FK_Order_to_Space == sNumber && od.oScheduledTime >= startDateTime && od.oScheduledTime <= endDateTime && od.oTimeRange.Contains(TimeRange)
                           select od;
 
             // 找出
@@ -274,11 +288,11 @@ namespace prjWebSpaceMent.Controllers
 
             // 開始帶入資料
             Orders order = new Orders();
-            order.oAccount = oAccount;    //場地編號
+            order.FK_Order_to_Space = sNumber;    //場地編號
             order.oStatus = space.sName;  //oStatus暫時借用來存場地名稱
             order.oMemberAccount = oMemberAccount;  //是誰訂場地(帳號)
             order.oCreated_at = DateTime.Now;       // 下訂時間
-            order.oPrice = (int)space.sRent;        // 每時段費用
+            //order.oPrice = (int)space.sRent;        // 每時段費用
             order.oPayment = Convert.ToDecimal(snumsnum);   //小計
             order.oTimeRange = TimeRange;       //哪個時段(上午、中午、晚上)
             order.FK_Order_to_Member_Owner = space.FK_Space_to_Owner;   //場地是誰的
@@ -292,63 +306,25 @@ namespace prjWebSpaceMent.Controllers
             return RedirectToAction("ShoppingCar", "Member");
         }
 
-        public ActionResult UploadPhoto()
+        // 我的客訂單
+        public ActionResult Spaces_Order()
         {
-            return View();
+            // 跑出此會員全部客訂單 照日期排序 +秀出會員中文名字
+
+            string oMemberAccount = User.Identity.Name; //登入者的帳號
+            var mem = db.Members.Where(m => m.mAccount == oMemberAccount).FirstOrDefault();
+
+            var order = (new CSpacesFactory()).search_myorder(mem.mNumber);
+
+            return View(order);
         }
 
-        [HttpPost]
-        public ActionResult UploadPhoto(HttpPostedFileBase spacePhoto)
-        {
-
-            //上傳圖檔名稱
-            string fileName = "";
-            //檔案上傳
-            if (spacePhoto != null)
-            {
-                if (spacePhoto.ContentLength > 0)
-                {
-                    //取得圖檔名稱
-                    fileName = Guid.NewGuid().ToString() + ".jpg";
-                    var path = System.IO.Path.Combine
-                       (Server.MapPath("~/img/gallery/"), fileName);
-                    spacePhoto.SaveAs(path);
-                    Spaces sp = new Spaces();
-                    sp.sPhoto = fileName;
-                    db.SaveChanges();
-                }
-            }
-            return RedirectToAction("ShowPhotos");
-        }
-
-        public ActionResult ShowPhotoIndex()
+        public ActionResult SpacesShowPhoto()
         {
             var space = db.Spaces.ToList();
-            return View(space);  		//將products結果傳給Index.cshtml檢視
-        }
-
-        public ContentResult ShowPhotos()
-        {
-            string strHtml = "";
-            // 建立可操作Photos資料夾的dir物件
-            DirectoryInfo dir = new DirectoryInfo(Server.MapPath("~/img/gallery/1.jpg"));
-            //取得dir物件下的所有檔案(即photos資料夾下)並放入finfo檔案資訊陣列
-            FileInfo[] fInfo = dir.GetFiles();
-            // 逐一將finfo檔案資訊陣列內的所有圖檔指定給strHtml變數
-            foreach (FileInfo result in fInfo)
-            {
-                // 將顯示圖的HTML字串指定給strHtml
-                strHtml += $"<a href='../img/gallery/{result.Name}' target='_blank'>" +
-                    $"<img src='../img/gallery/{result.Name}' width='150' height='120' border='0'>" +
-                    $"</a>　";
-            }
-            // strHtml變數再加上 '返回' Create動作方法的連結
-            strHtml += "<p><a href='Spaces_Create'>返回</a></p>";
-            return Content(strHtml, "text/html", System.Text.Encoding.UTF8);
+            return View(space);  		//將場地照片結果傳給Spaces_ShowPhoto.cshtml來檢視
         }
 
     }
-
-
 }
 

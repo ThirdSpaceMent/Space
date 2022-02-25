@@ -140,7 +140,7 @@ namespace prjWebSpaceMent.Controllers
         }
 
         //列出評價
-        public ActionResult ShowComment_Admin(int sNumber)
+        public ActionResult ShowRating_Admin(int sNumber)
         {
             IEnumerable<RatingViewModel> listRVM = (from obj in db.Rates
                                                     where obj.FK_Rate_to_Space == sNumber
@@ -156,6 +156,12 @@ namespace prjWebSpaceMent.Controllers
                                                     }).ToList();
             ViewBag.sNumber = sNumber;
             return View(listRVM);
+        }
+        public ActionResult DeleteRating(int sNumber)
+        {
+            ViewBag.sNumber = sNumber;
+            TempData["AlertMessage"] = "移除成功!";
+            return RedirectToAction("Rating_Index_Admin");
         }
     }
 }

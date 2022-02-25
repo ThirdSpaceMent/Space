@@ -1,0 +1,44 @@
+﻿@model IEnumerable<prjWebSpaceMent.Models.Spaces>
+
+@{
+    ViewBag.Title = "場地照片";
+}
+
+<h2>場地照片</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.sName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sPhoto)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.sName)
+            </td>
+            <td class="container">
+                <div class="d-flex justify-content-center mt-3">
+                    @*<h1 class="text-center"><br /> <span class="badge badge-info" style="font-size:16px"></span></h1>*@
+                </div>
+                        <a href="~/img/gallery/@item.sPhoto" class="venobox" data-gall="gallery-carousel"><img src="~/img/gallery/@item.sPhoto" alt=""></a>
+            </td>
+            <td>
+                @*@Html.ActionLink("Edit", "Edit", new { id = item.sNumber }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.sNumber }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.sNumber })*@
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+
+
