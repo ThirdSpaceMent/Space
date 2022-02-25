@@ -65,5 +65,8 @@ namespace prjWebSpaceMent.Models
         public Nullable<int> oPrice { get; set; }
 
         public string sTimeRange { get; set; }
+
+        [DisplayName("場地照片")]
+        public string sPhoto { get; set; }
     }
 }

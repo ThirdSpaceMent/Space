@@ -75,11 +75,11 @@
           <Property Name="FK_Order_to_Member_Owner" Type="int" />
           <Property Name="FK_Order_to_Space" Type="int" />
           <Property Name="FK_Order_to_Activity" Type="int" />
+          <Property Name="oAccount" Type="nvarchar" MaxLength="50" />
           <Property Name="oQty" Type="int" />
+          <Property Name="oPrice" Type="int" />
           <Property Name="oTimeRange" Type="nvarchar" MaxLength="50" />
           <Property Name="oMemberAccount" Type="nvarchar" MaxLength="50" />
-          <Property Name="oPrice" Type="int" />
-          <Property Name="oAccount" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Owners">
           <Key>
@@ -138,6 +138,7 @@
           <Property Name="sUpdated_at" Type="datetime" Nullable="false" />
           <Property Name="FK_Space_to_Owner" Type="int" />
           <Property Name="sTimeRange" Type="nvarchar" MaxLength="50" />
+          <Property Name="sPhoto" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="SubSpaces">
           <Key>
@@ -610,6 +611,7 @@
           <NavigationProperty Name="Rates" Relationship="Self.FK__Rates__FK_Rate_t__339FAB6E" FromRole="Spaces" ToRole="Rates" />
           <NavigationProperty Name="SubSpaces" Relationship="Self.FK__SubSpaces__FK_Su__0B91BA14" FromRole="Spaces" ToRole="SubSpaces" />
           <Property Name="sTimeRange" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sPhoto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="SubSpaces">
           <Key>
@@ -1039,6 +1041,7 @@
           <EntitySetMapping Name="Spaces">
             <EntityTypeMapping TypeName="dbSpaceMentModel.Spaces">
               <MappingFragment StoreEntitySet="Spaces">
+                <ScalarProperty Name="sPhoto" ColumnName="sPhoto" />
                 <ScalarProperty Name="sTimeRange" ColumnName="sTimeRange" />
                 <ScalarProperty Name="sNumber" ColumnName="sNumber" />
                 <ScalarProperty Name="sName" ColumnName="sName" />

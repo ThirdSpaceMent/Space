@@ -198,6 +198,7 @@
     <Compile Include="ViewModels\RatingViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\AnimatedButton.css" />
     <Content Include="Content\animate\animate.css" />
     <Content Include="Content\animate\animate.min.css" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -205,7 +206,6 @@
     <Content Include="Content\bootstrap\css\bootstrap.css" />
     <Content Include="Content\bootstrap\css\bootstrap.min.css" />
     <Content Include="Content\FAQ.css" />
-    <Content Include="Content\JoinButton.css" />
     <Content Include="Content\Logininbutton.css" />
     <Content Include="Content\maicons.css" />
     <Content Include="Content\owl-carousel\css\owl.carousel.css" />
@@ -383,6 +383,7 @@
     <Content Include="Views\Favorite\Favorites_Index.cshtml" />
     <Content Include="Views\Rating\Rating_Index.cshtml" />
     <Content Include="Views\Rating\EditRating.cshtml" />
+    <Content Include="Views\Spaces\SpacesShowPhoto.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

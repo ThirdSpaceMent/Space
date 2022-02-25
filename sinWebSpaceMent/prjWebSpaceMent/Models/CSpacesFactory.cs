@@ -38,6 +38,7 @@ namespace prjWebSpaceMent.Models
             SQL += "sOpeningTime='" + p.sOpeningTime + "',";
             SQL += "sSecurity='" + p.sSecurity + "',";
             SQL += "sTraffic='" + p.sTraffic + "',";
+            SQL += "sPhoto='" + p.sPhoto + "',";
             SQL += "sUpdated_at=getDate() ";
             SQL += "WHERE sNumber=" + p.sNumber;
 
@@ -69,6 +70,7 @@ namespace prjWebSpaceMent.Models
             SQL += "sOpeningTime,";
             SQL += "sSecurity,";
             SQL += "sTraffic,";
+            SQL += "sPhoto,";
             //SQL += "FK_Space_to_Owner,";
             SQL += "FK_Space_to_Owner ";
             //SQL += "oAccount ";
@@ -89,6 +91,7 @@ namespace prjWebSpaceMent.Models
             SQL += "'" + p.sOpeningTime + "',";
             SQL += "'" + p.sSecurity + "',";
             SQL += "'" + p.sTraffic + "',";
+            SQL += "'" + p.sPhoto + "',";
             //SQL += "'" + p.FK_Space_to_Owner + "',";
             SQL += "'" + p.FK_Space_to_Owner + "')";
             //SQL += "'" + p.oAccount + "')";

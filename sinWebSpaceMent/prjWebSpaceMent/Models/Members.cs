@@ -50,7 +50,7 @@ namespace prjWebSpaceMent.Models
         [RegularExpression(@"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}", ErrorMessage = "Email格式錯誤")]
         public string mEmail { get; set; }
         [DisplayName("聯絡電話")]
-        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$",ErrorMessage = "電話格式錯誤")]
+        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "電話格式錯誤")]
         public string mPhone { get; set; }
         [DisplayName("性別")]
         public string mGender { get; set; }

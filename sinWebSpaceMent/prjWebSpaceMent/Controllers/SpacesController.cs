@@ -1,6 +1,7 @@
 ﻿using prjWebSpaceMent.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -135,8 +136,22 @@ namespace prjWebSpaceMent.Controllers
         }
 
         //建立場地的存檔(會員功能)
-        public ActionResult Spaces_Save()
+        public ActionResult Spaces_Save(HttpPostedFileBase spacePhoto)
         {
+            string fileName = "";
+            //照片檔案上傳到資料夾
+            if (spacePhoto != null)
+            {
+                if (spacePhoto.ContentLength > 0)
+                {
+                    //取得圖檔名稱
+                    fileName = Guid.NewGuid().ToString() + ".jpg";
+                    var path = System.IO.Path.Combine
+                       (Server.MapPath("~/img/gallery/"), fileName);
+                    spacePhoto.SaveAs(path);
+                }
+            }
+
             //建立場地的存檔(會員功能)
 
             string mAccount = User.Identity.Name; //登入者(會員)的帳號
@@ -234,6 +249,12 @@ namespace prjWebSpaceMent.Controllers
             string oMemberAccount = User.Identity.Name; //登入者的帳號
             var mem = db.Members.Where(m => m.mAccount == oMemberAccount).FirstOrDefault();
 
+            // 沒登入 跳轉回登入頁面
+            if (mem == null)
+            {
+                return RedirectToAction("Index", "Member");
+            }
+
             //場地table
             //oAccount 場地編號 =sNumber
             int sNumber = Convert.ToInt32(oAccount); //將前端帶入的場地編號轉成int
@@ -303,6 +324,13 @@ namespace prjWebSpaceMent.Controllers
             var order = (new CSpacesFactory()).search_myorder(mem.mNumber);
 
             return View(order);
+        }
+
+        //檢視場地圖片
+        public ActionResult SpacesShowPhoto()
+        {
+            var space = db.Spaces.ToList();
+            return View(space);  		//將場地照片結果傳給Spaces_ShowPhoto.cshtml來檢視
         }
 
     }

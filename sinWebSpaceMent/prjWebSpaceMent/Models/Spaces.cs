@@ -44,6 +44,7 @@ namespace prjWebSpaceMent.Models
         public System.DateTime sUpdated_at { get; set; }
         public Nullable<int> FK_Space_to_Owner { get; set; }
         public string sTimeRange { get; set; }
+        public string sPhoto { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Activities> Activities { get; set; }

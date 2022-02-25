@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SPACE們</title>   
     <link rel="stylesheet" href="~/Content/Logininbutton.css">
-    <link rel="stylesheet" href="~/Content/JoinButton.css">
+    <link rel="stylesheet" href="~/Content/AnimatedButton.css">
     <link rel="stylesheet" href="~/Content/maicons.css">
     <link rel="stylesheet" href="~/Content/owl-carousel/css/owl.carousel.css">
     <link rel="stylesheet" href="~/Content/theme.css">
@@ -54,54 +54,59 @@
     @RenderBody()
 
     <!-- 頁尾 -->
-    <footer id="footer">
-        <div class="footer-top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 footer-info">
-                        <img src="~/img/logo.png" alt="TheEvenet">
-                        <p>我們集結了上千個場地，不管你在什麼樣的地方，辦什麼樣的活動，從搜尋、比對到預訂，都可以在這裡一指輕鬆搞定！<br />結合「共享經濟」、「場地媒合」與「電商平台」三大領域，我們改變了「場地租借」的現有模式，讓浪費變成利益、讓複雜變得容易，讓遙遠變得靠近。</p>
-                    </div>
-                    <div class="col-lg-3 col-md-6 footer-links">
-                        <h4>Space</h4>
-                        <ul>
-                            <li><i class="fa fa-angle-right"></i> <a href="/Home/Index/#intro">首頁</a></li>
-                            <li><i class="fa fa-angle-right"></i> <a href="/Home/Index/#about">關於我們</a></li>
-                            <li><i class="fa fa-angle-right"></i> <a href="/Home/Index/#spaces">找場地</a></li>
-                            <li><i class="fa fa-angle-right"></i> <a href="/Home/Index/#articles">推薦文章</a></li>
-                            <li><i class="fa fa-angle-right"></i> <a href="/Home/Index/#subspaces">成為場地主</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-3 col-md-6 footer-links">
-                        <h4>Information</h4>
-                        <ul>
-                            <li><i class="fa fa-angle-right"></i> <a href="/Home/Index/#faq">常見問題</a></li>
-                            <li><i class="fa fa-angle-right"></i> <a href="/Home/Index/#contact">聯絡我們</a></li>
-                            <li><i class="fa fa-angle-right"></i> <a href="/Home/Index/#supporters">合作廠商</a></li>
-                            <li><i class="fa fa-angle-right"></i> <a href="/Home/Login">登入</a></li>
-                            <li><i class="fa fa-angle-right"></i> <a href="/Home/Register">註冊</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-3 col-md-6 footer-contact">
-                        <h4>Contact Us</h4>
-                        <p>
-                            80147高雄市前金區 <br>
-                            中正四路211號8樓之1 <br>
-                            <strong>Phone:</strong> +886-796-99885<br>
-                            <strong>Email:</strong> spacesmentno.3@gmail.com<br>
-                        </p>
-                        <div class="social-links">
-                            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-                            <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-                            <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-                            <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
-                            <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
-                        </div>
+<footer id="footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 footer-info">
+                    <img src="~/img/logo.png" alt="TheEvenet">
+                    <p>我們集結了上千個場地，不管你在什麼樣的地方，辦什麼樣的活動，從搜尋、比對到預訂，都可以在這裡一指輕鬆搞定！<br />結合「共享經濟」、「場地媒合」與「電商平台」三大領域，我們改變了「場地租借」的現有模式，讓浪費變成利益、讓複雜變得容易，讓遙遠變得靠近。</p>
+                </div>
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <h4>Space</h4>
+                    <ul>
+                        <li><i class="fa fa-angle-right"></i> <a href="/Home/Index/#intro">首頁</a></li>
+                        <li><i class="fa fa-angle-right"></i> <a href="/Home/Index/#about">關於我們</a></li>
+                        <li><i class="fa fa-angle-right"></i> <a href="/Home/Index/#spaces">找場地</a></li>
+                        <li><i class="fa fa-angle-right"></i> <a href="/Home/Index/#articles">推薦文章</a></li>
+                        <li><i class="fa fa-angle-right"></i> <a href="/Home/Index/#subspaces">成為場地主</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <h4>Information</h4>
+                    <ul>
+                        <li><i class="fa fa-angle-right"></i> <a href="/Home/Index/#faq">常見問題</a></li>
+                        <li><i class="fa fa-angle-right"></i> <a href="/Home/Index/#contact">聯絡我們</a></li>
+                        <li><i class="fa fa-angle-right"></i> <a href="/Home/Index/#supporters">合作廠商</a></li>
+                        <li><i class="fa fa-angle-right"></i> <a href="/Home/Login">登入</a></li>
+                        <li><i class="fa fa-angle-right"></i> <a href="/Home/Register">註冊</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 footer-contact">
+                    <h4>Contact Us</h4>
+                    <p>
+                        80147高雄市前金區 <br>
+                        中正四路211號8樓之1 <br>
+                        <strong>Phone:</strong> +886-796-99885<br>
+                        <strong>Email:</strong> spacesmentno.3@gmail.com<br>
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                        <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                        <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+                        <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+                        <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
                     </div>
                 </div>
             </div>
         </div>
-    </footer><!-- 頁尾 -->
+    </div>
+    <div class="container">
+        <div class="copyright">
+            &copy; SPACE CORP. <strong>SPACE們</strong> .版權所有|地址：80147高雄市前金區中正四路211號8樓之1|電話：+886-796-99885
+        </div>
+    </div>
+</footer><!-- 頁尾 -->
 
     <!-- Your 洽談外掛程式 code -->
     <div id="fb-customer-chat" class="fb-customerchat">

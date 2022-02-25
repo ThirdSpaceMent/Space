@@ -128,6 +128,7 @@ namespace prjWebSpaceMent.Controllers
 
         public ActionResult DeleteRating(int sNumber)
         {
+            //刪除功能未有效
             ViewBag.sNumber = sNumber;
             TempData["AlertMessage"] = "移除成功!";
             return RedirectToAction("Rating_Index");
