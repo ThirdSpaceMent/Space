@@ -770,58 +770,6 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 /*--------------------------------------------------------------
-# Recommends Section
---------------------------------------------------------------*/
-
-#recommends {
-  padding: 60px 0;
-}
-
-#recommends .recommend {
-  border: 1px solid #e0e5fa;
-  background: #fff;
-  margin-bottom: 30px;
-}
-
-#recommends .recommend:hover .recommend-img img {
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
-}
-
-#recommends .recommend-img {
-  overflow: hidden;
-  margin-bottom: 15px;
-}
-
-#recommends .recommend-img img {
-  transition: 0.3s ease-in-out;
-}
-
-#recommends h3 {
-  font-weight: 600;
-  font-size: 20px;
-  margin-bottom: 5px;
-  padding: 0 20px;
-}
-
-#recommends a {
-  color: #152b79;
-}
-
-#recommends a:hover {
-  color: #f82249;
-}
-
-#recommends .stars {
-  padding: 0 20px;
-  margin-bottom: 5px;
-}
-
-#recommends .stars i {
-  color: #ffc31d;
-}
-
-/*--------------------------------------------------------------
 # Supporters Section
 --------------------------------------------------------------*/
 
@@ -1392,13 +1340,87 @@ body.mobile-nav-active #mobile-nav-toggle {
   }
 
   #intro h1 {
-    font-size: 34px;
+    font-size: 20px;
   }
 
   #intro p {
     font-size: 16px;
   }
+    #intro .AnimatedButton-a-span {
+        position: relative;
+        display: inline-block;
+        z-index: 1;
+        font-size: 20px;
+        color: #ffffff;
+        opacity: 0.5;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        transition: 0.5s;
+        font-family: 微軟正黑體;
+        font-weight: 800;
+    }
+    #intro .AnimatedButton-a {
+        position: relative;
+        padding: 5px 10px;
+        display: flex;
+        background: rgba(0,0,0,0.5);
+        margin: 0px;
+        transition: 1s;
+        text-decoration: none;
+        overflow: hidden;
+        -webkit-box-reflect: below 1px linear-gradient(transparent,transparent,#0004);
+    }
+    #intro .AnimatedButton-a::before {
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 400%;
+        background: var(--clr);
+        transition: 5s;
+        animation: animate 2s linear infinite;
+    }
+    #subspaces h1 {
+        font-size: 20px;
+    }
 
+    #subspaces p {
+        font-size: 16px;
+    }
+    #subspaces .AnimatedButton-a-span {
+        position: relative;
+        display: inline-block;
+        z-index: 1;
+        font-size: 20px;
+        color: #ffffff;
+        opacity: 0.5;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        transition: 0.5s;
+        font-family: 微軟正黑體;
+        font-weight: 800;
+    }
+
+    #subspaces .AnimatedButton-a {
+        position: relative;
+        padding: 5px 10px;
+        display: flex;
+        background: rgba(0,0,0,0.5);
+        margin: 0px;
+        transition: 1s;
+        text-decoration: none;
+        overflow: hidden;
+        -webkit-box-reflect: below 1px linear-gradient(transparent,transparent,#0004);
+    }
+
+        #subspaces .AnimatedButton-a::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 400%;
+            background: var(--clr);
+            transition: 5s;
+            animation: animate 2s linear infinite;
+        }
 }
 
 @media (max-width: 768px) {

@@ -137,7 +137,6 @@ namespace prjWebSpaceMent.Models
                     sOpeningTime = reader["sOpeningTime"].ToString(),
                     sSecurity = reader["sSecurity"].ToString(),
                     sTraffic = reader["sTraffic"].ToString(),
-                    sPhoto = reader["sPhoto"].ToString(),
                 };
                 list.Add(x);
             }

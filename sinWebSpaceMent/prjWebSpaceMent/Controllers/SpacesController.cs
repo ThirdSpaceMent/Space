@@ -1,6 +1,7 @@
 ﻿using prjWebSpaceMent.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -176,6 +177,7 @@ namespace prjWebSpaceMent.Controllers
             SP.sTraffic = Request.Form["txtsTraffic"];
             SP.FK_Space_to_Owner = mem.mNumber; //綁定是誰新增場地
             SP.sPhoto = fileName;
+
             (new CSpacesFactory()).create(SP);
             return RedirectToAction("Spaces_List"); //跳轉至LIST
         }
@@ -248,6 +250,12 @@ namespace prjWebSpaceMent.Controllers
             string oMemberAccount = User.Identity.Name; //登入者的帳號
             var mem = db.Members.Where(m => m.mAccount == oMemberAccount).FirstOrDefault();
 
+            // 沒登入 跳轉回登入頁面
+            if (mem == null)
+            {
+                return RedirectToAction("Index", "Member");
+            }
+
             //場地table
             //oAccount 場地編號 =sNumber
             int sNumber = Convert.ToInt32(oAccount); //將前端帶入的場地編號轉成int
@@ -319,6 +327,7 @@ namespace prjWebSpaceMent.Controllers
             return View(order);
         }
 
+        //檢視場地圖片
         public ActionResult SpacesShowPhoto()
         {
             var space = db.Spaces.ToList();
