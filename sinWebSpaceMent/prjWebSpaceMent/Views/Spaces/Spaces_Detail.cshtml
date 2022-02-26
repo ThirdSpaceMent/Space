@@ -44,6 +44,10 @@
             <button class="btn btn-warning mb-3 mr-3">@Html.ActionLink("進行評價", "AddRating", "Rating", new { sNumber = Model.sNumber }, null)</button>
             <button class="btn btn-info mb-3 mr-3">@Html.ActionLink("加入追蹤", "AddFavToList", "Favorite", new { sNumber = Model.sNumber }, null)</button>
             <button class="btn btn-secondary mb-3">@Html.ActionLink("場地照片", "SpacesShowPhoto", "Spaces")</button>
+            <p>
+                <a href="https://www.google.com/maps/place/@Model.sAddr"
+                   class="btn btn-success" target="_blank">場地位置</a>
+            </p>
         </div>
         @if (TempData["AlertMessage"] != null)
         {
