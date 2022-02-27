@@ -1,5 +1,5 @@
 ﻿
-@model prjWebSpaceMent.Models.Spaces
+@model prjWebSpaceMent.Models.ClassSpaces
 
 @{
     ViewBag.Title = "新增場地";
@@ -26,12 +26,12 @@
             <p>請您填寫以下資料！</p>
         </div>
     </div>
-    <form method="post" action="~/Spaces/Spaces_Save">
+    <form method="post" action="~/Spaces/Spaces_Save" enctype="multipart/form-data">
         <div class="row justify-content-lg-center">
             <div class="col-5 mb-5">
                 <div class="mb-4">
                     <h3><span class="badge badge-info">@Html.DisplayNameFor(model => model.sName)</span></h3>
-                    <input class="input-group" type="text" name="txtsName" placeholder="必填" required />
+                    <input class="input-group" type="text" onchange="check_name()" name="txtsName" placeholder="必填" required />
                     <small class="form-text text-muted mb-3">請輸入場地完整名稱</small>
                 </div>
                 <!--活動類型 使用下拉式選項-->
@@ -130,4 +130,26 @@
             <button class="btn btn-success" type="submit">建立場地</button>
         </div>
     </form>
+
+    <script>
+        function check_name() {
+            var sname = $("#txtsName").val();
+            if (sname != "") {
+                var params = '{"sname":"' + sname + '"}';
+                $.ajax({
+                    type: "POST",
+                    url: "/Spaces/check_name",
+                    data: params,//json序列化
+                    datatype: "json", //此處不能省略
+                    contentType: "application/json; charset=utf-8",//此處不能省略
+                    success: function (data) {
+                        alert(data);
+                    },
+                    error: function (data) {
+                        alert(data)
+                    }
+                });
+            }
+        }
+    </script>
 </main>

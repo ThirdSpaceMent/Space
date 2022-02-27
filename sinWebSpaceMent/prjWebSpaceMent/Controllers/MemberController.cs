@@ -14,7 +14,7 @@ namespace prjWebSpaceMent.Controllers
     [Authorize]
     public class MemberController : Controller
     {
-        SPACEMENTEntities db = new SPACEMENTEntities();
+        dbSpaceMentEntities1 db = new dbSpaceMentEntities1();
         // GET: Member
 
         //會員的首頁

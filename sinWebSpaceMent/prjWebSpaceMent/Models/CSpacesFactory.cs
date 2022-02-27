@@ -12,7 +12,7 @@ namespace prjWebSpaceMent.Models
     {
         private static void executedSQL(string SQL)
         {
-            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["SPACEMENTEntities"].ConnectionString);
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["SPACEMENTEntities01"].ConnectionString);
             con.Open();
             SqlCommand cmd = new SqlCommand(SQL, con);
             cmd.ExecuteNonQuery();
@@ -110,7 +110,7 @@ namespace prjWebSpaceMent.Models
 
         private List<ClassSpaces> QueryBySQL(string SQL)
         {
-            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["SPACEMENTEntities"].ConnectionString);
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["SPACEMENTEntities01"].ConnectionString);
             con.Open();
             SqlCommand cmd = new SqlCommand(SQL, con);
 
@@ -228,7 +228,7 @@ namespace prjWebSpaceMent.Models
             string SQL = "SELECT oNumber,oStatus,convert(nvarchar,oScheduledTime,111) as oScheduledTime,oTimeRange,oPayment,oCreated_at,FK_Order_to_Member_User,mName FROM Orders JOIN Members ON Members.mNumber = Orders.FK_Order_to_Member_User WHERE Orders.FK_Order_to_Member_Owner =" + mNumber;
             SQL += " ORDER BY oScheduledTime";
 
-            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["SPACEMENTEntities"].ConnectionString);
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["SPACEMENTEntities01"].ConnectionString);
             con.Open();
             SqlCommand cmd = new SqlCommand(SQL, con);
 
@@ -254,6 +254,27 @@ namespace prjWebSpaceMent.Models
             reader.Close();
             con.Close();
             return list;
+        }
+        public string check_name(string sname)
+        {
+            string s = "";
+            int tc = 0;
+            // 新增功能INSERT
+            string sql = "select count(*) as tc  FROM Spaces where sName='" + sname + "' ";
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["SPACEMENTEntities01"].ConnectionString);
+            con.Open();
+            SqlCommand cmd = new SqlCommand(sql, con);
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                tc = Convert.ToInt32(reader["tc"]);
+            }
+            if (tc > 0)
+            {
+                s = "已經有相同場所名稱";
+                return s;
+            }
+            return s;
         }
     }
 }

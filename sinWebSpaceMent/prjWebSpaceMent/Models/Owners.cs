@@ -16,8 +16,8 @@ namespace prjWebSpaceMent.Models
     {
         public int FK_Owner_to_Member { get; set; }
         public string oAccreditation { get; set; }
-        public Nullable<System.DateTime> oCreated_at { get; set; }
-        public Nullable<System.DateTime> oUpdated_at { get; set; }
+        public System.DateTime oCreated_at { get; set; }
+        public System.DateTime oUpdated_at { get; set; }
     
         public virtual Members Members { get; set; }
     }

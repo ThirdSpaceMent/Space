@@ -24,11 +24,11 @@ namespace prjWebSpaceMent.Models
         public string aName { get; set; }
         public string aHeadCount { get; set; }
         public string aType { get; set; }
-        public Nullable<System.DateTime> aSignUpTime { get; set; }
-        public Nullable<System.DateTime> aHoldTime { get; set; }
-        public Nullable<decimal> aFee { get; set; }
-        public Nullable<System.DateTime> aCreated_at { get; set; }
-        public Nullable<System.DateTime> aUpdated_at { get; set; }
+        public System.DateTime aSignUpTime { get; set; }
+        public System.DateTime aHoldTime { get; set; }
+        public decimal aFee { get; set; }
+        public System.DateTime aCreated_at { get; set; }
+        public System.DateTime aUpdated_at { get; set; }
         public Nullable<int> FK_Activity_to_Member { get; set; }
         public Nullable<int> FK_Activity_to_Space { get; set; }
     

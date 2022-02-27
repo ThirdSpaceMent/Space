@@ -2,7 +2,6 @@
 using prjWebSpaceMent.ViewModels;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -13,7 +12,7 @@ namespace prjWebSpaceMent.Controllers
     public class AdminController : Controller
     {
         // 使用資料庫
-        SPACEMENTEntities db = new SPACEMENTEntities();
+        dbSpaceMentEntities1 db = new dbSpaceMentEntities1();
         // GET: Admin
 
         //管理者首頁
@@ -51,7 +50,7 @@ namespace prjWebSpaceMent.Controllers
         public ActionResult MemberManage()
         {
             // 會員總覽(系統管理者才能看到所有會員)
-            var datas = from p in (new SPACEMENTEntities()).Members
+            var datas = from p in (new dbSpaceMentEntities1()).Members
                         select p;
             return View(datas);
         }
@@ -60,7 +59,7 @@ namespace prjWebSpaceMent.Controllers
         public ActionResult SpaceManage()
         {
             // 場地總覽(系統管理者才能看到所有場地)
-            var datas = from p in (new SPACEMENTEntities()).Spaces
+            var datas = from p in (new dbSpaceMentEntities1()).Spaces
                         select p;
             return View(datas);
         }
@@ -82,7 +81,8 @@ namespace prjWebSpaceMent.Controllers
             {
                 return RedirectToAction("SpaceManage");
             }
-            Spaces x = db.Spaces.Where(m => m.sNumber == id).FirstOrDefault();
+            ClassSpaces x = (new CSpacesFactory()).QueryByfid((int)id);
+
             // 辨別登入
             string mAccount = User.Identity.Name; //登入者(會員)的帳號
 
@@ -92,6 +92,7 @@ namespace prjWebSpaceMent.Controllers
             if (mAccount == "CHEEE")  //暫定這一位是管理者
             {
                 // 場地總覽(系統管理者才能看到所有場地)
+
                 return View(x);
             }
             else
@@ -108,39 +109,21 @@ namespace prjWebSpaceMent.Controllers
             {
                 return RedirectToAction("SpaceManage");
             }
-            Spaces x = db.Spaces.Where(m => m.sNumber == id).FirstOrDefault();
+            ClassSpaces x = (new CSpacesFactory()).QueryByfid((int)id);
             return View(x);
         }
 
         [HttpPost]
-        public ActionResult Spaces_Edit_Admin(Spaces p)
+        public ActionResult Spaces_Edit_Admin(ClassSpaces p)
         {
             if (p == null)
             {
                 return RedirectToAction("SpaceManage");
             }
-            var upd = from d in db.Spaces where d.sNumber == p.sNumber select d;
-            foreach (var d in upd)
-            {
-                d.sName = p.sName;
-                d.sOpeningTime = p.sOpeningTime;
-                d.sAddr = p.sAddr;
-                d.sArea = p.sArea;
-                d.sCapacity = p.sCapacity;
-                d.sFloor = p.sFloor;
-                d.sHeight = p.sHeight;
-                d.sIntro = p.sIntro;
-                d.sPhone = p.sPhone;
-                d.sRate = p.sRate;
-                d.sRent = p.sRent;
-                d.sSecurity = p.sSecurity;
-                d.sTraffic = p.sTraffic;
-                d.sType = p.sType;
-            }
-            db.SaveChanges();
+            (new CSpacesFactory()).update(p);
             return RedirectToAction("SpaceManage");
         }
-       
+
         //管理者頁面使用
         //評價管理
         public ActionResult Rating_Index_Admin()
@@ -157,8 +140,8 @@ namespace prjWebSpaceMent.Controllers
                                                         rNumber = obj.rNumber,
                                                         rComment = obj.rComment,
                                                         rCreated_at = (DateTime)obj.rCreated_at,
-                                                        sNumber=sp.sNumber,
-                                                        sName=sp.sName
+                                                        sNumber = sp.sNumber,
+                                                        sName = sp.sName
                                                     }).ToList();
             return View(ListRVM);
         }
@@ -176,7 +159,7 @@ namespace prjWebSpaceMent.Controllers
                                                         rRate = (decimal)obj.rRate,
                                                         rNumber = obj.rNumber,
                                                         rComment = obj.rComment,
-                                                        rCreated_at = (DateTime)obj.rCreated_at
+                                                        rCreated_at = obj.rCreated_at
                                                     }).ToList();
             ViewBag.sNumber = sNumber;
             return View(listRVM);

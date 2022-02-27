@@ -17,8 +17,8 @@ namespace prjWebSpaceMent.Models
         public int rNumber { get; set; }
         public Nullable<decimal> rRate { get; set; }
         public string rComment { get; set; }
-        public Nullable<System.DateTime> rCreated_at { get; set; }
-        public Nullable<System.DateTime> rUpdated_at { get; set; }
+        public System.DateTime rCreated_at { get; set; }
+        public System.DateTime rUpdated_at { get; set; }
         public Nullable<int> FK_Rate_to_Member { get; set; }
         public Nullable<int> FK_Rate_to_Space { get; set; }
         public Nullable<int> FK_Rate_to_Order { get; set; }

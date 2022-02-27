@@ -30,33 +30,24 @@
         <h2>場地評分評論管理</h2>
         <p>您可以在這裡審核所有場地評論！</p>
     </div>
-    <div class="container pr-0 pl-0 mb-5">
-        <table style="width:100%; border:1px solid black;">
-            <thead>
-                <tr>
-                    <th>
-                        場地名
-                    </th>
-                    <th>
-                        評價
-                    </th>
-                    <th>
-                        評分
-                    </th>
-                    <th>
-                        操作
-                    </th>
-                </tr>
-            </thead>
-            @foreach (var item in Model)
+    <table class="table border mr-0 ml-0 d-flex justify-content-center" style="word-break:keep-all;">
+            <tr>
+                <th class="text-center">序號</th>
+                <th>場地名稱</th>
+                <th>評價</th>
+                <th>評分</th>
+                <th class="text-center">功能</th>
+            </tr>
+        @{
+            int count = 0;
+            foreach (var item in Model)
             {
-                <tr style="width:100%; border:1px solid black;">
-                    <td>
-                        @item.sName
-                    </td>
-                    <td>
-                        @item.rComment
-                    </td>
+                count++;
+                
+                <tr>
+                    <td class="text-center">@count</td>
+                    <td>@item.sName</td>
+                    <td>@item.rComment</td>
                     <td>
                         <div class="stars mt-2">
                             @{
@@ -76,15 +67,15 @@
                         <button type="submit" class="btn btn-info" style="font-size:14px">
                             @Html.ActionLink("查看評價", "ShowRating_Admin", new { sNumber = item.sNumber })
                         </button>
-                        <button type="submit" class="btn btn-danger" style="font-size:14px" 
+                        <button type="submit" class="btn btn-danger" style="font-size:14px"
                                 onclick="return confirm('此動作不可回復確定刪除嗎?' )">
                             @Html.ActionLink("刪除", "DeleteRating", new { rNumber = item.rNumber })
                         </button>
                     </td>
                 </tr>
             }
-        </table>
-    </div>
+        }
+    </table>
 </main>
 <style>
     .checked {

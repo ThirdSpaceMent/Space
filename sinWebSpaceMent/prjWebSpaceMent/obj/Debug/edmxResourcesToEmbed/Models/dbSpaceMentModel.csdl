@@ -167,6 +167,8 @@
     <NavigationProperty Name="SubSpaces" Relationship="Self.FK__SubSpaces__FK_Su__0B91BA14" FromRole="Spaces" ToRole="SubSpaces" />
     <Property Name="sTimeRange" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="sPhoto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="sPhoto_First" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="sPhoto_Second" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="SubSpaces">
     <Key>
