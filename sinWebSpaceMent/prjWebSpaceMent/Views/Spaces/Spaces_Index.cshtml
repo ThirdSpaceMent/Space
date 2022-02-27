@@ -1,5 +1,4 @@
-﻿@using prjWebSpaceMent.Models
-@model List<ClassSpaces>
+﻿@model List<prjWebSpaceMent.Models.Spaces>
 
 @{
     ViewBag.Title = "Spaces_Index";
@@ -19,7 +18,7 @@
 </section>
 
 <main>
-    @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "searchform" }))
+    @using (Html.BeginForm("Spaces_Index", "Spaces", FormMethod.Post, new { /*id = "searchform"*/ }))
     {
         <div class="container">
             <div class="section-header p-5">
@@ -84,7 +83,8 @@
                     </div>
                     <div class="col-lg-3 m-0 mb-5">
                         <h3><span class="badge badge-danger">關鍵字</span></h3>
-                        @Html.TextBox("txtKeyword", "", new { @class = "form-control" })
+                        <input type="text" class = "form-control"  name="keyword" value=""/>
+                        @*@Html.TextBox("txtKeyword", "", new { @class = "form-control" })*@
                     </div>
                     <div class="col-lg-3 m-0 mb-5">
                         <button class="btn btn-success" type="submit">查詢</button>
@@ -92,7 +92,7 @@
                     <!--顯示有哪些場地-->
                     <hr />
                     @{
-                        foreach (ClassSpaces sp in Model)
+                        foreach (var sp in Model)
                         {
                             <div class="col-lg-3 mb-3">
                                 <div class="card" style="width: 16rem;">

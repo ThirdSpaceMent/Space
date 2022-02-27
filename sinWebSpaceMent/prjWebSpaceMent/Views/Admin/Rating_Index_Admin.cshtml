@@ -1,4 +1,4 @@
-﻿@model IEnumerable<prjWebSpaceMent.Models.ClassSpaces>
+﻿@model List<prjWebSpaceMent.ViewModels.RatingViewModel>
 
 @{
     ViewBag.Title = "Rating_Index_Admin";
@@ -38,13 +38,13 @@
                         場地名
                     </th>
                     <th>
-                        場地類型
-                    </th>
-                    <th>
-                        場地簡介
-                    </th>
-                    <th>
                         評價
+                    </th>
+                    <th>
+                        評分
+                    </th>
+                    <th>
+                        操作
                     </th>
                 </tr>
             </thead>
@@ -55,19 +55,39 @@
                         @item.sName
                     </td>
                     <td>
-                        @item.sType
+                        @item.rComment
                     </td>
                     <td>
-                        @item.sIntro
+                        <div class="stars mt-2">
+                            @{
+                                int m = Convert.ToInt32(item.rRate);
+                                for (int i = 1; i <= m; i++)
+                                {
+                                    <i class="fa fa-star checked"></i>
+                                }
+                                for (int i = m; i < 5; i++)
+                                {
+                                    <i class="fa fa-star-o"></i>
+                                }
+                            }
+                        </div>
                     </td>
                     <td>
-                        <button type="submit" class="btn btn-info" style="font-size:14px">@Html.ActionLink("查看評價", "ShowRating_Admin", new { sNumber = item.sNumber })</button>
-
-                        @*需新增評價刪除*@
-                    <button type="submit" class="btn btn-danger" style="font-size:14px">@Html.ActionLink("刪除", "DeleteRating", new { sNumber = item.sNumber })</button>
+                        <button type="submit" class="btn btn-info" style="font-size:14px">
+                            @Html.ActionLink("查看評價", "ShowRating_Admin", new { sNumber = item.sNumber })
+                        </button>
+                        <button type="submit" class="btn btn-danger" style="font-size:14px" 
+                                onclick="return confirm('此動作不可回復確定刪除嗎?' )">
+                            @Html.ActionLink("刪除", "DeleteRating", new { rNumber = item.rNumber })
+                        </button>
                     </td>
                 </tr>
             }
         </table>
     </div>
 </main>
+<style>
+    .checked {
+        color: orange;
+    }
+</style>

@@ -10,12 +10,22 @@ namespace prjWebSpaceMent.Controllers
 {  
     public class HomeController : Controller
     {
-        dbSpaceMentEntities1 db = new dbSpaceMentEntities1();
+        SPACEMENTEntities db = new SPACEMENTEntities();
         
-        //非會員的首頁
+        //首頁可以判斷是否已經登入
         public ActionResult Index()
         {
-            return View();
+            string CurrentUser = User.Identity.Name;
+            var memberdata = db.Members.Where(m => m.mAccount == CurrentUser).FirstOrDefault();
+            if (CurrentUser != "")
+            {
+                Session["Welcome"] = "嗨，" + memberdata.mName + "，歡迎回來";
+                return View("Index", "_LayoutMember");
+            }
+            else
+            {
+                return View("Index", "_Layout");
+            }
         }
 
         //常見問題

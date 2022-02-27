@@ -16,7 +16,7 @@ namespace prjWebSpaceMent.Models
     {
         public int FK_Favorite_to_Member { get; set; }
         public int FK_Favorite_to_Space { get; set; }
-        public System.DateTime fCreated_at { get; set; }
+        public Nullable<System.DateTime> fCreated_at { get; set; }
     
         public virtual Members Members { get; set; }
         public virtual Spaces Spaces { get; set; }

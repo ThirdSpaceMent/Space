@@ -34,17 +34,15 @@ namespace prjWebSpaceMent.Models
         public string sHeight { get; set; }
         public string sArea { get; set; }
         public string sCapacity { get; set; }
-        public decimal sRent { get; set; }
-        public decimal sRate { get; set; }
+        public Nullable<decimal> sRent { get; set; }
+        public Nullable<decimal> sRate { get; set; }
         public string sIntro { get; set; }
         public string sOpeningTime { get; set; }
         public string sSecurity { get; set; }
         public string sTraffic { get; set; }
-        public System.DateTime sCreated_at { get; set; }
-        public System.DateTime sUpdated_at { get; set; }
+        public Nullable<System.DateTime> sCreated_at { get; set; }
+        public Nullable<System.DateTime> sUpdated_at { get; set; }
         public Nullable<int> FK_Space_to_Owner { get; set; }
-        public string sTimeRange { get; set; }
-        public string sPhoto { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Activities> Activities { get; set; }
