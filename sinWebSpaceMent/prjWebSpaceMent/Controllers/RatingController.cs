@@ -100,11 +100,11 @@ namespace prjWebSpaceMent.Controllers
                 obj.FK_Rate_to_Space = sNumber;
                 obj.rComment = rComment;
                 obj.rRate = rating;
-                obj.rCreated_at = DateTime.Now;
+                obj.rCreated_at = DateTime.Now;//建立時間是不能被更改的 但是不做會錯誤 須修正
                 obj.rUpdated_at = DateTime.Now;
                 db.Rates.Add(obj);
                 db.SaveChanges();
-                return RedirectToAction("Spaces_Index");
+                return RedirectToAction("ShowRating",new { sNumber=sNumber });
             }
         }
         public ActionResult EditRating(int sNumber)//修改評價
@@ -126,11 +126,11 @@ namespace prjWebSpaceMent.Controllers
             return RedirectToAction("Rating_Index");
         }
 
-        public ActionResult DeleteRating(int sNumber)
+        public ActionResult DeleteRating(int rNumber)//未開放用戶使用 功能已完成
         {
-            //刪除功能未有效
-            ViewBag.sNumber = sNumber;
-            TempData["AlertMessage"] = "移除成功!";
+            Rates obj = db.Rates.Where(m => m.rNumber == rNumber).FirstOrDefault();
+            db.Rates.Remove(obj);
+            db.SaveChanges();
             return RedirectToAction("Rating_Index");
         }
     }

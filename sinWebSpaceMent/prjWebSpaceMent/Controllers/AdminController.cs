@@ -82,7 +82,6 @@ namespace prjWebSpaceMent.Controllers
             {
                 return RedirectToAction("SpaceManage");
             }
-            //ClassSpaces x = (new CSpacesFactory()).QueryByfid((int)id);
             Spaces x = db.Spaces.Where(m => m.sNumber == id).FirstOrDefault();
             // 辨別登入
             string mAccount = User.Identity.Name; //登入者(會員)的帳號
@@ -93,7 +92,6 @@ namespace prjWebSpaceMent.Controllers
             if (mAccount == "CHEEE")  //暫定這一位是管理者
             {
                 // 場地總覽(系統管理者才能看到所有場地)
-
                 return View(x);
             }
             else
@@ -110,7 +108,6 @@ namespace prjWebSpaceMent.Controllers
             {
                 return RedirectToAction("SpaceManage");
             }
-            //ClassSpaces x = (new CSpacesFactory()).QueryByfid((int)id);
             Spaces x = db.Spaces.Where(m => m.sNumber == id).FirstOrDefault();
             return View(x);
         }
@@ -122,8 +119,6 @@ namespace prjWebSpaceMent.Controllers
             {
                 return RedirectToAction("SpaceManage");
             }
-            //(new CSpacesFactory()).update(p);
-            //var upd = db.Spaces.Where(m => m.sNumber == p.sNumber).FirstOrDefault();
             var upd = from d in db.Spaces where d.sNumber == p.sNumber select d;
             foreach (var d in upd)
             {
@@ -150,16 +145,22 @@ namespace prjWebSpaceMent.Controllers
         //評價管理
         public ActionResult Rating_Index_Admin()
         {
-            //IEnumerable<Spaces> ListSpaces = (from obj in db.Spaces
-            //                                       select new Spaces()
-            //                                       {
-            //                                           sName = obj.sName,
-            //                                           sType = obj.sType,
-            //                                           sNumber = obj.sNumber,
-            //                                           sIntro = obj.sIntro
-            //                                       }).ToList();
-            List<Spaces> ListSpaces = (from d in db.Spaces select d).ToList();
-            return View(ListSpaces);
+            //List<Rates> ListRates = (from d in db.Rates select d).ToList();
+            IEnumerable<RatingViewModel> ListRVM = (from obj in db.Rates
+                                                    join sp in db.Spaces on obj.FK_Rate_to_Space equals sp.sNumber
+                                                    select new RatingViewModel()
+                                                    {
+                                                        FK_Rate_to_Space = (int)obj.FK_Rate_to_Space,
+                                                        FK_Rate_to_Member = (int)obj.FK_Rate_to_Member,
+                                                        FK_Rate_to_Order = (int)obj.FK_Rate_to_Order,
+                                                        rRate = (decimal)obj.rRate,
+                                                        rNumber = obj.rNumber,
+                                                        rComment = obj.rComment,
+                                                        rCreated_at = (DateTime)obj.rCreated_at,
+                                                        sNumber=sp.sNumber,
+                                                        sName=sp.sName
+                                                    }).ToList();
+            return View(ListRVM);
         }
 
         //列出評價
@@ -180,11 +181,11 @@ namespace prjWebSpaceMent.Controllers
             ViewBag.sNumber = sNumber;
             return View(listRVM);
         }
-        public ActionResult DeleteRating(int sNumber)
+        public ActionResult DeleteRating(int rNumber)
         {
-            //刪除功能未有效
-            ViewBag.sNumber = sNumber;
-            TempData["AlertMessage"] = "移除成功!";
+            Rates obj = db.Rates.Where(m => m.rNumber == rNumber).FirstOrDefault();
+            db.Rates.Remove(obj);
+            db.SaveChanges();
             return RedirectToAction("Rating_Index_Admin");
         }
     }

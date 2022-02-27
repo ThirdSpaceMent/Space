@@ -12,7 +12,7 @@ namespace prjWebSpaceMent.Models
     {
         private static void executedSQL(string SQL)
         {
-            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["SPACEMENTEntities01"].ConnectionString);
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["SPACEMENTEntities"].ConnectionString);
             con.Open();
             SqlCommand cmd = new SqlCommand(SQL, con);
             cmd.ExecuteNonQuery();
@@ -228,7 +228,7 @@ namespace prjWebSpaceMent.Models
             string SQL = "SELECT oNumber,oStatus,convert(nvarchar,oScheduledTime,111) as oScheduledTime,oTimeRange,oPayment,oCreated_at,FK_Order_to_Member_User,mName FROM Orders JOIN Members ON Members.mNumber = Orders.FK_Order_to_Member_User WHERE Orders.FK_Order_to_Member_Owner =" + mNumber;
             SQL += " ORDER BY oScheduledTime";
 
-            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["SPACEMENTEntities01"].ConnectionString);
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["SPACEMENTEntities"].ConnectionString);
             con.Open();
             SqlCommand cmd = new SqlCommand(SQL, con);
 
