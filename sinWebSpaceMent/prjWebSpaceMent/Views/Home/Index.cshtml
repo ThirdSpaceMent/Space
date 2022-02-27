@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SPACE們</title>
     <link rel="stylesheet" href="~/Content/Logininbutton.css">
-    <link rel="stylesheet" href="~/Content/JoinButton.css">
+    <link rel="stylesheet" href="~/Content/AnimatedButton.css">
     <link rel="stylesheet" href="~/Content/maicons.css">
     <link rel="stylesheet" href="~/Content/owl-carousel/css/owl.carousel.css">
     <link rel="stylesheet" href="~/Content/theme.css">
@@ -32,12 +32,12 @@
     <a href="#" class="back-to-top"><i class="fa"></i></a>
 
     <!--頁首-->
-    <header id="header">
+    <!--<header id="header">
         <div id="logo" class="pull-left">
             <a href="/Home/Index" class="scrollto"><img src="~/img/logo.png" alt="" title=""></a>
-        </div>
+        </div>-->
         <!--標題列-->
-        <nav id="nav-menu-container">
+        <!--<nav id="nav-menu-container">
             <ul class="nav-menu">
                 <li class="menu-active"><a href="#intro">首頁</a></li>
                 <li><a href="#about">關於我們</a></li>
@@ -50,8 +50,8 @@
                 <li class="login-id"><a href="/Home/Register">註冊</a></li>
                 <li class="login-id"><a href="#logins">登入</a></li>
             </ul>
-        </nav><!--標題列-->
-    </header><!--頁首-->
+        </nav>--><!--標題列-->
+    <!--</header>--><!--頁首-->
     <!-- 前台小妹 -->
     <!--<div class='widget HTML' data-version='1' id='HTML5'>
                      <div class='widget-content'>
@@ -67,8 +67,7 @@
                      </div>
                  </div>-->
     <!-- 首頁 Section -->
-    <section id="intro">
-        <div class="page-banner home-banner">
+    <section id="intro" style="display:inline!important;">
             <!-- 輪播牆 -->
             <div class="slider-wrapper">
                 <div class="owl-carousel hero-carousel">
@@ -77,13 +76,9 @@
                         <div class="img-caption">
                             <div class="subhead">讓我們幫您吧，想找哪個場地?</div>
                             <h1 class="mb-4">開始找尋適合您的場地吧！</h1>
-                            <a href="/Spaces/Spaces_Index" class="joinbutton-a">
-                                <span class="joinbutton-a-span"></span>
-                                <span class="joinbutton-a-span"></span>
-                                <span class="joinbutton-a-span"></span>
-                                <span class="joinbutton-a-span"></span>
-                                找場地
-                            </a>
+                            <div class="AnimatedButton">
+                                <a class="AnimatedButton-a" style="--clr:#f82249; --i: 0;" href="/Spaces/Spaces_Index"><span class="AnimatedButton-a-span">找場地</span></a>
+                            </div>
                         </div>
                     </div>
                     <div class="hero-carousel-item">
@@ -91,13 +86,9 @@
                         <div class="img-caption">
                             <div class="subhead">輕鬆刊登場地，曝光永不間斷</div>
                             <h1 class="mb-4">好場地，就該讓更多人知道！</h1>
-                            <a href="/Home/Login" class="joinbutton-a">
-                                <span class="joinbutton-a-span"></span>
-                                <span class="joinbutton-a-span"></span>
-                                <span class="joinbutton-a-span"></span>
-                                <span class="joinbutton-a-span"></span>
-                                成為場地主
-                            </a>
+                            <div class="AnimatedButton">
+                                <a class="AnimatedButton-a" style="--clr:#00ccff;--i:1;" href="/Home/Register"><span class="AnimatedButton-a-span">成為場地主</span></a>
+                            </div>
                         </div>
                     </div>
                     <div class="hero-carousel-item">
@@ -105,18 +96,13 @@
                         <div class="img-caption">
                             <div class="subhead">Hi！需要什麼協助嗎？</div>
                             <h1 class="mb-4">有什麼問題嗎？您來對地方了</h1>
-                            <a href="/Home/FAQ" class="joinbutton-a">
-                                <span class="joinbutton-a-span"></span>
-                                <span class="joinbutton-a-span"></span>
-                                <span class="joinbutton-a-span"></span>
-                                <span class="joinbutton-a-span"></span>
-                                常見問題
-                            </a>
+                            <div class="AnimatedButton">
+                                <a class="AnimatedButton-a" style="--clr:#22e622;--i:2;" href="/Home/FAQ"><span class="AnimatedButton-a-span">常見問題</span></a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div> <!-- 輪播牆 -->
-        </div>
     </section><!-- 首頁 Section -->
 
     <!-- 主要內容 -->
@@ -222,65 +208,6 @@
             </div>
         </section><!--找場地 Section-->
 
-        <!--推薦場地 Section-->
-        <section id="recommends" class="section-with-bg wow fadeInUp">
-            <div class="container">
-                <div class="section-header">
-                    <h2>推薦場地</h2>
-                    <p>這裡有我們精選的好場地！</p>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 text-center">
-                        <div class="recommend">
-                            <div class="recommend-img">
-                                <img src="~/img/recommends/1.jpg" alt="recommend 1" class="img-fluid">
-                            </div>
-                            <h3><a href="#">場地 1</a></h3>
-                            <div class="stars">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <p>台北市</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 text-center">
-                        <div class="recommend">
-                            <div class="recommend-img">
-                                <img src="~/img/recommends/2.jpg" alt="recommend 2" class="img-fluid">
-                            </div>
-                            <h3><a href="#">場地 2</a></h3>
-                            <div class="stars">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-half-full"></i>
-                            </div>
-                            <p>台中市</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 text-center">
-                        <div class="recommend">
-                            <div class="recommend-img">
-                                <img src="~/img/recommends/3.jpg" alt="recommend 3" class="img-fluid">
-                            </div>
-                            <h3><a href="#">場地 3</a></h3>
-                            <div class="stars">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <p>高雄市</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section><!--推薦場地 Section-->
-
         <!--推薦文章 Section-->
         <section id="articles" class="section-with-bg wow fadeInUp">
             <div class="container">
@@ -328,19 +255,9 @@
                     <p>好場地，就該讓更多人知道你的好！</p>
                     <p>立即註冊加入會員上架您的場地吧！</p>
                 </div>
-                <form method="POST" action="#">
-                    <div class="form-row justify-content-center">
-                        <div class="col-auto">
-                            <a href="/Home/Register" class="joinbutton-a">
-                                <span class="joinbutton-a-span"></span>
-                                <span class="joinbutton-a-span"></span>
-                                <span class="joinbutton-a-span"></span>
-                                <span class="joinbutton-a-span"></span>
-                                Join Now!
-                            </a>
-                        </div>
-                    </div>
-                </form>
+                <div class="AnimatedButton">
+                    <a class="AnimatedButton-a" style="--clr:#f82249; --i: 1;" href="/Home/Register"><span class="AnimatedButton-a-span">成為場地主</span></a>
+                </div>
             </div>
         </section><!--場地主 Section-->
 
@@ -633,6 +550,11 @@
                 </div>
             </div>
         </div>
+        <div class="container">
+            <div class="copyright">
+                &copy; SPACE CORP. <strong>SPACE們</strong> .版權所有|地址：80147高雄市前金區中正四路211號8樓之1|電話：+886-796-99885
+            </div>
+        </div>
     </footer><!-- 頁尾 -->
 
     <!-- Your 洽談外掛程式 code -->
@@ -702,7 +624,7 @@
                 js.src = 'https://connect.facebook.net/zh_TW/sdk/xfbml.customerchat.js';
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
-        }, 3000);
+        }, 1000);
     </script>
     <script>
         $(document).ready(function () {

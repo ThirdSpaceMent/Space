@@ -148,7 +148,7 @@
   height: auto;
   text-align: center;
   color: #fff;
-  margin-top: 10%;
+  margin-top: 25%;
 }
 
 .hero-carousel h1 {
@@ -162,7 +162,7 @@
 
 @media (min-width: 768px) {
   .hero-carousel h1 {
-    font-size: 56px;
+    font-size: 50px;
   }
   .hero-carousel .subhead {
     font-size: 20px;

@@ -10,16 +10,16 @@ namespace prjWebSpaceMent.Controllers
 {
     public class RatingController : Controller
     {
-        private dbSpaceMentEntities1 db;
+        private SPACEMENTEntities db;
         public RatingController()
         {
-            db = new dbSpaceMentEntities1();
+            db = new SPACEMENTEntities();
         }
         // GET: Rating
         public ActionResult Rating_Index_Admin()//場地評價清單
         {
-            IEnumerable<ClassSpaces> ListSpaces = (from obj in db.Spaces
-                                                   select new ClassSpaces()
+            IEnumerable<Spaces> ListSpaces = (from obj in db.Spaces
+                                                   select new Spaces()
                                                    {
                                                        sName = obj.sName,
                                                        sType = obj.sType,
@@ -52,8 +52,8 @@ namespace prjWebSpaceMent.Controllers
                                                               rRate = (decimal)obj.rRate,
                                                               rNumber = obj.rNumber,
                                                               rComment = obj.rComment,
-                                                              rCreated_at = obj.rCreated_at,
-                                                              rUpdated_at = obj.rUpdated_at,
+                                                              rCreated_at = (DateTime)obj.rCreated_at,
+                                                              rUpdated_at = (DateTime)obj.rUpdated_at,
                                                               FK_Rate_to_Member = (int)obj.FK_Rate_to_Member,
                                                               FK_Rate_to_Order = (int)obj.FK_Rate_to_Order,
                                                               FK_Rate_to_Space = (int)obj.FK_Rate_to_Space
@@ -73,7 +73,7 @@ namespace prjWebSpaceMent.Controllers
                                                         rRate = (decimal)obj.rRate,
                                                         rNumber = obj.rNumber,
                                                         rComment = obj.rComment,
-                                                        rCreated_at = obj.rCreated_at
+                                                        rCreated_at = (DateTime)obj.rCreated_at
                                                     }).ToList();
             ViewBag.sNumber = sNumber;
             return View(listRVM);
@@ -104,7 +104,7 @@ namespace prjWebSpaceMent.Controllers
                 obj.rUpdated_at = DateTime.Now;
                 db.Rates.Add(obj);
                 db.SaveChanges();
-                return RedirectToAction("Rating_Index");
+                return RedirectToAction("Spaces_Index");
             }
         }
         public ActionResult EditRating(int sNumber)//修改評價
@@ -117,31 +117,21 @@ namespace prjWebSpaceMent.Controllers
         public ActionResult EditRating(int sNumber, int rating, string rComment)
         {
             string CurrentUser = User.Identity.Name;
-            //if (CurrentUser == "")
-            //{
-            //    ViewBag.Message = "請先登入";
-            //    return View();
-            //}
-            //else
-            //{
-                var member = db.Members.Where(m => m.mAccount == CurrentUser).FirstOrDefault();
-                Rates obj = new Rates();
-                obj.FK_Rate_to_Member = member.mNumber;
-                obj.FK_Rate_to_Space = sNumber;
-                obj.rComment = rComment;
-                obj.rRate = rating;
-                obj.rUpdated_at = DateTime.Now;
-             db.Rates.
-            
-                db.SaveChanges();
-                return RedirectToAction("Rating_Index");
-            //}
+            var member = db.Members.Where(m => m.mAccount == CurrentUser).FirstOrDefault();
+            Rates obj = db.Rates.Where(m => m.FK_Rate_to_Space == sNumber).FirstOrDefault();
+            obj.rComment = rComment;
+            obj.rRate = rating;
+            obj.rUpdated_at = DateTime.Now;
+            db.SaveChanges();
+            return RedirectToAction("Rating_Index");
         }
 
         public ActionResult DeleteRating(int sNumber)
         {
+            //刪除功能未有效
             ViewBag.sNumber = sNumber;
-            return View();
+            TempData["AlertMessage"] = "移除成功!";
+            return RedirectToAction("Rating_Index");
         }
     }
 }

@@ -4,7 +4,7 @@
     ViewBag.Title = "Spaces_Detail";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<!DOCTYPE html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <!--頁首 Section-->
 <section id="subspaces">
     <div class="container wow fadeInUp">
@@ -12,19 +12,9 @@
             <h2>不滿意嗎？</h2>
             <p>別擔心，我們還有很多更適合您的！</p>
         </div>
-        <form method="POST" action="#">
-            <div class="form-row justify-content-center">
-                <div class="col-auto">
-                    <a href="/Spaces/Spaces_Index" class="joinbutton-a">
-                        <span class="joinbutton-a-span"></span>
-                        <span class="joinbutton-a-span"></span>
-                        <span class="joinbutton-a-span"></span>
-                        <span class="joinbutton-a-span"></span>
-                        找場地
-                    </a>
-                </div>
-            </div>
-        </form>
+        <div class="AnimatedButton">
+            <a class="AnimatedButton-a" style="--clr:#f82249; --i: 0;" href="/Spaces/Spaces_Index"><span class="AnimatedButton-a-span">找場地</span></a>
+        </div>
     </div>
 </section>
 
@@ -52,7 +42,8 @@
             <button class="btn btn-success mb-3 mr-3">@Html.ActionLink("查看評價", "ShowRating", "Rating", new { sNumber = Model.sNumber }, null)</button>
             <!--進行評價需移動到訂單功能之交易完成後-->
             <button class="btn btn-warning mb-3 mr-3">@Html.ActionLink("進行評價", "AddRating", "Rating", new { sNumber = Model.sNumber }, null)</button>
-            <button class="btn btn-info mb-3">@Html.ActionLink("加入追蹤", "AddFavToList", "Favorite", new { sNumber = Model.sNumber }, null)</button>
+            <button class="btn btn-info mb-3 mr-3">@Html.ActionLink("加入追蹤", "AddFavToList", "Favorite", new { sNumber = Model.sNumber }, null)</button>
+            <button class="btn btn-secondary mb-3">@Html.ActionLink("場地照片", "SpacesShowPhoto", "Spaces")</button>
         </div>
         @if (TempData["AlertMessage"] != null)
         {
@@ -190,7 +181,6 @@
                 datatype: "json", //此處不能省略
                 contentType: "application/json; charset=utf-8",//此處不能省略
                 success: function (data) {
-                    alert("預訂成功");
                     window.location.href = '@Url.Content("~/Member/ShoppingCar")';
                 },
                 error: function (data) {

@@ -60,10 +60,6 @@
     <EntitySetMapping Name="Orders">
       <EntityTypeMapping TypeName="dbSpaceMentModel.Orders">
         <MappingFragment StoreEntitySet="Orders">
-          <ScalarProperty Name="oMemberAccount" ColumnName="oMemberAccount" />
-          <ScalarProperty Name="oTimeRange" ColumnName="oTimeRange" />
-          <ScalarProperty Name="oPrice" ColumnName="oPrice" />
-          <ScalarProperty Name="oQty" ColumnName="oQty" />
           <ScalarProperty Name="oAccount" ColumnName="oAccount" />
           <ScalarProperty Name="oNumber" ColumnName="oNumber" />
           <ScalarProperty Name="oStatus" ColumnName="oStatus" />
@@ -94,7 +90,6 @@
     <EntitySetMapping Name="Photos">
       <EntityTypeMapping TypeName="dbSpaceMentModel.Photos">
         <MappingFragment StoreEntitySet="Photos">
-          <ScalarProperty Name="pPhoto" ColumnName="pPhoto" />
           <ScalarProperty Name="pNumber" ColumnName="pNumber" />
           <ScalarProperty Name="pUrl" ColumnName="pUrl" />
           <ScalarProperty Name="pCreated_at" ColumnName="pCreated_at" />
@@ -121,7 +116,6 @@
     <EntitySetMapping Name="Spaces">
       <EntityTypeMapping TypeName="dbSpaceMentModel.Spaces">
         <MappingFragment StoreEntitySet="Spaces">
-          <ScalarProperty Name="sTimeRange" ColumnName="sTimeRange" />
           <ScalarProperty Name="sNumber" ColumnName="sNumber" />
           <ScalarProperty Name="sName" ColumnName="sName" />
           <ScalarProperty Name="sType" ColumnName="sType" />

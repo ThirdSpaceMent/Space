@@ -1,9 +1,8 @@
-﻿@model IEnumerable<prjWebSpaceMent.Models.Orders>
+﻿@using prjWebSpaceMent.ViewModels
+@model List<MyOrderViewModel>
 
-@{
-    ViewBag.Title = "Spaces_Order";
-    Layout = "~/Views/Shared/_LayoutMember.cshtml";
-}
+@{ ViewBag.Title = "Spaces_Order";
+    Layout = "~/Views/Shared/_LayoutMember.cshtml"; }
 
 <!--頁首 Section-->
 <section id="subspaces">
@@ -12,19 +11,9 @@
             <h2>有新的場地要上架嗎？</h2>
             <p>點擊下方按鈕上架場地吧！</p>
         </div>
-        <form method="POST" action="#">
-            <div class="form-row justify-content-center">
-                <div class="col-auto">
-                    <a href="/Spaces/Spaces_Create" class="joinbutton-a">
-                        <span class="joinbutton-a-span"></span>
-                        <span class="joinbutton-a-span"></span>
-                        <span class="joinbutton-a-span"></span>
-                        <span class="joinbutton-a-span"></span>
-                        場地管理
-                    </a>
-                </div>
-            </div>
-        </form>
+        <div class="AnimatedButton">
+            <a class="AnimatedButton-a" style="--clr:#f82249; --i: 0;" href="/Spaces/Spaces_Create"><span class="AnimatedButton-a-span">新增場地</span></a>
+        </div>
     </div>
 </section>
 
@@ -40,20 +29,21 @@
             <th>使用日期</th>
             <th>預訂時段</th>
             <th>應付總費用</th>
-            <th>預訂者編號</th>
+            <th>訂單成立時間</th>
+            <th>預訂者</th>
         </tr>
-        @{
-            int count = 0;
-            foreach (var item in Model)
+        @{ int count = 0;
+            foreach (MyOrderViewModel item in Model)
             {
                 count++;
                 <tr>
-                    <td class="text-center">@count</td>
-                    <td>@Html.DisplayFor(modelItem => item.oStatus)</td>
-                    <td>@Html.DisplayFor(modelItem => item.oScheduledTime)</td>
-                    <td>@Html.DisplayFor(modelItem => item.oTimeRange)</td>
-                    <td>@Html.DisplayFor(modelItem => item.oPayment)</td>
-                    <td>@Html.DisplayFor(modelItem => item.FK_Order_to_Member_User)</td>
+                    <td>@count</td>
+                    <td>@Html.DisplayFor(model => item.oStatus)</td>
+                    <td>@Html.DisplayFor(model => item.oScheduledTime)</td>
+                    <td>@Html.DisplayFor(model => item.oTimeRange)</td>
+                    <td>@Html.DisplayFor(model => item.oPayment)</td>
+                    <td>@Html.DisplayFor(model => item.oCreated_at)</td>
+                    <td>@Html.DisplayFor(model => item.mName)</td>
                 </tr>
             }
         }

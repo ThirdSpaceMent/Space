@@ -10,10 +10,10 @@ namespace prjWebSpaceMent.Controllers
 {
     public class FavoriteController : Controller
     {
-        private dbSpaceMentEntities1 db;
+        private SPACEMENTEntities db;
         public FavoriteController()
         {
-            db = new dbSpaceMentEntities1();
+            db = new SPACEMENTEntities();
         }
         // GET: Favorite
         public ActionResult Favorites_Index()//查看自己的追蹤清單
@@ -40,7 +40,7 @@ namespace prjWebSpaceMent.Controllers
                                                               sName = Spaces.sName,
                                                               sAddr = Spaces.sAddr,
                                                               sIntro = Spaces.sIntro,
-                                                              sRent = Spaces.sRent,
+                                                              sRent = (decimal)Spaces.sRent,
                                                               fCreated_at = obj.fCreated_at
                                                           }).ToList();
                 return View(listFVM);
@@ -74,6 +74,7 @@ namespace prjWebSpaceMent.Controllers
                     obj.fCreated_at = DateTime.Now;
                     db.Favorites.Add(obj);
                     db.SaveChanges();
+                    TempData["AlertMessage"] = "追蹤成功!";
                     return RedirectToAction("Spaces_Detail", "Spaces", new { id = sNumber });
                 }
             }
@@ -83,7 +84,8 @@ namespace prjWebSpaceMent.Controllers
             var deleteitem = db.Favorites.Where(m => m.FK_Favorite_to_Space == sNumber).FirstOrDefault();
             db.Favorites.Remove(deleteitem);
             db.SaveChanges();
-            return RedirectToAction("FavoritesIndex");
+            TempData["AlertMessage"] = "移除成功!";
+            return RedirectToAction("Favorites_Index");
         }
     }
 }

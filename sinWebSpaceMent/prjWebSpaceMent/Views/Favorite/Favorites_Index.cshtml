@@ -8,67 +8,46 @@
 <section id="subspaces">
     <div class="container wow fadeInUp">
         <div class="section-header p-5">
-            <h2>OK了?</h2>
+            <h2>想看更多場地嗎？</h2>
             <p>回到首頁開始瀏覽吧！</p>
         </div>
-
-        <form method="POST" action="#">
-            <div class="form-row justify-content-center">
-                <div class="col-auto">
-                    <a href="/Member/Index" class="joinbutton-a">
-                        <span class="joinbutton-a-span"></span>
-                        <span class="joinbutton-a-span"></span>
-                        <span class="joinbutton-a-span"></span>
-                        <span class="joinbutton-a-span"></span>
-                        回首頁
-                    </a>
-                </div>
-            </div>
-        </form>
-
+        <div class="AnimatedButton">
+            <a class="AnimatedButton-a" style="--clr:#ffd800;--i:1;" href="/Member/Index"><span class="AnimatedButton-a-span">回首頁</span></a>
+        </div>
     </div>
 </section>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <main>
+    <div class="section-header p-3">
+        <h2>追蹤的場地</h2>
+        <p>您可以在這裡查看追蹤的場地</p>
+    </div>
     <div>
-        <table class="m-auto" style="border:1px solid black">
+        <table class="table border mr-0 ml-0 d-flex justify-content-center">
             <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.sName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.sAddr)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.sRent)
-                </th>
-                <th>
-                    操作
-                </th>
+                <th class="text-center">場地序號</th>
+                <th>@Html.DisplayNameFor(model => model.sName)</th>
+                <th>@Html.DisplayNameFor(model => model.sAddr)</th>
+                <th>@Html.DisplayNameFor(model => model.sRent)</th>
+                <th class="text-center">功能</th>
             </tr>
-
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.sName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.sAddr)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.sRent)
-                    </td>
-                    <td>
-                        <button class="btn btn-info">@Html.ActionLink("場地明細", "Spaces_Detail", "Spaces", new { id = item.sNumber }, null)</button> |
-                        <button class="btn btn-danger"> @Html.ActionLink("移除", "Delete", new { sNumber = item.sNumber })</button>
-                    </td>
-                </tr>
+            @{
+                int count = 0;
+                foreach (var item in Model)
+                {
+                    count++;
+                    <tr>
+                        <td class="text-center">@count</td>
+                        <td>@Html.DisplayFor(modelItem => item.sName)</td>
+                        <td>@Html.DisplayFor(modelItem => item.sAddr)</td>
+                        <td>@Html.DisplayFor(modelItem => item.sRent)</td>
+                        <td>
+                            <button class="btn btn-info">@Html.ActionLink("場地明細", "Spaces_Detail", "Spaces", new { id = item.sNumber }, null)</button> |
+                            <button class="btn btn-danger"> @Html.ActionLink("移除", "Delete", new { sNumber = item.sNumber })</button>
+                        </td>
+                    </tr>
+                }
             }
-
         </table>
     </div>
 </main>

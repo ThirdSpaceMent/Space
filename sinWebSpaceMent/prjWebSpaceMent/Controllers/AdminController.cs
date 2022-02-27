@@ -2,6 +2,7 @@
 using prjWebSpaceMent.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -12,7 +13,7 @@ namespace prjWebSpaceMent.Controllers
     public class AdminController : Controller
     {
         // 使用資料庫
-        dbSpaceMentEntities1 db = new dbSpaceMentEntities1();
+        SPACEMENTEntities db = new SPACEMENTEntities();
         // GET: Admin
 
         //管理者首頁
@@ -50,7 +51,7 @@ namespace prjWebSpaceMent.Controllers
         public ActionResult MemberManage()
         {
             // 會員總覽(系統管理者才能看到所有會員)
-            var datas = from p in (new dbSpaceMentEntities1()).Members
+            var datas = from p in (new SPACEMENTEntities()).Members
                         select p;
             return View(datas);
         }
@@ -59,7 +60,7 @@ namespace prjWebSpaceMent.Controllers
         public ActionResult SpaceManage()
         {
             // 場地總覽(系統管理者才能看到所有場地)
-            var datas = from p in (new dbSpaceMentEntities1()).Spaces
+            var datas = from p in (new SPACEMENTEntities()).Spaces
                         select p;
             return View(datas);
         }
@@ -81,8 +82,8 @@ namespace prjWebSpaceMent.Controllers
             {
                 return RedirectToAction("SpaceManage");
             }
-            ClassSpaces x = (new CSpacesFactory()).QueryByfid((int)id);
-
+            //ClassSpaces x = (new CSpacesFactory()).QueryByfid((int)id);
+            Spaces x = db.Spaces.Where(m => m.sNumber == id).FirstOrDefault();
             // 辨別登入
             string mAccount = User.Identity.Name; //登入者(會員)的帳號
 
@@ -109,18 +110,39 @@ namespace prjWebSpaceMent.Controllers
             {
                 return RedirectToAction("SpaceManage");
             }
-            ClassSpaces x = (new CSpacesFactory()).QueryByfid((int)id);
+            //ClassSpaces x = (new CSpacesFactory()).QueryByfid((int)id);
+            Spaces x = db.Spaces.Where(m => m.sNumber == id).FirstOrDefault();
             return View(x);
         }
 
         [HttpPost]
-        public ActionResult Spaces_Edit_Admin(ClassSpaces p)
+        public ActionResult Spaces_Edit_Admin(Spaces p)
         {
             if (p == null)
             {
                 return RedirectToAction("SpaceManage");
             }
-            (new CSpacesFactory()).update(p);
+            //(new CSpacesFactory()).update(p);
+            //var upd = db.Spaces.Where(m => m.sNumber == p.sNumber).FirstOrDefault();
+            var upd = from d in db.Spaces where d.sNumber == p.sNumber select d;
+            foreach (var d in upd)
+            {
+                d.sName = p.sName;
+                d.sOpeningTime = p.sOpeningTime;
+                d.sAddr = p.sAddr;
+                d.sArea = p.sArea;
+                d.sCapacity = p.sCapacity;
+                d.sFloor = p.sFloor;
+                d.sHeight = p.sHeight;
+                d.sIntro = p.sIntro;
+                d.sPhone = p.sPhone;
+                d.sRate = p.sRate;
+                d.sRent = p.sRent;
+                d.sSecurity = p.sSecurity;
+                d.sTraffic = p.sTraffic;
+                d.sType = p.sType;
+            }
+            db.SaveChanges();
             return RedirectToAction("SpaceManage");
         }
        
@@ -128,19 +150,20 @@ namespace prjWebSpaceMent.Controllers
         //評價管理
         public ActionResult Rating_Index_Admin()
         {
-            IEnumerable<ClassSpaces> ListSpaces = (from obj in db.Spaces
-                                                   select new ClassSpaces()
-                                                   {
-                                                       sName = obj.sName,
-                                                       sType = obj.sType,
-                                                       sNumber = obj.sNumber,
-                                                       sIntro = obj.sIntro
-                                                   }).ToList();
+            //IEnumerable<Spaces> ListSpaces = (from obj in db.Spaces
+            //                                       select new Spaces()
+            //                                       {
+            //                                           sName = obj.sName,
+            //                                           sType = obj.sType,
+            //                                           sNumber = obj.sNumber,
+            //                                           sIntro = obj.sIntro
+            //                                       }).ToList();
+            List<Spaces> ListSpaces = (from d in db.Spaces select d).ToList();
             return View(ListSpaces);
         }
 
         //列出評價
-        public ActionResult ShowComment_Admin(int sNumber)
+        public ActionResult ShowRating_Admin(int sNumber)
         {
             IEnumerable<RatingViewModel> listRVM = (from obj in db.Rates
                                                     where obj.FK_Rate_to_Space == sNumber
@@ -152,10 +175,17 @@ namespace prjWebSpaceMent.Controllers
                                                         rRate = (decimal)obj.rRate,
                                                         rNumber = obj.rNumber,
                                                         rComment = obj.rComment,
-                                                        rCreated_at = obj.rCreated_at
+                                                        rCreated_at = (DateTime)obj.rCreated_at
                                                     }).ToList();
             ViewBag.sNumber = sNumber;
             return View(listRVM);
+        }
+        public ActionResult DeleteRating(int sNumber)
+        {
+            //刪除功能未有效
+            ViewBag.sNumber = sNumber;
+            TempData["AlertMessage"] = "移除成功!";
+            return RedirectToAction("Rating_Index_Admin");
         }
     }
 }

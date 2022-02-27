@@ -1,4 +1,4 @@
-﻿@model prjWebSpaceMent.Models.ClassSpaces
+﻿@model prjWebSpaceMent.Models.Spaces
 
 @{
     ViewBag.Title = "Spaces_Edit_Admin";
@@ -11,19 +11,9 @@
             <h2>忘記想修改甚麼了嗎？</h2>
             <p>讓我帶您回到場地管理回想一下！</p>
         </div>
-        <form method="POST" action="#">
-            <div class="form-row justify-content-center">
-                <div class="col-auto">
-                    <a href="/Admin/SpaceManage" class="joinbutton-a">
-                        <span class="joinbutton-a-span"></span>
-                        <span class="joinbutton-a-span"></span>
-                        <span class="joinbutton-a-span"></span>
-                        <span class="joinbutton-a-span"></span>
-                        場地管理
-                    </a>
-                </div>
-            </div>
-        </form>
+        <div class="AnimatedButton">
+            <a class="AnimatedButton-a" style="--clr:#00ccff;--i:1;" href="/Admin/SpaceManage"><span class="AnimatedButton-a-span">場地管理</span></a>
+        </div>
     </div>
 </section>
 

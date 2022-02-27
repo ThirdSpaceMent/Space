@@ -143,6 +143,7 @@
   right: 0;
   bottom: 0;
   margin: auto;
+  padding: 0 16px;
   width: auto;
   max-width: 900px;
   height: auto;

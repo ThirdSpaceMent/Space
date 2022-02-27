@@ -1,4 +1,5 @@
-﻿using System;
+﻿using prjWebSpaceMent.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
@@ -37,6 +38,7 @@ namespace prjWebSpaceMent.Models
             SQL += "sOpeningTime='" + p.sOpeningTime + "',";
             SQL += "sSecurity='" + p.sSecurity + "',";
             SQL += "sTraffic='" + p.sTraffic + "',";
+            SQL += "sPhoto='" + p.sPhoto + "',";
             SQL += "sUpdated_at=getDate() ";
             SQL += "WHERE sNumber=" + p.sNumber;
 
@@ -68,6 +70,7 @@ namespace prjWebSpaceMent.Models
             SQL += "sOpeningTime,";
             SQL += "sSecurity,";
             SQL += "sTraffic,";
+            SQL += "sPhoto,";
             //SQL += "FK_Space_to_Owner,";
             SQL += "FK_Space_to_Owner ";
             //SQL += "oAccount ";
@@ -88,6 +91,7 @@ namespace prjWebSpaceMent.Models
             SQL += "'" + p.sOpeningTime + "',";
             SQL += "'" + p.sSecurity + "',";
             SQL += "'" + p.sTraffic + "',";
+            SQL += "'" + p.sPhoto + "',";
             //SQL += "'" + p.FK_Space_to_Owner + "',";
             SQL += "'" + p.FK_Space_to_Owner + "')";
             //SQL += "'" + p.oAccount + "')";
@@ -106,7 +110,7 @@ namespace prjWebSpaceMent.Models
 
         private List<ClassSpaces> QueryBySQL(string SQL)
         {
-            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["SPACEMENTEntities01"].ConnectionString);
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["SPACEMENTEntities"].ConnectionString);
             con.Open();
             SqlCommand cmd = new SqlCommand(SQL, con);
 
@@ -149,11 +153,10 @@ namespace prjWebSpaceMent.Models
                 return null;
             return list[0];
         }
-
-        internal List<ClassSpaces> QueryAll(string city, string type)
-        {
-            // 查詢 列出所有
-
+        
+        // 查詢 列出所有
+        internal List<ClassSpaces> QueryAll(string city, string type, int number)
+        {       
             string SQL = "SELECT * FROM Spaces WHERE 1=1 ";
 
             // 如果city有值,加上此判斷
@@ -168,13 +171,18 @@ namespace prjWebSpaceMent.Models
                 SQL += " AND sType LIKE '%" + type + "%'";
             }
 
+            // 如果登入者有值,過濾掉自己的場地
+            if (number != 0)
+            {
+                SQL += " AND FK_Space_to_Owner<>'" + number + "' ";
+            }
+
             return QueryBySQL(SQL);
         }
-
-        internal List<ClassSpaces> QueryByKeyword(string keyword, string city, string type)
-        {
-            //關鍵字查詢
-
+        
+        //關鍵字查詢
+        internal List<ClassSpaces> QueryByKeyword(string keyword, string city, string type, int number)
+        {           
             string SQL = "SELECT * FROM Spaces WHERE sName LIKE '%" + keyword + "%'";
             SQL += "OR sType LIKE '%" + keyword + "%'";
             SQL += "OR sAddr LIKE '%" + keyword + "%'";
@@ -202,7 +210,50 @@ namespace prjWebSpaceMent.Models
                 SQL += " OR sType LIKE '%" + type + "%'";
             }
 
+            // 如果登入者有值,過濾掉自己的場地
+            if (number != 0)
+            {
+                SQL += " AND FK_Space_to_Owner<>'" + number + "' ";
+            }
+
             return QueryBySQL(SQL);
+        }
+        
+        // 篩選出目前登入者的所有場地
+        internal object search_myorder(int mNumber)
+        {
+            
+            // 訂單的FK_Order_to_Member_User需對應會員的mNumber > 找出會員中文名字
+
+            string SQL = "SELECT oNumber,oStatus,convert(nvarchar,oScheduledTime,111) as oScheduledTime,oTimeRange,oPayment,oCreated_at,FK_Order_to_Member_User,mName FROM Orders JOIN Members ON Members.mNumber = Orders.FK_Order_to_Member_User WHERE Orders.FK_Order_to_Member_Owner =" + mNumber;
+            SQL += " ORDER BY oScheduledTime";
+
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["SPACEMENTEntities01"].ConnectionString);
+            con.Open();
+            SqlCommand cmd = new SqlCommand(SQL, con);
+
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            List<MyOrderViewModel> list = new List<MyOrderViewModel>();
+
+            while (reader.Read())
+            {
+                MyOrderViewModel MyOrder = new MyOrderViewModel()
+                {
+                    oNumber = (int)reader["oNumber"],
+                    oStatus = reader["oStatus"].ToString(),
+                    oScheduledTime = reader["oScheduledTime"].ToString(),
+                    oPayment = Convert.ToDecimal(reader["oPayment"]),
+                    oCreated_at = reader["oCreated_at"].ToString(),
+                    FK_Order_to_Member_User = (int)reader["FK_Order_to_Member_User"],
+                    oTimeRange = reader["oTimeRange"].ToString(),
+                    mName = reader["mName"].ToString(),
+                };
+                list.Add(MyOrder);
+            }
+            reader.Close();
+            con.Close();
+            return list;
         }
     }
 }

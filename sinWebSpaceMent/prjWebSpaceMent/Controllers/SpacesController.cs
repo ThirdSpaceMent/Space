@@ -1,6 +1,7 @@
 ﻿using prjWebSpaceMent.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -10,66 +11,88 @@ namespace prjWebSpaceMent.Controllers
     public class SpacesController : Controller
     {
         // 使用資料庫
-        dbSpaceMentEntities1 db = new dbSpaceMentEntities1();
+        SPACEMENTEntities db = new SPACEMENTEntities();
 
         // GET: Spaces
         // 找場地首頁
-        public ActionResult Spaces_Index(string keywords, string citys, string types)
+        public ActionResult Spaces_Index(string keyword, string city, string type)
         {
-
-
             // 搜尋功能
-            List<ClassSpaces> datas = null;
-
-            string keyword = "";     // 關鍵字 搜尋欄位
-            string city = "";        // 城市 下拉選單的值
-            string type = "";        // 活動類型 下拉選單的值
+            List<Spaces> datas = (from sp in db.Spaces select sp).ToList();
+                                       //select new Spaces()
+                                       //{
+                                       //    sNumber = sp.sNumber,
+                                       //    sName = sp.sName,
+                                       //    sAddr = sp.sAddr,
+                                       //    sCapacity = sp.sCapacity,
+                                       //    sOpeningTime = sp.sOpeningTime,
+                                       //    sType=sp.sType
+                                       //}).ToList();
+            //string keyword = "";     // 關鍵字 搜尋欄位
+            //string city = "";        // 城市 下拉選單的值
+            //string type = "";        // 活動類型 下拉選單的值
 
             // 帶入的參數
-            if (keywords != "" && keywords != null)
-            {
-                keyword = keywords;
-            }
-            else
-            {
-                keyword = Request.Form["txtKeyword"];
-            }
-
-            if (citys != "" && citys != null)
-            {
-                city = citys;
-            }
-            else
-            {
-                city = Request.Form["city"];
-            }
-
-            if (types != "" && types != null)
-            {
-                type = types;
-            }
-            else
-            {
-                type = Request.Form["type"];
-            }
-
-            // 如果搜尋框是空
-            if (string.IsNullOrEmpty(keyword))
-            {
-                datas = (new CSpacesFactory()).QueryAll(city, type); // 列出所有
-            }
-            else
-            {
-                datas = (new CSpacesFactory()).QueryByKeyword(keyword, city, type);
-            }
-
-            // 辨別登入
+            //if (keywords != "" && keywords != null)
+            //{
+            //    keyword = keywords;
+            //}
+            //else
+            //{
+            //    keyword = Request.Form["txtKeyword"];
+            //}
+            //if (types != "" && types != null)
+            //{
+            //    type = types;
+            //}
+            //else
+            //{
+            //    type = Request.Form["type"];
+                
+            //}
+            //if (citys != "" && citys != null)
+            //{
+            //    city = citys;
+            //}
+            //else
+            //{
+            //    city = Request.Form["city"];
+                
+            //}
             string mAccount = User.Identity.Name; //登入者(會員)的帳號
 
             var mem = db.Members
                 .Where(s => s.mAccount == mAccount)
                 .FirstOrDefault();
 
+            int number = 0;
+            if (mem != null)
+            {
+                number = mem.mNumber; //抓出登入者的mNumber
+            }
+            
+            //問題點:1.不能用keyword搜尋地址 2.台臺不通 3.地址縣市要完整(ex:桃園要是桃園市)
+            if (!string.IsNullOrEmpty(keyword)) 
+            {
+                //datas = (new CSpacesFactory()).QueryAll(city, type, number); // 列出所有
+                datas = datas.Where(m => m.sName.Contains(keyword) &&
+                (string.IsNullOrEmpty(type) || m.sType.Contains(type)) &&
+                (string.IsNullOrEmpty(city) || m.sAddr.Contains(city))).ToList();
+            }
+            else if (!string.IsNullOrEmpty(type))
+            {
+                datas = datas.Where(m => m.sType.Contains(type) &&
+                (string.IsNullOrEmpty(keyword) || m.sName.Contains(keyword)) &&
+                (string.IsNullOrEmpty(city) || m.sAddr.Contains(city))).ToList();
+            }
+            else if (!string.IsNullOrEmpty(city))
+            {
+                datas = datas.Where(m => m.sAddr.Contains(city) &&
+                (string.IsNullOrEmpty(type) || m.sType.Contains(type)) &&
+                (string.IsNullOrEmpty(keyword) || m.sName.Contains(keyword))).ToList();
+            }
+            
+            // 辨別登入
             if (mem != null)
             {
                 Session["Welcome"] = "嗨，" + mem.mName + "，歡迎回來";
@@ -101,7 +124,7 @@ namespace prjWebSpaceMent.Controllers
                 else
                 {
                     // 非系統管理者 只能看到自己上架的場地
-                    var mem_datas = from t in (new dbSpaceMentEntities1()).Spaces
+                    var mem_datas = from t in (new SPACEMENTEntities()).Spaces
                                     where t.FK_Space_to_Owner == mem.mNumber
                                     select t;
                     return View(mem_datas);
@@ -119,7 +142,10 @@ namespace prjWebSpaceMent.Controllers
 
             if (id != null)
             {
-                (new CSpacesFactory()).delete((int)id);
+                //(new CSpacesFactory()).delete((int)id);
+                var spdel = db.Spaces.Where(m => m.sNumber == id).FirstOrDefault();
+                db.Spaces.Remove(spdel);
+                db.SaveChanges();
             }
             return RedirectToAction("Spaces_List");
         }
@@ -127,12 +153,36 @@ namespace prjWebSpaceMent.Controllers
         //建立場地的頁面
         public ActionResult Spaces_Create()
         {
-            return View();
+            string CurrentUser = User.Identity.Name;
+            var memberdata = db.Members.Where(m => m.mAccount == CurrentUser).FirstOrDefault();
+            if (CurrentUser != "")
+            {
+                Session["Welcome"] = "嗨，" + memberdata.mName + "，歡迎回來";
+                return View("Spaces_Create", "_LayoutMember");
+            }
+            else
+            {
+                return RedirectToAction("Login", "Home");
+            }
         }
 
         //建立場地的存檔(會員功能)
-        public ActionResult Spaces_Save()
+        public ActionResult Spaces_Save(HttpPostedFileBase spacePhoto)
         {
+            string fileName = "";
+            //照片檔案上傳到資料夾
+            if (spacePhoto != null)
+            {
+                if (spacePhoto.ContentLength > 0)
+                {
+                    //取得圖檔名稱
+                    fileName = Guid.NewGuid().ToString() + ".jpg";
+                    var path = System.IO.Path.Combine
+                       (Server.MapPath("~/img/gallery/"), fileName);
+                    spacePhoto.SaveAs(path);
+                }
+            }
+
             //建立場地的存檔(會員功能)
 
             string mAccount = User.Identity.Name; //登入者(會員)的帳號
@@ -141,7 +191,7 @@ namespace prjWebSpaceMent.Controllers
                 .Where(s => s.mAccount == mAccount)
                 .FirstOrDefault();
 
-            ClassSpaces SP = new ClassSpaces();
+            Spaces SP = new Spaces();
             SP.sName = Request.Form["txtsName"];
             SP.sType = Request.Form["select_type"]; //下拉式選項
             SP.sAddr = Request.Form["txtsAddr"];
@@ -158,7 +208,9 @@ namespace prjWebSpaceMent.Controllers
             SP.sTraffic = Request.Form["txtsTraffic"];
             SP.FK_Space_to_Owner = mem.mNumber; //綁定是誰新增場地
 
-            (new CSpacesFactory()).create(SP);
+            //(new CSpacesFactory()).create(SP);
+            db.Spaces.Add(SP);
+            db.SaveChanges();
             return RedirectToAction("Spaces_List"); //跳轉至LIST
         }
 
@@ -169,18 +221,19 @@ namespace prjWebSpaceMent.Controllers
             {
                 return RedirectToAction("Spaces_List");
             }
-            ClassSpaces x = (new CSpacesFactory()).QueryByfid((int)id);
+            //ClassSpaces x = (new CSpacesFactory()).QueryByfid((int)id);
+            var x = (from d in db.Spaces.Where(m => m.sNumber == id) select new Spaces()).ToList();
             return View(x);
         }
 
         [HttpPost]
-        public ActionResult Spaces_Edit(ClassSpaces p)
+        public ActionResult Spaces_Edit(Spaces p)
         {
             if (p == null)
             {
                 return RedirectToAction("Spaces_List");
             }
-            (new CSpacesFactory()).update(p);
+            //(new CSpacesFactory()).update(p);
             return RedirectToAction("Spaces_List");
         }
 
@@ -192,8 +245,8 @@ namespace prjWebSpaceMent.Controllers
             {
                 return RedirectToAction("Spaces_Index");
             }
-            ClassSpaces x = (new CSpacesFactory()).QueryByfid((int)id);
-
+            //ClassSpaces x = (new CSpacesFactory()).QueryByfid((int)id);
+            Spaces x = db.Spaces.Where(m => m.sNumber == id).FirstOrDefault();
             // 辨別登入
             string mAccount = User.Identity.Name; //登入者(會員)的帳號
 
@@ -220,7 +273,8 @@ namespace prjWebSpaceMent.Controllers
             {
                 return RedirectToAction("Spaces_List");
             }
-            ClassSpaces x = (new CSpacesFactory()).QueryByfid((int)id);
+            //ClassSpaces x = (new CSpacesFactory()).QueryByfid((int)id);
+            Spaces x = db.Spaces.Where(m => m.sNumber == id).FirstOrDefault();
             return View(x);
         }
 
@@ -229,6 +283,12 @@ namespace prjWebSpaceMent.Controllers
         {
             string oMemberAccount = User.Identity.Name; //登入者的帳號
             var mem = db.Members.Where(m => m.mAccount == oMemberAccount).FirstOrDefault();
+
+            // 沒登入 跳轉回登入頁面
+            if (mem == null)
+            {
+                return RedirectToAction("Index", "Member");
+            }
 
             //場地table
             //oAccount 場地編號 =sNumber
@@ -291,18 +351,21 @@ namespace prjWebSpaceMent.Controllers
         // 我的客訂單
         public ActionResult Spaces_Order()
         {
-            // 跑出此會員全部客訂單 照日期排序
+            // 跑出此會員全部客訂單 照日期排序 +秀出會員中文名字
 
             string oMemberAccount = User.Identity.Name; //登入者的帳號
             var mem = db.Members.Where(m => m.mAccount == oMemberAccount).FirstOrDefault();
 
-            // 找出Orders Table裡面的場地主id 對應到 目前登入者的id
-            var order = from o in db.Orders
-                        where o.FK_Order_to_Member_Owner == mem.mNumber
-                        orderby o.oScheduledTime ascending     //遞增(日期從小到大)
-                        select o;
+            var order = (new CSpacesFactory()).search_myorder(mem.mNumber);
 
             return View(order);
+        }
+
+        //檢視場地圖片
+        public ActionResult SpacesShowPhoto()
+        {
+            var space = db.Spaces.ToList();
+            return View(space);  		//將場地照片結果傳給Spaces_ShowPhoto.cshtml來檢視
         }
 
     }
