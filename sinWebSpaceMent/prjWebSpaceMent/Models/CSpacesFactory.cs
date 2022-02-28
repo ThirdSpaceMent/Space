@@ -255,5 +255,26 @@ namespace prjWebSpaceMent.Models
             con.Close();
             return list;
         }
+        public string check_name(string sname)
+        {
+            string s = "";
+            int tc = 0;
+            // 新增功能INSERT
+            string sql = "select count(*) as tc  FROM Spaces where sName='" + sname + "' ";
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["SPACEMENTEntities01"].ConnectionString);
+            con.Open();
+            SqlCommand cmd = new SqlCommand(sql, con);
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                tc = Convert.ToInt32(reader["tc"]);
+            }
+            if (tc > 0)
+            {
+                s = "已經有相同場所名稱";
+                return s;
+            }
+            return s;
+        }
     }
 }

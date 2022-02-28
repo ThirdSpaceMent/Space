@@ -72,5 +72,38 @@ namespace prjWebSpaceMent.Controllers
             ViewBag.Message = "此帳號已有人使用，請重新註冊";
             return View();
         }
+
+        //忘記密碼
+        public ActionResult ForgetPwd()
+        {
+
+            return View();
+        }
+
+        public string Check_Code(string mAccount, string email)
+        {
+            string s = "";
+            CMembersFactory member = new CMembersFactory();
+
+            s = member.check_code(mAccount, email);
+            return s;
+        }
+
+
+        //重設密碼
+        public ActionResult ResetPwd(string mAccount)
+        {
+            ViewData["mAccount"] = mAccount;
+            return View();
+        }
+
+        public string Set_Code(string mAccount, string mPassword1, string mPassword2)
+        {
+            string s = "";
+            CMembersFactory member = new CMembersFactory();
+
+            s = member.Set_Code(mAccount, mPassword1, mPassword2);
+            return s;
+        }
     }
 }

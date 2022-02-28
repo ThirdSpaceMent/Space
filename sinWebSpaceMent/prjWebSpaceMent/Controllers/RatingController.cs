@@ -18,14 +18,14 @@ namespace prjWebSpaceMent.Controllers
         // GET: Rating
         public ActionResult Rating_Index_Admin()//場地評價清單
         {
-            IEnumerable<ClassSpaces> ListSpaces = (from obj in db.Spaces
-                                                   select new ClassSpaces()
-                                                   {
-                                                       sName = obj.sName,
-                                                       sType = obj.sType,
-                                                       sNumber = obj.sNumber,
-                                                       sIntro = obj.sIntro
-                                                   }).ToList();
+            IEnumerable<Spaces> ListSpaces = (from obj in db.Spaces
+                                              select new Spaces()
+                                              {
+                                                  sName = obj.sName,
+                                                  sType = obj.sType,
+                                                  sNumber = obj.sNumber,
+                                                  sIntro = obj.sIntro
+                                              }).ToList();
             return View(ListSpaces);
         }
         public ActionResult Rating_Index()//用戶查看自己給予的評價
@@ -52,8 +52,8 @@ namespace prjWebSpaceMent.Controllers
                                                               rRate = (decimal)obj.rRate,
                                                               rNumber = obj.rNumber,
                                                               rComment = obj.rComment,
-                                                              rCreated_at = obj.rCreated_at,
-                                                              rUpdated_at = obj.rUpdated_at,
+                                                              rCreated_at = (DateTime)obj.rCreated_at,
+                                                              rUpdated_at = (DateTime)obj.rUpdated_at,
                                                               FK_Rate_to_Member = (int)obj.FK_Rate_to_Member,
                                                               FK_Rate_to_Order = (int)obj.FK_Rate_to_Order,
                                                               FK_Rate_to_Space = (int)obj.FK_Rate_to_Space
@@ -73,7 +73,7 @@ namespace prjWebSpaceMent.Controllers
                                                         rRate = (decimal)obj.rRate,
                                                         rNumber = obj.rNumber,
                                                         rComment = obj.rComment,
-                                                        rCreated_at = obj.rCreated_at
+                                                        rCreated_at = (DateTime)obj.rCreated_at
                                                     }).ToList();
             ViewBag.sNumber = sNumber;
             return View(listRVM);
@@ -100,11 +100,11 @@ namespace prjWebSpaceMent.Controllers
                 obj.FK_Rate_to_Space = sNumber;
                 obj.rComment = rComment;
                 obj.rRate = rating;
-                obj.rCreated_at = DateTime.Now;
+                obj.rCreated_at = DateTime.Now;//建立時間是不能被更改的 但是不做會錯誤 須修正
                 obj.rUpdated_at = DateTime.Now;
                 db.Rates.Add(obj);
                 db.SaveChanges();
-                return RedirectToAction("Spaces_Index");
+                return RedirectToAction("ShowRating", new { sNumber = sNumber });
             }
         }
         public ActionResult EditRating(int sNumber)//修改評價
@@ -126,11 +126,11 @@ namespace prjWebSpaceMent.Controllers
             return RedirectToAction("Rating_Index");
         }
 
-        public ActionResult DeleteRating(int sNumber)
+        public ActionResult DeleteRating(int rNumber)//未開放用戶使用 功能已完成
         {
-            //刪除功能未有效
-            ViewBag.sNumber = sNumber;
-            TempData["AlertMessage"] = "移除成功!";
+            Rates obj = db.Rates.Where(m => m.rNumber == rNumber).FirstOrDefault();
+            db.Rates.Remove(obj);
+            db.SaveChanges();
             return RedirectToAction("Rating_Index");
         }
     }

@@ -384,6 +384,8 @@
     <Content Include="Views\Rating\Rating_Index.cshtml" />
     <Content Include="Views\Rating\EditRating.cshtml" />
     <Content Include="Views\Spaces\SpacesShowPhoto.cshtml" />
+    <Content Include="Views\Home\ForgetPwd.cshtml" />
+    <Content Include="Views\Home\ResetPwd.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -123,20 +123,27 @@ namespace prjWebSpaceMent.Controllers
             (new CSpacesFactory()).update(p);
             return RedirectToAction("SpaceManage");
         }
-       
+
         //管理者頁面使用
         //評價管理
         public ActionResult Rating_Index_Admin()
         {
-            IEnumerable<ClassSpaces> ListSpaces = (from obj in db.Spaces
-                                                   select new ClassSpaces()
-                                                   {
-                                                       sName = obj.sName,
-                                                       sType = obj.sType,
-                                                       sNumber = obj.sNumber,
-                                                       sIntro = obj.sIntro
-                                                   }).ToList();
-            return View(ListSpaces);
+            //List<Rates> ListRates = (from d in db.Rates select d).ToList();
+            IEnumerable<RatingViewModel> ListRVM = (from obj in db.Rates
+                                                    join sp in db.Spaces on obj.FK_Rate_to_Space equals sp.sNumber
+                                                    select new RatingViewModel()
+                                                    {
+                                                        FK_Rate_to_Space = (int)obj.FK_Rate_to_Space,
+                                                        FK_Rate_to_Member = (int)obj.FK_Rate_to_Member,
+                                                        FK_Rate_to_Order = (int)obj.FK_Rate_to_Order,
+                                                        rRate = (decimal)obj.rRate,
+                                                        rNumber = obj.rNumber,
+                                                        rComment = obj.rComment,
+                                                        rCreated_at = (DateTime)obj.rCreated_at,
+                                                        sNumber = sp.sNumber,
+                                                        sName = sp.sName
+                                                    }).ToList();
+            return View(ListRVM);
         }
 
         //列出評價
@@ -157,11 +164,11 @@ namespace prjWebSpaceMent.Controllers
             ViewBag.sNumber = sNumber;
             return View(listRVM);
         }
-        public ActionResult DeleteRating(int sNumber)
+        public ActionResult DeleteRating(int rNumber)
         {
-            //刪除功能未有效
-            ViewBag.sNumber = sNumber;
-            TempData["AlertMessage"] = "移除成功!";
+            Rates obj = db.Rates.Where(m => m.rNumber == rNumber).FirstOrDefault();
+            db.Rates.Remove(obj);
+            db.SaveChanges();
             return RedirectToAction("Rating_Index_Admin");
         }
     }

@@ -13,10 +13,10 @@ namespace prjWebSpaceMent.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class dbSpaceMentEntities1 : DbContext
+    public partial class SPACEMENTEntities : DbContext
     {
-        public dbSpaceMentEntities1()
-            : base("name=dbSpaceMentEntities1")
+        public SPACEMENTEntities()
+            : base("name=SPACEMENTEntities")
         {
         }
     

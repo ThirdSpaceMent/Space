@@ -250,20 +250,18 @@ namespace prjWebSpaceMent.Controllers
             string oMemberAccount = User.Identity.Name; //登入者的帳號
             var mem = db.Members.Where(m => m.mAccount == oMemberAccount).FirstOrDefault();
 
-            // 沒登入 跳轉回登入頁面
-            if (mem == null)
-            {
-                return RedirectToAction("Index", "Member");
-            }
-
-            //場地table
-            //oAccount 場地編號 =sNumber
             int sNumber = Convert.ToInt32(oAccount); //將前端帶入的場地編號轉成int
-            var space = db.Spaces.Where(m => m.sNumber == sNumber).FirstOrDefault();
+            var space = db.Spaces.Where(m => m.sNumber == sNumber).FirstOrDefault(); //場地table
+
+            string msg = ""; // 前端顯示的alert訊息
+            if (mem == null) // 沒登入 跳轉回登入頁面
+            {
+                msg = "請先登入會員";
+                return Content(msg);
+            }
 
             //勾選的時段部分
             string TimeRange = ""; //時段欄位
-
             if (morning == "1")
             {
                 TimeRange = TimeRange + "上午,";
@@ -282,7 +280,7 @@ namespace prjWebSpaceMent.Controllers
             DateTime startDateTime = Convert.ToDateTime(datepick + " 00:00:00"); // at 00:00:00
             DateTime endDateTime = Convert.ToDateTime(datepick + " 23:59:59"); // at 23:59:59
 
-            // od.oAccount是Order table的場地編號；oAccount是前端帶過來的場地編號
+            // 訂單的fk場地編號 = 前端帶入的場地編號
             var orderdc = from od in db.Orders
                           where od.FK_Order_to_Space == sNumber && od.oScheduledTime >= startDateTime && od.oScheduledTime <= endDateTime && od.oTimeRange.Contains(TimeRange)
                           select od;
@@ -291,27 +289,31 @@ namespace prjWebSpaceMent.Controllers
             decimal tc = orderdc.Count();
             if (tc > 0)
             {
-                return Content("該場地時段已被預訂");
+                msg = "該場地時段已被預訂";
+                return Content(msg);
             }
 
             // 開始帶入資料
             Orders order = new Orders();
-            order.FK_Order_to_Space = sNumber;    //場地編號
-            order.oStatus = space.sName;  //oStatus暫時借用來存場地名稱
-            order.oMemberAccount = oMemberAccount;  //是誰訂場地(帳號)
+            order.FK_Order_to_Space = sNumber;      // 場地編號
+            order.oStatus = space.sName;            // oStatus暫時借用來存場地名稱
+            order.oMemberAccount = oMemberAccount;  // 是誰訂場地(帳號)
             order.oCreated_at = DateTime.Now;       // 下訂時間
-            //order.oPrice = (int)space.sRent;        // 每時段費用
-            order.oPayment = Convert.ToDecimal(snumsnum);   //小計
-            order.oTimeRange = TimeRange;       //哪個時段(上午、中午、晚上)
-            order.FK_Order_to_Member_Owner = space.FK_Space_to_Owner;   //場地是誰的
-            order.FK_Order_to_Member_User = mem.mNumber;                //預訂的人
-            order.oScheduledTime = Convert.ToDateTime(datepick);        //場地的使用日期
+            //order.oPrice = (int)space.sRent;      // 每時段費用
+            order.oPayment = Convert.ToDecimal(snumsnum);  //小計
+            order.oTimeRange = TimeRange;           //哪個時段(上午、中午、晚上)
+            order.FK_Order_to_Member_Owner = space.FK_Space_to_Owner;  //場地是誰的
+            order.FK_Order_to_Member_User = mem.mNumber;               //預訂的人
+            order.oScheduledTime = Convert.ToDateTime(datepick);       //場地的使用日期
 
             db.Orders.Add(order);
             db.Configuration.ValidateOnSaveEnabled = false;
             db.SaveChanges();
 
-            return RedirectToAction("ShoppingCar", "Member");
+            msg = "場地預訂成功";
+            return Content(msg);
+
+            //return RedirectToAction("ShoppingCar", "Member");
         }
 
         // 我的客訂單
@@ -334,6 +336,13 @@ namespace prjWebSpaceMent.Controllers
             return View(space);  		//將場地照片結果傳給Spaces_ShowPhoto.cshtml來檢視
         }
 
+        public ActionResult check_name(string sname)
+        {
+            string s = "";
+            CSpacesFactory sp = new CSpacesFactory();
+            s = sp.check_name(sname);
+            return Content(s);
+        }
     }
 }
 

@@ -43,11 +43,9 @@
             <!--進行評價需移動到訂單功能之交易完成後-->
             <button class="btn btn-warning mb-3 mr-3">@Html.ActionLink("進行評價", "AddRating", "Rating", new { sNumber = Model.sNumber }, null)</button>
             <button class="btn btn-info mb-3 mr-3">@Html.ActionLink("加入追蹤", "AddFavToList", "Favorite", new { sNumber = Model.sNumber }, null)</button>
-            <button class="btn btn-secondary mb-3">@Html.ActionLink("場地照片", "SpacesShowPhoto", "Spaces")</button>
-            <p>
-                <a href="https://www.google.com/maps/place/@Model.sAddr"
-                   class="btn btn-success" target="_blank">場地位置</a>
-            </p>
+            <button class="btn btn-secondary mb-3 mr-3">@Html.ActionLink("場地照片", "SpacesShowPhoto", "Spaces")</button>
+
+            <a href="https://www.google.com/maps/place/@Model.sAddr" class="btn btn-danger" target="_blank">場地位置</a>
         </div>
         @if (TempData["AlertMessage"] != null)
         {
@@ -179,17 +177,26 @@
             }
             var params = '{"oAccount":' + snumber + ',"snumsnum":' + snumsnum + ',"morning":' + morning + ',"afternoon":' + afternoon + ',"evening":' + evening + ',"datepick":"' + datepick + '"}';
             $.ajax({
-                type: "POST",
-                url: "/Spaces/AddCar",
-                data: params,//json序列化
-                datatype: "json", //此處不能省略
-                contentType: "application/json; charset=utf-8",//此處不能省略
-                success: function (data) {
+            type: "POST",
+            url: "/Spaces/AddCar",
+            data: params,  //json序列化
+            datatype: "json", //此處不能省略
+            contentType: "application/json; charset=utf-8",  //此處不能省略
+            success: function (data) {
+                if (data == "場地預訂成功") {
+                    alert(data);
                     window.location.href = '@Url.Content("~/Member/ShoppingCar")';
-                },
-                error: function (data) {
-                    alert(data)
                 }
-            });
+                else if (data == "該場地時段已被預訂") {
+                    alert(data);
+                }
+                else if (data == "請先登入會員") {
+                    alert(data);
+                }
+            },
+            error: function (data) {
+                alert(data);
+            }
+        });
         }
 </script>

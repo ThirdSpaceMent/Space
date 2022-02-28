@@ -1,18 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="dbSpaceMentModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="SPACEMENTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="Activities">
     <Key>
       <PropertyRef Name="aNumber" />
     </Key>
     <Property Name="aNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="aName" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="aHeadCount" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="aType" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="aSignUpTime" Type="datetime" Nullable="false" />
-    <Property Name="aHoldTime" Type="datetime" Nullable="false" />
-    <Property Name="aFee" Type="money" Nullable="false" />
-    <Property Name="aCreated_at" Type="datetime" Nullable="false" />
-    <Property Name="aUpdated_at" Type="datetime" Nullable="false" />
+    <Property Name="aName" Type="nvarchar" MaxLength="50" />
+    <Property Name="aHeadCount" Type="nvarchar" MaxLength="50" />
+    <Property Name="aType" Type="nvarchar" MaxLength="50" />
+    <Property Name="aSignUpTime" Type="datetime" />
+    <Property Name="aHoldTime" Type="datetime" />
+    <Property Name="aFee" Type="money" />
+    <Property Name="aCreated_at" Type="datetime" />
+    <Property Name="aUpdated_at" Type="datetime" />
     <Property Name="FK_Activity_to_Member" Type="int" />
     <Property Name="FK_Activity_to_Space" Type="int" />
   </EntityType>
@@ -21,9 +21,9 @@
       <PropertyRef Name="cNumber" />
     </Key>
     <Property Name="cNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="cContent" Type="nvarchar" MaxLength="500" Nullable="false" />
-    <Property Name="cCreated_at" Type="datetime" Nullable="false" />
-    <Property Name="cUpdated_at" Type="datetime" Nullable="false" />
+    <Property Name="cContent" Type="nvarchar" MaxLength="500" />
+    <Property Name="cCreated_at" Type="datetime" />
+    <Property Name="cUpdated_at" Type="datetime" />
     <Property Name="FK_Comment_to_Member" Type="int" />
   </EntityType>
   <EntityType Name="Favorites">
@@ -33,25 +33,25 @@
     </Key>
     <Property Name="FK_Favorite_to_Member" Type="int" Nullable="false" />
     <Property Name="FK_Favorite_to_Space" Type="int" Nullable="false" />
-    <Property Name="fCreated_at" Type="datetime" Nullable="false" />
+    <Property Name="fCreated_at" Type="datetime" />
   </EntityType>
   <EntityType Name="Members">
     <Key>
       <PropertyRef Name="mNumber" />
     </Key>
     <Property Name="mNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="mAccount" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="mPassword" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="mName" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="mNickName" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="mEmail" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="mPhone" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="mGender" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="mTWid" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="mBirthday" Type="date" Nullable="false" />
-    <Property Name="mPoint" Type="int" Nullable="false" />
-    <Property Name="mCreated_at" Type="datetime" Nullable="false" />
-    <Property Name="mUpdated_at" Type="datetime" Nullable="false" />
+    <Property Name="mAccount" Type="nvarchar" MaxLength="50" />
+    <Property Name="mPassword" Type="nvarchar" MaxLength="50" />
+    <Property Name="mName" Type="nvarchar" MaxLength="50" />
+    <Property Name="mNickName" Type="nvarchar" MaxLength="50" />
+    <Property Name="mEmail" Type="nvarchar" MaxLength="50" />
+    <Property Name="mPhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="mGender" Type="nvarchar" MaxLength="50" />
+    <Property Name="mTWid" Type="nvarchar" MaxLength="50" />
+    <Property Name="mBirthday" Type="date" />
+    <Property Name="mPoint" Type="int" />
+    <Property Name="mCreated_at" Type="datetime" />
+    <Property Name="mUpdated_at" Type="datetime" />
   </EntityType>
   <EntityType Name="Orders">
     <Key>
@@ -60,6 +60,7 @@
     <Property Name="oNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="oStatus" Type="nvarchar" MaxLength="50" />
     <Property Name="oScheduledTime" Type="datetime" />
+    <Property Name="oTimeRange" Type="nvarchar" MaxLength="50" />
     <Property Name="oPaymentMode" Type="nvarchar" MaxLength="50" />
     <Property Name="oPaymentStatus" Type="nvarchar" MaxLength="50" />
     <Property Name="oDiscount" Type="nvarchar" MaxLength="50" />
@@ -73,7 +74,6 @@
     <Property Name="oAccount" Type="nvarchar" MaxLength="50" />
     <Property Name="oQty" Type="int" />
     <Property Name="oPrice" Type="int" />
-    <Property Name="oTimeRange" Type="nvarchar" MaxLength="50" />
     <Property Name="oMemberAccount" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Owners">
@@ -81,21 +81,20 @@
       <PropertyRef Name="FK_Owner_to_Member" />
     </Key>
     <Property Name="FK_Owner_to_Member" Type="int" Nullable="false" />
-    <Property Name="oAccreditation" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="oCreated_at" Type="datetime" Nullable="false" />
-    <Property Name="oUpdated_at" Type="datetime" Nullable="false" />
+    <Property Name="oAccreditation" Type="nvarchar" MaxLength="50" />
+    <Property Name="oCreated_at" Type="datetime" />
+    <Property Name="oUpdated_at" Type="datetime" />
   </EntityType>
   <EntityType Name="Photos">
     <Key>
       <PropertyRef Name="pNumber" />
     </Key>
     <Property Name="pNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="pUrl" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="pCreated_at" Type="datetime" Nullable="false" />
-    <Property Name="pUpdated_at" Type="datetime" Nullable="false" />
+    <Property Name="pUrl" Type="nvarchar" MaxLength="50" />
+    <Property Name="pCreated_at" Type="datetime" />
+    <Property Name="pUpdated_at" Type="datetime" />
     <Property Name="FK_Photo_to_Member" Type="int" />
     <Property Name="FK_Photo_to_Space" Type="int" />
-    <Property Name="pPhoto" Type="varbinary(max)" />
   </EntityType>
   <EntityType Name="Rates">
     <Key>
@@ -104,8 +103,8 @@
     <Property Name="rNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="rRate" Type="decimal" Precision="5" Scale="1" />
     <Property Name="rComment" Type="nvarchar" MaxLength="300" />
-    <Property Name="rCreated_at" Type="datetime" Nullable="false" />
-    <Property Name="rUpdated_at" Type="datetime" Nullable="false" />
+    <Property Name="rCreated_at" Type="datetime" />
+    <Property Name="rUpdated_at" Type="datetime" />
     <Property Name="FK_Rate_to_Member" Type="int" />
     <Property Name="FK_Rate_to_Space" Type="int" />
     <Property Name="FK_Rate_to_Order" Type="int" />
@@ -115,40 +114,36 @@
       <PropertyRef Name="sNumber" />
     </Key>
     <Property Name="sNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="sName" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="sType" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="sAddr" Type="nvarchar" MaxLength="150" Nullable="false" />
-    <Property Name="sPhone" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="sFloor" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="sHeight" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="sArea" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="sCapacity" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="sRent" Type="money" Nullable="false" />
-    <Property Name="sRate" Type="money" Nullable="false" />
-    <Property Name="sIntro" Type="nvarchar" MaxLength="500" Nullable="false" />
-    <Property Name="sOpeningTime" Type="nvarchar" MaxLength="500" Nullable="false" />
-    <Property Name="sSecurity" Type="nvarchar" MaxLength="500" Nullable="false" />
-    <Property Name="sTraffic" Type="nvarchar" MaxLength="500" Nullable="false" />
-    <Property Name="sCreated_at" Type="datetime" Nullable="false" />
-    <Property Name="sUpdated_at" Type="datetime" Nullable="false" />
+    <Property Name="sName" Type="nvarchar" MaxLength="50" />
+    <Property Name="sType" Type="nvarchar" MaxLength="50" />
+    <Property Name="sAddr" Type="nvarchar" MaxLength="150" />
+    <Property Name="sPhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="sFloor" Type="nvarchar" MaxLength="50" />
+    <Property Name="sHeight" Type="nvarchar" MaxLength="50" />
+    <Property Name="sArea" Type="nvarchar" MaxLength="50" />
+    <Property Name="sCapacity" Type="nvarchar" MaxLength="50" />
+    <Property Name="sRent" Type="money" />
+    <Property Name="sRate" Type="money" />
+    <Property Name="sIntro" Type="nvarchar" MaxLength="500" />
+    <Property Name="sOpeningTime" Type="nvarchar" MaxLength="500" />
+    <Property Name="sSecurity" Type="nvarchar" MaxLength="500" />
+    <Property Name="sTraffic" Type="nvarchar" MaxLength="500" />
+    <Property Name="sCreated_at" Type="datetime" />
+    <Property Name="sUpdated_at" Type="datetime" />
     <Property Name="FK_Space_to_Owner" Type="int" />
-    <Property Name="sTimeRange" Type="nvarchar" MaxLength="50" />
-    <Property Name="sPhoto" Type="nvarchar" MaxLength="50" />
-    <Property Name="sPhoto_First" Type="nvarchar" MaxLength="50" />
-    <Property Name="sPhoto_Second" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="SubSpaces">
     <Key>
       <PropertyRef Name="uNumber" />
     </Key>
     <Property Name="uNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="uName" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="uIntro" Type="nvarchar" MaxLength="500" Nullable="false" />
-    <Property Name="uCreated_at" Type="datetime" Nullable="false" />
-    <Property Name="uUpdated_at" Type="datetime" Nullable="false" />
+    <Property Name="uName" Type="nvarchar" MaxLength="50" />
+    <Property Name="uIntro" Type="nvarchar" MaxLength="500" />
+    <Property Name="uCreated_at" Type="datetime" />
+    <Property Name="uUpdated_at" Type="datetime" />
     <Property Name="FK_SubSpace_to_Space" Type="int" />
   </EntityType>
-  <Association Name="FK__Activitie__FK_Ac__1DB06A4F">
+  <Association Name="FK__Activitie__FK_Ac__656C112C">
     <End Role="Members" Type="Self.Members" Multiplicity="0..1" />
     <End Role="Activities" Type="Self.Activities" Multiplicity="*" />
     <ReferentialConstraint>
@@ -160,7 +155,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Activitie__FK_Ac__1EA48E88">
+  <Association Name="FK__Activitie__FK_Ac__66603565">
     <End Role="Spaces" Type="Self.Spaces" Multiplicity="0..1" />
     <End Role="Activities" Type="Self.Activities" Multiplicity="*" />
     <ReferentialConstraint>
@@ -172,7 +167,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Comments__FK_Com__123EB7A3">
+  <Association Name="FK__Comments__FK_Com__59FA5E80">
     <End Role="Members" Type="Self.Members" Multiplicity="0..1" />
     <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
     <ReferentialConstraint>
@@ -184,7 +179,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Favorites__FK_Fa__40F9A68C">
+  <Association Name="FK__Favorites__FK_Fa__09A971A2">
     <End Role="Members" Type="Self.Members" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
@@ -198,7 +193,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Favorites__FK_Fa__41EDCAC5">
+  <Association Name="FK__Favorites__FK_Fa__0A9D95DB">
     <End Role="Spaces" Type="Self.Spaces" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
@@ -212,7 +207,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Orders__FK_Order__2A164134">
+  <Association Name="FK__Orders__FK_Order__72C60C4A">
     <End Role="Members" Type="Self.Members" Multiplicity="0..1" />
     <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
     <ReferentialConstraint>
@@ -224,7 +219,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Orders__FK_Order__2B0A656D">
+  <Association Name="FK__Orders__FK_Order__73BA3083">
     <End Role="Members" Type="Self.Members" Multiplicity="0..1" />
     <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
     <ReferentialConstraint>
@@ -236,7 +231,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Orders__FK_Order__2BFE89A6">
+  <Association Name="FK__Orders__FK_Order__74AE54BC">
     <End Role="Spaces" Type="Self.Spaces" Multiplicity="0..1" />
     <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
     <ReferentialConstraint>
@@ -248,7 +243,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Orders__FK_Order__2CF2ADDF">
+  <Association Name="FK__Orders__FK_Order__75A278F5">
     <End Role="Activities" Type="Self.Activities" Multiplicity="0..1" />
     <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
     <ReferentialConstraint>
@@ -260,7 +255,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Owners__FK_Owner__70DDC3D8">
+  <Association Name="FK__Owners__FK_Owner__38996AB5">
     <End Role="Members" Type="Self.Members" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
@@ -274,7 +269,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Photos__FK_Photo__3B40CD36">
+  <Association Name="FK__Photos__FK_Photo__03F0984C">
     <End Role="Members" Type="Self.Members" Multiplicity="0..1" />
     <End Role="Photos" Type="Self.Photos" Multiplicity="*" />
     <ReferentialConstraint>
@@ -286,7 +281,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Photos__FK_Photo__3C34F16F">
+  <Association Name="FK__Photos__FK_Photo__04E4BC85">
     <End Role="Spaces" Type="Self.Spaces" Multiplicity="0..1" />
     <End Role="Photos" Type="Self.Photos" Multiplicity="*" />
     <ReferentialConstraint>
@@ -298,7 +293,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Rates__FK_Rate_t__32AB8735">
+  <Association Name="FK__Rates__FK_Rate_t__7B5B524B">
     <End Role="Members" Type="Self.Members" Multiplicity="0..1" />
     <End Role="Rates" Type="Self.Rates" Multiplicity="*" />
     <ReferentialConstraint>
@@ -310,7 +305,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Rates__FK_Rate_t__339FAB6E">
+  <Association Name="FK__Rates__FK_Rate_t__7C4F7684">
     <End Role="Spaces" Type="Self.Spaces" Multiplicity="0..1" />
     <End Role="Rates" Type="Self.Rates" Multiplicity="*" />
     <ReferentialConstraint>
@@ -322,7 +317,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Rates__FK_Rate_t__3493CFA7">
+  <Association Name="FK__Rates__FK_Rate_t__7D439ABD">
     <End Role="Orders" Type="Self.Orders" Multiplicity="0..1" />
     <End Role="Rates" Type="Self.Rates" Multiplicity="*" />
     <ReferentialConstraint>
@@ -334,7 +329,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Spaces__FK_Space__03F0984C">
+  <Association Name="FK__Spaces__FK_Space__4BAC3F29">
     <End Role="Members" Type="Self.Members" Multiplicity="0..1" />
     <End Role="Spaces" Type="Self.Spaces" Multiplicity="*" />
     <ReferentialConstraint>
@@ -346,7 +341,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__SubSpaces__FK_Su__0B91BA14">
+  <Association Name="FK__SubSpaces__FK_Su__534D60F1">
     <End Role="Spaces" Type="Self.Spaces" Multiplicity="0..1" />
     <End Role="SubSpaces" Type="Self.SubSpaces" Multiplicity="*" />
     <ReferentialConstraint>
@@ -358,7 +353,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="dbSpaceMentModelStoreContainer">
+  <EntityContainer Name="SPACEMENTModelStoreContainer">
     <EntitySet Name="Activities" EntityType="Self.Activities" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Comments" EntityType="Self.Comments" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Favorites" EntityType="Self.Favorites" Schema="dbo" store:Type="Tables" />
@@ -369,71 +364,71 @@
     <EntitySet Name="Rates" EntityType="Self.Rates" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Spaces" EntityType="Self.Spaces" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SubSpaces" EntityType="Self.SubSpaces" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__Activitie__FK_Ac__1DB06A4F" Association="Self.FK__Activitie__FK_Ac__1DB06A4F">
+    <AssociationSet Name="FK__Activitie__FK_Ac__656C112C" Association="Self.FK__Activitie__FK_Ac__656C112C">
       <End Role="Members" EntitySet="Members" />
       <End Role="Activities" EntitySet="Activities" />
     </AssociationSet>
-    <AssociationSet Name="FK__Activitie__FK_Ac__1EA48E88" Association="Self.FK__Activitie__FK_Ac__1EA48E88">
+    <AssociationSet Name="FK__Activitie__FK_Ac__66603565" Association="Self.FK__Activitie__FK_Ac__66603565">
       <End Role="Spaces" EntitySet="Spaces" />
       <End Role="Activities" EntitySet="Activities" />
     </AssociationSet>
-    <AssociationSet Name="FK__Comments__FK_Com__123EB7A3" Association="Self.FK__Comments__FK_Com__123EB7A3">
+    <AssociationSet Name="FK__Comments__FK_Com__59FA5E80" Association="Self.FK__Comments__FK_Com__59FA5E80">
       <End Role="Members" EntitySet="Members" />
       <End Role="Comments" EntitySet="Comments" />
     </AssociationSet>
-    <AssociationSet Name="FK__Favorites__FK_Fa__40F9A68C" Association="Self.FK__Favorites__FK_Fa__40F9A68C">
+    <AssociationSet Name="FK__Favorites__FK_Fa__09A971A2" Association="Self.FK__Favorites__FK_Fa__09A971A2">
       <End Role="Members" EntitySet="Members" />
       <End Role="Favorites" EntitySet="Favorites" />
     </AssociationSet>
-    <AssociationSet Name="FK__Favorites__FK_Fa__41EDCAC5" Association="Self.FK__Favorites__FK_Fa__41EDCAC5">
+    <AssociationSet Name="FK__Favorites__FK_Fa__0A9D95DB" Association="Self.FK__Favorites__FK_Fa__0A9D95DB">
       <End Role="Spaces" EntitySet="Spaces" />
       <End Role="Favorites" EntitySet="Favorites" />
     </AssociationSet>
-    <AssociationSet Name="FK__Orders__FK_Order__2A164134" Association="Self.FK__Orders__FK_Order__2A164134">
+    <AssociationSet Name="FK__Orders__FK_Order__72C60C4A" Association="Self.FK__Orders__FK_Order__72C60C4A">
       <End Role="Members" EntitySet="Members" />
       <End Role="Orders" EntitySet="Orders" />
     </AssociationSet>
-    <AssociationSet Name="FK__Orders__FK_Order__2B0A656D" Association="Self.FK__Orders__FK_Order__2B0A656D">
+    <AssociationSet Name="FK__Orders__FK_Order__73BA3083" Association="Self.FK__Orders__FK_Order__73BA3083">
       <End Role="Members" EntitySet="Members" />
       <End Role="Orders" EntitySet="Orders" />
     </AssociationSet>
-    <AssociationSet Name="FK__Orders__FK_Order__2BFE89A6" Association="Self.FK__Orders__FK_Order__2BFE89A6">
+    <AssociationSet Name="FK__Orders__FK_Order__74AE54BC" Association="Self.FK__Orders__FK_Order__74AE54BC">
       <End Role="Spaces" EntitySet="Spaces" />
       <End Role="Orders" EntitySet="Orders" />
     </AssociationSet>
-    <AssociationSet Name="FK__Orders__FK_Order__2CF2ADDF" Association="Self.FK__Orders__FK_Order__2CF2ADDF">
+    <AssociationSet Name="FK__Orders__FK_Order__75A278F5" Association="Self.FK__Orders__FK_Order__75A278F5">
       <End Role="Activities" EntitySet="Activities" />
       <End Role="Orders" EntitySet="Orders" />
     </AssociationSet>
-    <AssociationSet Name="FK__Owners__FK_Owner__70DDC3D8" Association="Self.FK__Owners__FK_Owner__70DDC3D8">
+    <AssociationSet Name="FK__Owners__FK_Owner__38996AB5" Association="Self.FK__Owners__FK_Owner__38996AB5">
       <End Role="Members" EntitySet="Members" />
       <End Role="Owners" EntitySet="Owners" />
     </AssociationSet>
-    <AssociationSet Name="FK__Photos__FK_Photo__3B40CD36" Association="Self.FK__Photos__FK_Photo__3B40CD36">
+    <AssociationSet Name="FK__Photos__FK_Photo__03F0984C" Association="Self.FK__Photos__FK_Photo__03F0984C">
       <End Role="Members" EntitySet="Members" />
       <End Role="Photos" EntitySet="Photos" />
     </AssociationSet>
-    <AssociationSet Name="FK__Photos__FK_Photo__3C34F16F" Association="Self.FK__Photos__FK_Photo__3C34F16F">
+    <AssociationSet Name="FK__Photos__FK_Photo__04E4BC85" Association="Self.FK__Photos__FK_Photo__04E4BC85">
       <End Role="Spaces" EntitySet="Spaces" />
       <End Role="Photos" EntitySet="Photos" />
     </AssociationSet>
-    <AssociationSet Name="FK__Rates__FK_Rate_t__32AB8735" Association="Self.FK__Rates__FK_Rate_t__32AB8735">
+    <AssociationSet Name="FK__Rates__FK_Rate_t__7B5B524B" Association="Self.FK__Rates__FK_Rate_t__7B5B524B">
       <End Role="Members" EntitySet="Members" />
       <End Role="Rates" EntitySet="Rates" />
     </AssociationSet>
-    <AssociationSet Name="FK__Rates__FK_Rate_t__339FAB6E" Association="Self.FK__Rates__FK_Rate_t__339FAB6E">
+    <AssociationSet Name="FK__Rates__FK_Rate_t__7C4F7684" Association="Self.FK__Rates__FK_Rate_t__7C4F7684">
       <End Role="Spaces" EntitySet="Spaces" />
       <End Role="Rates" EntitySet="Rates" />
     </AssociationSet>
-    <AssociationSet Name="FK__Rates__FK_Rate_t__3493CFA7" Association="Self.FK__Rates__FK_Rate_t__3493CFA7">
+    <AssociationSet Name="FK__Rates__FK_Rate_t__7D439ABD" Association="Self.FK__Rates__FK_Rate_t__7D439ABD">
       <End Role="Orders" EntitySet="Orders" />
       <End Role="Rates" EntitySet="Rates" />
     </AssociationSet>
-    <AssociationSet Name="FK__Spaces__FK_Space__03F0984C" Association="Self.FK__Spaces__FK_Space__03F0984C">
+    <AssociationSet Name="FK__Spaces__FK_Space__4BAC3F29" Association="Self.FK__Spaces__FK_Space__4BAC3F29">
       <End Role="Members" EntitySet="Members" />
       <End Role="Spaces" EntitySet="Spaces" />
     </AssociationSet>
-    <AssociationSet Name="FK__SubSpaces__FK_Su__0B91BA14" Association="Self.FK__SubSpaces__FK_Su__0B91BA14">
+    <AssociationSet Name="FK__SubSpaces__FK_Su__534D60F1" Association="Self.FK__SubSpaces__FK_Su__534D60F1">
       <End Role="Spaces" EntitySet="Spaces" />
       <End Role="SubSpaces" EntitySet="SubSpaces" />
     </AssociationSet>

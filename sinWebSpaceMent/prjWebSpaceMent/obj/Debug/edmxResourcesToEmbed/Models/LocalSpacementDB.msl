@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="dbSpaceMentModelStoreContainer" CdmEntityContainer="dbSpaceMentEntities1">
+  <EntityContainerMapping StorageEntityContainer="SPACEMENTModelStoreContainer" CdmEntityContainer="SPACEMENTEntities">
     <EntitySetMapping Name="Activities">
-      <EntityTypeMapping TypeName="dbSpaceMentModel.Activities">
+      <EntityTypeMapping TypeName="SPACEMENTModel.Activities">
         <MappingFragment StoreEntitySet="Activities">
           <ScalarProperty Name="aNumber" ColumnName="aNumber" />
           <ScalarProperty Name="aName" ColumnName="aName" />
@@ -19,7 +19,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Comments">
-      <EntityTypeMapping TypeName="dbSpaceMentModel.Comments">
+      <EntityTypeMapping TypeName="SPACEMENTModel.Comments">
         <MappingFragment StoreEntitySet="Comments">
           <ScalarProperty Name="cNumber" ColumnName="cNumber" />
           <ScalarProperty Name="cContent" ColumnName="cContent" />
@@ -30,7 +30,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Favorites">
-      <EntityTypeMapping TypeName="dbSpaceMentModel.Favorites">
+      <EntityTypeMapping TypeName="SPACEMENTModel.Favorites">
         <MappingFragment StoreEntitySet="Favorites">
           <ScalarProperty Name="FK_Favorite_to_Member" ColumnName="FK_Favorite_to_Member" />
           <ScalarProperty Name="FK_Favorite_to_Space" ColumnName="FK_Favorite_to_Space" />
@@ -39,7 +39,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Members">
-      <EntityTypeMapping TypeName="dbSpaceMentModel.Members">
+      <EntityTypeMapping TypeName="SPACEMENTModel.Members">
         <MappingFragment StoreEntitySet="Members">
           <ScalarProperty Name="mNumber" ColumnName="mNumber" />
           <ScalarProperty Name="mAccount" ColumnName="mAccount" />
@@ -58,16 +58,12 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Orders">
-      <EntityTypeMapping TypeName="dbSpaceMentModel.Orders">
+      <EntityTypeMapping TypeName="SPACEMENTModel.Orders">
         <MappingFragment StoreEntitySet="Orders">
-          <ScalarProperty Name="oMemberAccount" ColumnName="oMemberAccount" />
-          <ScalarProperty Name="oTimeRange" ColumnName="oTimeRange" />
-          <ScalarProperty Name="oPrice" ColumnName="oPrice" />
-          <ScalarProperty Name="oQty" ColumnName="oQty" />
-          <ScalarProperty Name="oAccount" ColumnName="oAccount" />
           <ScalarProperty Name="oNumber" ColumnName="oNumber" />
           <ScalarProperty Name="oStatus" ColumnName="oStatus" />
           <ScalarProperty Name="oScheduledTime" ColumnName="oScheduledTime" />
+          <ScalarProperty Name="oTimeRange" ColumnName="oTimeRange" />
           <ScalarProperty Name="oPaymentMode" ColumnName="oPaymentMode" />
           <ScalarProperty Name="oPaymentStatus" ColumnName="oPaymentStatus" />
           <ScalarProperty Name="oDiscount" ColumnName="oDiscount" />
@@ -78,11 +74,15 @@
           <ScalarProperty Name="FK_Order_to_Member_Owner" ColumnName="FK_Order_to_Member_Owner" />
           <ScalarProperty Name="FK_Order_to_Space" ColumnName="FK_Order_to_Space" />
           <ScalarProperty Name="FK_Order_to_Activity" ColumnName="FK_Order_to_Activity" />
+          <ScalarProperty Name="oAccount" ColumnName="oAccount" />
+          <ScalarProperty Name="oQty" ColumnName="oQty" />
+          <ScalarProperty Name="oPrice" ColumnName="oPrice" />
+          <ScalarProperty Name="oMemberAccount" ColumnName="oMemberAccount" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Owners">
-      <EntityTypeMapping TypeName="dbSpaceMentModel.Owners">
+      <EntityTypeMapping TypeName="SPACEMENTModel.Owners">
         <MappingFragment StoreEntitySet="Owners">
           <ScalarProperty Name="FK_Owner_to_Member" ColumnName="FK_Owner_to_Member" />
           <ScalarProperty Name="oAccreditation" ColumnName="oAccreditation" />
@@ -92,9 +92,8 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Photos">
-      <EntityTypeMapping TypeName="dbSpaceMentModel.Photos">
+      <EntityTypeMapping TypeName="SPACEMENTModel.Photos">
         <MappingFragment StoreEntitySet="Photos">
-          <ScalarProperty Name="pPhoto" ColumnName="pPhoto" />
           <ScalarProperty Name="pNumber" ColumnName="pNumber" />
           <ScalarProperty Name="pUrl" ColumnName="pUrl" />
           <ScalarProperty Name="pCreated_at" ColumnName="pCreated_at" />
@@ -105,7 +104,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Rates">
-      <EntityTypeMapping TypeName="dbSpaceMentModel.Rates">
+      <EntityTypeMapping TypeName="SPACEMENTModel.Rates">
         <MappingFragment StoreEntitySet="Rates">
           <ScalarProperty Name="rNumber" ColumnName="rNumber" />
           <ScalarProperty Name="rRate" ColumnName="rRate" />
@@ -119,12 +118,8 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Spaces">
-      <EntityTypeMapping TypeName="dbSpaceMentModel.Spaces">
+      <EntityTypeMapping TypeName="SPACEMENTModel.Spaces">
         <MappingFragment StoreEntitySet="Spaces">
-          <ScalarProperty Name="sPhoto_Second" ColumnName="sPhoto_Second" />
-          <ScalarProperty Name="sPhoto_First" ColumnName="sPhoto_First" />
-          <ScalarProperty Name="sPhoto" ColumnName="sPhoto" />
-          <ScalarProperty Name="sTimeRange" ColumnName="sTimeRange" />
           <ScalarProperty Name="sNumber" ColumnName="sNumber" />
           <ScalarProperty Name="sName" ColumnName="sName" />
           <ScalarProperty Name="sType" ColumnName="sType" />
@@ -147,7 +142,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="SubSpaces">
-      <EntityTypeMapping TypeName="dbSpaceMentModel.SubSpaces">
+      <EntityTypeMapping TypeName="SPACEMENTModel.SubSpaces">
         <MappingFragment StoreEntitySet="SubSpaces">
           <ScalarProperty Name="uNumber" ColumnName="uNumber" />
           <ScalarProperty Name="uName" ColumnName="uName" />
