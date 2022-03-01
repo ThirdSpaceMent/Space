@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4b66d4b28a7c4d72804e4af2cf5bcccc" Name="Diagram1" ZoomLevel="93">
+        <EntityTypeShape EntityType="SPACEMENTModel.Activities" Width="1.5" PointX="5.25" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SPACEMENTModel.Comments" Width="1.5" PointX="3" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SPACEMENTModel.Favorites" Width="1.5" PointX="8.25" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="SPACEMENTModel.Members" Width="1.5" PointX="0.75" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SPACEMENTModel.Orders" Width="1.5" PointX="10.5" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SPACEMENTModel.Owners" Width="1.5" PointX="3" PointY="17.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SPACEMENTModel.Photos" Width="1.5" PointX="5.25" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SPACEMENTModel.Rates" Width="1.5" PointX="12.75" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SPACEMENTModel.Spaces" Width="1.5" PointX="3" PointY="24" IsExpanded="true" />
+        <EntityTypeShape EntityType="SPACEMENTModel.SubSpaces" Width="1.5" PointX="5.25" PointY="26" IsExpanded="true" />
+        <AssociationConnector Association="SPACEMENTModel.FK__Activitie__FK_Ac__1DB06A4F" ManuallyRouted="false" />
+        <AssociationConnector Association="SPACEMENTModel.FK__Activitie__FK_Ac__1EA48E88" ManuallyRouted="false" />
+        <AssociationConnector Association="SPACEMENTModel.FK__Orders__FK_Order__2CF2ADDF" ManuallyRouted="false" />
+        <AssociationConnector Association="SPACEMENTModel.FK__Comments__FK_Com__123EB7A3" ManuallyRouted="false" />
+        <AssociationConnector Association="SPACEMENTModel.FK__Favorites__FK_Fa__40F9A68C" ManuallyRouted="false" />
+        <AssociationConnector Association="SPACEMENTModel.FK__Favorites__FK_Fa__41EDCAC5" ManuallyRouted="false" />
+        <AssociationConnector Association="SPACEMENTModel.FK__Orders__FK_Order__2A164134" ManuallyRouted="false" />
+        <AssociationConnector Association="SPACEMENTModel.FK__Orders__FK_Order__2B0A656D" ManuallyRouted="false" />
+        <AssociationConnector Association="SPACEMENTModel.FK__Owners__FK_Owner__70DDC3D8" ManuallyRouted="false" />
+        <AssociationConnector Association="SPACEMENTModel.FK__Photos__FK_Photo__3B40CD36" ManuallyRouted="false" />
+        <AssociationConnector Association="SPACEMENTModel.FK__Rates__FK_Rate_t__32AB8735" ManuallyRouted="false" />
+        <AssociationConnector Association="SPACEMENTModel.FK__Spaces__FK_Space__03F0984C" ManuallyRouted="false" />
+        <AssociationConnector Association="SPACEMENTModel.FK__Orders__FK_Order__2BFE89A6" ManuallyRouted="false" />
+        <AssociationConnector Association="SPACEMENTModel.FK__Rates__FK_Rate_t__3493CFA7" ManuallyRouted="false" />
+        <AssociationConnector Association="SPACEMENTModel.FK__Photos__FK_Photo__3C34F16F" ManuallyRouted="false" />
+        <AssociationConnector Association="SPACEMENTModel.FK__Rates__FK_Rate_t__339FAB6E" ManuallyRouted="false" />
+        <AssociationConnector Association="SPACEMENTModel.FK__SubSpaces__FK_Su__0B91BA14" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

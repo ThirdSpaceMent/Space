@@ -10,7 +10,7 @@ namespace prjWebSpaceMent.Controllers
 {  
     public class HomeController : Controller
     {
-        dbSpaceMentEntities1 db = new dbSpaceMentEntities1();
+        SPACEMENTEntities db = new SPACEMENTEntities();
         
         //非會員的首頁
         public ActionResult Index()

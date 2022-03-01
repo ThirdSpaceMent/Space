@@ -12,7 +12,7 @@ namespace prjWebSpaceMent.Controllers
     public class AdminController : Controller
     {
         // 使用資料庫
-        dbSpaceMentEntities1 db = new dbSpaceMentEntities1();
+        SPACEMENTEntities db = new SPACEMENTEntities();
         // GET: Admin
 
         //管理者首頁
@@ -50,7 +50,7 @@ namespace prjWebSpaceMent.Controllers
         public ActionResult MemberManage()
         {
             // 會員總覽(系統管理者才能看到所有會員)
-            var datas = from p in (new dbSpaceMentEntities1()).Members
+            var datas = from p in (new SPACEMENTEntities()).Members
                         select p;
             return View(datas);
         }
@@ -59,7 +59,7 @@ namespace prjWebSpaceMent.Controllers
         public ActionResult SpaceManage()
         {
             // 場地總覽(系統管理者才能看到所有場地)
-            var datas = from p in (new dbSpaceMentEntities1()).Spaces
+            var datas = from p in (new SPACEMENTEntities()).Spaces
                         select p;
             return View(datas);
         }
