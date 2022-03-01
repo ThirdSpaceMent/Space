@@ -66,7 +66,11 @@ namespace prjWebSpaceMent.Models
 
         public string sTimeRange { get; set; }
 
-        [DisplayName("場地照片")]
+        [DisplayName("場地照片(主圖)")]
         public string sPhoto { get; set; }
+        [DisplayName("場地照片(附圖1)")]
+        public string sPhoto_First { get; set; }
+        [DisplayName("場地照片(附圖2)")]
+        public string sPhoto_Second { get; set; }
     }
 }

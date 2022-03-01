@@ -21,18 +21,13 @@
 <main>
     <div class="container">
         <div class="d-flex justify-content-center mt-3">
-            <h1 class="text-center">@Html.DisplayFor(model => model.sName)<br /> <span class="badge badge-info" style="font-size:16px">@Html.DisplayFor(model => model.sType)會議</span></h1>
+            <h1 class="text-center">@Html.DisplayFor(model => model.sName)<br /> <span class="badge badge-info" style="font-size:16px">@Html.DisplayFor(model => model.sType)</span></h1>
         </div>
-        <section id="gallery" class="wow fadeInUp mt-1 mb-1">
+        <section id="gallery" class="wow fadeInUp mt-1 mb-3">
             <div class="owl-carousel gallery-carousel">
-                <a href="~/img/gallery/1.jpg" class="venobox" data-gall="gallery-carousel"><img src="~/img/gallery/1.jpg" alt=""></a>
-                <a href="~/img/gallery/2.jpg" class="venobox" data-gall="gallery-carousel"><img src="~/img/gallery/2.jpg" alt=""></a>
-                <a href="~/img/gallery/3.jpg" class="venobox" data-gall="gallery-carousel"><img src="~/img/gallery/3.jpg" alt=""></a>
-                <a href="~/img/gallery/4.jpg" class="venobox" data-gall="gallery-carousel"><img src="~/img/gallery/4.jpg" alt=""></a>
-                <a href="~/img/gallery/5.jpg" class="venobox" data-gall="gallery-carousel"><img src="~/img/gallery/5.jpg" alt=""></a>
-                <a href="~/img/gallery/6.jpg" class="venobox" data-gall="gallery-carousel"><img src="~/img/gallery/6.jpg" alt=""></a>
-                <a href="~/img/gallery/7.jpg" class="venobox" data-gall="gallery-carousel"><img src="~/img/gallery/7.jpg" alt=""></a>
-                <a href="~/img/gallery/8.jpg" class="venobox" data-gall="gallery-carousel"><img src="~/img/gallery/8.jpg" alt=""></a>
+                <a href="~/img/gallery/@Html.DisplayFor(model => model.sPhoto)"><img src="~/img/gallery/@Html.DisplayFor(model => model.sPhoto)" alt=""></a>
+                <a href="~/img/gallery/@Html.DisplayFor(model => model.sPhoto_First)"><img src="~/img/gallery/@Html.DisplayFor(model => model.sPhoto_First)" alt=""></a>
+                <a href="~/img/gallery/@Html.DisplayFor(model => model.sPhoto_Second)"><img src="~/img/gallery/@Html.DisplayFor(model => model.sPhoto_Second)" alt="" ></a>
             </div>
         </section>
     </div>
@@ -42,10 +37,8 @@
             <button class="btn btn-success mb-3 mr-3">@Html.ActionLink("查看評價", "ShowRating", "Rating", new { sNumber = Model.sNumber }, null)</button>
             <!--進行評價需移動到訂單功能之交易完成後-->
             <button class="btn btn-warning mb-3 mr-3">@Html.ActionLink("進行評價", "AddRating", "Rating", new { sNumber = Model.sNumber }, null)</button>
-            <button class="btn btn-info mb-3 mr-3">@Html.ActionLink("加入追蹤", "AddFavToList", "Favorite", new { sNumber = Model.sNumber }, null)</button>
-            <button class="btn btn-secondary mb-3 mr-3">@Html.ActionLink("場地照片", "SpacesShowPhoto", "Spaces")</button>
-
-            <a href="https://www.google.com/maps/place/@Model.sAddr" class="btn btn-danger" target="_blank">場地位置</a>
+            <button class="btn btn-danger mb-3 mr-3">@Html.ActionLink("加入追蹤", "AddFavToList", "Favorite", new { sNumber = Model.sNumber }, null)</button>
+            <a href="https://www.google.com/maps/place/@Model.sAddr" target="_blank"><img src="~/img/Google_Maps.jpg" style="width:45px;height:36px;" /> </a>
         </div>
         @if (TempData["AlertMessage"] != null)
         {
@@ -149,10 +142,10 @@
         function BOOKING_onclick() {
             var snumber =@Model.sNumber;
             var snumsnum = $("#SUMSUM").val();   //小計欄位
-            if (snumsnum == "" || snumsnum == null || snumsnum=="0") {
-                alert("無勾選不可預訂");
-                return;
-            }
+            //if (snumsnum == "" || snumsnum == null || snumsnum=="0") {
+            //    alert("無勾選不可預訂");
+            //    return;
+            //}
             var datepick = $("#datepick").val(); // 日期選擇器(場地使用時間)
             var morning = "";
             var afternoon = "";
@@ -174,6 +167,10 @@
                 evening = "1";
             } else {
                 evening = "0";
+            }
+            if (morning == 0 && afternoon == 0 && evening == 0) {
+                alert("無勾選不可預訂");
+                return;
             }
             var params = '{"oAccount":' + snumber + ',"snumsnum":' + snumsnum + ',"morning":' + morning + ',"afternoon":' + afternoon + ',"evening":' + evening + ',"datepick":"' + datepick + '"}';
             $.ajax({

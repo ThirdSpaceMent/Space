@@ -20,18 +20,13 @@
 <main>
     <div class="container">
         <div class="d-flex justify-content-center mt-3">
-            <h1 class="text-center">@Html.DisplayFor(model => model.sName)<br /> <span class="badge badge-info" style="font-size:16px">@Html.DisplayFor(model => model.sType)會議</span></h1>
+            <h1 class="text-center">@Html.DisplayFor(model => model.sName)<br /> <span class="badge badge-info" style="font-size:16px">@Html.DisplayFor(model => model.sType)</span></h1>
         </div>
-        <section id="gallery" class="wow fadeInUp">
+        <section id="gallery" class="wow fadeInUp mt-1 mb-3">
             <div class="owl-carousel gallery-carousel">
-                <a href="~/img/gallery/1.jpg" class="venobox" data-gall="gallery-carousel"><img src="~/img/gallery/1.jpg" alt=""></a>
-                <a href="~/img/gallery/2.jpg" class="venobox" data-gall="gallery-carousel"><img src="~/img/gallery/2.jpg" alt=""></a>
-                <a href="~/img/gallery/3.jpg" class="venobox" data-gall="gallery-carousel"><img src="~/img/gallery/3.jpg" alt=""></a>
-                <a href="~/img/gallery/4.jpg" class="venobox" data-gall="gallery-carousel"><img src="~/img/gallery/4.jpg" alt=""></a>
-                <a href="~/img/gallery/5.jpg" class="venobox" data-gall="gallery-carousel"><img src="~/img/gallery/5.jpg" alt=""></a>
-                <a href="~/img/gallery/6.jpg" class="venobox" data-gall="gallery-carousel"><img src="~/img/gallery/6.jpg" alt=""></a>
-                <a href="~/img/gallery/7.jpg" class="venobox" data-gall="gallery-carousel"><img src="~/img/gallery/7.jpg" alt=""></a>
-                <a href="~/img/gallery/8.jpg" class="venobox" data-gall="gallery-carousel"><img src="~/img/gallery/8.jpg" alt=""></a>
+                <a href="~/img/gallery/@Html.DisplayFor(model => model.sPhoto)"><img src="~/img/gallery/@Html.DisplayFor(model => model.sPhoto)" alt=""></a>
+                <a href="~/img/gallery/@Html.DisplayFor(model => model.sPhoto_First)"><img src="~/img/gallery/@Html.DisplayFor(model => model.sPhoto_First)" alt=""></a>
+                <a href="~/img/gallery/@Html.DisplayFor(model => model.sPhoto_Second)"><img src="~/img/gallery/@Html.DisplayFor(model => model.sPhoto_Second)" alt=""></a>
             </div>
         </section>
     </div>
@@ -39,11 +34,7 @@
         <div class="d-flex justify-content-center">
             <button class="btn btn-success mb-3 mr-3">@Html.ActionLink("查看評價", "ShowRating", "Rating")</button>
             <button class="btn btn-warning mb-3 mr-3">@Html.ActionLink("評分評論", "AddComment", "Rating")</button>
-            <button class="btn btn-info mb-3">@Html.ActionLink("場地照片", "SpacesShowPhoto", "Spaces")</button>
-            <p>
-                <a href="https://www.google.com/maps/place/@Model.sAddr"
-                   class="btn btn-success" target="_blank">場地位置</a>
-            </p>
+            <a href="https://www.google.com/maps/place/@Model.sAddr" target="_blank"><img src="~/img/Google_Maps.jpg" style="width:45px;height:36px;" /> </a>
         </div>
         <div class="row justify-content-around mb-3">
             <div class="col-lg-6 mb-3">
@@ -66,14 +57,6 @@
                     <li class="list-group-item mb-5">@Html.DisplayNameFor(model => model.sIntro)：@Html.DisplayFor(model => model.sIntro)</li>
                 </ul>
             </div>
-            <form method="post" action="@Url.Action("UploadPhoto")"
-                  enctype="multipart/form-data" class="hidd">
-                <div>
-                    請選擇要上傳的檔案
-                    @*<input type="file" name="spacePhoto" />*@
-                    <input type="submit" value="檔案上傳" />
-                </div>
-            </form>
         </div>
     </div>
 </main>

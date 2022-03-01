@@ -71,6 +71,8 @@ namespace prjWebSpaceMent.Models
             SQL += "sSecurity,";
             SQL += "sTraffic,";
             SQL += "sPhoto,";
+            SQL += "sPhoto_First,";
+            SQL += "sPhoto_Second,";
             //SQL += "FK_Space_to_Owner,";
             SQL += "FK_Space_to_Owner ";
             //SQL += "oAccount ";
@@ -92,6 +94,8 @@ namespace prjWebSpaceMent.Models
             SQL += "'" + p.sSecurity + "',";
             SQL += "'" + p.sTraffic + "',";
             SQL += "'" + p.sPhoto + "',";
+            SQL += "'" + p.sPhoto_First + "',";
+            SQL += "'" + p.sPhoto_Second + "',";
             //SQL += "'" + p.FK_Space_to_Owner + "',";
             SQL += "'" + p.FK_Space_to_Owner + "')";
             //SQL += "'" + p.oAccount + "')";
@@ -137,6 +141,9 @@ namespace prjWebSpaceMent.Models
                     sOpeningTime = reader["sOpeningTime"].ToString(),
                     sSecurity = reader["sSecurity"].ToString(),
                     sTraffic = reader["sTraffic"].ToString(),
+                    sPhoto = reader["sPhoto"].ToString(),
+                    sPhoto_First = reader["sPhoto_First"].ToString(),
+                    sPhoto_Second = reader["sPhoto_Second"].ToString(),
                 };
                 list.Add(x);
             }
@@ -179,11 +186,18 @@ namespace prjWebSpaceMent.Models
 
             return QueryBySQL(SQL);
         }
-        
+
         //關鍵字查詢
         internal List<ClassSpaces> QueryByKeyword(string keyword, string city, string type, int number)
-        {           
-            string SQL = "SELECT * FROM Spaces WHERE sName LIKE '%" + keyword + "%'";
+        {
+            string SQL = "SELECT * FROM Spaces WHERE 1=1 ";
+
+            if (number != 0) // 如果登入者有值,過濾掉自己的場地
+            {
+                SQL += " AND FK_Space_to_Owner<>'" + number + "' ";
+            }
+            SQL += " AND (";  // 且裡面有關鍵字
+            SQL += " sName LIKE '%" + keyword + "%'";
             SQL += "OR sType LIKE '%" + keyword + "%'";
             SQL += "OR sAddr LIKE '%" + keyword + "%'";
             SQL += "OR sPhone LIKE '%" + keyword + "%'";
@@ -210,15 +224,11 @@ namespace prjWebSpaceMent.Models
                 SQL += " OR sType LIKE '%" + type + "%'";
             }
 
-            // 如果登入者有值,過濾掉自己的場地
-            if (number != 0)
-            {
-                SQL += " AND FK_Space_to_Owner<>'" + number + "' ";
-            }
+            SQL += " ) ";
 
             return QueryBySQL(SQL);
         }
-        
+
         // 篩選出目前登入者的所有場地
         internal object search_myorder(int mNumber)
         {

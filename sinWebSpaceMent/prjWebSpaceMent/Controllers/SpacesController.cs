@@ -136,22 +136,46 @@ namespace prjWebSpaceMent.Controllers
         }
 
         //建立場地的存檔(會員功能)
-        public ActionResult Spaces_Save(HttpPostedFileBase spacePhoto)
+        public ActionResult Spaces_Save(HttpPostedFileBase spacePhoto1, HttpPostedFileBase spacePhoto2, HttpPostedFileBase spacePhoto3)
         {
-            string fileName = "";
+            string fileName1 = "";
+            string fileName2 = "";
+            string fileName3 = "";
+
             //照片檔案上傳到資料夾
-            if (spacePhoto != null)
+            if (spacePhoto1 != null)
             {
-                if (spacePhoto.ContentLength > 0)
+                if (spacePhoto1.ContentLength > 0)
                 {
                     //取得圖檔名稱
-                    fileName = Guid.NewGuid().ToString() + ".jpg";
+                    fileName1 = Guid.NewGuid().ToString() + ".jpg";
                     var path = System.IO.Path.Combine
-                       (Server.MapPath("~/img/gallery/"), fileName);
-                    spacePhoto.SaveAs(path);
+                       (Server.MapPath("~/img/gallery/"), fileName1);
+                    spacePhoto1.SaveAs(path);
                 }
             }
-
+            if (spacePhoto2 != null)
+            {
+                if (spacePhoto2.ContentLength > 0)
+                {
+                    //取得圖檔名稱
+                    fileName2 = Guid.NewGuid().ToString() + ".jpg";
+                    var path = System.IO.Path.Combine
+                       (Server.MapPath("~/img/gallery/"), fileName2);
+                    spacePhoto2.SaveAs(path);
+                }
+            }
+            if (spacePhoto3 != null)
+            {
+                if (spacePhoto3.ContentLength > 0)
+                {
+                    //取得圖檔名稱
+                    fileName3 = Guid.NewGuid().ToString() + ".jpg";
+                    var path = System.IO.Path.Combine
+                       (Server.MapPath("~/img/gallery/"), fileName3);
+                    spacePhoto3.SaveAs(path);
+                }
+            }
             //建立場地的存檔(會員功能)
 
             string mAccount = User.Identity.Name; //登入者(會員)的帳號
@@ -176,7 +200,9 @@ namespace prjWebSpaceMent.Controllers
             SP.sSecurity = Request.Form["txtsSecurity"];
             SP.sTraffic = Request.Form["txtsTraffic"];
             SP.FK_Space_to_Owner = mem.mNumber; //綁定是誰新增場地
-            SP.sPhoto = fileName;
+            SP.sPhoto = fileName1;
+            SP.sPhoto_First = fileName2;
+            SP.sPhoto_Second = fileName3;
 
             (new CSpacesFactory()).create(SP);
             return RedirectToAction("Spaces_List"); //跳轉至LIST
