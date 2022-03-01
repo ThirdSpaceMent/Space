@@ -134,6 +134,8 @@
     <Property Name="FK_Space_to_Owner" Type="int" />
     <Property Name="sTimeRange" Type="nvarchar" MaxLength="50" />
     <Property Name="sPhoto" Type="nvarchar" MaxLength="50" />
+    <Property Name="sPhoto_First" Type="nvarchar" MaxLength="50" />
+    <Property Name="sPhoto_Second" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="SubSpaces">
     <Key>

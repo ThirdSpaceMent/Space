@@ -12,12 +12,17 @@ namespace prjWebSpaceMent.Controllers
     {
         SPACEMENTEntities db = new SPACEMENTEntities();
         
-        //首頁可以判斷是否已經登入
+        //非會員的首頁
         public ActionResult Index()
         {
             string CurrentUser = User.Identity.Name;
             var memberdata = db.Members.Where(m => m.mAccount == CurrentUser).FirstOrDefault();
-            if (CurrentUser != "")
+            if (CurrentUser == "CHEEE")
+            {
+                Session["Welcome"] = "嗨，" + memberdata.mName + "，歡迎回來";
+                return RedirectToAction("Admin_Index", "Admin");
+            }
+            else if (!string.IsNullOrWhiteSpace(CurrentUser))
             {
                 Session["Welcome"] = "嗨，" + memberdata.mName + "，歡迎回來";
                 return View("Index", "_LayoutMember");
@@ -81,6 +86,39 @@ namespace prjWebSpaceMent.Controllers
             }
             ViewBag.Message = "此帳號已有人使用，請重新註冊";
             return View();
+        }
+
+        //忘記密碼
+        public ActionResult ForgetPwd()
+        {
+
+            return View();
+        }
+
+        public string Check_Code(string mAccount, string email)
+        {
+            string s = "";
+            CMembersFactory member = new CMembersFactory();
+
+            s = member.check_code(mAccount, email);
+            return s;
+        }
+
+
+        //重設密碼
+        public ActionResult ResetPwd(string mAccount)
+        {
+            ViewData["mAccount"] = mAccount;
+            return View();
+        }
+
+        public string Set_Code(string mAccount, string mPassword1, string mPassword2)
+        {
+            string s = "";
+            CMembersFactory member = new CMembersFactory();
+
+            s = member.Set_Code(mAccount, mPassword1, mPassword2);
+            return s;
         }
     }
 }

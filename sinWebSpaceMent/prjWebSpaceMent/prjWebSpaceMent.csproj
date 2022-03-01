@@ -144,53 +144,53 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Activities.cs">
-      <DependentUpon>LocalSpacementDB.tt</DependentUpon>
+      <DependentUpon>SpacementLoaclDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ClassMembers.cs" />
     <Compile Include="Models\ClassSpaces.cs" />
     <Compile Include="Models\CMembersFactory.cs" />
     <Compile Include="Models\Comments.cs">
-      <DependentUpon>LocalSpacementDB.tt</DependentUpon>
+      <DependentUpon>SpacementLoaclDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CSpacesFactory.cs" />
     <Compile Include="Models\Favorites.cs">
-      <DependentUpon>LocalSpacementDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\LocalSpacementDB.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LocalSpacementDB.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\LocalSpacementDB.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LocalSpacementDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\LocalSpacementDB.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LocalSpacementDB.edmx</DependentUpon>
+      <DependentUpon>SpacementLoaclDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Members.cs">
-      <DependentUpon>LocalSpacementDB.tt</DependentUpon>
+      <DependentUpon>SpacementLoaclDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Orders.cs">
-      <DependentUpon>LocalSpacementDB.tt</DependentUpon>
+      <DependentUpon>SpacementLoaclDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Owners.cs">
-      <DependentUpon>LocalSpacementDB.tt</DependentUpon>
+      <DependentUpon>SpacementLoaclDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Photos.cs">
-      <DependentUpon>LocalSpacementDB.tt</DependentUpon>
+      <DependentUpon>SpacementLoaclDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Rates.cs">
-      <DependentUpon>LocalSpacementDB.tt</DependentUpon>
+      <DependentUpon>SpacementLoaclDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SpacementLoaclDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SpacementLoaclDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SpacementLoaclDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SpacementLoaclDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SpacementLoaclDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SpacementLoaclDB.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Spaces.cs">
-      <DependentUpon>LocalSpacementDB.tt</DependentUpon>
+      <DependentUpon>SpacementLoaclDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SubSpaces.cs">
-      <DependentUpon>LocalSpacementDB.tt</DependentUpon>
+      <DependentUpon>SpacementLoaclDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\FavoriteViewModel.cs" />
@@ -239,14 +239,29 @@
     <Content Include="img\bg_image_2.jpg" />
     <Content Include="img\bg_image_3.jpg" />
     <Content Include="img\favicon.jpg" />
+    <Content Include="img\gallery\0b186d7a-8cc4-48ec-8221-ff9b72805def.jpg" />
     <Content Include="img\gallery\1.jpg" />
     <Content Include="img\gallery\2.jpg" />
+    <Content Include="img\gallery\2015110803496.jpg" />
     <Content Include="img\gallery\3.jpg" />
+    <Content Include="img\gallery\3cded332-8291-44a2-821e-c3c74edf513a.jpg" />
     <Content Include="img\gallery\4.jpg" />
+    <Content Include="img\gallery\45cbdb02-a3f4-4b22-971d-e872858c4e52.jpg" />
+    <Content Include="img\gallery\4a97a062-d81f-48cd-86fa-836984e7cb48.jpg" />
     <Content Include="img\gallery\5.jpg" />
+    <Content Include="img\gallery\571bf4f8-3c30-4387-a794-d516f8dd1417.jpg" />
     <Content Include="img\gallery\6.jpg" />
     <Content Include="img\gallery\7.jpg" />
     <Content Include="img\gallery\8.jpg" />
+    <Content Include="img\gallery\91948e16-3f5a-44b6-96e8-cfe3c7a5e7cd.jpg" />
+    <Content Include="img\gallery\9662747b-e177-41cd-860b-603382db8352.jpg" />
+    <Content Include="img\gallery\dfsdfsdfdsf.jpg" />
+    <Content Include="img\gallery\e5100d34-9abc-4f8b-9574-c0ae0297eeca.jpg" />
+    <Content Include="img\gallery\fd54c792-e182-4e83-a8cb-7d459972eef1.jpg" />
+    <Content Include="img\gallery\flowers-nature_H0FXPKD55M.jpg" />
+    <Content Include="img\gallery\no.jpg" />
+    <Content Include="img\gallery\yCPyoZDQBBcXikqxkeW2jJ-1200-80.jpg" />
+    <Content Include="img\Google_Maps.jpg" />
     <Content Include="img\recommends\1.jpg" />
     <Content Include="img\recommends\2.jpg" />
     <Content Include="img\recommends\3.jpg" />
@@ -284,15 +299,15 @@
     <Content Include="lib\font-awesome\css\font-awesome.css" />
     <Content Include="lib\font-awesome\css\font-awesome.min.css" />
     <Content Include="lib\font-awesome\fonts\fontawesome-webfont.svg" />
-    <Content Include="Models\LocalSpacementDB.Context.tt">
+    <Content Include="Models\SpacementLoaclDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>LocalSpacementDB.edmx</DependentUpon>
-      <LastGenOutput>LocalSpacementDB.Context.cs</LastGenOutput>
+      <DependentUpon>SpacementLoaclDB.edmx</DependentUpon>
+      <LastGenOutput>SpacementLoaclDB.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\LocalSpacementDB.tt">
+    <Content Include="Models\SpacementLoaclDB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>LocalSpacementDB.edmx</DependentUpon>
-      <LastGenOutput>LocalSpacementDB.cs</LastGenOutput>
+      <DependentUpon>SpacementLoaclDB.edmx</DependentUpon>
+      <LastGenOutput>SpacementLoaclDB.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap\js\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap\js\bootstrap.min.js" />
@@ -345,12 +360,12 @@
     <Content Include="lib\font-awesome\fonts\fontawesome-webfont.woff" />
     <Content Include="lib\font-awesome\fonts\fontawesome-webfont.woff2" />
     <Content Include="lib\font-awesome\fonts\FontAwesome.otf" />
-    <EntityDeploy Include="Models\LocalSpacementDB.edmx">
+    <EntityDeploy Include="Models\SpacementLoaclDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>LocalSpacementDB.Designer.cs</LastGenOutput>
+      <LastGenOutput>SpacementLoaclDB.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\LocalSpacementDB.edmx.diagram">
-      <DependentUpon>LocalSpacementDB.edmx</DependentUpon>
+    <Content Include="Models\SpacementLoaclDB.edmx.diagram">
+      <DependentUpon>SpacementLoaclDB.edmx</DependentUpon>
     </Content>
     <None Include="packages.config" />
     <Content Include="Scripts\owlcarousel\LICENSE" />
@@ -384,6 +399,8 @@
     <Content Include="Views\Rating\Rating_Index.cshtml" />
     <Content Include="Views\Rating\EditRating.cshtml" />
     <Content Include="Views\Spaces\SpacesShowPhoto.cshtml" />
+    <Content Include="Views\Home\ForgetPwd.cshtml" />
+    <Content Include="Views\Home\ResetPwd.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

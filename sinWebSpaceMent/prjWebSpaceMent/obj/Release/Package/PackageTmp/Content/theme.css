@@ -143,13 +143,12 @@
   right: 0;
   bottom: 0;
   margin: auto;
-  padding: 0 16px;
   width: auto;
   max-width: 900px;
   height: auto;
   text-align: center;
   color: #fff;
-  margin-top: 10%;
+  margin-top: 25%;
 }
 
 .hero-carousel h1 {
@@ -163,7 +162,7 @@
 
 @media (min-width: 768px) {
   .hero-carousel h1 {
-    font-size: 56px;
+    font-size: 50px;
   }
   .hero-carousel .subhead {
     font-size: 20px;

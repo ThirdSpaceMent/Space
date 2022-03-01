@@ -19,13 +19,13 @@ namespace prjWebSpaceMent.Controllers
         public ActionResult Rating_Index_Admin()//場地評價清單
         {
             IEnumerable<Spaces> ListSpaces = (from obj in db.Spaces
-                                                   select new Spaces()
-                                                   {
-                                                       sName = obj.sName,
-                                                       sType = obj.sType,
-                                                       sNumber = obj.sNumber,
-                                                       sIntro = obj.sIntro
-                                                   }).ToList();
+                                              select new Spaces()
+                                              {
+                                                  sName = obj.sName,
+                                                  sType = obj.sType,
+                                                  sNumber = obj.sNumber,
+                                                  sIntro = obj.sIntro
+                                              }).ToList();
             return View(ListSpaces);
         }
         public ActionResult Rating_Index()//用戶查看自己給予的評價
@@ -104,7 +104,7 @@ namespace prjWebSpaceMent.Controllers
                 obj.rUpdated_at = DateTime.Now;
                 db.Rates.Add(obj);
                 db.SaveChanges();
-                return RedirectToAction("ShowRating",new { sNumber=sNumber });
+                return RedirectToAction("ShowRating", new { sNumber = sNumber });
             }
         }
         public ActionResult EditRating(int sNumber)//修改評價

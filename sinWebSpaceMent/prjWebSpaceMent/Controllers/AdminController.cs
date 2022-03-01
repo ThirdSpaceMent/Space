@@ -2,7 +2,6 @@
 using prjWebSpaceMent.ViewModels;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -19,7 +18,17 @@ namespace prjWebSpaceMent.Controllers
         //管理者首頁
         public ActionResult Admin_Index()
         {
-            return View();
+            string CurrentUser = User.Identity.Name;
+            var memberdata = db.Members.Where(m => m.mAccount == CurrentUser).FirstOrDefault();
+            if (CurrentUser == "CHEEE")
+            {
+                Session["Welcome"] = "嗨，" + memberdata.mName + "，歡迎回來";
+                return View("Admin_Index", "_LayoutAdmin");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
         }
 
         //管理者登入頁面
@@ -42,7 +51,6 @@ namespace prjWebSpaceMent.Controllers
             }
             else
             {
-
                 return RedirectToAction("Login", "Home");
             }
         }
@@ -82,7 +90,8 @@ namespace prjWebSpaceMent.Controllers
             {
                 return RedirectToAction("SpaceManage");
             }
-            Spaces x = db.Spaces.Where(m => m.sNumber == id).FirstOrDefault();
+            ClassSpaces x = (new CSpacesFactory()).QueryByfid((int)id);
+
             // 辨別登入
             string mAccount = User.Identity.Name; //登入者(會員)的帳號
 
@@ -92,6 +101,7 @@ namespace prjWebSpaceMent.Controllers
             if (mAccount == "CHEEE")  //暫定這一位是管理者
             {
                 // 場地總覽(系統管理者才能看到所有場地)
+
                 return View(x);
             }
             else
@@ -108,39 +118,21 @@ namespace prjWebSpaceMent.Controllers
             {
                 return RedirectToAction("SpaceManage");
             }
-            Spaces x = db.Spaces.Where(m => m.sNumber == id).FirstOrDefault();
+            ClassSpaces x = (new CSpacesFactory()).QueryByfid((int)id);
             return View(x);
         }
 
         [HttpPost]
-        public ActionResult Spaces_Edit_Admin(Spaces p)
+        public ActionResult Spaces_Edit_Admin(ClassSpaces p)
         {
             if (p == null)
             {
                 return RedirectToAction("SpaceManage");
             }
-            var upd = from d in db.Spaces where d.sNumber == p.sNumber select d;
-            foreach (var d in upd)
-            {
-                d.sName = p.sName;
-                d.sOpeningTime = p.sOpeningTime;
-                d.sAddr = p.sAddr;
-                d.sArea = p.sArea;
-                d.sCapacity = p.sCapacity;
-                d.sFloor = p.sFloor;
-                d.sHeight = p.sHeight;
-                d.sIntro = p.sIntro;
-                d.sPhone = p.sPhone;
-                d.sRate = p.sRate;
-                d.sRent = p.sRent;
-                d.sSecurity = p.sSecurity;
-                d.sTraffic = p.sTraffic;
-                d.sType = p.sType;
-            }
-            db.SaveChanges();
+            (new CSpacesFactory()).update(p);
             return RedirectToAction("SpaceManage");
         }
-       
+
         //管理者頁面使用
         //評價管理
         public ActionResult Rating_Index_Admin()
@@ -157,8 +149,8 @@ namespace prjWebSpaceMent.Controllers
                                                         rNumber = obj.rNumber,
                                                         rComment = obj.rComment,
                                                         rCreated_at = (DateTime)obj.rCreated_at,
-                                                        sNumber=sp.sNumber,
-                                                        sName=sp.sName
+                                                        sNumber = sp.sNumber,
+                                                        sName = sp.sName
                                                     }).ToList();
             return View(ListRVM);
         }

@@ -40,8 +40,9 @@ namespace prjWebSpaceMent.Controllers
                 }
                 else
                 {
-                    // 非系統管理者 只能看到自己上架的場地
-                    var employees = db.Members.Where(m => m.mAccount == mAccount).ToList();
+                    //會員自己的資料
+                    var employees = db.Members.Where(m => m.mAccount == mAccount).FirstOrDefault();
+                    Session["Welcome"] = "嗨，" + employees.mName + "，歡迎回來";
                     return View(employees);
                 }
             }
@@ -50,7 +51,7 @@ namespace prjWebSpaceMent.Controllers
                 return RedirectToAction("Index", "Member");
             }
             
-            
+            // 非系統管理者 只能看到自己上架的場地
             //var space =
             //    db.Spaces.OrderByDescending(m => m.sNumber).ToList();
             //return View("../Member/Index", "_LayoutMember", space);
@@ -107,11 +108,11 @@ namespace prjWebSpaceMent.Controllers
                 temp.mTWid = member.mTWid;
                 temp.mBirthday = member.mBirthday;
                 temp.mPoint = member.mPoint;
-                temp.mCreated_at = member.mCreated_at;
+                //temp.mCreated_at = member.mCreated_at;//建立時間不該更改
                 temp.mUpdated_at = member.mUpdated_at;
                 db.SaveChanges();
             }
-            return RedirectToAction("Index", "Member");
+            return RedirectToAction("memberIndex", "Member");
         }
 
     }

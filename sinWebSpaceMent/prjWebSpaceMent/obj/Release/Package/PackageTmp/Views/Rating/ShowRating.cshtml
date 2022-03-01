@@ -1,0 +1,30 @@
+﻿@model IEnumerable<prjWebSpaceMent.ViewModels.RatingViewModel>
+@{
+    ViewBag.Title = "ShowRating";
+    Layout = "~/Views/Shared/_LayoutMember.cshtml";
+}
+<!--頁首 Section-->
+<section id="subspaces">
+    <div class="container wow fadeInUp">
+        <div class="section-header p-5">
+            <h2>瀏覽其他場地評論？</h2>
+            <p>點擊下方按鈕回到找場地！</p>
+        </div>
+        <div class="AnimatedButton">
+            <a class="AnimatedButton-a" style="--clr:#22e622;--i:2;" href="/Spaces/Spaces_Index"><span class="AnimatedButton-a-span">找場地</span></a>
+        </div>
+    </div>
+</section>
+
+<main>
+    <div class="section-header p-5">
+        <h2>評價</h2>
+        <p>以下是其他會員對此場地的評價</p>
+    </div>
+    <div class="mt-5 mb-5">
+        @foreach (var item in Model)
+        {
+            @Html.Partial("_CommentPartial", item)
+        }
+    </div>
+</main>

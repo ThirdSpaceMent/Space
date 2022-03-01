@@ -1,4 +1,4 @@
-﻿@model IEnumerable<prjWebSpaceMent.Models.Members>
+﻿@model prjWebSpaceMent.Models.Members
 
 @{
     ViewBag.Title = "memberIndex";
@@ -44,31 +44,30 @@
             </th>
             <th></th>
         </tr>
-        @foreach (var item in Model)
-        {
+        
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.mAccount)
+                    @Html.DisplayFor(modelItem => modelItem.mAccount)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.mPassword)
+                    @Html.DisplayFor(modelItem => modelItem.mPassword)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.mNickName)
+                    @Html.DisplayFor(modelItem => modelItem.mNickName)
                 </td>
                 <td>
-                    <button type="button" class="btn btn-dark">@Html.DisplayFor(modelItem => item.mEmail)</button>
+                    <button type="button" class="btn btn-dark">@Html.DisplayFor(modelItem => modelItem.mEmail)</button>
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.mPhone)
+                    @Html.DisplayFor(modelItem => modelItem.mPhone)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.mTWid)
+                    @Html.DisplayFor(modelItem => modelItem.mTWid)
                 </td>
                 <td>
-                    <button class="btn btn-warning">@Html.ActionLink("編輯", "Edit", new { id = item.mNumber })</button>
+                    <button class="btn btn-warning">@Html.ActionLink("編輯", "Edit", new { id = Model.mNumber })</button>
                 </td>
             </tr>
-        }
+        
     </table>
 </main>

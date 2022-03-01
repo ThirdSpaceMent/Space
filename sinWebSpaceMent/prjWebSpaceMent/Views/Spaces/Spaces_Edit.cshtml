@@ -1,4 +1,4 @@
-﻿@model prjWebSpaceMent.Models.Spaces
+﻿@model prjWebSpaceMent.Models.ClassSpaces
 
 @{
     ViewBag.Title = "Spaces_Edit";
@@ -41,7 +41,7 @@
                 <div class="mb-4">
                     <h3><span class="badge badge-secondary">@Html.DisplayNameFor(model => model.sType)</span></h3>
                     <select name="sType" class="form-control">
-                        <option disabled value="" selected hidden>@Model.sType</option>
+                        <option value="@Model.sType" selected hidden>@Model.sType</option>
                         <option>會議/商務中心</option>
                         <option>派對/聚餐</option>
                         <option>尾牙/春酒</option>
@@ -94,7 +94,7 @@
                 <div class="mb-4">
                     <h3><span class="badge badge-secondary">@Html.DisplayNameFor(model => model.sRent)</span></h3>
                     <input class="input-group" type="text" name="sRent" value="@Model.sRent" placeholder="必填" required />
-                    <small class="form-text text-muted mb-3">請輸入場地每一時段費用(ex：NT$800元/時段)</small>
+                    <small class="form-text text-muted mb-3">請輸入場地每一時段費用(輸入數字即可ex：800)</small>
                 </div>
                 <div class="mb-4" hidden>
                     <h3><span class="badge badge-secondary">@Html.DisplayNameFor(model => model.sRate)</span></h3>

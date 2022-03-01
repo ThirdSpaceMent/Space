@@ -121,6 +121,8 @@
     <EntitySetMapping Name="Spaces">
       <EntityTypeMapping TypeName="dbSpaceMentModel.Spaces">
         <MappingFragment StoreEntitySet="Spaces">
+          <ScalarProperty Name="sPhoto_Second" ColumnName="sPhoto_Second" />
+          <ScalarProperty Name="sPhoto_First" ColumnName="sPhoto_First" />
           <ScalarProperty Name="sPhoto" ColumnName="sPhoto" />
           <ScalarProperty Name="sTimeRange" ColumnName="sTimeRange" />
           <ScalarProperty Name="sNumber" ColumnName="sNumber" />
