@@ -38,7 +38,7 @@ namespace prjWebSpaceMent.Models
             SQL += "sOpeningTime='" + p.sOpeningTime + "',";
             SQL += "sSecurity='" + p.sSecurity + "',";
             SQL += "sTraffic='" + p.sTraffic + "',";
-            SQL += "sPhoto='" + p.sPhoto + "',";
+            //SQL += "sPhoto='" + p.sPhoto + "',";
             SQL += "sUpdated_at=getDate() ";
             SQL += "WHERE sNumber=" + p.sNumber;
 
