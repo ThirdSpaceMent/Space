@@ -14,7 +14,7 @@ namespace prjWebSpaceMent.Controllers
     [Authorize]
     public class MemberController : Controller
     {
-        SPACEMENTEntities db = new SPACEMENTEntities();
+        SPACEMENTEntitiesLocalDB db = new SPACEMENTEntitiesLocalDB();
         // GET: Member
 
         //會員的首頁
@@ -40,9 +40,8 @@ namespace prjWebSpaceMent.Controllers
                 }
                 else
                 {
-                    //會員自己的資料
-                    var employees = db.Members.Where(m => m.mAccount == mAccount).FirstOrDefault();
-                    Session["Welcome"] = "嗨，" + employees.mName + "，歡迎回來";
+                    // 非系統管理者 只能看到自己上架的場地
+                    var employees = db.Members.Where(m => m.mAccount == mAccount).ToList();
                     return View(employees);
                 }
             }
@@ -51,7 +50,7 @@ namespace prjWebSpaceMent.Controllers
                 return RedirectToAction("Index", "Member");
             }
             
-            // 非系統管理者 只能看到自己上架的場地
+            
             //var space =
             //    db.Spaces.OrderByDescending(m => m.sNumber).ToList();
             //return View("../Member/Index", "_LayoutMember", space);
@@ -112,7 +111,7 @@ namespace prjWebSpaceMent.Controllers
                 temp.mUpdated_at = member.mUpdated_at;
                 db.SaveChanges();
             }
-            return RedirectToAction("memberIndex", "Member");
+            return RedirectToAction("Index", "Member");
         }
 
     }

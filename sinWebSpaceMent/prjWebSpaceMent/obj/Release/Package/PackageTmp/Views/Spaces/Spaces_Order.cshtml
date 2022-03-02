@@ -31,6 +31,7 @@
             <th>應付總費用</th>
             <th>訂單成立時間</th>
             <th>預訂者</th>
+            <th>聯絡電話</th>
         </tr>
         @{ int count = 0;
             foreach (MyOrderViewModel item in Model)
@@ -44,6 +45,7 @@
                     <td>@Html.DisplayFor(model => item.oPayment)</td>
                     <td>@Html.DisplayFor(model => item.oCreated_at)</td>
                     <td>@Html.DisplayFor(model => item.mName)</td>
+                    <td>@Html.DisplayFor(model => item.mPhone)</td>
                 </tr>
             }
         }

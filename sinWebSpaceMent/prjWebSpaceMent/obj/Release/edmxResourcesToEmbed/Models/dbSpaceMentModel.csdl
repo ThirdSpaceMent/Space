@@ -73,14 +73,14 @@
       <PropertyRef Name="oNumber" />
     </Key>
     <Property Name="oNumber" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="oStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="oScheduledTime" Type="DateTime" Precision="3" />
-    <Property Name="oPaymentMode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="oPaymentStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="oDiscount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="oPayment" Type="Decimal" Precision="19" Scale="4" />
-    <Property Name="oCreated_at" Type="DateTime" Precision="3" />
-    <Property Name="oUpdated_at" Type="DateTime" Precision="3" />
+    <Property Name="oStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="oScheduledTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="oPaymentMode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="oPaymentStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="oDiscount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="oPayment" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="oCreated_at" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="oUpdated_at" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="FK_Order_to_Member_User" Type="Int32" />
     <Property Name="FK_Order_to_Member_Owner" Type="Int32" />
     <Property Name="FK_Order_to_Space" Type="Int32" />
@@ -90,11 +90,7 @@
     <NavigationProperty Name="Members1" Relationship="Self.FK__Orders__FK_Order__2B0A656D" FromRole="Orders" ToRole="Members" />
     <NavigationProperty Name="Spaces" Relationship="Self.FK__Orders__FK_Order__2BFE89A6" FromRole="Orders" ToRole="Spaces" />
     <NavigationProperty Name="Rates" Relationship="Self.FK__Rates__FK_Rate_t__3493CFA7" FromRole="Orders" ToRole="Rates" />
-    <Property Name="oAccount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="oQty" Type="Int32" />
-    <Property Name="oPrice" Type="Int32" />
-    <Property Name="oTimeRange" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="oMemberAccount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="oAccount" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Owners">
     <Key>
@@ -118,7 +114,6 @@
     <Property Name="FK_Photo_to_Space" Type="Int32" />
     <NavigationProperty Name="Members" Relationship="Self.FK__Photos__FK_Photo__3B40CD36" FromRole="Photos" ToRole="Members" />
     <NavigationProperty Name="Spaces" Relationship="Self.FK__Photos__FK_Photo__3C34F16F" FromRole="Photos" ToRole="Spaces" />
-    <Property Name="pPhoto" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <EntityType Name="Rates">
     <Key>
@@ -165,10 +160,6 @@
     <NavigationProperty Name="Photos" Relationship="Self.FK__Photos__FK_Photo__3C34F16F" FromRole="Spaces" ToRole="Photos" />
     <NavigationProperty Name="Rates" Relationship="Self.FK__Rates__FK_Rate_t__339FAB6E" FromRole="Spaces" ToRole="Rates" />
     <NavigationProperty Name="SubSpaces" Relationship="Self.FK__SubSpaces__FK_Su__0B91BA14" FromRole="Spaces" ToRole="SubSpaces" />
-    <Property Name="sTimeRange" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="sPhoto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="sPhoto_First" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="sPhoto_Second" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="SubSpaces">
     <Key>

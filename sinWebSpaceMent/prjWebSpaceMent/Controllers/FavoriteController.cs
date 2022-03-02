@@ -10,10 +10,10 @@ namespace prjWebSpaceMent.Controllers
 {
     public class FavoriteController : Controller
     {
-        private SPACEMENTEntities db;
+        private SPACEMENTEntitiesLocalDB db;
         public FavoriteController()
         {
-            db = new SPACEMENTEntities();
+            db = new SPACEMENTEntitiesLocalDB();
         }
         // GET: Favorite
         public ActionResult Favorites_Index()//查看自己的追蹤清單

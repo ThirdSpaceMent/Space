@@ -16,7 +16,7 @@ namespace prjWebSpaceMent.ViewModels
         public decimal rRate { get; set; }
         [DisplayName("評論")]
         public string rComment { get; set; }
-        public DateTime rCreated_at { get; set; }
+        public Nullable<DateTime> rCreated_at { get; set; }
         public DateTime rUpdated_at { get; set; }
         public int FK_Rate_to_Space { get; set; }
         public Nullable<int> FK_Rate_to_Order { get; set; }

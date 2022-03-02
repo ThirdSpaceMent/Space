@@ -11,7 +11,7 @@ namespace prjWebSpaceMent.Controllers
     public class SpacesController : Controller
     {
         // 使用資料庫
-        SPACEMENTEntities db = new SPACEMENTEntities();
+        SPACEMENTEntitiesLocalDB db = new SPACEMENTEntitiesLocalDB();
 
         // GET: Spaces
         // 找場地首頁
@@ -106,7 +106,7 @@ namespace prjWebSpaceMent.Controllers
                 else
                 {
                     // 非系統管理者 只能看到自己上架的場地
-                    var mem_datas = from t in (new SPACEMENTEntities()).Spaces
+                    var mem_datas = from t in (new SPACEMENTEntitiesLocalDB()).Spaces
                                     where t.FK_Space_to_Owner == mem.mNumber
                                     select t;
                     return View(mem_datas);
@@ -132,18 +132,9 @@ namespace prjWebSpaceMent.Controllers
         //建立場地的頁面
         public ActionResult Spaces_Create()
         {
-            string CurrentUser = User.Identity.Name;
-            var memberdata = db.Members.Where(m => m.mAccount == CurrentUser).FirstOrDefault();
-            if (CurrentUser != "")
-            {
-                Session["Welcome"] = "嗨，" + memberdata.mName + "，歡迎回來";
-                return View("Spaces_Create", "_LayoutMember");
-            }
-            else
-            {
-                return RedirectToAction("Login", "Home");
-            }
+            return View();
         }
+
         //建立場地的存檔(會員功能)
         public ActionResult Spaces_Save(HttpPostedFileBase spacePhoto1, HttpPostedFileBase spacePhoto2, HttpPostedFileBase spacePhoto3)
         {
@@ -216,7 +207,7 @@ namespace prjWebSpaceMent.Controllers
             (new CSpacesFactory()).create(SP);
             return RedirectToAction("Spaces_List"); //跳轉至LIST
         }
-
+    
         // 修改場地(管理者功能)
         public ActionResult Spaces_Edit(int? id)
         {
