@@ -17,11 +17,11 @@
 </section>
 
 <main>
-    <div class="section-header p-5">
+    <div class="section-header p-3 mb-3">
         <h2>評價</h2>
         <p>以下是其他會員對此場地的評價</p>
     </div>
-    <div class="mt-5 mb-5">
+    <div class="mb-5" style="word-break:break-all;">
         @foreach (var item in Model)
         {
             @Html.Partial("_CommentPartial", item)

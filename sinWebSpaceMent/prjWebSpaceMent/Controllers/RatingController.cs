@@ -109,7 +109,9 @@ namespace prjWebSpaceMent.Controllers
         }
         public ActionResult EditRating(int sNumber)//修改評價
         {
-            Rates editdata = db.Rates.Where(r => r.FK_Rate_to_Space == sNumber).FirstOrDefault();
+            string CurrentUser = User.Identity.Name;
+            var member = db.Members.Where(m => m.mAccount == CurrentUser).FirstOrDefault();
+            Rates editdata = db.Rates.Where(r => r.FK_Rate_to_Space == sNumber&r.FK_Rate_to_Member==member.mNumber).FirstOrDefault();
             ViewBag.sNumber = sNumber;
             return View(editdata);
         }
@@ -118,7 +120,7 @@ namespace prjWebSpaceMent.Controllers
         {
             string CurrentUser = User.Identity.Name;
             var member = db.Members.Where(m => m.mAccount == CurrentUser).FirstOrDefault();
-            Rates obj = db.Rates.Where(m => m.FK_Rate_to_Space == sNumber).FirstOrDefault();
+            Rates obj = db.Rates.Where(r => r.FK_Rate_to_Space == sNumber & r.FK_Rate_to_Member == member.mNumber).FirstOrDefault();
             obj.rComment = rComment;
             obj.rRate = rating;
             obj.rUpdated_at = DateTime.Now;
