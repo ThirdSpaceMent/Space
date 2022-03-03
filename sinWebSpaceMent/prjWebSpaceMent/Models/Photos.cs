@@ -16,10 +16,11 @@ namespace prjWebSpaceMent.Models
     {
         public int pNumber { get; set; }
         public string pUrl { get; set; }
-        public Nullable<System.DateTime> pCreated_at { get; set; }
-        public Nullable<System.DateTime> pUpdated_at { get; set; }
+        public System.DateTime pCreated_at { get; set; }
+        public System.DateTime pUpdated_at { get; set; }
         public Nullable<int> FK_Photo_to_Member { get; set; }
         public Nullable<int> FK_Photo_to_Space { get; set; }
+        public byte[] pPhoto { get; set; }
     
         public virtual Members Members { get; set; }
         public virtual Spaces Spaces { get; set; }

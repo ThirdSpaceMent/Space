@@ -37,23 +37,10 @@
                     count++;
                     <tr>
                         <td class="text-center">@count</td>
-                        <td class="col-md-2">@item.sName</td>
-                        <td class="stars col-md-2">
-                            @{
-                                int m = Convert.ToInt32(item.rRate);
-
-                                for (int i = 1; i <= m; i++)
-                                {
-                                    <i class="fa fa-star checked" style="font-size:15px"></i>
-                                }
-                                for (int i = m; i < 5; i++)
-                                {
-                                    <i class="fa fa-star-o" style="font-size:15px"></i>
-                                }
-                            }
-                        </td>
+                        <td>@item.sName</td>
+                        <td>@item.rRate</td>
                         <td style="word-break: break-all;">@item.rComment</td>
-                        <td class="text-center">
+                        <td>
                             <button type="submit" class="btn btn-info" style="font-size:14px">@Html.ActionLink("編輯", "EditRating", new { sNumber = item.sNumber })</button>
                         </td>
                     </tr>
@@ -62,8 +49,3 @@
         </table>
     </div>
 </main>
-<style>
-    .checked {
-        color: orange;
-    }
-</style>

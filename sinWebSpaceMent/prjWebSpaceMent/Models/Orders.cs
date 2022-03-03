@@ -23,7 +23,6 @@ namespace prjWebSpaceMent.Models
         public int oNumber { get; set; }
         public string oStatus { get; set; }
         public Nullable<System.DateTime> oScheduledTime { get; set; }
-        public string oTimeRange { get; set; }
         public string oPaymentMode { get; set; }
         public string oPaymentStatus { get; set; }
         public string oDiscount { get; set; }
@@ -37,6 +36,7 @@ namespace prjWebSpaceMent.Models
         public string oAccount { get; set; }
         public Nullable<int> oQty { get; set; }
         public Nullable<int> oPrice { get; set; }
+        public string oTimeRange { get; set; }
         public string oMemberAccount { get; set; }
     
         public virtual Activities Activities { get; set; }

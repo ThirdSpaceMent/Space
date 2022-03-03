@@ -17,8 +17,8 @@ namespace prjWebSpaceMent.Models
         public int uNumber { get; set; }
         public string uName { get; set; }
         public string uIntro { get; set; }
-        public Nullable<System.DateTime> uCreated_at { get; set; }
-        public Nullable<System.DateTime> uUpdated_at { get; set; }
+        public System.DateTime uCreated_at { get; set; }
+        public System.DateTime uUpdated_at { get; set; }
         public Nullable<int> FK_SubSpace_to_Space { get; set; }
     
         public virtual Spaces Spaces { get; set; }

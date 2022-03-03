@@ -14,7 +14,7 @@ namespace prjWebSpaceMent.Controllers
     [Authorize]
     public class MemberController : Controller
     {
-        SPACEMENTEntitiesLocalDB db = new SPACEMENTEntitiesLocalDB();
+        SPACEMENTEntities db = new SPACEMENTEntities();
         // GET: Member
 
         //會員的首頁
@@ -107,7 +107,7 @@ namespace prjWebSpaceMent.Controllers
                 temp.mTWid = member.mTWid;
                 temp.mBirthday = member.mBirthday;
                 temp.mPoint = member.mPoint;
-                //temp.mCreated_at = member.mCreated_at;//建立時間不該更改
+                temp.mCreated_at = member.mCreated_at;
                 temp.mUpdated_at = member.mUpdated_at;
                 db.SaveChanges();
             }

@@ -144,6 +144,7 @@ namespace prjWebSpaceMent.Models
                     sPhoto = reader["sPhoto"].ToString(),
                     sPhoto_First = reader["sPhoto_First"].ToString(),
                     sPhoto_Second = reader["sPhoto_Second"].ToString(),
+                    rRate=(decimal)reader["rRate_AVG"],
                 };
                 list.Add(x);
             }
@@ -164,7 +165,7 @@ namespace prjWebSpaceMent.Models
         // 查詢 列出所有
         internal List<ClassSpaces> QueryAll(string city, string type, int number)
         {       
-            string SQL = "SELECT * FROM Spaces WHERE 1=1 ";
+            string SQL = "SELECT * FROM Spaces JOIN (SELECT FK_Rate_to_Space,AVG(rRate) AS rRate_AVG FROM Rates GROUP BY FK_Rate_to_Space) AS AVGR on Spaces.sNumber = AVGR.FK_Rate_to_Space WHERE 1=1 ";
 
             // 如果city有值,加上此判斷
             if (city != null && city != "")
@@ -184,13 +185,14 @@ namespace prjWebSpaceMent.Models
                 SQL += " AND FK_Space_to_Owner<>'" + number + "' ";
             }
 
+
             return QueryBySQL(SQL);
         }
 
         //關鍵字查詢
         internal List<ClassSpaces> QueryByKeyword(string keyword, string city, string type, int number)
         {
-            string SQL = "SELECT * FROM Spaces WHERE 1=1 ";
+            string SQL = "SELECT * FROM Spaces JOIN (SELECT FK_Rate_to_Space,AVG(rRate) AS rRate_AVG FROM Rates GROUP BY FK_Rate_to_Space) AS AVGR on Spaces.sNumber = AVGR.FK_Rate_to_Space WHERE 1=1 ";
 
             if (number != 0) // 如果登入者有值,過濾掉自己的場地
             {
@@ -210,8 +212,7 @@ namespace prjWebSpaceMent.Models
             SQL += "OR sIntro LIKE '%" + keyword + "%'";
             SQL += "OR sOpeningTime LIKE '%" + keyword + "%'";
             SQL += "OR sSecurity LIKE '%" + keyword + "%'";
-            SQL += "OR sTraffic LIKE '%" + keyword + "%'";
-
+            SQL += "OR sTraffic LIKE '%" + keyword + "%'"; 
             // 如果有選城市下拉選單的值,一起呈現
             if (city != null && city != "")
             {

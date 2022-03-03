@@ -72,5 +72,6 @@ namespace prjWebSpaceMent.Models
         public string sPhoto_First { get; set; }
         [DisplayName("場地照片(附圖2)")]
         public string sPhoto_Second { get; set; }
+        public decimal rRate { get; set; }
     }
 }

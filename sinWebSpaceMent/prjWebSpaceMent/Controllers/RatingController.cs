@@ -10,10 +10,10 @@ namespace prjWebSpaceMent.Controllers
 {
     public class RatingController : Controller
     {
-        private SPACEMENTEntitiesLocalDB db;
+        private SPACEMENTEntities db;
         public RatingController()
         {
-            db = new SPACEMENTEntitiesLocalDB();
+            db = new SPACEMENTEntities();
         }
         // GET: Rating
         public ActionResult Rating_Index_Admin()//場地評價清單

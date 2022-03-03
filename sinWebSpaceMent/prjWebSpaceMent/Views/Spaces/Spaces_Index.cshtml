@@ -101,6 +101,19 @@
                                     </div>
                                     <div class="card-body">
                                         <h5 class="card-title">@sp.sName</h5>
+                                        <div class="stars">
+                                            @{
+                                                int m = Convert.ToInt32(sp.rRate);
+                                                for (int i = 1; i <= m; i++)
+                                                {
+                                                    <i class="fa fa-star checked" style="font-size:15px"></i>
+                                                }
+                                                for (int i = m; i < 5; i++)
+                                                {
+                                                    <i class="fa fa-star-o" style="font-size:15px"></i>
+                                                }
+                                            }
+                                        </div>
                                         <span class="badge rounded-pill bg-info border-top m-0" style="color:#ffffff;font-size:16px">@sp.sType</span>
                                         <p class="card-text border-top m-0">@sp.sCapacity</p>
                                         <p class="card-text border-top border-bottom m-0">@sp.sOpeningTime</p>
@@ -124,4 +137,8 @@
         $('#searchform').submit();
     }*/
 </script>
-
+<style>
+    .checked {
+        color: orange;
+    }
+</style>

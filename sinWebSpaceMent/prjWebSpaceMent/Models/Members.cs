@@ -36,10 +36,10 @@ namespace prjWebSpaceMent.Models
         public string mPhone { get; set; }
         public string mGender { get; set; }
         public string mTWid { get; set; }
-        public Nullable<System.DateTime> mBirthday { get; set; }
-        public Nullable<int> mPoint { get; set; }
-        public Nullable<System.DateTime> mCreated_at { get; set; }
-        public Nullable<System.DateTime> mUpdated_at { get; set; }
+        public System.DateTime mBirthday { get; set; }
+        public int mPoint { get; set; }
+        public System.DateTime mCreated_at { get; set; }
+        public System.DateTime mUpdated_at { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Activities> Activities { get; set; }
