@@ -23,7 +23,7 @@
         @Html.AntiForgeryToken()
         <div class="row justify-content-around">
             <div class="col-6">
-                <div class="section-header p-3 mb-3">
+                <div class="section-header p-3">
                     <h2>原始評價</h2>
                     <p>以下是您對此場地的原始評價</p>
                 </div>
@@ -31,7 +31,7 @@
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                     @Html.HiddenFor(model => model.rNumber)
 
-                    <div class="stars mt-2 mb-3">
+                    <div class="stars mt-2">
                         @{
                             int m = Convert.ToInt32(Model.rRate);
                             for (int i = 1; i <= m; i++)
@@ -44,7 +44,7 @@
                             }
                         }
                     </div>
-                    <div class="mb-3" style="word-break:break-all;width:500px;margin-left:150px;text-align:left">
+                    <div>
                         評論: @Model.rComment
                     </div>
                     <div>
@@ -53,7 +53,7 @@
                 </div>
             </div>
             <div class="col-6">
-                <div class="section-header p-3 mb-3">
+                <div class="section-header p-3">
                     <h2>修改評價</h2>
                     <p>請輸入您的新評價</p>
                 </div>

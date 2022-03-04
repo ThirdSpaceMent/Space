@@ -11,7 +11,7 @@ namespace prjWebSpaceMent.Controllers
     public class SpacesController : Controller
     {
         // 使用資料庫
-        SPACEMENTEntities db = new SPACEMENTEntities();
+        dbSpaceMentEntities1 db = new dbSpaceMentEntities1();
 
         // GET: Spaces
         // 找場地首頁
@@ -106,7 +106,7 @@ namespace prjWebSpaceMent.Controllers
                 else
                 {
                     // 非系統管理者 只能看到自己上架的場地
-                    var mem_datas = from t in (new SPACEMENTEntities()).Spaces
+                    var mem_datas = from t in (new dbSpaceMentEntities1()).Spaces
                                     where t.FK_Space_to_Owner == mem.mNumber
                                     select t;
                     return View(mem_datas);

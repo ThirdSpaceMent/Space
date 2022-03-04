@@ -15,6 +15,5 @@ namespace prjWebSpaceMent.ViewModels
         public Nullable<int> FK_Order_to_Member_User { get; set; }
         public string oTimeRange { get; set; }
         public string mName { get; set; }
-        public string mPhone { get; set; }
     }
 }

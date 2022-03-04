@@ -38,52 +38,24 @@
         </div>
         <div class="row justify-content-around mb-3">
             <div class="col-lg-6 mb-3">
-                <div class="mb-2 list-group-item border-0">
-                    <h3><span class="badge badge-info">@Html.DisplayNameFor(model => model.sAddr)</span></h3>
-                    <label class="input-group">@Html.DisplayFor(model => model.sAddr)</label>
-                </div>
-                <div class="mb-2 list-group-item border-0">
-                    <h3><span class="badge badge-info">@Html.DisplayNameFor(model => model.sPhone)</span></h3>
-                    <label class="input-group">@Html.DisplayFor(model => model.sPhone)</label>
-                </div>
-                <div class="mb-2 list-group-item border-0">
-                    <h3><span class="badge badge-info">@Html.DisplayNameFor(model => model.sFloor)</span></h3>
-                    <label class="input-group">@Html.DisplayFor(model => model.sFloor)</label>
-                </div>
-                <div class="mb-2 list-group-item border-0">
-                    <h3><span class="badge badge-info">@Html.DisplayNameFor(model => model.sHeight)</span></h3>
-                    <label class="input-group">@Html.DisplayFor(model => model.sHeight)</label>
-                </div>
-                <div class="mb-2 list-group-item border-0">
-                    <h3><span class="badge badge-info">@Html.DisplayNameFor(model => model.sArea)</span></h3>
-                    <label class="input-group">@Html.DisplayFor(model => model.sArea)</label>
-                </div>
-                <div class="mb-2 list-group-item border-0">
-                    <h3><span class="badge badge-info">@Html.DisplayNameFor(model => model.sCapacity)</span></h3>
-                    <label class="input-group">@Html.DisplayFor(model => model.sCapacity)</label>
-                </div>
+                <ul class="list-group">
+                    <li class="list-group-item">@Html.DisplayNameFor(model => model.sAddr)：@Html.DisplayFor(model => model.sAddr)</li>
+                    <li class="list-group-item">@Html.DisplayNameFor(model => model.sPhone)：@Html.DisplayFor(model => model.sPhone)</li>
+                    <li class="list-group-item">@Html.DisplayNameFor(model => model.sFloor)：@Html.DisplayFor(model => model.sFloor)</li>
+                    <li class="list-group-item">@Html.DisplayNameFor(model => model.sHeight)：@Html.DisplayFor(model => model.sHeight)</li>
+                    <li class="list-group-item">@Html.DisplayNameFor(model => model.sArea)：@Html.DisplayFor(model => model.sArea)</li>
+                    <li class="list-group-item">@Html.DisplayNameFor(model => model.sCapacity)：@Html.DisplayFor(model => model.sCapacity)</li>
+                </ul>
             </div>
             <div class="col-lg-6 mb-3">
-                <div class="mb-2 list-group-item border-0">
-                    <h3><span class="badge badge-info">@Html.DisplayNameFor(model => model.sRent)</span></h3>
-                    <label class="input-group">@Html.DisplayFor(model => model.sRent)</label>
-                </div>
-                <div class="mb-2 list-group-item" hidden>
-                    <h3><span class="badge badge-info">@Html.DisplayNameFor(model => model.sRate)</span></h3>
-                    <label class="input-group">@Html.DisplayFor(model => model.sRate)</label>
-                </div>
-                <div class="mb-2 list-group-item border-0">
-                    <h3><span class="badge badge-info">@Html.DisplayNameFor(model => model.sOpeningTime)</span></h3>
-                    <label class="input-group">@Html.DisplayFor(model => model.sOpeningTime)</label>
-                </div>
-                <div class="mb-2 list-group-item border-0">
-                    <h3><span class="badge badge-info">@Html.DisplayNameFor(model => model.sSecurity)</span></h3>
-                    <textarea readonly style="width: 550px; height: 100px; " class="list-group-item">@Html.DisplayFor(model => model.sSecurity)</textarea>
-                    <h3><span class="badge badge-info">@Html.DisplayNameFor(model => model.sTraffic)</span></h3>
-                    <textarea readonly style="width: 550px; height: 100px;" class="list-group-item">@Html.DisplayFor(model => model.sTraffic)</textarea>
-                    <h3><span class="badge badge-info">@Html.DisplayNameFor(model => model.sIntro)</span></h3>
-                    <textarea readonly style="width: 550px; height: 100px; " class="list-group-item mb-5">@Html.DisplayFor(model => model.sIntro)</textarea>
-                </div>
+                <ul class="list-group">
+                    <li class="list-group-item">@Html.DisplayNameFor(model => model.sRent)：@Html.DisplayFor(model => model.sRent)</li>
+                    <li class="list-group-item" hidden>@Html.DisplayNameFor(model => model.sRate)：@Html.DisplayFor(model => model.sRate)</li>
+                    <li class="list-group-item">@Html.DisplayNameFor(model => model.sOpeningTime)：@Html.DisplayFor(model => model.sOpeningTime)</li>
+                    <li class="list-group-item">@Html.DisplayNameFor(model => model.sSecurity)：@Html.DisplayFor(model => model.sSecurity)</li>
+                    <li class="list-group-item">@Html.DisplayNameFor(model => model.sTraffic)：@Html.DisplayFor(model => model.sTraffic)</li>
+                    <li class="list-group-item mb-5">@Html.DisplayNameFor(model => model.sIntro)：@Html.DisplayFor(model => model.sIntro)</li>
+                </ul>
             </div>
         </div>
     </div>

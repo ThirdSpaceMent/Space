@@ -38,7 +38,7 @@ namespace prjWebSpaceMent.Models
             SQL += "sOpeningTime='" + p.sOpeningTime + "',";
             SQL += "sSecurity='" + p.sSecurity + "',";
             SQL += "sTraffic='" + p.sTraffic + "',";
-            //SQL += "sPhoto='" + p.sPhoto + "',";
+            SQL += "sPhoto='" + p.sPhoto + "',";
             SQL += "sUpdated_at=getDate() ";
             SQL += "WHERE sNumber=" + p.sNumber;
 
@@ -232,10 +232,10 @@ namespace prjWebSpaceMent.Models
         // 篩選出目前登入者的所有場地
         internal object search_myorder(int mNumber)
         {
-
+            
             // 訂單的FK_Order_to_Member_User需對應會員的mNumber > 找出會員中文名字
 
-            string SQL = "SELECT oNumber,oStatus,convert(nvarchar,oScheduledTime,111) as oScheduledTime,oTimeRange,oPayment,oCreated_at,FK_Order_to_Member_User,mName,mPhone FROM Orders JOIN Members ON Members.mNumber = Orders.FK_Order_to_Member_User WHERE Orders.FK_Order_to_Member_Owner =" + mNumber;
+            string SQL = "SELECT oNumber,oStatus,convert(nvarchar,oScheduledTime,111) as oScheduledTime,oTimeRange,oPayment,oCreated_at,FK_Order_to_Member_User,mName FROM Orders JOIN Members ON Members.mNumber = Orders.FK_Order_to_Member_User WHERE Orders.FK_Order_to_Member_Owner =" + mNumber;
             SQL += " ORDER BY oScheduledTime";
 
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["SPACEMENTEntities01"].ConnectionString);
@@ -258,7 +258,6 @@ namespace prjWebSpaceMent.Models
                     FK_Order_to_Member_User = (int)reader["FK_Order_to_Member_User"],
                     oTimeRange = reader["oTimeRange"].ToString(),
                     mName = reader["mName"].ToString(),
-                    mPhone = reader["mPhone"].ToString()
                 };
                 list.Add(MyOrder);
             }
