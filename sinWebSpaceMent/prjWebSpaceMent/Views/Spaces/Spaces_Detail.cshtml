@@ -47,62 +47,92 @@
             </div>
         }
         <div class="row justify-content-around">
-            <div class="col-lg-6">
-                <ul class="list-group" style="font-weight:500;font-family:微軟正黑體;font-size:18px;">
-                    <li class="list-group-item">@Html.DisplayNameFor(model => model.sAddr)：@Html.DisplayFor(model => model.sAddr)</li>
-                    <li class="list-group-item">@Html.DisplayNameFor(model => model.sPhone)：@Html.DisplayFor(model => model.sPhone)</li>
-                    <li class="list-group-item">@Html.DisplayNameFor(model => model.sFloor)：@Html.DisplayFor(model => model.sFloor)</li>
-                    <li class="list-group-item">@Html.DisplayNameFor(model => model.sHeight)：@Html.DisplayFor(model => model.sHeight)</li>
-                    <li class="list-group-item">@Html.DisplayNameFor(model => model.sArea)：@Html.DisplayFor(model => model.sArea)</li>
-                    <li class="list-group-item">@Html.DisplayNameFor(model => model.sCapacity)：@Html.DisplayFor(model => model.sCapacity)</li>
-                    <li class="list-group-item">@Html.DisplayNameFor(model => model.sRent)：@Html.DisplayFor(model => model.sRent)</li>
-                    <li class="list-group-item" hidden>@Html.DisplayNameFor(model => model.sRate)：@Html.DisplayFor(model => model.sRate)</li>
-                    <li class="list-group-item">@Html.DisplayNameFor(model => model.sOpeningTime)：@Html.DisplayFor(model => model.sOpeningTime)</li>
-                    <li class="list-group-item">@Html.DisplayNameFor(model => model.sSecurity)：@Html.DisplayFor(model => model.sSecurity)</li>
-                    <li class="list-group-item">@Html.DisplayNameFor(model => model.sTraffic)：@Html.DisplayFor(model => model.sTraffic)</li>
-                    <li class="list-group-item mb-5">@Html.DisplayNameFor(model => model.sIntro)：@Html.DisplayFor(model => model.sIntro)</li>
-                </ul>
+            <div class="col-6" style="font-weight:500;font-family:微軟正黑體;font-size:18px;">
+                <div class="mb-2 list-group-item border-0">
+                    <h3><span class="badge badge-info">@Html.DisplayNameFor(model => model.sAddr)</span></h3>
+                    <label class="input-group">@Html.DisplayFor(model => model.sAddr)</label>
+                </div>
+                <div class="mb-2 list-group-item border-0">
+                    <h3><span class="badge badge-info">@Html.DisplayNameFor(model => model.sPhone)</span></h3>
+                    <label class="input-group">@Html.DisplayFor(model => model.sPhone)</label>
+                </div>
+                <div class="mb-2 list-group-item border-0">
+                    <h3><span class="badge badge-info">@Html.DisplayNameFor(model => model.sFloor)</span></h3>
+                    <label class="input-group">@Html.DisplayFor(model => model.sFloor)</label>
+                </div>
+                <div class="mb-2 list-group-item border-0">
+                    <h3><span class="badge badge-info">@Html.DisplayNameFor(model => model.sHeight)</span></h3>
+                    <label class="input-group">@Html.DisplayFor(model => model.sHeight)</label>
+                </div>
+                <div class="mb-2 list-group-item border-0">
+                    <h3><span class="badge badge-info">@Html.DisplayNameFor(model => model.sArea)</span></h3>
+                    <label class="input-group">@Html.DisplayFor(model => model.sArea)</label>
+                </div>
+                <div class="mb-2 list-group-item border-0">
+                    <h3><span class="badge badge-info">@Html.DisplayNameFor(model => model.sCapacity)</span></h3>
+                    <label class="input-group">@Html.DisplayFor(model => model.sCapacity)</label>
+                </div>
+                <div class="mb-2 list-group-item border-0">
+                    <h3><span class="badge badge-info">@Html.DisplayNameFor(model => model.sRent)</span></h3>
+                    <label class="input-group">@Html.DisplayFor(model => model.sRent)</label>
+                </div>
+                <div class="mb-2 list-group-item border-0" hidden>
+                    <h3><span class="badge badge-info">@Html.DisplayNameFor(model => model.sRate)</span></h3>
+                    <label class="input-group">@Html.DisplayFor(model => model.sRate)</label>
+                </div>
+                <div class="mb-2 list-group-item border-0">
+                    <h3><span class="badge badge-info">@Html.DisplayNameFor(model => model.sOpeningTime)</span></h3>
+                    <label class="input-group">@Html.DisplayFor(model => model.sOpeningTime)</label>
+                </div>
+                <div class="mb-2 list-group-item border-0">
+                    <h3><span class="badge badge-info">@Html.DisplayNameFor(model => model.sSecurity)</span></h3>
+                    <textarea readonly style="width: 550px; height: 100px; " class="list-group-item">@Html.DisplayFor(model => model.sSecurity)</textarea>
+                    <h3><span class="badge badge-info">@Html.DisplayNameFor(model => model.sTraffic)</span></h3>
+                    <textarea readonly style="width: 550px; height: 100px; " class="list-group-item">@Html.DisplayFor(model => model.sTraffic)</textarea>
+                    <h3><span class="badge badge-info">@Html.DisplayNameFor(model => model.sIntro)</span></h3>
+                    <textarea readonly style="width: 550px; height: 100px; " class="list-group-item mb-5">@Html.DisplayFor(model => model.sIntro)</textarea>
+                </div>
             </div>
-            <!--場地預訂小區塊 會跳轉至訂單詳細內容-->
-            <div class="col-lg-6 align-self-lg-r mb-5">
-                <form>
-                    <div class="card">
-                        <div class="card-body">
-                            <h2 class="card-title">場地預訂</h2>
+                <!--場地預訂小區塊 會跳轉至訂單詳細內容-->
+                <div class="col-6 align-self-lg-r mb-5">
+                    <form>
+                        <div class="card">
+                            <div class="card-body">
+                                <h2 class="card-title">場地預訂</h2>
+                                <hr />
+                                <fieldset>
+                                    <legend>請選擇日期</legend>
+                                    <input type="date" name="datepick" id="datepick" />
+                                </fieldset>
+                                <hr />
+                                <fieldset onchange="sumVal();">
+                                    <legend>時段選擇</legend>
+                                    <input class="form-check-input ml-0" type="checkbox" name="timerange" id="Morning" value="1" />
+                                    <p class="form-check-label ml-3 mb-2">早上(06:00-12:00)</p>
+                                    <input class="form-check-input ml-0" type="checkbox" name="timerange" id="Afternoon" value="1" />
+                                    <p class="form-check-label ml-3 mb-2">下午(12:00-18:00)</p>
+                                    <input class="form-check-input ml-0" type="checkbox" name="timerange" id="Evening" value="1" />
+                                    <p class="form-check-label ml-3 mb-2">晚上(18:00-00:00)</p>
+                                </fieldset>
+                            </div>
                             <hr />
-                            <fieldset>
-                                <legend>請選擇日期</legend>
-                                <input type="date" name="datepick" id="datepick" />
-                            </fieldset>
+                            <div class="card-body">
+                                <!--所選場地之費用-->
+                                <span style="font-size: 1.5rem;">@Html.DisplayNameFor(model => model.sRent) NT$</span>
+                                <span class="ml-4 mb-3" style="font-size: 1.5rem;">@Html.DisplayFor(model => model.sRent)元 / 每一時段</span>
+                            </div>
+                            <div class="card-body">
+                                <span class="mb-3" style="font-size: 1.5rem;">小計  NT$</span>
+                                <span style="font-size: 1.5rem;" id="SUMSUM" class="ml-3"></span>
+                                <!--這裡是放小計結果的地方-->
+                                <span class="mb-3" style="font-size: 1.5rem;">元</span>
+                            </div>
                             <hr />
-                            <fieldset onchange="sumVal();">
-                                <legend>時段選擇</legend>
-                                <input class="form-check-input ml-0" type="checkbox" name="timerange" id="Morning" value="1" />
-                                <p class="form-check-label ml-3 mb-2">早上(06:00-12:00)</p>
-                                <input class="form-check-input ml-0" type="checkbox" name="timerange" id="Afternoon" value="1" />
-                                <p class="form-check-label ml-3 mb-2">下午(12:00-18:00)</p>
-                                <input class="form-check-input ml-0" type="checkbox" name="timerange" id="Evening" value="1" />
-                                <p class="form-check-label ml-3 mb-2">晚上(18:00-00:00)</p>
-                            </fieldset>
+                            <a class="btn btn-success" style="color:#ffffff;font-size:18px;font-weight:500;" onclick="BOOKING_onclick()">立即預訂</a>
                         </div>
-                        <hr />
-                        <div class="card-body">
-                            <!--所選場地之費用-->
-                            <span style="font-size: 1.5rem;">@Html.DisplayNameFor(model => model.sRent) NT$</span>
-                            <span class="ml-4 mb-3" style="font-size: 1.5rem;">@Html.DisplayFor(model => model.sRent)元 / 每一時段</span>
-                        </div>
-                        <div class="card-body">
-                            <span class="mb-3" style="font-size: 1.5rem;">小計  NT$</span>
-                            <span style="font-size: 1.5rem;" id="SUMSUM" class="ml-3"></span>
-                            <!--這裡是放小計結果的地方-->
-                            <span class="mb-3" style="font-size: 1.5rem;">元</span>
-                        </div>
-                        <hr />
-                        <a class="btn btn-success" style="color:#ffffff;font-size:18px;font-weight:500;" onclick="BOOKING_onclick()">立即預訂</a>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
-        </div>
     </div>
 </main>
 

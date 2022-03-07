@@ -63,10 +63,10 @@
             datatype: "json", //此處不能省略
             contentType: "application/json; charset=utf-8",//此處不能省略
             success: function (data) {
-                window.alert("請前往您的電子信箱確認重設密碼驗證函！");
+                window.alert(JSON.stringify(data));
             },
             error: function (data) {
-                window.alert("請前往您的電子信箱確認重設密碼驗證函！");
+                window.alert("傳送資訊失敗，請等到連線穩定再操作！");
             }
         });
 

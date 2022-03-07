@@ -1,0 +1,93 @@
+﻿@model List<prjWebSpaceMent.ViewModels.RatingViewModel>
+
+@{
+    ViewBag.Title = "Rating_Index_Admin";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<!--此頁變為管理者評價管理頁面-->
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H0GPP781SL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-H0GPP781SL');
+    </script>
+</head>
+
+<!--頁首 Section-->
+<section id="subspaces">
+    <div class="container wow fadeInUp">
+        <div class="section-header p-5">
+            <h2>評分評論都沒問題了嗎？</h2>
+            <p>點擊下方按鈕回到首頁吧！</p>
+        </div>
+        <div class="AnimatedButton">
+            <a class="AnimatedButton-a" style="--clr:#00ccff;--i:1;" href="/Admin/Admin_Index"><span class="AnimatedButton-a-span">回首頁</span></a>
+        </div>
+    </div>
+</section>
+
+<main>
+    <div class="section-header p-3">
+        <h2>場地評分評論管理</h2>
+        <p>您可以在這裡審核所有場地評論！</p>
+    </div>
+    <table class="table border mr-0 ml-0 d-flex justify-content-center" style="word-break:keep-all;">
+            <tr>
+                <th class="text-center">序號</th>
+                <th>場地名稱</th>
+                <th>評價</th>
+                <th>評分</th>
+                <th class="text-center">功能</th>
+            </tr>
+        @{
+            int count = 0;
+            foreach (var item in Model)
+            {
+                count++;
+                
+                <tr>
+                    <td class="text-center">@count</td>
+                    <td>@item.sName</td>
+                    <td>@item.rComment</td>
+                    <td>
+                        <div class="stars mt-2">
+                            @{
+                                int m = Convert.ToInt32(item.rRate);
+                                for (int i = 1; i <= m; i++)
+                                {
+                                    <i class="fa fa-star checked"></i>
+                                }
+                                for (int i = m; i < 5; i++)
+                                {
+                                    <i class="fa fa-star-o"></i>
+                                }
+                            }
+                        </div>
+                    </td>
+                    <td>
+                        <button type="submit" class="btn btn-info" style="font-size:14px">
+                            @Html.ActionLink("查看評價", "ShowRating_Admin", new { sNumber = item.sNumber })
+                        </button>
+                        <button type="submit" class="btn btn-danger" style="font-size:14px"
+                                onclick="return confirm('此動作不可回復確定刪除嗎?' )">
+                            @Html.ActionLink("刪除", "DeleteRating", new { rNumber = item.rNumber })
+                        </button>
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+</main>
+<style>
+    .checked {
+        color: orange;
+    }
+</style>

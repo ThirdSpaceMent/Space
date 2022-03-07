@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "Admin_Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--頁首 Section-->
+<section id="subspaces">
+    <div class="container wow fadeInUp">
+        <div class="section-header p-5">
+            <h2>不是管理員身分嗎？</h2>
+            <p>讓我帶您到一般會員登入畫面吧！</p>
+        </div>
+        <div class="AnimatedButton">
+            <a class="AnimatedButton-a" style="--clr:#00ccff;--i:1;" href="/Home/Login"><span class="AnimatedButton-a-span">一般會員</span></a>
+        </div>
+    </div>
+</section>
+
+<main>
+    <div class="section-header p-5 mb-5">
+        <h2>管理員登入</h2>
+        <p>請輸入您的帳號及密碼進行登入</p>
+    </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <form action=" @Url.Action("Admin_Login","Admin")" method="post">
+                <div class="panel panel-primary">
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label>帳號</label>
+                            <input type="text" id="mAccount" name="mAccount" required="required" class="form-control" />
+                            <small class="form-text text-muted mb-3">請輸入您的帳號</small>
+                        </div>
+                        <div class="form-group">
+                            <label>密碼</label>
+                            <input type="password" id="mPassword" name="mPassword" required="required" class="form-control" />
+                            <small class="form-text text-muted mb-3">請輸入您的密碼</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mb-5">
+                    <button type="submit" class="btn btn-success">登入</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>

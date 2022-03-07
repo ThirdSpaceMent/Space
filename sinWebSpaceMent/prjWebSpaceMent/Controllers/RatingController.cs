@@ -10,10 +10,10 @@ namespace prjWebSpaceMent.Controllers
 {
     public class RatingController : Controller
     {
-        private dbSpaceMentEntities1 db;
+        private SPACEMENTEntitiesLocalDB db;
         public RatingController()
         {
-            db = new dbSpaceMentEntities1();
+            db = new SPACEMENTEntitiesLocalDB();
         }
         // GET: Rating
         public ActionResult Rating_Index_Admin()//場地評價清單
@@ -100,7 +100,7 @@ namespace prjWebSpaceMent.Controllers
                 obj.FK_Rate_to_Space = sNumber;
                 obj.rComment = rComment;
                 obj.rRate = rating;
-                obj.rCreated_at = DateTime.Now;//建立時間是不能被更改的 但是不做會錯誤 須修正
+                obj.rCreated_at = DateTime.Now;
                 obj.rUpdated_at = DateTime.Now;
                 db.Rates.Add(obj);
                 db.SaveChanges();
@@ -109,7 +109,9 @@ namespace prjWebSpaceMent.Controllers
         }
         public ActionResult EditRating(int sNumber)//修改評價
         {
-            Rates editdata = db.Rates.Where(r => r.FK_Rate_to_Space == sNumber).FirstOrDefault();
+            string CurrentUser = User.Identity.Name;
+            var member = db.Members.Where(m => m.mAccount == CurrentUser).FirstOrDefault();
+            Rates editdata = db.Rates.Where(r => r.FK_Rate_to_Space == sNumber&r.FK_Rate_to_Member==member.mNumber).FirstOrDefault();
             ViewBag.sNumber = sNumber;
             return View(editdata);
         }
@@ -118,7 +120,7 @@ namespace prjWebSpaceMent.Controllers
         {
             string CurrentUser = User.Identity.Name;
             var member = db.Members.Where(m => m.mAccount == CurrentUser).FirstOrDefault();
-            Rates obj = db.Rates.Where(m => m.FK_Rate_to_Space == sNumber).FirstOrDefault();
+            Rates obj = db.Rates.Where(r => r.FK_Rate_to_Space == sNumber & r.FK_Rate_to_Member == member.mNumber).FirstOrDefault();
             obj.rComment = rComment;
             obj.rRate = rating;
             obj.rUpdated_at = DateTime.Now;

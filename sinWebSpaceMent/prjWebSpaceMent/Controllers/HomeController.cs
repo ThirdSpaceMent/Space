@@ -10,11 +10,27 @@ namespace prjWebSpaceMent.Controllers
 {  
     public class HomeController : Controller
     {
-        dbSpaceMentEntities1 db = new dbSpaceMentEntities1();
+        SPACEMENTEntitiesLocalDB db = new SPACEMENTEntitiesLocalDB();
         
         //非會員的首頁
         public ActionResult Index()
         {
+            //string CurrentUser = User.Identity.Name;
+            //var memberdata = db.Members.Where(m => m.mAccount == CurrentUser).FirstOrDefault();
+            //if (CurrentUser == "CHEEE")
+            //{
+            //    Session["Welcome"] = "嗨，" + memberdata.mName + "，歡迎回來";
+            //    return RedirectToAction("Admin_Index", "Admin");
+            //}
+            //else if (!string.IsNullOrWhiteSpace(CurrentUser))
+            //{
+            //    Session["Welcome"] = "嗨，" + memberdata.mName + "，歡迎回來";
+            //    return View("Index", "_LayoutMember");
+            //}
+            //else
+            //{
+            //    return View("Index", "_Layout");
+            //}
             return View();
         }
 

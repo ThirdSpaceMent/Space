@@ -1,0 +1,95 @@
+﻿@{
+    ViewBag.Title = "Admin_Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@*<div class='widget HTML' data-version='1' id='HTML5'>
+    <div class='widget-content'>
+        <script src="https://cdn.jsdelivr.net/npm/live2d-widget@3.0.4/lib/L2Dwidget.min.js"></script>
+        <script type="text/javascript">
+            L2Dwidget.init();
+        </script>
+        <style type="text/css">
+            #live2dcanvas {
+                border: none !important;
+            }
+        </style>
+    </div>
+</div>*@
+
+<!--頁首 Section-->
+<section id="subspaces">
+    <div class="container wow fadeInUp">
+        <div class="section-header p-5">
+            <h2>完成資料維護了嗎？</h2>
+            <p>記得將管理員狀態登出！</p>
+        </div>
+        <div class="AnimatedButton">
+            <a class="AnimatedButton-a" style="--clr:#00ccff;--i:1;" href="/Member/Logout"><span class="AnimatedButton-a-span">登出</span></a>
+        </div>
+    </div>
+</section>
+
+<main id="main">
+    <!--Manager Section-->
+    <section id="Manager" class="section-with-bg wow fadeInUp p-5">
+        <div class="container">
+            <div class="section-header">
+                <h2>管理者功能頁面</h2>
+                <p>請依您需要編輯的區塊進行選擇！</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-4 mb-5">
+                    <div class="card mb-5 mb-lg-0">
+                        <div class="card-body">
+                            <h5 class="card-title text-muted text-uppercase text-center">所有會員總覽及編輯</h5>
+                            <h6 class="card-price text-center">會員管理</h6>
+                            <hr>
+                            <ul class="fa-ul">
+                                <li><span class="fa-li"><i class="fa fa-check"></i></span>會員資料總覽</li>
+                                <li><span class="fa-li"><i class="fa fa-check"></i></span>違規會員除名</li>
+                            </ul>
+                            <hr>
+                            <div class="loginbtn">
+                                <div class="btnLA"><a href="/Admin/MemberManage">編輯</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-5">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title text-muted text-uppercase text-center">所有場地主上架場地總覽及編輯</h5>
+                            <h6 class="card-price text-center">場地管理</h6>
+                            <hr>
+                            <ul class="fa-ul">
+                                <li><span class="fa-li"><i class="fa fa-check"></i></span>所有場地總覽</li>
+                                <li><span class="fa-li"><i class="fa fa-check"></i></span>場地資料編輯及除名</li>
+                            </ul>
+                            <hr>
+                            <div class="loginbtn">
+                                <div class="btnLB"><a href="/Admin/SpaceManage">編輯</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title text-muted text-uppercase text-center">所有場地評分評論總覽</h5>
+                            <h6 class="card-price text-center">評價管理</h6>
+                            <hr>
+                            <ul class="fa-ul">
+                                <li><span class="fa-li"><i class="fa fa-check"></i></span>場地評分評論總覽</li>
+                                <li><span class="fa-li"><i class="fa fa-check"></i></span>不當或不實評論移除</li>
+                            </ul>
+                            <hr>
+                            <div class="loginbtn">
+                                <div class="btnLC"><a href="/Admin/Rating_Index_Admin">編輯</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

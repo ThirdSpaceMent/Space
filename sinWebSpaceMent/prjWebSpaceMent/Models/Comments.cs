@@ -16,8 +16,8 @@ namespace prjWebSpaceMent.Models
     {
         public int cNumber { get; set; }
         public string cContent { get; set; }
-        public System.DateTime cCreated_at { get; set; }
-        public System.DateTime cUpdated_at { get; set; }
+        public Nullable<System.DateTime> cCreated_at { get; set; }
+        public Nullable<System.DateTime> cUpdated_at { get; set; }
         public Nullable<int> FK_Comment_to_Member { get; set; }
     
         public virtual Members Members { get; set; }

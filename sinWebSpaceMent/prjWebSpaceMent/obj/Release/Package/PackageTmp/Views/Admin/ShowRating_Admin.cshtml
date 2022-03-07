@@ -1,0 +1,28 @@
+﻿@model IEnumerable<prjWebSpaceMent.ViewModels.RatingViewModel>
+
+@{
+    ViewBag.Title = "ShowRating_Admin";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<!--頁首 Section-->
+<section id="subspaces">
+    <div class="container wow fadeInUp">
+        <div class="section-header p-5">
+            <h2>查看其他場地評論？</h2>
+            <p>點擊下方按鈕回到評價管理！</p>
+        </div>
+        <div class="AnimatedButton">
+            <a class="AnimatedButton-a" style="--clr:#00ccff;--i:1;" href="/Admin/Rating_Index_Admin"><span class="AnimatedButton-a-span">評價管理</span></a>
+        </div>
+    </div>
+</section>
+
+<main>
+    <div class="mt-5 mb-5">
+        @foreach (var item in Model)
+        {
+            @Html.Partial("_CommentPartial", item)
+        }
+    </div>
+</main>

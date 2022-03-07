@@ -1,0 +1,74 @@
+﻿@{ ViewBag.Title = "忘記密碼";
+    Layout = "~/Views/Shared/_Layout.cshtml"; }
+<!--頁首 Section-->
+<section id="subspaces">
+    <div class="container wow fadeInUp">
+        <div class="section-header p-5">
+            <h2>還沒有加入會員嗎？</h2>
+            <p>讓我帶您加入Spaces們吧！</p>
+        </div>
+        <div class="AnimatedButton">
+            <a class="AnimatedButton-a" style="--clr:#f82249; --i: 0;" href="/Home/Register"><span class="AnimatedButton-a-span">立即註冊</span></a>
+        </div>
+    </div>
+</section>
+
+<main>
+    <div class="section-header p-5 mb-5">
+        <h2>忘記密碼</h2>
+        <p>請輸入您的帳號及電子郵件進行驗證</p>
+    </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <form action=" @Url.Action("Login")" method="post">
+                <div class="panel panel-primary">
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label>帳號</label>
+                            <input type="text" id="mAccount" name="mAccount" required="required" class="form-control" />
+                            <small class="form-text text-muted mb-3">請輸入您註冊使用的帳號</small>
+                        </div>
+                        <div class="form-group">
+                            <label>電子郵件</label>
+                            <input type="email" id="email" name="email" required="required" class="form-control" />
+                            <small class="form-text text-muted mb-3">請輸入您註冊使用的電子郵件</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mb-5">
+                    <button class="btn btn-success" style="color:#ffffff;font-size:16px;font-weight:500;" onclick="send_onclick()">取得認證</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+
+<script>
+    function send_onclick() {
+        var email = $("#email").val();
+        var mAccount = $("#mAccount").val();
+        if (mAccount == "" || mAccount == null) {
+            alert("請輸入帳號");
+            return;
+        }
+        if (email == "" || email == null) {
+            alert("請輸入電子郵件");
+            return;
+        }
+        var params = '{"mAccount":"' + mAccount + '","email":"' + email + '"}';
+        $.ajax({
+            type: "POST",
+            url: "/Home/Check_Code",
+            data: params,//json序列化
+            datatype: "json", //此處不能省略
+            contentType: "application/json; charset=utf-8",//此處不能省略
+            success: function (data) {
+                window.alert("請前往您的電子信箱確認重設密碼驗證函！");
+            },
+            error: function (data) {
+                window.alert(data);
+            }
+        });
+
+    }
+</script>

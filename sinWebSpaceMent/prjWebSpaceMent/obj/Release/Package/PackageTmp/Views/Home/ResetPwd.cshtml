@@ -1,0 +1,87 @@
+﻿@{ ViewBag.Title = "重設密碼";
+    Layout = "~/Views/Shared/_Layout.cshtml"; }
+<!--頁首 Section-->
+<section id="subspaces">
+    <div class="container wow fadeInUp">
+        <div class="section-header p-5">
+            <h2>密碼突然想起來了嗎？</h2>
+            <p>讓我帶您重新登入吧</p>
+        </div>
+        <div class="AnimatedButton">
+            <a class="AnimatedButton-a" style="--clr:#f82249; --i: 0;" href="/Home/Login"><span class="AnimatedButton-a-span">立即登入</span></a>
+        </div>
+    </div>
+</section>
+
+<main>
+    <div class="section-header p-5 mb-5">
+        <h2>重設密碼</h2>
+        <p>請輸入您欲設定的新密碼</p>
+    </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <form action=" @Url.Action("Login")" method="post">
+                <div class="panel panel-primary">
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label>帳號</label>
+                            <input type="text" id="mAccount" name="mAccount" required="required" class="form-control" readonly="readonly" value="@ViewData["mAccount"]" />
+                            <small class="form-text text-muted mb-3">您的帳號</small>
+                        </div>
+                        <div class="form-group">
+                            <label>密碼</label>
+                            <input type="password" id="mPassword1" name="mPassword1" required="required" class="form-control" />
+                            <small class="form-text text-muted mb-3">請輸入您新更改的密碼</small>
+                        </div>
+                        <div class="form-group">
+                            <label>再次確認密碼</label>
+                            <input type="password" id="mPassword2" name="mPassword2" required="required" class="form-control" />
+                            <small class="form-text text-muted mb-3">請再次輸入您新更改的密碼</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mb-5">
+                    <button class="btn btn-success" style="color:#ffffff;font-size:16px;font-weight:500;" onclick="Password_Reset()">確定</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+
+<script>
+    function Password_Reset() {
+        var mAccount = $("#mAccount").val();
+        var mPassword1 = $("#mPassword1").val();
+        var mPassword2 = $("#mPassword2").val();
+
+        if (mPassword1 == "" || mPassword1 == null) {
+            alert("請輸入密碼");
+            return;
+        }
+        if (mPassword2 == "" || mPassword2 == null) {
+            alert("請輸入確認密碼");
+            return;
+        }
+        if (mPassword1 != mPassword2) {
+            alert("密碼與確認密碼不相同，請重新輸入");
+            $("#mPassword1").val("");
+            $("#mPassword2").val("");
+            return;
+        }
+        var params = '{"mAccount":"' + mAccount + '","mPassword1":"' + mPassword1 + '","mPassword2":"' + mPassword2 + '"}';
+        $.ajax({
+            type: "POST",
+            url: "/Home/Set_Code",
+            data: params,//json序列化
+            datatype: "json", //此處不能省略
+            contentType: "application/json; charset=utf-8",//此處不能省略
+            success: function (data) {
+                alert("更改成功！");
+            },
+            error: function (data) {
+                alert(data)
+            }
+        });
+
+    }
+</script>
