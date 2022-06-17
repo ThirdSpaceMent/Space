@@ -10,11 +10,27 @@ namespace prjWebSpaceMent.Controllers
 {  
     public class HomeController : Controller
     {
-        SPACEMENTEntities db = new SPACEMENTEntities();
+        SPACEMENTDB db = new SPACEMENTDB();
         
         //非會員的首頁
         public ActionResult Index()
         {
+            //string CurrentUser = User.Identity.Name;
+            //var memberdata = db.Members.Where(m => m.mAccount == CurrentUser).FirstOrDefault();
+            //if (CurrentUser == "CHEEE")
+            //{
+            //    Session["Welcome"] = "嗨，" + memberdata.mName + "，歡迎回來";
+            //    return RedirectToAction("Admin_Index", "Admin");
+            //}
+            //else if (!string.IsNullOrWhiteSpace(CurrentUser))
+            //{
+            //    Session["Welcome"] = "嗨，" + memberdata.mName + "，歡迎回來";
+            //    return View("Index", "_LayoutMember");
+            //}
+            //else
+            //{
+            //    return View("Index", "_Layout");
+            //}
             return View();
         }
 
@@ -65,7 +81,11 @@ namespace prjWebSpaceMent.Controllers
 
             if (member == null)
             {
+                pMember.mCreate = DateTime.Now;
+                pMember.mUpdate = DateTime.Now;
+                pMember.mOwner = false;
                 db.Members.Add(pMember);
+
                 db.SaveChanges();
                 return RedirectToAction("Login");
             }

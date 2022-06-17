@@ -14,9 +14,9 @@ namespace prjWebSpaceMent.Models
     
     public partial class Favorites
     {
-        public int FK_Favorite_to_Member { get; set; }
-        public int FK_Favorite_to_Space { get; set; }
-        public System.DateTime fCreated_at { get; set; }
+        public int fFKtoMember { get; set; }
+        public int fFKtoSpace { get; set; }
+        public Nullable<System.DateTime> fCreate { get; set; }
     
         public virtual Members Members { get; set; }
         public virtual Spaces Spaces { get; set; }

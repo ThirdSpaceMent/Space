@@ -12,13 +12,23 @@ namespace prjWebSpaceMent.Controllers
     public class AdminController : Controller
     {
         // 使用資料庫
-        SPACEMENTEntities db = new SPACEMENTEntities();
+        SPACEMENTDB db = new SPACEMENTDB();
         // GET: Admin
 
         //管理者首頁
         public ActionResult Admin_Index()
         {
-            return View();
+            string CurrentUser = User.Identity.Name;
+            var memberdata = db.Members.Where(m => m.mAccount == CurrentUser).FirstOrDefault();
+            if (CurrentUser == "CHEEE")
+            {
+                Session["Welcome"] = "嗨，" + memberdata.mName + "，歡迎回來";
+                return View("Admin_Index", "_LayoutAdmin");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
         }
 
         //管理者登入頁面
@@ -41,7 +51,6 @@ namespace prjWebSpaceMent.Controllers
             }
             else
             {
-
                 return RedirectToAction("Login", "Home");
             }
         }
@@ -50,7 +59,7 @@ namespace prjWebSpaceMent.Controllers
         public ActionResult MemberManage()
         {
             // 會員總覽(系統管理者才能看到所有會員)
-            var datas = from p in (new SPACEMENTEntities()).Members
+            var datas = from p in (new SPACEMENTDB()).Members
                         select p;
             return View(datas);
         }
@@ -59,7 +68,7 @@ namespace prjWebSpaceMent.Controllers
         public ActionResult SpaceManage()
         {
             // 場地總覽(系統管理者才能看到所有場地)
-            var datas = from p in (new SPACEMENTEntities()).Spaces
+            var datas = from p in (new SPACEMENTDB()).Spaces
                         select p;
             return View(datas);
         }
@@ -130,16 +139,16 @@ namespace prjWebSpaceMent.Controllers
         {
             //List<Rates> ListRates = (from d in db.Rates select d).ToList();
             IEnumerable<RatingViewModel> ListRVM = (from obj in db.Rates
-                                                    join sp in db.Spaces on obj.FK_Rate_to_Space equals sp.sNumber
+                                                    join sp in db.Spaces on obj.rFKtoSpace equals sp.sNumber
                                                     select new RatingViewModel()
                                                     {
-                                                        FK_Rate_to_Space = (int)obj.FK_Rate_to_Space,
-                                                        FK_Rate_to_Member = (int)obj.FK_Rate_to_Member,
-                                                        FK_Rate_to_Order = (int)obj.FK_Rate_to_Order,
+                                                        rFKtoSpace = (int)obj.rFKtoSpace,
+                                                        rFKtoMember = (int)obj.rFKtoMember,
+                                                        rFKtoOrder = (int)obj.rFKtoOrder,
                                                         rRate = (decimal)obj.rRate,
                                                         rNumber = obj.rNumber,
                                                         rComment = obj.rComment,
-                                                        rCreated_at = (DateTime)obj.rCreated_at,
+                                                        rCreatedat = (DateTime)obj.rCreate,
                                                         sNumber = sp.sNumber,
                                                         sName = sp.sName
                                                     }).ToList();
@@ -150,16 +159,16 @@ namespace prjWebSpaceMent.Controllers
         public ActionResult ShowRating_Admin(int sNumber)
         {
             IEnumerable<RatingViewModel> listRVM = (from obj in db.Rates
-                                                    where obj.FK_Rate_to_Space == sNumber
+                                                    where obj.rFKtoSpace == sNumber
                                                     select new RatingViewModel()
                                                     {
-                                                        FK_Rate_to_Space = (int)obj.FK_Rate_to_Space,
-                                                        FK_Rate_to_Member = (int)obj.FK_Rate_to_Member,
-                                                        FK_Rate_to_Order = (int)obj.FK_Rate_to_Order,
+                                                        rFKtoSpace = (int)obj.rFKtoSpace,
+                                                        rFKtoMember = (int)obj.rFKtoMember,
+                                                        rFKtoOrder = (int)obj.rFKtoOrder,
                                                         rRate = (decimal)obj.rRate,
                                                         rNumber = obj.rNumber,
                                                         rComment = obj.rComment,
-                                                        rCreated_at = obj.rCreated_at
+                                                        rCreatedat = obj.rCreate
                                                     }).ToList();
             ViewBag.sNumber = sNumber;
             return View(listRVM);

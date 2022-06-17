@@ -23,21 +23,17 @@ namespace prjWebSpaceMent.Models
         public int oNumber { get; set; }
         public string oStatus { get; set; }
         public Nullable<System.DateTime> oScheduledTime { get; set; }
+        public Nullable<int> oScheduledHours { get; set; }
         public string oPaymentMode { get; set; }
         public string oPaymentStatus { get; set; }
         public string oDiscount { get; set; }
         public Nullable<decimal> oPayment { get; set; }
-        public Nullable<System.DateTime> oCreated_at { get; set; }
-        public Nullable<System.DateTime> oUpdated_at { get; set; }
-        public Nullable<int> FK_Order_to_Member_User { get; set; }
-        public Nullable<int> FK_Order_to_Member_Owner { get; set; }
-        public Nullable<int> FK_Order_to_Space { get; set; }
-        public Nullable<int> FK_Order_to_Activity { get; set; }
-        public string oAccount { get; set; }
-        public Nullable<int> oQty { get; set; }
-        public Nullable<int> oPrice { get; set; }
-        public string oTimeRange { get; set; }
-        public string oMemberAccount { get; set; }
+        public Nullable<System.DateTime> oCreate { get; set; }
+        public Nullable<System.DateTime> oUpdate { get; set; }
+        public Nullable<int> oFKtoUser { get; set; }
+        public Nullable<int> oFKtoOwner { get; set; }
+        public Nullable<int> oFKtoSpace { get; set; }
+        public Nullable<int> oFKtoActivity { get; set; }
     
         public virtual Activities Activities { get; set; }
         public virtual Members Members { get; set; }

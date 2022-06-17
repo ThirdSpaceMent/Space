@@ -10,10 +10,10 @@ namespace prjWebSpaceMent.Controllers
 {
     public class FavoriteController : Controller
     {
-        private SPACEMENTEntities db;
+        private SPACEMENTDB db;
         public FavoriteController()
         {
-            db = new SPACEMENTEntities();
+            db = new SPACEMENTDB();
         }
         // GET: Favorite
         public ActionResult Favorites_Index()//查看自己的追蹤清單
@@ -31,17 +31,17 @@ namespace prjWebSpaceMent.Controllers
             {
                 //取出該會員資料
                 IEnumerable<FavoriteViewModel> listFVM = (from obj in db.Favorites
-                                                          join Spaces in db.Spaces on obj.FK_Favorite_to_Space equals Spaces.sNumber
-                                                          where obj.FK_Favorite_to_Member == Member.mNumber
+                                                          join Spaces in db.Spaces on obj.fFKtoSpace equals Spaces.sNumber
+                                                          where obj.fFKtoMember == Member.mNumber
                                                           select new FavoriteViewModel()
                                                           {
-                                                              FK_Favorite_to_Space = obj.FK_Favorite_to_Space,
+                                                              fFKtoSpace = obj.fFKtoSpace,
                                                               sNumber = Spaces.sNumber,
                                                               sName = Spaces.sName,
                                                               sAddr = Spaces.sAddr,
                                                               sIntro = Spaces.sIntro,
-                                                              sRent = Spaces.sRent,
-                                                              fCreated_at = obj.fCreated_at
+                                                              sRent = (decimal)Spaces.sRent,
+                                                              fCreatedat = obj.fCreate
                                                           }).ToList();
                 return View(listFVM);
             }
@@ -60,8 +60,8 @@ namespace prjWebSpaceMent.Controllers
             else
             {
                 //查詢該場地是否在資料庫內
-                var data = db.Favorites.Where(m => m.FK_Favorite_to_Member == member.mNumber &&
-                                                    m.FK_Favorite_to_Space == sNumber).FirstOrDefault();
+                var data = db.Favorites.Where(m => m.fFKtoMember == member.mNumber &&
+                                                    m.fFKtoSpace == sNumber).FirstOrDefault();
                 if (data != null)
                 {
                     TempData["AlertMessage"] = "已經在清單中!";
@@ -69,9 +69,9 @@ namespace prjWebSpaceMent.Controllers
                 }
                 else
                 {
-                    obj.FK_Favorite_to_Member = member.mNumber;
-                    obj.FK_Favorite_to_Space = sNumber;
-                    obj.fCreated_at = DateTime.Now;
+                    obj.fFKtoMember = member.mNumber;
+                    obj.fFKtoSpace = sNumber;
+                    obj.fCreate = DateTime.Now;
                     db.Favorites.Add(obj);
                     db.SaveChanges();
                     TempData["AlertMessage"] = "追蹤成功!";
@@ -81,7 +81,7 @@ namespace prjWebSpaceMent.Controllers
         }
         public ActionResult Delete(int sNumber)//從清單移除
         {
-            var deleteitem = db.Favorites.Where(m => m.FK_Favorite_to_Space == sNumber).FirstOrDefault();
+            var deleteitem = db.Favorites.Where(m => m.fFKtoSpace == sNumber).FirstOrDefault();
             db.Favorites.Remove(deleteitem);
             db.SaveChanges();
             TempData["AlertMessage"] = "移除成功!";

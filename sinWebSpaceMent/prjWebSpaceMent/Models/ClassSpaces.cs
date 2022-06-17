@@ -43,8 +43,23 @@ namespace prjWebSpaceMent.Models
         [DisplayName("場地簡介")]
         public string sIntro { get; set; }
 
-        [DisplayName("營業時間")]
-        public string sOpeningTime { get; set; }
+        public bool sOpeningDays1 { get; set; }
+        public bool sOpeningDays2 { get; set; }
+        public bool sOpeningDays3 { get; set; }
+        public bool sOpeningDays4 { get; set; }
+        public bool sOpeningDays5 { get; set; }
+        public bool sOpeningDays6 { get; set; }
+        public bool sOpeningDays7 { get; set; }
+
+        [DisplayName("營業開始時間")]
+        public TimeSpan sOpeningTime1 { get; set; }
+
+        [DisplayName("營業結束時間")]
+        public TimeSpan sClosingTime1 { get; set; }
+        public TimeSpan sOpeningTime2 { get; set; }
+        public TimeSpan sClosingTime2 { get; set; }
+        public TimeSpan sOpeningTime3 { get; set; }
+        public TimeSpan sClosingTime3 { get; set; }
 
         [DisplayName("場地安全")]
         public string sSecurity { get; set; }
@@ -53,25 +68,19 @@ namespace prjWebSpaceMent.Models
         public string sTraffic { get; set; }
 
         [DisplayName("建立時間")]
-        public System.DateTime sCreated_at { get; set; }
+        public System.DateTime sCreatedat { get; set; }
 
         [DisplayName("更新時間")]
-        public System.DateTime sUpdated_at { get; set; }
+        public System.DateTime sUpdatedat { get; set; }
 
-        public Nullable<int> FK_Space_to_Owner { get; set; }
-
-        public string oAccount { get; set; }
-
-        public Nullable<int> oPrice { get; set; }
-
-        public string sTimeRange { get; set; }
+        public Nullable<int> sFKtoMember { get; set; }
 
         [DisplayName("場地照片(主圖)")]
-        public string sPhoto { get; set; }
+        public string sPhoto1 { get; set; }
         [DisplayName("場地照片(附圖1)")]
-        public string sPhoto_First { get; set; }
+        public string sPhoto2 { get; set; }
         [DisplayName("場地照片(附圖2)")]
-        public string sPhoto_Second { get; set; }
-        public decimal rRate { get; set; }
+        public string sPhoto3 { get; set; }
+        public decimal RatingAVG { get; set; }
     }
 }

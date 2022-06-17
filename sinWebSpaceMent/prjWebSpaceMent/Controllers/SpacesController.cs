@@ -6,12 +6,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+
 namespace prjWebSpaceMent.Controllers
 {
     public class SpacesController : Controller
     {
         // 使用資料庫
-        SPACEMENTEntities db = new SPACEMENTEntities();
+        SPACEMENTDB db = new SPACEMENTDB();
 
         // GET: Spaces
         // 找場地首頁
@@ -106,8 +107,8 @@ namespace prjWebSpaceMent.Controllers
                 else
                 {
                     // 非系統管理者 只能看到自己上架的場地
-                    var mem_datas = from t in (new SPACEMENTEntities()).Spaces
-                                    where t.FK_Space_to_Owner == mem.mNumber
+                    var mem_datas = from t in (new SPACEMENTDB()).Spaces
+                                    where t.sFKtoMember == mem.mNumber
                                     select t;
                     return View(mem_datas);
                 }
@@ -196,18 +197,18 @@ namespace prjWebSpaceMent.Controllers
             SP.sRent = decimal.Parse(Request.Form["txtsRent"]);
             SP.sRate = decimal.Parse(Request.Form["txtsRate"]);
             SP.sIntro = Request.Form["txtsIntro"];
-            SP.sOpeningTime = Request.Form["txtsOpeningTime"];
+            //SP.sOpeningTime1 = Request.Form["txtsOpeningTime"];
             SP.sSecurity = Request.Form["txtsSecurity"];
             SP.sTraffic = Request.Form["txtsTraffic"];
-            SP.FK_Space_to_Owner = mem.mNumber; //綁定是誰新增場地
-            SP.sPhoto = fileName1;
-            SP.sPhoto_First = fileName2;
-            SP.sPhoto_Second = fileName3;
+            SP.sFKtoMember = mem.mNumber; //綁定是誰新增場地
+            SP.sPhoto1 = fileName1;
+            SP.sPhoto2 = fileName2;
+            SP.sPhoto3 = fileName3;
 
             (new CSpacesFactory()).create(SP);
             return RedirectToAction("Spaces_List"); //跳轉至LIST
         }
-
+    
         // 修改場地(管理者功能)
         public ActionResult Spaces_Edit(int? id)
         {
@@ -308,7 +309,7 @@ namespace prjWebSpaceMent.Controllers
 
             // 訂單的fk場地編號 = 前端帶入的場地編號
             var orderdc = from od in db.Orders
-                          where od.FK_Order_to_Space == sNumber && od.oScheduledTime >= startDateTime && od.oScheduledTime <= endDateTime && od.oTimeRange.Contains(TimeRange)
+                          where od.oFKtoSpace == sNumber && od.oScheduledTime >= startDateTime && od.oScheduledTime <= endDateTime //&& od.oTimeRange.Contains(TimeRange)
                           select od;
 
             // 找出
@@ -321,15 +322,15 @@ namespace prjWebSpaceMent.Controllers
 
             // 開始帶入資料
             Orders order = new Orders();
-            order.FK_Order_to_Space = sNumber;      // 場地編號
-            order.oStatus = space.sName;            // oStatus暫時借用來存場地名稱
-            order.oMemberAccount = oMemberAccount;  // 是誰訂場地(帳號)
-            order.oCreated_at = DateTime.Now;       // 下訂時間
+            order.oFKtoSpace = sNumber;      // 場地編號
+            //order.oStatus = space.sName;            // oStatus暫時借用來存場地名稱
+            //order.oFKtoUser = mem.mNumber;  // 是誰訂場地
+            order.oCreate = DateTime.Now;       // 下訂時間
             //order.oPrice = (int)space.sRent;      // 每時段費用
             order.oPayment = Convert.ToDecimal(snumsnum);  //小計
-            order.oTimeRange = TimeRange;           //哪個時段(上午、中午、晚上)
-            order.FK_Order_to_Member_Owner = space.FK_Space_to_Owner;  //場地是誰的
-            order.FK_Order_to_Member_User = mem.mNumber;               //預訂的人
+            //order.oTimeRange = TimeRange;           //哪個時段(上午、中午、晚上)
+            order.oFKtoOwner = space.sFKtoMember;  //場地是誰的
+            order.oFKtoUser = mem.mNumber;               //預訂的人
             order.oScheduledTime = Convert.ToDateTime(datepick);       //場地的使用日期
 
             db.Orders.Add(order);

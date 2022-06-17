@@ -33,7 +33,34 @@
     </div>
     <div class="container">
         <div class="d-flex justify-content-center">
-            <!--需調整為僅看到此場地評價(Done)-->
+            <div class="stars mb-3 mr-3">
+                @Model.RatingAVG.ToString("0.0")
+                @{
+                    int m = Convert.ToInt32(Model.RatingAVG);
+                    int n = Convert.ToInt32(Model.RatingAVG * 10) - m * 10;
+
+                    for (int i = 1; i <= m; i++)
+                    {
+                        <i class="fa fa-star checked" style="font-size:18px;"></i>
+                    }
+                    if (n > 4 & n < 9)
+                    {
+                        <i class="fa fa-star-half-full checked" style="font-size:18px;"></i>
+                    }
+                    else if (n < 5 & m < 5)
+                    {
+                        <i class="fa fa-star-o checked" style="font-size:18px;"></i>
+                    }
+                    else if (n > 8)
+                    {
+                        <i class="fa fa-star checked" style="font-size:18px;"></i>
+                    }
+                    for (int i = m; i < 4; i++)
+                    {
+                        <i class="fa fa-star-o checked" style="font-size:18px;"></i>
+                    }
+                }
+            </div>
             <button class="btn btn-success mb-3 mr-3">@Html.ActionLink("查看評價", "ShowRating", "Rating", new { sNumber = Model.sNumber }, null)</button>
             <!--進行評價需移動到訂單功能之交易完成後-->
             <button class="btn btn-warning mb-3 mr-3">@Html.ActionLink("進行評價", "AddRating", "Rating", new { sNumber = Model.sNumber }, null)</button>
@@ -227,3 +254,8 @@
         });
         }
 </script>
+<style>
+    .checked {
+        color: orange;
+    }
+</style>

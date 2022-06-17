@@ -17,11 +17,11 @@ namespace prjWebSpaceMent.Models
         public int rNumber { get; set; }
         public Nullable<decimal> rRate { get; set; }
         public string rComment { get; set; }
-        public System.DateTime rCreated_at { get; set; }
-        public System.DateTime rUpdated_at { get; set; }
-        public Nullable<int> FK_Rate_to_Member { get; set; }
-        public Nullable<int> FK_Rate_to_Space { get; set; }
-        public Nullable<int> FK_Rate_to_Order { get; set; }
+        public Nullable<System.DateTime> rCreate { get; set; }
+        public Nullable<System.DateTime> rUpdate { get; set; }
+        public Nullable<int> rFKtoMember { get; set; }
+        public Nullable<int> rFKtoSpace { get; set; }
+        public Nullable<int> rFKtoOrder { get; set; }
     
         public virtual Members Members { get; set; }
         public virtual Orders Orders { get; set; }

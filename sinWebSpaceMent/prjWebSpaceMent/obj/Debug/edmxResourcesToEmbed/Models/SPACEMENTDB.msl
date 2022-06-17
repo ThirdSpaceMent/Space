@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SPACEMENTModelStoreContainer" CdmEntityContainer="SPACEMENTnewDB">
+    <EntitySetMapping Name="Activities">
+      <EntityTypeMapping TypeName="SPACEMENTModel.Activities">
+        <MappingFragment StoreEntitySet="Activities">
+          <ScalarProperty Name="aNumber" ColumnName="aNumber" />
+          <ScalarProperty Name="aFKtoMember" ColumnName="aFKtoMember" />
+          <ScalarProperty Name="aFKtoSpace" ColumnName="aFKtoSpace" />
+          <ScalarProperty Name="aName" ColumnName="aName" />
+          <ScalarProperty Name="aHeadCount" ColumnName="aHeadCount" />
+          <ScalarProperty Name="aType" ColumnName="aType" />
+          <ScalarProperty Name="aSignUpTime" ColumnName="aSignUpTime" />
+          <ScalarProperty Name="aHoldTime" ColumnName="aHoldTime" />
+          <ScalarProperty Name="aFee" ColumnName="aFee" />
+          <ScalarProperty Name="aCreate" ColumnName="aCreate" />
+          <ScalarProperty Name="aUpdate" ColumnName="aUpdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Favorites">
+      <EntityTypeMapping TypeName="SPACEMENTModel.Favorites">
+        <MappingFragment StoreEntitySet="Favorites">
+          <ScalarProperty Name="fFKtoMember" ColumnName="fFKtoMember" />
+          <ScalarProperty Name="fFKtoSpace" ColumnName="fFKtoSpace" />
+          <ScalarProperty Name="fCreate" ColumnName="fCreate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Members">
+      <EntityTypeMapping TypeName="SPACEMENTModel.Members">
+        <MappingFragment StoreEntitySet="Members">
+          <ScalarProperty Name="mNumber" ColumnName="mNumber" />
+          <ScalarProperty Name="mAccount" ColumnName="mAccount" />
+          <ScalarProperty Name="mPassword" ColumnName="mPassword" />
+          <ScalarProperty Name="mName" ColumnName="mName" />
+          <ScalarProperty Name="mNickName" ColumnName="mNickName" />
+          <ScalarProperty Name="mEmail" ColumnName="mEmail" />
+          <ScalarProperty Name="mPhone" ColumnName="mPhone" />
+          <ScalarProperty Name="mGender" ColumnName="mGender" />
+          <ScalarProperty Name="mTWid" ColumnName="mTWid" />
+          <ScalarProperty Name="mBirthday" ColumnName="mBirthday" />
+          <ScalarProperty Name="mCreate" ColumnName="mCreate" />
+          <ScalarProperty Name="mUpdate" ColumnName="mUpdate" />
+          <ScalarProperty Name="mOwner" ColumnName="mOwner" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="SPACEMENTModel.Orders">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="oNumber" ColumnName="oNumber" />
+          <ScalarProperty Name="oStatus" ColumnName="oStatus" />
+          <ScalarProperty Name="oScheduledTime" ColumnName="oScheduledTime" />
+          <ScalarProperty Name="oScheduledHours" ColumnName="oScheduledHours" />
+          <ScalarProperty Name="oPaymentMode" ColumnName="oPaymentMode" />
+          <ScalarProperty Name="oPaymentStatus" ColumnName="oPaymentStatus" />
+          <ScalarProperty Name="oDiscount" ColumnName="oDiscount" />
+          <ScalarProperty Name="oPayment" ColumnName="oPayment" />
+          <ScalarProperty Name="oCreate" ColumnName="oCreate" />
+          <ScalarProperty Name="oUpdate" ColumnName="oUpdate" />
+          <ScalarProperty Name="oFKtoUser" ColumnName="oFKtoUser" />
+          <ScalarProperty Name="oFKtoOwner" ColumnName="oFKtoOwner" />
+          <ScalarProperty Name="oFKtoSpace" ColumnName="oFKtoSpace" />
+          <ScalarProperty Name="oFKtoActivity" ColumnName="oFKtoActivity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rates">
+      <EntityTypeMapping TypeName="SPACEMENTModel.Rates">
+        <MappingFragment StoreEntitySet="Rates">
+          <ScalarProperty Name="rNumber" ColumnName="rNumber" />
+          <ScalarProperty Name="rRate" ColumnName="rRate" />
+          <ScalarProperty Name="rComment" ColumnName="rComment" />
+          <ScalarProperty Name="rCreate" ColumnName="rCreate" />
+          <ScalarProperty Name="rUpdate" ColumnName="rUpdate" />
+          <ScalarProperty Name="rFKtoMember" ColumnName="rFKtoMember" />
+          <ScalarProperty Name="rFKtoSpace" ColumnName="rFKtoSpace" />
+          <ScalarProperty Name="rFKtoOrder" ColumnName="rFKtoOrder" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spaces">
+      <EntityTypeMapping TypeName="SPACEMENTModel.Spaces">
+        <MappingFragment StoreEntitySet="Spaces">
+          <ScalarProperty Name="sNumber" ColumnName="sNumber" />
+          <ScalarProperty Name="sName" ColumnName="sName" />
+          <ScalarProperty Name="sType" ColumnName="sType" />
+          <ScalarProperty Name="sAddr" ColumnName="sAddr" />
+          <ScalarProperty Name="sPhone" ColumnName="sPhone" />
+          <ScalarProperty Name="sFloor" ColumnName="sFloor" />
+          <ScalarProperty Name="sHeight" ColumnName="sHeight" />
+          <ScalarProperty Name="sArea" ColumnName="sArea" />
+          <ScalarProperty Name="sCapacity" ColumnName="sCapacity" />
+          <ScalarProperty Name="sRent" ColumnName="sRent" />
+          <ScalarProperty Name="sRate" ColumnName="sRate" />
+          <ScalarProperty Name="sIntro" ColumnName="sIntro" />
+          <ScalarProperty Name="sOpeningDays1" ColumnName="sOpeningDays1" />
+          <ScalarProperty Name="sOpeningDays2" ColumnName="sOpeningDays2" />
+          <ScalarProperty Name="sOpeningDays3" ColumnName="sOpeningDays3" />
+          <ScalarProperty Name="sOpeningDays4" ColumnName="sOpeningDays4" />
+          <ScalarProperty Name="sOpeningDays5" ColumnName="sOpeningDays5" />
+          <ScalarProperty Name="sOpeningDays6" ColumnName="sOpeningDays6" />
+          <ScalarProperty Name="sOpeningDays7" ColumnName="sOpeningDays7" />
+          <ScalarProperty Name="sOpeningTime1" ColumnName="sOpeningTime1" />
+          <ScalarProperty Name="sClosingTime1" ColumnName="sClosingTime1" />
+          <ScalarProperty Name="sOpeningTime2" ColumnName="sOpeningTime2" />
+          <ScalarProperty Name="sClosingTime2" ColumnName="sClosingTime2" />
+          <ScalarProperty Name="sOpeningTime3" ColumnName="sOpeningTime3" />
+          <ScalarProperty Name="sClosingTime3" ColumnName="sClosingTime3" />
+          <ScalarProperty Name="sSecurity" ColumnName="sSecurity" />
+          <ScalarProperty Name="sTraffic" ColumnName="sTraffic" />
+          <ScalarProperty Name="sCreate" ColumnName="sCreate" />
+          <ScalarProperty Name="sUpdate" ColumnName="sUpdate" />
+          <ScalarProperty Name="sFKtoMember" ColumnName="sFKtoMember" />
+          <ScalarProperty Name="sPhoto1" ColumnName="sPhoto1" />
+          <ScalarProperty Name="sPhoto2" ColumnName="sPhoto2" />
+          <ScalarProperty Name="sPhoto3" ColumnName="sPhoto3" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubSpaces">
+      <EntityTypeMapping TypeName="SPACEMENTModel.SubSpaces">
+        <MappingFragment StoreEntitySet="SubSpaces">
+          <ScalarProperty Name="uNumber" ColumnName="uNumber" />
+          <ScalarProperty Name="uName" ColumnName="uName" />
+          <ScalarProperty Name="uIntro" ColumnName="uIntro" />
+          <ScalarProperty Name="uRent" ColumnName="uRent" />
+          <ScalarProperty Name="uRate" ColumnName="uRate" />
+          <ScalarProperty Name="uOpeningDays1" ColumnName="uOpeningDays1" />
+          <ScalarProperty Name="uOpeningDays2" ColumnName="uOpeningDays2" />
+          <ScalarProperty Name="uOpeningDays3" ColumnName="uOpeningDays3" />
+          <ScalarProperty Name="uOpeningDays4" ColumnName="uOpeningDays4" />
+          <ScalarProperty Name="uOpeningDays5" ColumnName="uOpeningDays5" />
+          <ScalarProperty Name="uOpeningDays6" ColumnName="uOpeningDays6" />
+          <ScalarProperty Name="uOpeningDays7" ColumnName="uOpeningDays7" />
+          <ScalarProperty Name="uOpeningTime1" ColumnName="uOpeningTime1" />
+          <ScalarProperty Name="uClosingTime1" ColumnName="uClosingTime1" />
+          <ScalarProperty Name="uOpeningTime2" ColumnName="uOpeningTime2" />
+          <ScalarProperty Name="uClosingTime2" ColumnName="uClosingTime2" />
+          <ScalarProperty Name="uOpeningTime3" ColumnName="uOpeningTime3" />
+          <ScalarProperty Name="uClosingTime3" ColumnName="uClosingTime3" />
+          <ScalarProperty Name="uCreate" ColumnName="uCreate" />
+          <ScalarProperty Name="uUpdate" ColumnName="uUpdate" />
+          <ScalarProperty Name="uFKtoSpace" ColumnName="uFKtoSpace" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

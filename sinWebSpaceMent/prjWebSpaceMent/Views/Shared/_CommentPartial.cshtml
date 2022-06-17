@@ -11,7 +11,7 @@
     </script>
 </head>
 
-<div class="row justify-content-lg-center">
+<div class="d-flex justify-content-lg-center">
     <div class="col-6">
         <table class="mx-auto mb-3 border-bottom" style="width:500px;">
             <tr>
@@ -45,7 +45,7 @@
             </tr>
             <tr>
                 <td class="p-2" style="font-size:16px;font-weight:500;">
-                    評價時間: @Model.rCreated_at.ToString("yyyy/MM/dd HH:mm:ss")
+                    評價時間: @Model.rCreated_at.Value.ToString("yyyy/MM/dd HH:mm")
                 </td>
             </tr>
         </table>

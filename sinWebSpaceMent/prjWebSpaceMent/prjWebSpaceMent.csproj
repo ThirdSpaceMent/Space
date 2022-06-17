@@ -45,6 +45,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.Data.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Data.21.2.7\lib\net452\DevExpress.Data.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpo.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Xpo.21.2.7\lib\net452\DevExpress.Xpo.v21.2.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -131,68 +137,92 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Activities.cs">
-      <DependentUpon>dbSPACESMENT.tt</DependentUpon>
-    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Models\Comments.cs">
-      <DependentUpon>dbSPACESMENT.tt</DependentUpon>
-    </Compile>
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\FavoriteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\RatingController.cs" />
     <Compile Include="Controllers\SpacesController.cs" />
-    <Compile Include="Models\dbSPACESMENT.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dbSPACESMENT.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\dbSPACESMENT.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dbSPACESMENT.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\dbSPACESMENT.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dbSPACESMENT.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Favorites.cs">
-      <DependentUpon>dbSPACESMENT.tt</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Members.cs">
-      <DependentUpon>dbSPACESMENT.tt</DependentUpon>
+    <Compile Include="Models\Activities.cs">
+      <DependentUpon>SpacementReDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ClassMembers.cs" />
     <Compile Include="Models\ClassSpaces.cs" />
     <Compile Include="Models\CMembersFactory.cs" />
     <Compile Include="Models\CSpacesFactory.cs" />
+    <Compile Include="Models\Favorites.cs">
+      <DependentUpon>SpacementReDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Members.cs">
+      <DependentUpon>SpacementReDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Orders.cs">
-      <DependentUpon>dbSPACESMENT.tt</DependentUpon>
+      <DependentUpon>SpacementReDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Owners.cs">
-      <DependentUpon>dbSPACESMENT.tt</DependentUpon>
+    <Compile Include="Models\ORMDataModel1Code\Activities.cs" />
+    <Compile Include="Models\ORMDataModel1Code\Activities.Designer.cs">
+      <DependentUpon>Activities.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\Photos.cs">
-      <DependentUpon>dbSPACESMENT.tt</DependentUpon>
+    <Compile Include="Models\ORMDataModel1Code\ConnectionHelper.cs" />
+    <Compile Include="Models\ORMDataModel1Code\Favorites.cs" />
+    <Compile Include="Models\ORMDataModel1Code\Favorites.Designer.cs">
+      <DependentUpon>Favorites.cs</DependentUpon>
     </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Models\ORMDataModel1Code\Members.cs" />
+    <Compile Include="Models\ORMDataModel1Code\Members.Designer.cs">
+      <DependentUpon>Members.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ORMDataModel1Code\Orders.cs" />
+    <Compile Include="Models\ORMDataModel1Code\Orders.Designer.cs">
+      <DependentUpon>Orders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ORMDataModel1Code\Photos.cs" />
+    <Compile Include="Models\ORMDataModel1Code\Photos.Designer.cs">
+      <DependentUpon>Photos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ORMDataModel1Code\Rates.cs" />
+    <Compile Include="Models\ORMDataModel1Code\Rates.Designer.cs">
+      <DependentUpon>Rates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ORMDataModel1Code\Spaces.cs" />
+    <Compile Include="Models\ORMDataModel1Code\Spaces.Designer.cs">
+      <DependentUpon>Spaces.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ORMDataModel1Code\SubSpaces.cs" />
+    <Compile Include="Models\ORMDataModel1Code\SubSpaces.Designer.cs">
+      <DependentUpon>SubSpaces.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Rates.cs">
-      <DependentUpon>dbSPACESMENT.tt</DependentUpon>
+      <DependentUpon>SpacementReDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SpacementReDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SpacementReDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SpacementReDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SpacementReDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SpacementReDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SpacementReDB.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Spaces.cs">
-      <DependentUpon>dbSPACESMENT.tt</DependentUpon>
+      <DependentUpon>SpacementReDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SubSpaces.cs">
-      <DependentUpon>dbSPACESMENT.tt</DependentUpon>
+      <DependentUpon>SpacementReDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\FavoriteViewModel.cs" />
     <Compile Include="ViewModels\MyOrderViewModel.cs" />
     <Compile Include="ViewModels\RatingViewModel.cs" />
@@ -233,16 +263,6 @@
     <Content Include="img\subscribe-bg.jpg" />
     <Content Include="img\2.jpg" />
     <Content Include="img\3.jpg" />
-    <Content Include="Models\dbSPACESMENT.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>dbSPACESMENT.edmx</DependentUpon>
-      <LastGenOutput>dbSPACESMENT.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\dbSPACESMENT.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>dbSPACESMENT.edmx</DependentUpon>
-      <LastGenOutput>dbSPACESMENT.cs</LastGenOutput>
-    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\maicons.svg" />
@@ -310,6 +330,16 @@
     <Content Include="lib\font-awesome\css\font-awesome.css" />
     <Content Include="lib\font-awesome\css\font-awesome.min.css" />
     <Content Include="lib\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Models\SpacementReDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SpacementReDB.edmx</DependentUpon>
+      <LastGenOutput>SpacementReDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\SpacementReDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SpacementReDB.edmx</DependentUpon>
+      <LastGenOutput>SpacementReDB.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap\js\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap\js\bootstrap.min.js" />
     <Content Include="Scripts\easing\easing.js" />
@@ -361,12 +391,16 @@
     <Content Include="lib\font-awesome\fonts\fontawesome-webfont.woff" />
     <Content Include="lib\font-awesome\fonts\fontawesome-webfont.woff2" />
     <Content Include="lib\font-awesome\fonts\FontAwesome.otf" />
-    <EntityDeploy Include="Models\dbSPACESMENT.edmx">
+    <None Include="Models\ORMDataModel1.xpo" />
+    <None Include="Models\ORMDataModel1.xpo.diagram">
+      <DependentUpon>ORMDataModel1.xpo</DependentUpon>
+    </None>
+    <EntityDeploy Include="Models\SpacementReDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>dbSPACESMENT.Designer.cs</LastGenOutput>
+      <LastGenOutput>SpacementReDB.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\dbSPACESMENT.edmx.diagram">
-      <DependentUpon>dbSPACESMENT.edmx</DependentUpon>
+    <Content Include="Models\SpacementReDB.edmx.diagram">
+      <DependentUpon>SpacementReDB.edmx</DependentUpon>
     </Content>
     <None Include="packages.config" />
     <Content Include="Scripts\owlcarousel\LICENSE" />

@@ -17,9 +17,24 @@ namespace prjWebSpaceMent.Models
         public int uNumber { get; set; }
         public string uName { get; set; }
         public string uIntro { get; set; }
-        public System.DateTime uCreated_at { get; set; }
-        public System.DateTime uUpdated_at { get; set; }
-        public Nullable<int> FK_SubSpace_to_Space { get; set; }
+        public Nullable<decimal> uRent { get; set; }
+        public Nullable<decimal> uRate { get; set; }
+        public Nullable<bool> uOpeningDays1 { get; set; }
+        public Nullable<bool> uOpeningDays2 { get; set; }
+        public Nullable<bool> uOpeningDays3 { get; set; }
+        public Nullable<bool> uOpeningDays4 { get; set; }
+        public Nullable<bool> uOpeningDays5 { get; set; }
+        public Nullable<bool> uOpeningDays6 { get; set; }
+        public Nullable<bool> uOpeningDays7 { get; set; }
+        public Nullable<System.TimeSpan> uOpeningTime1 { get; set; }
+        public Nullable<System.TimeSpan> uClosingTime1 { get; set; }
+        public Nullable<System.TimeSpan> uOpeningTime2 { get; set; }
+        public Nullable<System.TimeSpan> uClosingTime2 { get; set; }
+        public Nullable<System.TimeSpan> uOpeningTime3 { get; set; }
+        public Nullable<System.TimeSpan> uClosingTime3 { get; set; }
+        public Nullable<System.DateTime> uCreate { get; set; }
+        public Nullable<System.DateTime> uUpdate { get; set; }
+        public Nullable<int> uFKtoSpace { get; set; }
     
         public virtual Spaces Spaces { get; set; }
     }

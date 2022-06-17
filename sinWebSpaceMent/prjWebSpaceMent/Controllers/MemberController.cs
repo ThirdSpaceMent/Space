@@ -14,7 +14,7 @@ namespace prjWebSpaceMent.Controllers
     [Authorize]
     public class MemberController : Controller
     {
-        SPACEMENTEntities db = new SPACEMENTEntities();
+        SPACEMENTDB db = new SPACEMENTDB();
         // GET: Member
 
         //會員的首頁
@@ -66,10 +66,9 @@ namespace prjWebSpaceMent.Controllers
         //我的預訂
         public ActionResult ShoppingCar()
         {
-            string oMemberAccount = User.Identity.Name;
-            var OrderDetails = db.Orders.Where
-                (m => m.oMemberAccount == oMemberAccount)
-                .ToList();
+            string MemberAccount = User.Identity.Name;
+            var MemberData = db.Members.FirstOrDefault(m=>m.mAccount == MemberAccount);
+            var OrderDetails = db.Orders.Where(m => m.oFKtoUser == MemberData.mNumber).ToList();
             return View(OrderDetails);
         }
 
@@ -106,9 +105,7 @@ namespace prjWebSpaceMent.Controllers
                 temp.mGender = member.mGender;
                 temp.mTWid = member.mTWid;
                 temp.mBirthday = member.mBirthday;
-                temp.mPoint = member.mPoint;
-                temp.mCreated_at = member.mCreated_at;
-                temp.mUpdated_at = member.mUpdated_at;
+                temp.mUpdate = member.mUpdate;
                 db.SaveChanges();
             }
             return RedirectToAction("Index", "Member");

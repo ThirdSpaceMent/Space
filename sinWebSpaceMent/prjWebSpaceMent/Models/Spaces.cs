@@ -20,7 +20,6 @@ namespace prjWebSpaceMent.Models
             this.Activities = new HashSet<Activities>();
             this.Favorites = new HashSet<Favorites>();
             this.Orders = new HashSet<Orders>();
-            this.Photos = new HashSet<Photos>();
             this.Rates = new HashSet<Rates>();
             this.SubSpaces = new HashSet<SubSpaces>();
         }
@@ -34,19 +33,30 @@ namespace prjWebSpaceMent.Models
         public string sHeight { get; set; }
         public string sArea { get; set; }
         public string sCapacity { get; set; }
-        public decimal sRent { get; set; }
-        public decimal sRate { get; set; }
+        public Nullable<decimal> sRent { get; set; }
+        public Nullable<decimal> sRate { get; set; }
         public string sIntro { get; set; }
-        public string sOpeningTime { get; set; }
+        public Nullable<bool> sOpeningDays1 { get; set; }
+        public Nullable<bool> sOpeningDays2 { get; set; }
+        public Nullable<bool> sOpeningDays3 { get; set; }
+        public Nullable<bool> sOpeningDays4 { get; set; }
+        public Nullable<bool> sOpeningDays5 { get; set; }
+        public Nullable<bool> sOpeningDays6 { get; set; }
+        public Nullable<bool> sOpeningDays7 { get; set; }
+        public Nullable<System.TimeSpan> sOpeningTime1 { get; set; }
+        public Nullable<System.TimeSpan> sClosingTime1 { get; set; }
+        public Nullable<System.TimeSpan> sOpeningTime2 { get; set; }
+        public Nullable<System.TimeSpan> sClosingTime2 { get; set; }
+        public Nullable<System.TimeSpan> sOpeningTime3 { get; set; }
+        public Nullable<System.TimeSpan> sClosingTime3 { get; set; }
         public string sSecurity { get; set; }
         public string sTraffic { get; set; }
-        public System.DateTime sCreated_at { get; set; }
-        public System.DateTime sUpdated_at { get; set; }
-        public Nullable<int> FK_Space_to_Owner { get; set; }
-        public string sTimeRange { get; set; }
-        public string sPhoto { get; set; }
-        public string sPhoto_First { get; set; }
-        public string sPhoto_Second { get; set; }
+        public Nullable<System.DateTime> sCreate { get; set; }
+        public Nullable<System.DateTime> sUpdate { get; set; }
+        public Nullable<int> sFKtoMember { get; set; }
+        public string sPhoto1 { get; set; }
+        public string sPhoto2 { get; set; }
+        public string sPhoto3 { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Activities> Activities { get; set; }
@@ -55,8 +65,6 @@ namespace prjWebSpaceMent.Models
         public virtual Members Members { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Orders> Orders { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Photos> Photos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Rates> Rates { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

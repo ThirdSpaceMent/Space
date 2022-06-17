@@ -1,7 +1,14 @@
 ﻿
 @{
     ViewBag.Title = "AddRating";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    if (User.Identity.Name=="")
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_LayoutMember.cshtml";
+    }
 }
 <!--頁首 Section-->
 <section id="subspaces">
@@ -38,7 +45,8 @@
             <input type="hidden" name="sNumber" id="lblRating" value="@ViewBag.sNumber" />
         </div>
         <div>
-            <input type="submit" class="btn btn-primary active" name="SaveComment" value="送出" />@ViewBag.Message
+            <input type="submit" class="btn btn-primary active" name="SaveComment" value="送出" />
+            <p style="color:red; float:right;">@ViewBag.Message</p>
         </div>
     }
 </div>

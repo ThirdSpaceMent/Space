@@ -18,11 +18,9 @@ namespace prjWebSpaceMent.Models
         public Members()
         {
             this.Activities = new HashSet<Activities>();
-            this.Comments = new HashSet<Comments>();
             this.Favorites = new HashSet<Favorites>();
             this.Orders = new HashSet<Orders>();
             this.Orders1 = new HashSet<Orders>();
-            this.Photos = new HashSet<Photos>();
             this.Rates = new HashSet<Rates>();
             this.Spaces = new HashSet<Spaces>();
         }
@@ -36,24 +34,19 @@ namespace prjWebSpaceMent.Models
         public string mPhone { get; set; }
         public string mGender { get; set; }
         public string mTWid { get; set; }
-        public System.DateTime mBirthday { get; set; }
-        public int mPoint { get; set; }
-        public System.DateTime mCreated_at { get; set; }
-        public System.DateTime mUpdated_at { get; set; }
+        public Nullable<System.DateTime> mBirthday { get; set; }
+        public Nullable<System.DateTime> mCreate { get; set; }
+        public Nullable<System.DateTime> mUpdate { get; set; }
+        public Nullable<bool> mOwner { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Activities> Activities { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Comments> Comments { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Favorites> Favorites { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Orders> Orders { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Orders> Orders1 { get; set; }
-        public virtual Owners Owners { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Photos> Photos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Rates> Rates { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

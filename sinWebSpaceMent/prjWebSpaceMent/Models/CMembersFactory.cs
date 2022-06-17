@@ -81,13 +81,14 @@ namespace prjWebSpaceMent.Models
             {
                 //若有則發送郵件
                 //掛上雲端後localhost:44386改成SPACES網址
-                string title = "Spaces們 驗證通知";
+                string title = "Space們 驗證通知";
                 string body = @" 此為系統發出的驗證通知信件，請點擊以下連結進行重設密碼<br/>
-                                 <a href='https://localhost:44386/Home/ResetPwd?mAccount=" + mAccount + @"'>按此前往重設密碼</a>
+                                 <a href='https://spacesment.com/Home/ResetPwd?mAccount=" + mAccount + @"'>按此前往重設密碼</a>
                                  <br/><br/>";
                 send_mail(email, "", title, body, "", "", "", "");
                 //s = "已將驗證網址傳送至信箱: " + email;
             }
+            s = "請前往您的電子信箱確認重設密碼驗證函！";
             return s;
         }
 
@@ -109,10 +110,10 @@ namespace prjWebSpaceMent.Models
         {
             try
             {
-                SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 25);//google的smtp(通常port是25；這個可以google)
+                SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);//google的smtp(通常port是25；這個可以google)
                 NetworkCredential basicCredential = new NetworkCredential("spacesmentno.3@gmail.com", "P@ssw0rd-iii"); //發Mail的帳號及密碼
                 MailMessage message = new MailMessage();
-                MailAddress fromAddress = new MailAddress("tony1314775@gmail.com");//發Mail的帳號
+                MailAddress fromAddress = new MailAddress("spacesmentno.3@gmail.com");//發Mail的帳號
                 smtpClient.EnableSsl = true;
                 if (mailto == "")
                 {

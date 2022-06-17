@@ -10,10 +10,10 @@ namespace prjWebSpaceMent.Controllers
 {
     public class RatingController : Controller
     {
-        private SPACEMENTEntities db;
+        private SPACEMENTDB db;
         public RatingController()
         {
-            db = new SPACEMENTEntities();
+            db = new SPACEMENTDB();
         }
         // GET: Rating
         public ActionResult Rating_Index_Admin()//場地評價清單
@@ -43,8 +43,8 @@ namespace prjWebSpaceMent.Controllers
             {
                 //取出該會員資料
                 IEnumerable<RatingViewModel> ListRates = (from obj in db.Rates
-                                                          join Spaces in db.Spaces on obj.FK_Rate_to_Space equals Spaces.sNumber
-                                                          where obj.FK_Rate_to_Member == Member.mNumber
+                                                          join Spaces in db.Spaces on obj.rFKtoSpace equals Spaces.sNumber
+                                                          where obj.rFKtoMember == Member.mNumber
                                                           select new RatingViewModel()
                                                           {
                                                               sNumber = obj.Spaces.sNumber,
@@ -52,35 +52,52 @@ namespace prjWebSpaceMent.Controllers
                                                               rRate = (decimal)obj.rRate,
                                                               rNumber = obj.rNumber,
                                                               rComment = obj.rComment,
-                                                              rCreated_at = (DateTime)obj.rCreated_at,
-                                                              rUpdated_at = (DateTime)obj.rUpdated_at,
-                                                              FK_Rate_to_Member = (int)obj.FK_Rate_to_Member,
-                                                              FK_Rate_to_Order = (int)obj.FK_Rate_to_Order,
-                                                              FK_Rate_to_Space = (int)obj.FK_Rate_to_Space
+                                                              rCreatedat = (DateTime)obj.rCreate,
+                                                              rUpdated_at = (DateTime)obj.rUpdate,
+                                                              rFKtoMember = (int)obj.rFKtoMember,
+                                                              rFKtoOrder = (int)obj.rFKtoOrder,
+                                                              rFKtoSpace = (int)obj.rFKtoSpace
                                                           }).ToList();
                 return View(ListRates);
             }
         }
         public ActionResult ShowRating(int sNumber)//列出該場地評價
         {
-            IEnumerable<RatingViewModel> listRVM = (from obj in db.Rates
-                                                    where obj.FK_Rate_to_Space == sNumber
-                                                    select new RatingViewModel()
-                                                    {
-                                                        FK_Rate_to_Space = (int)obj.FK_Rate_to_Space,
-                                                        FK_Rate_to_Member = (int)obj.FK_Rate_to_Member,
-                                                        FK_Rate_to_Order = (int)obj.FK_Rate_to_Order,
-                                                        rRate = (decimal)obj.rRate,
-                                                        rNumber = obj.rNumber,
-                                                        rComment = obj.rComment,
-                                                        rCreated_at = (DateTime)obj.rCreated_at
-                                                    }).ToList();
-            ViewBag.sNumber = sNumber;
-            return View(listRVM);
+            if (!string.IsNullOrEmpty(sNumber.ToString())) 
+            {
+                IEnumerable<RatingViewModel> listRVM = (from obj in db.Rates
+                                                        where obj.rFKtoSpace == sNumber
+                                                        select new RatingViewModel()
+                                                        {
+                                                            rFKtoSpace = (int)obj.rFKtoSpace,
+                                                            rFKtoMember = (int)obj.rFKtoMember,
+                                                            rFKtoOrder = (int)obj.rFKtoOrder,
+                                                            rRate = (decimal)obj.rRate,
+                                                            rNumber = obj.rNumber,
+                                                            rComment = obj.rComment,
+                                                            rCreatedat = (DateTime)obj.rCreate
+                                                        }).ToList();
+                ViewBag.sNumber = sNumber;
+                return View(listRVM);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
         }
         public ActionResult AddRating(int sNumber)//進行評價
         {
             ViewBag.sNumber = sNumber;
+            string CurrentUser = User.Identity.Name;
+            if (!string.IsNullOrEmpty(CurrentUser)) 
+            {
+                var Member = db.Members.Where(m => m.mAccount == CurrentUser).FirstOrDefault();
+                var RatingRecord = db.Rates.Where(m => m.rFKtoMember == Member.mNumber).FirstOrDefault();
+                if (RatingRecord != null)
+                {
+                    return RedirectToAction("EditRating", new { sNumber = sNumber });
+                }
+            }
             return View();
         }
         [HttpPost]
@@ -96,12 +113,12 @@ namespace prjWebSpaceMent.Controllers
             {
                 var member = db.Members.Where(m => m.mAccount == CurrentUser).FirstOrDefault();
                 Rates obj = new Rates();
-                obj.FK_Rate_to_Member = member.mNumber;
-                obj.FK_Rate_to_Space = sNumber;
+                obj.rFKtoMember = member.mNumber;
+                obj.rFKtoSpace = sNumber;
                 obj.rComment = rComment;
                 obj.rRate = rating;
-                obj.rCreated_at = DateTime.Now;//建立時間是不能被更改的 但是不做會錯誤 須修正
-                obj.rUpdated_at = DateTime.Now;
+                obj.rCreate = DateTime.Now;
+                obj.rUpdate = DateTime.Now;
                 db.Rates.Add(obj);
                 db.SaveChanges();
                 return RedirectToAction("ShowRating", new { sNumber = sNumber });
@@ -111,7 +128,7 @@ namespace prjWebSpaceMent.Controllers
         {
             string CurrentUser = User.Identity.Name;
             var member = db.Members.Where(m => m.mAccount == CurrentUser).FirstOrDefault();
-            Rates editdata = db.Rates.Where(r => r.FK_Rate_to_Space == sNumber&r.FK_Rate_to_Member==member.mNumber).FirstOrDefault();
+            Rates editdata = db.Rates.Where(r => r.rFKtoSpace == sNumber&r.rFKtoMember == member.mNumber).FirstOrDefault();
             ViewBag.sNumber = sNumber;
             return View(editdata);
         }
@@ -120,10 +137,10 @@ namespace prjWebSpaceMent.Controllers
         {
             string CurrentUser = User.Identity.Name;
             var member = db.Members.Where(m => m.mAccount == CurrentUser).FirstOrDefault();
-            Rates obj = db.Rates.Where(r => r.FK_Rate_to_Space == sNumber & r.FK_Rate_to_Member == member.mNumber).FirstOrDefault();
+            Rates obj = db.Rates.Where(r => r.rFKtoSpace == sNumber & r.rFKtoMember == member.mNumber).FirstOrDefault();
             obj.rComment = rComment;
             obj.rRate = rating;
-            obj.rUpdated_at = DateTime.Now;
+            obj.rUpdate = DateTime.Now;
             db.SaveChanges();
             return RedirectToAction("Rating_Index");
         }

@@ -18,8 +18,8 @@ namespace prjWebSpaceMent.ViewModels
         public decimal sRent { get; set; }
         [DisplayName("場地簡介")]
         public string sIntro { get; set; }
-        public int FK_Favorite_to_Member { get; set; }
-        public int FK_Favorite_to_Space { get; set; }
-        public Nullable<DateTime> fCreated_at { get; set; }
+        public int fFKtoMember { get; set; }
+        public int fFKtoSpace { get; set; }
+        public Nullable<DateTime> fCreatedat { get; set; }
     }
 }
